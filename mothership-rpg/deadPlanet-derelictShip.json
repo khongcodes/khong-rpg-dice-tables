@@ -694,7 +694,7 @@
           {
             "range": "3",
             "moduleName": "Medbay",
-            "moduleDetail": "{3d10} pain pills, {2d10} stimpaks"
+            "moduleDetail": "{3d10} pain pills, {2d10} stimpacks"
           },
           {
             "range": "4",
@@ -856,56 +856,56 @@
           "value": "There is an elaborate lacquered box. Inside is a black cat with white eyes; all scans show it to be dead. It is perfectly alive and somewhat friendly."
         },
         {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+          "range": "36-40",
+          "value": "A \"bird\" - that looks like a cubist painting - flutters about, reciting the digits to pi. At an arbitrary point the bird explodes in a soft hiss of ink. The next mathematics check each crew member makes is with advantage."
         },
         {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+          "range": "41-45",
+          "value": "Movement is blindingly fast. You accelerate at breakneck speed. You can vaporize yourself running into a wall - Body save with disadvantage to not smash into a wall for 4d10 damage. This ends in what feels like seconds but is actually 4 hours."
         },
         {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+          "range": "46-50",
+          "value": "The crew are wholly convinced they are someone else's dream; that their entire existence is simply fragments of a dreaming state. They are immune to stress checks unless someone suggests the dreamer may awaken. It also requires a sanity save to take rapid self-preserving action."
         },
         {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+          "range": "51-55",
+          "value": "Physical continuity is out of whack. When the crew walks into a room, individually roll for what room they wind up in. The room's orientation is: [1d10] 1-5: normal, 6-8: inverted(left-right), 9-10: inverted(upside-down)."
         },
         {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+          "range": "56-60",
+          "value": "Exiting warp: there is a table set with a feast and a marble bust of each crew member on the table facing their seat."
         },
         {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+          "range": "61-65",
+          "value": "Everyone becomes a mirror version of themselves (right handed people become left handed, scars are on opposite side, etc.). Gain 2 stress. Some gear may be difficult to use."
         },
         {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+          "range": "66-70",
+          "value": "The ship and crew have been bounced backward by a time ripple. [1d10]: 1-4: They each have 5 more XP, 5-6: They can roll advantage on all saves this session, 7-8: They can roll advantage on all checks this session, 9: The ship has a new module that was never there before, 10: Everyone has d10 more stress."
         },
         {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+          "range": "71-75",
+          "value": "A duplicate of every crew member appears. The warden rolls secretly to determine whether each player is the original or duplicate."
         },
         {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+          "range": "76-80",
+          "value": "There's a heavy mist throughout the ship and all sounds echo for the next d10/2 hours."
         },
         {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+          "range": "81-85",
+          "value": "Everyone's clothing is worn thin and patched up and it wasn't like that before they entered the cryopods."
         },
         {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+          "range": "86-90",
+          "value": "Shadows separate from their owner, moving ahead of them until a sanity save is made."
         },
         {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+          "range": "91-95",
+          "value": "Every wound received reopens and bleeds. Panic check. Everyone is covered in blood until a sanity save is made and the crew realizes it's an illusion."
         },
         {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+          "range": "96-100",
+          "value": "Everyone the crew members have ever loved and left behind is looking at them in every reflection. This fades gradually after {d10} days. Roll a die: Even result: Sanity check or 1d10 stress each time they look into a mirror, Odd result: Gain advantage on fear checks for one day."
         }
       ]
     },
@@ -914,8 +914,64 @@
       "interface": "1d100",
       "values": [
         {
-          "range": "",
-          "value": ""
+          "range": "1-15",
+          "value": "A rotting wooden box: ROSCO 556 nail gun, 4 boxes of nails, MNC Model A laser cutter, spare battery, Peabody flare gun, 6 flares (hunter green)"
+        },
+        {
+          "range": "16-25",
+          "value": "A picked clean escape pod: EVA MK-II hand welder, Halls B-Series foam gun, emergency beacon, crowbar, infrared goggles, flashlight, stray bullets"
+        },
+        {
+          "range": "26-28",
+          "value": "Inside a rotted tree: a preserved primitive humanoid corpse clutches a hard metal spear (1d10 damage)"
+        },
+        {
+          "range": "29-35",
+          "value": "A pair of rusted footlockers: automed (x6), field recorder, medscanner, hazard suit (x4), scalpel, medkit, D&C tranquilizer pistol (x2)"
+        },
+        {
+          "range": "36-40",
+          "value": "Black synthetic leather suitcase: electronic toolkit, flashlight, lockpick set, MRE (x7), pain pills (x18), FN \"Slug gun\" revolver, speedloader (x2), book: Ivy League Guide to Bypassing Security"
+        },
+        {
+          "range": "41-50",
+          "value": "A tarp stitched shut: survey kit, vibechete, water filter, radio jammer, rebreather, SK 109 SEEKER smart rifle, ghillie suit (when unmoving: searching for you is an intellect check with disadvantage)"
+        },
+        {
+          "range": "51-58",
+          "value": "Lying atop an octagonal altar, bedecked in ornate bells: a pair of cruel looking energy whips (intellect instead of combat, 2d10, 10% break chance)"
+        },
+        {
+          "range": "59-68",
+          "value": "A water resistant duffel bag: binoculars, camping gear, stimpack (x2), water filter, locator, rebreather, SK 109 SEEKER smart rifle (x2), spare magazines (x8, Jungle Clipped), erotic pictorial magazines (x4)"
+        },
+        {
+          "range": "69-70",
+          "value": "An oilcloth wrapping contains: HAN-290 rigging gun (x2), D&C 7 tranquilizer gun (x4), a Guide to Big Game Hunting (Manful Conquest)"
+        },
+        {
+          "range": "71-80",
+          "value": "Canvas \"doctor\" bag (caduceus): bioscanner, pain pills (x6), first aid kit, stimpack (x2), cybernetic diagnostic scanner, D&C 7 tranquilizer pistol, ROSCO 556, book: Quieting the Screams: A Primer on Bedside Manner"
+        },
+        {
+          "range": "81-84",
+          "value": "A humanoid husk - tall, with four clustered eyes - wears only a pair of ornate bracers (1d10 damage, blaster or extendable blade; 10% break chance)"
+        },
+        {
+          "range": "85-88",
+          "value": "Badly charred asbestos fire safe: Ramhorn 1 flamethrower, fuel tank (x4), 1 gallon kerosene, zippo (engraved: \"What the hand, dare seize the fire?\")"
+        },
+        {
+          "range": "89-91",
+          "value": "A geometric stack of unknown purpose around an intricately wrought metal stave (2d10 damage blast or 1d10 strike)"
+        },
+        {
+          "range": "92-96",
+          "value": "A hardbody guitar case: Azureglo Rickenbacker 4001C64 electric bass in cherry red finish, ARMA 29 submachine gun, spare magazine (x4)"
+        },
+        {
+          "range": "97-100",
+          "value": "Rusted 10 foot shipping container (stencilled with private military contractor logo): KANO X9 combat shotgun (x4), ARMA 29 submachine gun (x4), F20 \"Arbiter\" pulse rifle (x2), Ramhorn 1 flamethrower; Boxes: 200 slugs, 10 pulse magazines, 20 ultra capacity magazines, 4 fuel tanks"
         }
       ]
     },
