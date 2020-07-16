@@ -1,0 +1,628 @@
+{
+  "shipClass": [
+    {
+      "range": "0-34",
+      "value": "Mining Frigate"
+    },
+    {
+      "range": "35-57",
+      "value": "Freighter"
+    },
+    {
+      "range": "58-71",
+      "value": "Shuttle"
+    },
+    {
+      "range": "72-80",
+      "value": "Courier"
+    },
+    {
+      "range": "81-84",
+      "value": "Research Vessel"
+    },
+    {
+      "range": "85-88",
+      "value": "Blockade Runner"
+    },
+    {
+      "range": "89-91",
+      "value": "Cutter"
+    },
+    {
+      "range": "92-95",
+      "value": "Troopship"
+    },
+    {
+      "range": "96-99",
+      "value": "Colony Ship"
+    }
+  ],
+  "shipLifeSupportStatus": [
+    {
+      "range": "0-84",
+      "value": "Uninhabitable"
+    },
+    {
+      "range": "85-94",
+      "value": "Habitable (Non-Functioning)"
+    },
+    {
+      "range": "95-99",
+      "value": "Habitable (Functioning)"
+    }
+  ],
+  "shipSurvivorsStatus": [
+    {
+      "range": "0-89",
+      "value": "No survivors"
+    },
+    {
+      "range": "90-95",
+      "value": "{2d10} survivors (in cryosleep)"
+    },
+    {
+      "range": "96-99",
+      "value": "{2d10} survivors"
+    }
+  ],
+  "shipEngineStatus": [
+    {
+      "range": "0-80",
+      "value": "Engine, Thrusters, Jump Drive non-functioning"
+    },
+    {
+      "range": "81-93",
+      "value": "Stable Engine, Thrusters, Jump Drive"
+    },
+    {
+      "range": "94-99",
+      "value": "Unstable Core"
+    }
+  ],
+  "shipSalvage1": [
+    {
+      "range": "0-49",
+      "value": "{2d100} scrap"
+    },
+    {
+      "range": "50-75",
+      "value": "{1d10} fuel units"
+    },
+    {
+      "range": "76-81",
+      "value": "{2d10} galley stock"
+    },
+    {
+      "range": "82-85",
+      "value": "{1d100} cryopods"
+    },
+    {
+      "range": "86-88",
+      "value": "Medbay"
+    },
+    {
+      "range": "89-91",
+      "value": "Weapon"
+    },
+    {
+      "range": "92-95",
+      "value": "Computer"
+    },
+    {
+      "range": "96-99",
+      "value": "Jump drive"
+    }
+  ],
+  "shipSalvage2": [
+    {
+      "range": "0-60",
+      "value": "{4d10} ore"
+    },
+    {
+      "range": "61-75",
+      "value": "{3d10} metal"
+    },
+    {
+      "range": "76-85",
+      "value": "{1d100} trade units of random cargo"
+    },
+    {
+      "range": "86-92",
+      "value": "{1d10} precious metal"
+    },
+    {
+      "range": "93-99",
+      "value": "{1d10} contraband"
+    }
+  ],
+  "causeOfRuination": [
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "1-9",
+      "value": "Combat"
+    },
+    {
+      "range": "10-19",
+      "value": "Raided by pirates"
+    },
+    {
+      "range": "20-24",
+      "value": "Hyperspace malfunction"
+    },
+    {
+      "range": "25-29",
+      "value": "Abandoned ship"
+    },
+    {
+      "range": "30-34",
+      "value": "Insane AI"
+    },
+    {
+      "range": "35-39",
+      "value": "Mutiny"
+    },
+    {
+      "range": "40-44",
+      "value": "Crash: Other ship"
+    },
+    {
+      "range": "45-49",
+      "value": "Crash: Space debris"
+    },
+    {
+      "range": "50-54",
+      "value": "Crash: Jump drive miscalculation"
+    },
+    {
+      "range": "55-57",
+      "value": "Engine failure"
+    },
+    {
+      "range": "58-60",
+      "value": "Cannibalism"
+    },
+    {
+      "range": "61-63",
+      "value": "Nerve gas"
+    },
+    {
+      "range": "64-66",
+      "value": "Escape pod never returned"
+    },
+    {
+      "range": "67-69",
+      "value": "Betrayal/backstabbing"
+    },
+    {
+      "range": "70-71",
+      "value": "Succumbed to nightmares"
+    },
+    {
+      "range": "72-73",
+      "value": "Hatch opened, no air"
+    },
+    {
+      "range": "74-75",
+      "value": "Cargo-created mishap"
+    },
+    {
+      "range": "76-77",
+      "value": "Starvation"
+    },
+    {
+      "range": "78-79",
+      "value": "Part of a conspiracy"
+    },
+    {
+      "range": "80",
+      "value": "Thrusters slagged"
+    },
+    {
+      "range": "81",
+      "value": "Weapons system malfunction"
+    },
+    {
+      "range": "82",
+      "value": "Cryosleep never disengaged"
+    },
+    {
+      "range": "83",
+      "value": "Complex series of events"
+    },
+    {
+      "range": "84",
+      "value": "Suicide pact"
+    },
+    {
+      "range": "85",
+      "value": "Parasite infestation"
+    },
+    {
+      "range": "86",
+      "value": "Environmental systems failure"
+    },
+    {
+      "range": "87",
+      "value": "Uncontrollable fire"
+    },
+    {
+      "range": "88",
+      "value": "Failed fraud attempt"
+    },
+    {
+      "range": "89",
+      "value": "Void worshipping"
+    },
+    {
+      "range": "90",
+      "value": "Bizarre love triangle"
+    },
+    {
+      "range": "91",
+      "value": "Fight spiraled out of control"
+    },
+    {
+      "range": "92",
+      "value": "Chainsaw rampage"
+    },
+    {
+      "range": "93",
+      "value": "Drug addled debauchery"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    }
+  ],
+  "weird": [
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    },
+    {
+      "range": "0",
+      "value": "Virus"
+    }
+  ],
+  "cargoType": [
+    {
+      "range": "",
+      "value": "Body bags (full)"
+    },
+    {
+      "range": "",
+      "value": "Wine"
+    },
+    {
+      "range": "",
+      "value": "Complex navigational equipment"
+    },
+    {
+      "range": "",
+      "value": "Ceramics"
+    },
+    {
+      "range": "",
+      "value": "Antique books"
+    },
+    {
+      "range": "",
+      "value": "Garden gnomes (full of illegal stimulants)"
+    },
+    {
+      "range": "",
+      "value": "Opium"
+    },
+    {
+      "range": "",
+      "value": "Tea"
+    },
+    {
+      "range": "",
+      "value": "Silver bars"
+    },
+    {
+      "range": "",
+      "value": "Sensitive documents"
+    },
+    {
+      "range": "",
+      "value": "Anthropology mission"
+    },
+    {
+      "range": "",
+      "value": "Botanists/horticulturists"
+    },
+    {
+      "range": "",
+      "value": "Industrial engineers/architects"
+    },
+    {
+      "range": "",
+      "value": "Terraforming equipment"
+    },
+    {
+      "range": "",
+      "value": "Hydroponic plants"
+    },
+    {
+      "range": "",
+      "value": "Rare wood"
+    },
+    {
+      "range": "",
+      "value": "Lab rats"
+    },
+    {
+      "range": "",
+      "value": "Cultured cells"
+    },
+    {
+      "range": "",
+      "value": "Cremains"
+    },
+    {
+      "range": "",
+      "value": "Drug production starter equipment"
+    },
+    {
+      "range": "",
+      "value": "Common cloth"
+    },
+    {
+      "range": "",
+      "value": "Designer clothes"
+    },
+    {
+      "range": "",
+      "value": "Expensive fish (food)"
+    },
+    {
+      "range": "",
+      "value": "Pets"
+    },
+    {
+      "range": "",
+      "value": "Plastic junk (gewgaws)"
+    },
+    {
+      "range": "",
+      "value": "Legionaries (guns & ammo)"
+    },
+    {
+      "range": "",
+      "value": "Religious pilgrims (religious texts & symbols)"
+    },
+    {
+      "range": "",
+      "value": "Compressed algae blocks (1 = days rations, gross)"
+    },
+    {
+      "range": "",
+      "value": "Disarmed ordinance (lack detonators)"
+    },
+    {
+      "range": "",
+      "value": "Cars (high end)"
+    },
+    {
+      "range": "",
+      "value": "Medicine"
+    },
+    {
+      "range": "",
+      "value": "Cosmetics"
+    },
+    {
+      "range": "",
+      "value": "Race horse reproductive material*"
+    },
+    {
+      "range": "",
+      "value": "Livestock"
+    },
+    {
+      "range": "",
+      "value": "Prisoners"
+    },
+    {
+      "range": "",
+      "value": "Mobile black site (used for completely illegal interrogation)"
+    },
+    {
+      "range": "",
+      "value": "Census takers"
+    },
+    {
+      "range": "",
+      "value": "Cadmium"
+    },
+    {
+      "range": "",
+      "value": "Preserved fruit"
+    },
+    {
+      "range": "",
+      "value": "Refugees (maybe an alien prisoner)"
+    }
+  ],
+  "shipName1": [],
+  "shipName2": [],
+  "shipName3": [],
+  "shipModules": []
+}
