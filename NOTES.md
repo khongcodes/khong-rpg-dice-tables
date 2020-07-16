@@ -1,6 +1,7 @@
 # Planned features
 
 - [ ] roll all dice for generator or roll them one at a time
+  - [ ] "advanced options" configure roll - check/uncheck any component before making roll
   - [ ] reroll each/any component
   - [ ] lock any component to reroll all of them except for locked ones
 
@@ -11,3 +12,28 @@
 - [ ] LANCER
 - [ ] UVG
 - [ ] Ironsworn
+
+# OTHER
+
+for roll !1d10, return number between 0 and 9, use to array-index
+for roll 1d10, return number between 1 and 10, use in range lookup
+
+
+if {1d6} roll format in moduleDetail
+check if obj has rollTable
+if so, reference rollTable
+otherwise get numeric value
+
+if ${} in moduleDetail
+reference other table
+write specific case handler
+
+if \d after $ get results for twice
+
+
+types:[
+  "one roll table",
+  "combined string",
+  "coordinate",
+  "lookup"
+]

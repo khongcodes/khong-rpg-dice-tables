@@ -1,628 +1,1090 @@
 {
-  "shipClass": [
-    {
-      "range": "0-34",
-      "value": "Mining Frigate"
+  "main": {
+    "shipClass": {
+      "type": "one roll table",
+      "interface": "!1d100",
+      "values": [
+        {
+          "range": "0-34",
+          "value": "Mining Frigate"
+        },
+        {
+          "range": "35-57",
+          "value": "Freighter"
+        },
+        {
+          "range": "58-71",
+          "value": "Shuttle"
+        },
+        {
+          "range": "72-80",
+          "value": "Courier"
+        },
+        {
+          "range": "81-84",
+          "value": "Research Vessel"
+        },
+        {
+          "range": "85-88",
+          "value": "Blockade Runner"
+        },
+        {
+          "range": "89-91",
+          "value": "Cutter"
+        },
+        {
+          "range": "92-95",
+          "value": "Troopship"
+        },
+        {
+          "range": "96-99",
+          "value": "Colony Ship"
+        }
+      ]
     },
-    {
-      "range": "35-57",
-      "value": "Freighter"
+    "shipLifeSupportStatus": {
+      "type": "one roll table",
+      "interface": "!1d100",
+      "values": [
+        {
+          "range": "0-84",
+          "value": "Uninhabitable"
+        },
+        {
+          "range": "85-94",
+          "value": "Habitable (Non-Functioning)"
+        },
+        {
+          "range": "95-99",
+          "value": "Habitable (Functioning)"
+        }
+      ]
     },
-    {
-      "range": "58-71",
-      "value": "Shuttle"
+    "shipSurvivorsStatus": {
+      "type": "one roll table",
+      "interface": "!1d100",
+      "values": [
+        {
+          "range": "0-89",
+          "value": "No survivors"
+        },
+        {
+          "range": "90-95",
+          "value": "{2d10} survivors (in cryosleep)"
+        },
+        {
+          "range": "96-99",
+          "value": "{2d10} survivors"
+        }
+      ]
     },
-    {
-      "range": "72-80",
-      "value": "Courier"
+    "shipEngineStatus": {
+      "type": "one roll table",
+      "interface": "!1d100",
+      "values": [
+        {
+          "range": "0-80",
+          "value": "Engine, Thrusters, Jump Drive non-functioning"
+        },
+        {
+          "range": "81-93",
+          "value": "Stable Engine, Thrusters, Jump Drive"
+        },
+        {
+          "range": "94-99",
+          "value": "Unstable Core"
+        }
+      ]
     },
-    {
-      "range": "81-84",
-      "value": "Research Vessel"
+    "shipSalvage1": {
+      "type": "one roll table",
+      "interface": "!1d100",
+      "values": [
+        {
+          "range": "0-49",
+          "value": "{2d100} scrap"
+        },
+        {
+          "range": "50-75",
+          "value": "{1d10} fuel unit(s)"
+        },
+        {
+          "range": "76-81",
+          "value": "{2d10} galley stock"
+        },
+        {
+          "range": "82-85",
+          "value": "{1d100} cryopod(s)"
+        },
+        {
+          "range": "86-88",
+          "value": "Medbay"
+        },
+        {
+          "range": "89-91",
+          "value": "Weapon"
+        },
+        {
+          "range": "92-95",
+          "value": "Computer"
+        },
+        {
+          "range": "96-99",
+          "value": "Jump drive"
+        }
+      ]
     },
-    {
-      "range": "85-88",
-      "value": "Blockade Runner"
+    "shipSalvage2": {
+      "type": "one roll table",
+      "interface": "!1d100",
+      "values": [
+        {
+          "range": "0-60",
+          "value": "{4d10} ore"
+        },
+        {
+          "range": "61-75",
+          "value": "{3d10} metal"
+        },
+        {
+          "range": "76-85",
+          "value": "{1d100} trade unit(s) of random cargo"
+        },
+        {
+          "range": "86-92",
+          "value": "{1d10} precious metal"
+        },
+        {
+          "range": "93-99",
+          "value": "{1d10} contraband"
+        }
+      ]
     },
-    {
-      "range": "89-91",
-      "value": "Cutter"
+    "causeOfRuination": {
+      "type": "one roll table",
+      "interface": "!1d100",
+      "values": [
+        {
+          "range": "0",
+          "value": "Virus"
+        },
+        {
+          "range": "1-9",
+          "value": "Combat"
+        },
+        {
+          "range": "10-19",
+          "value": "Raided by pirates"
+        },
+        {
+          "range": "20-24",
+          "value": "Hyperspace malfunction"
+        },
+        {
+          "range": "25-29",
+          "value": "Abandoned ship"
+        },
+        {
+          "range": "30-34",
+          "value": "Insane AI"
+        },
+        {
+          "range": "35-39",
+          "value": "Mutiny"
+        },
+        {
+          "range": "40-44",
+          "value": "Crash: Other ship"
+        },
+        {
+          "range": "45-49",
+          "value": "Crash: Space debris"
+        },
+        {
+          "range": "50-54",
+          "value": "Crash: Jump drive miscalculation"
+        },
+        {
+          "range": "55-57",
+          "value": "Engine failure"
+        },
+        {
+          "range": "58-60",
+          "value": "Cannibalism"
+        },
+        {
+          "range": "61-63",
+          "value": "Nerve gas"
+        },
+        {
+          "range": "64-66",
+          "value": "Escape pod never returned"
+        },
+        {
+          "range": "67-69",
+          "value": "Betrayal/backstabbing"
+        },
+        {
+          "range": "70-71",
+          "value": "Succumbed to nightmares"
+        },
+        {
+          "range": "72-73",
+          "value": "Hatch opened, no air"
+        },
+        {
+          "range": "74-75",
+          "value": "Cargo-created mishap"
+        },
+        {
+          "range": "76-77",
+          "value": "Starvation"
+        },
+        {
+          "range": "78-79",
+          "value": "Part of a conspiracy"
+        },
+        {
+          "range": "80",
+          "value": "Thrusters slagged"
+        },
+        {
+          "range": "81",
+          "value": "Weapons system malfunction"
+        },
+        {
+          "range": "82",
+          "value": "Cryosleep never disengaged"
+        },
+        {
+          "range": "83",
+          "value": "Complex series of events"
+        },
+        {
+          "range": "84",
+          "value": "Suicide pact"
+        },
+        {
+          "range": "85",
+          "value": "Parasite infestation"
+        },
+        {
+          "range": "86",
+          "value": "Environmental systems failure"
+        },
+        {
+          "range": "87",
+          "value": "Uncontrollable fire"
+        },
+        {
+          "range": "88",
+          "value": "Failed fraud attempt"
+        },
+        {
+          "range": "89",
+          "value": "Void worshipping"
+        },
+        {
+          "range": "90",
+          "value": "Bizarre love triangle"
+        },
+        {
+          "range": "91",
+          "value": "Fight spiraled out of control"
+        },
+        {
+          "range": "92",
+          "value": "Chainsaw rampage"
+        },
+        {
+          "range": "93",
+          "value": "Drug addled debauchery"
+        },
+        {
+          "range": "94",
+          "value": "Fatal depressurization"
+        },
+        {
+          "range": "95",
+          "value": "Nightmares ending in heart attack"
+        },
+        {
+          "range": "96",
+          "value": "Mob hit"
+        },
+        {
+          "range": "97",
+          "value": "Crew members vanished"
+        },
+        {
+          "range": "98",
+          "value": "Prank taken too far"
+        },
+        {
+          "range": "99",
+          "value": "William Tell trick"
+        }
+      ]
     },
-    {
-      "range": "92-95",
-      "value": "Troopship"
-    },
-    {
-      "range": "96-99",
-      "value": "Colony Ship"
+    "weird": {
+      "type": "one roll table",
+      "interface": "!1d100",
+      "values": [
+        {
+          "range": "0",
+          "value": "Haunted"
+        },
+        {
+          "range": "1-9",
+          "value": "Inhabited by alien life"
+        },
+        {
+          "range": "10-19",
+          "value": "Terraformed by strange creatures"
+        },
+        {
+          "range": "20-24",
+          "value": "Crew dressed for costume party"
+        },
+        {
+          "range": "25-29",
+          "value": "Crew all identical"
+        },
+        {
+          "range": "30-34",
+          "value": "Crew was preparing theatrical performance"
+        },
+        {
+          "range": "35-39",
+          "value": "Morbid artwork"
+        },
+        {
+          "range": "40-44",
+          "value": "Pet hoarders"
+        },
+        {
+          "range": "45-49",
+          "value": "Erotic sculptures"
+        },
+        {
+          "range": "50-54",
+          "value": "Communist regalia"
+        },
+        {
+          "range": "55-57",
+          "value": "Company uniform"
+        },
+        {
+          "range": "58-60",
+          "value": "Cult members"
+        },
+        {
+          "range": "61-63",
+          "value": "Extensive journals kept"
+        },
+        {
+          "range": "64-66",
+          "value": "Strange health obsession"
+        },
+        {
+          "range": "67-69",
+          "value": "Unnervingly clean"
+        },
+        {
+          "range": "70-71",
+          "value": "Android was poisoning captain"
+        },
+        {
+          "range": "72-73",
+          "value": "Ancient ship"
+        },
+        {
+          "range": "74-75",
+          "value": "Temporal distortions"
+        },
+        {
+          "range": "76-77",
+          "value": "Failed utopia"
+        },
+        {
+          "range": "78-79",
+          "value": "Crew weighed and measured weekly"
+        },
+        {
+          "range": "80",
+          "value": "Extensive body modification"
+        },
+        {
+          "range": "81",
+          "value": "Isolated physics anomalies"
+        },
+        {
+          "range": "82",
+          "value": "Sexual deviants"
+        },
+        {
+          "range": "83",
+          "value": "Religious extremists"
+        },
+        {
+          "range": "84",
+          "value": "Transhumanist android worshippers"
+        },
+        {
+          "range": "85",
+          "value": "Anti-android conspiracists"
+        },
+        {
+          "range": "86",
+          "value": "Nauseating stench"
+        },
+        {
+          "range": "87",
+          "value": "Everything is jury-rigged"
+        },
+        {
+          "range": "88",
+          "value": "Crew taking video through catastrophe"
+        },
+        {
+          "range": "89",
+          "value": "Body horror"
+        },
+        {
+          "range": "90",
+          "value": "Scooby-doo crew"
+        },
+        {
+          "range": "91",
+          "value": "Interior coated in flesh, doors are membranes"
+        },
+        {
+          "range": "92",
+          "value": "Whispering echoes always a room ahead"
+        },
+        {
+          "range": "93",
+          "value": "Dolls in macabre tableaux"
+        },
+        {
+          "range": "94",
+          "value": "Dead crew: exploded heads"
+        },
+        {
+          "range": "95",
+          "value": "Elaborately posed corpses (hooks & chains)"
+        },
+        {
+          "range": "96",
+          "value": "Flickering lights and frenzied screams"
+        },
+        {
+          "range": "97",
+          "value": "Ship rearranges itself frequently"
+        },
+        {
+          "range": "98",
+          "value": "Ship has infinite depth"
+        },
+        {
+          "range": "99",
+          "value": "Fruit basket, greeting card inexplicably addressed to crew"
+        }
+      ]
     }
-  ],
-  "shipLifeSupportStatus": [
-    {
-      "range": "0-84",
-      "value": "Uninhabitable"
+  },
+  "extended": {
+    "shipName": {
+      "type": "combined string",
+      "interface": "!1d10 !1d10 !1d10",
+      "values": [
+        [
+          "IAGO",
+          "HECATE",
+          "OBERON",
+          "WHITEHALL ",
+          "DUNCAN",
+          "BANQUO",
+          "WINTER",
+          "MARLOWE",
+          "TEMPEST",
+          "FAUST"
+        ],
+        [
+          "VALEFOR",
+          "OPHANIM",
+          "MARAX",
+          "MARINER",
+          "LABOLAS",
+          "ASTAROTH",
+          "CHERUBIM",
+          "TYRANT",
+          "BALAAM",
+          "MURMUR"
+        ],
+        [
+          "ECHO",
+          "ALPHA",
+          "OMEGA",
+          "KING",
+          "BEGGAR",
+          "DELTA",
+          "EPISLON",
+          "JIBRIL",
+          "BRAVO",
+          "TANGO"
+        ]
+      ]
     },
-    {
-      "range": "85-94",
-      "value": "Habitable (Non-Functioning)"
+    "shipModules": {
+      "type": "coordinate",
+      "interface": "!1d6[1d10]",
+      "values": [
+        [
+          {
+            "range": "1",
+            "moduleName": "Command",
+            "moduleDetail": "Single cockpit, scarred by gunfire"
+          },
+          {
+            "range": "2",
+            "moduleName": "Command",
+            "moduleDetail": "Bridge with working comm station"
+          },
+          {
+            "range": "3",
+            "moduleName": "Life Support",
+            "moduleDetail": "Functional"
+          },
+          {
+            "range": "4",
+            "moduleName": "Life Support",
+            "moduleDetail": "Repairable"
+          },
+          {
+            "range": "5",
+            "moduleName": "Life Support",
+            "moduleDetail": "Non-repairable"
+          },
+          {
+            "range": "6",
+            "moduleName": "Life Support",
+            "moduleDetail": "Radioactive (Body save or 1d10 damage)"
+          },
+          {
+            "range": "7",
+            "moduleName": "Computer",
+            "moduleDetail": "Contains an intact map of the current sector"
+          },
+          {
+            "range": "8",
+            "moduleName": "Computer",
+            "moduleDetail": "Contains an intact map of a random sector"
+          },
+          {
+            "range": "9-10",
+            "moduleName": "Weapon",
+            "moduleDetail": "{!1d6}",
+            "rollTable": [
+              "Laser cutter",
+              "Autocannon",
+              "Railgun",
+              "MG Turret",
+              "Torpedoes",
+              "Rigging Gun"
+            ]
+          }
+        ],
+        [
+          {
+            "range": "1",
+            "moduleName": "Jump drive",
+            "moduleDetail": "Intact and salvageable"
+          },
+          {
+            "range": "2",
+            "moduleName": "Jump drive",
+            "moduleDetail": "Completely smelted"
+          },
+          {
+            "range": "3",
+            "moduleName": "Thrusters",
+            "moduleDetail": "Intact and salvageable"
+          },
+          {
+            "range": "4-5",
+            "moduleName": "Thrusters",
+            "moduleDetail": "Completely smelted"
+          },
+          {
+            "range": "6-7",
+            "moduleName": "Engine",
+            "moduleDetail": "Intact and salvageable - {1d10} fuel unit(s)"
+          },
+          {
+            "range": "8-9",
+            "moduleName": "Engine",
+            "moduleDetail": "Completely destroyed and unuseable"
+          },
+          {
+            "range": "10",
+            "moduleName": "Engine",
+            "moduleDetail": "Rigged to explode in {1d10} minute(s)"
+          }
+        ],
+        [
+          {
+            "range": "1-2",
+            "moduleName": "Galley",
+            "moduleDetail": "{1d10} supply unit(s) remaining"
+          },
+          {
+            "range": "3",
+            "moduleName": "Galley",
+            "moduleDetail": "Completely barren, booby trapped"
+          },
+          {
+            "range": "4",
+            "moduleName": "Galley",
+            "moduleDetail": "${weaponCache}"
+          },
+          {
+            "range": "5",
+            "moduleName": "Barracks",
+            "moduleDetail": "One survivor unconscious"
+          },
+          {
+            "range": "6",
+            "moduleName": "Barracks",
+            "moduleDetail": "${weaponCache}"
+          },
+          {
+            "range": "7",
+            "moduleName": "Barracks",
+            "moduleDetail": "Corpses"
+          },
+          {
+            "range": "8",
+            "moduleName": "Living quarters",
+            "moduleDetail": "${weaponCache}"
+          },
+          {
+            "range": "9",
+            "moduleName": "Living quarters",
+            "moduleDetail": "Booby trapped"
+          },
+          {
+            "range": "10",
+            "moduleName": "Living quarters",
+            "moduleDetail": "Stowaway squatting here"
+          }
+        ],
+        [
+          {
+            "range": "1",
+            "moduleName": "Medbay",
+            "moduleDetail": "$2{weaponCache}",
+            "moduleDetailPrefix": "Stocked to the gills: "
+          },
+          {
+            "range": "2",
+            "moduleName": "Medbay",
+            "moduleDetail": "Completely picked over"
+          },
+          {
+            "range": "3",
+            "moduleName": "Medbay",
+            "moduleDetail": "{3d10} pain pills, {2d10} stimpaks"
+          },
+          {
+            "range": "4",
+            "moduleName": "Science lab",
+            "moduleDetail": "Strange creature in containment"
+          },
+          {
+            "range": "5",
+            "moduleName": "Sciene lab",
+            "moduleDetail": "Quarantined (Body save or 2d10 damage)"
+          },
+          {
+            "range": "6",
+            "moduleName": "Cryochamber",
+            "moduleDetail": "Filled with corpses (Fear save or 1 stress)"
+          },
+          {
+            "range": "7-8",
+            "moduleName": "Cryochamber",
+            "moduleDetail": "{3d10} working cryopods"
+          },
+          {
+            "range": "9",
+            "moduleName": "Cryochamber",
+            "moduleDetail": "{1d10} cryopods that seem fine - 25% failure"
+          },
+          {
+            "range": "10",
+            "moduleName": "Completely destroyed rooms",
+            "moduleDetail": ""
+          }
+        ],
+        [
+          {
+            "range": "1-7",
+            "moduleName": "Cargo hold",
+            "moduleDetail": "${cargoType}"
+          },
+          {
+            "range": "8",
+            "moduleName": "Cargo hold",
+            "moduleDetail": "Completely and totally empty"
+          },
+          {
+            "range": "9-10",
+            "moduleName": "Cargo hold",
+            "moduleDetail": "${cargoType}",
+            "moduleDetailPrefix": "Currently being picked through by {2d10} armed scavengers - "
+          }
+        ],
+        [
+          {
+            "range": "1-4",
+            "moduleName": "Cargo hold",
+            "moduleDetail": "${cargoType}"
+          },
+          {
+            "range": "5-7",
+            "moduleName": "Engines",
+            "moduleDetail": "{1d10}/2 squatters in Vaccsuits huddling around the warmth of the engines"
+          },
+          {
+            "range": "8",
+            "moduleName": "Engines",
+            "moduleDetail": "Strange creature infestation"
+          },
+          {
+            "range": "9-10",
+            "moduleName": "Barracks",
+            "moduleDetail": "Fight between {2d10} scavengers and crewmembers of the ship's original crew"
+          }
+        ]
+      ]
     },
-    {
-      "range": "95-99",
-      "value": "Habitable (Functioning)"
+    "shipMapByClass": {
+      "type": "lookup",
+      "values": {
+        "Blockade runner": {
+          "modules": 15,
+          "levels": "1+"
+        },
+        "Colony ship": {
+          "modules": 20,
+          "levels": "3+"
+        },
+        "Courier": {
+          "modules": 4,
+          "levels": "1"
+        },
+        "Cutter": {
+          "modules": 10,
+          "levels": "2+"
+        },
+        "Freighter": {
+          "modules": 17,
+          "levels": "2+"
+        },
+        "Mining frigate": {
+          "modules": 12,
+          "levels": "2+"
+        },
+        "Research vessel": {
+          "modules": 8,
+          "levels": "1+"
+        },
+        "Shuttle": {
+          "modules": 7,
+          "levels": "1"
+        },
+        "Troopship": {
+          "modules": 15,
+          "levels": "2+"
+        }
+      }
+    },
+    "jumpDriveMalfunction": {
+      "type": "one roll table",
+      "interface": "1d100",
+      "values": [
+        {
+          "range": "1-5",
+          "value": "{!1d10}",
+          "valuePrefix": "A large aquarium in the mess is filled with ",
+          "rollTable": [
+            "Tilapia",
+            "Trout",
+            "Salmon",
+            "Jellyfish",
+            "Catfish",
+            "Oysters",
+            "Octopi",
+            "Squid",
+            "Snails",
+            "Strange mass"
+          ]
+        },
+        {
+          "range": "6-10",
+          "value": "Three befuddled spacefarers lounge about the deck, perplexed this is not the Golden Heart. They are: Rio Uribe, Cara Delevinge and Irina Lazareanu (fashionable socialites). They wear corseted jackets, crinolined ballerina skirts and towering stilettos and make excellent negotiators and always have a contact anywhere the crew may wind up. Their salary is 7,000 credits and they only work as a team."
+        },
+        {
+          "range": "11-15",
+          "value": "Pass your character sheet one space clockwise: you are now the character passed to you (if applicable, an NPC controlled by the DM is part of this circle)."
+        },
+        {
+          "range": "16-20",
+          "value": "Within the ship: gravity is delayed 3 seconds (objects remain suspended for 3 seconds before falling) for {1d4} hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "26-30",
+          "value": "In the pocket of every crew member is a sealed letter signed by a crew member selected at random. The letter is an arduous confession to acts so singularly vile and unconscionable that reading them triggers a stress test (d10/2). To aid the crew member who \"wrote\" each letter requires a fear save."
+        },
+        {
+          "range": "31-35",
+          "value": "There is an elaborate lacquered box. Inside is a black cat with white eyes; all scans show it to be dead. It is perfectly alive and somewhat friendly."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        }
+      ]
+    },
+    "weaponsSupplyCache": {
+      "type": "one roll table",
+      "interface": "1d100",
+      "values": [
+        {
+          "range": "",
+          "value": ""
+        }
+      ]
+    },
+    "cargoType": {
+      "type": "one roll table",
+      "interface": "!1d100",
+      "values": [
+        {
+          "range": "0",
+          "value": "Body bags (full)"
+        },
+        {
+          "range": "1-9",
+          "value": "Wine"
+        },
+        {
+          "range": "10-19",
+          "value": "Complex navigational equipment"
+        },
+        {
+          "range": "20-24",
+          "value": "Ceramics"
+        },
+        {
+          "range": "25-29",
+          "value": "Antique books"
+        },
+        {
+          "range": "30-34",
+          "value": "Garden gnomes (full of illegal stimulants)"
+        },
+        {
+          "range": "35-39",
+          "value": "Opium"
+        },
+        {
+          "range": "40-44",
+          "value": "Tea"
+        },
+        {
+          "range": "45-49",
+          "value": "Silver bars"
+        },
+        {
+          "range": "50-54",
+          "value": "Sensitive documents"
+        },
+        {
+          "range": "55-57",
+          "value": "Anthropology mission"
+        },
+        {
+          "range": "58-60",
+          "value": "Botanists/horticulturists"
+        },
+        {
+          "range": "61-63",
+          "value": "Industrial engineers/architects"
+        },
+        {
+          "range": "64-66",
+          "value": "Terraforming equipment"
+        },
+        {
+          "range": "67-69",
+          "value": "Hydroponic plants"
+        },
+        {
+          "range": "70-71",
+          "value": "Rare wood"
+        },
+        {
+          "range": "72-73",
+          "value": "Lab rats"
+        },
+        {
+          "range": "74-75",
+          "value": "Cultured cells"
+        },
+        {
+          "range": "76-77",
+          "value": "Cremains"
+        },
+        {
+          "range": "78-79",
+          "value": "Drug production starter equipment"
+        },
+        {
+          "range": "80",
+          "value": "Common cloth"
+        },
+        {
+          "range": "81",
+          "value": "Designer clothes"
+        },
+        {
+          "range": "82",
+          "value": "Expensive fish (food)"
+        },
+        {
+          "range": "83",
+          "value": "Pets"
+        },
+        {
+          "range": "84",
+          "value": "Plastic junk (gewgaws)"
+        },
+        {
+          "range": "85",
+          "value": "Legionaries (guns & ammo)"
+        },
+        {
+          "range": "86",
+          "value": "Religious pilgrims (religious texts & symbols)"
+        },
+        {
+          "range": "87",
+          "value": "Compressed algae blocks (1 = days rations, gross)"
+        },
+        {
+          "range": "88",
+          "value": "Disarmed ordinance (lack detonators)"
+        },
+        {
+          "range": "89",
+          "value": "Cars (high end)"
+        },
+        {
+          "range": "90",
+          "value": "Medicine"
+        },
+        {
+          "range": "91",
+          "value": "Cosmetics"
+        },
+        {
+          "range": "92",
+          "value": "Race horse reproductive material*"
+        },
+        {
+          "range": "93",
+          "value": "Livestock"
+        },
+        {
+          "range": "94",
+          "value": "Prisoners"
+        },
+        {
+          "range": "95",
+          "value": "Mobile black site (used for completely illegal interrogation)"
+        },
+        {
+          "range": "96",
+          "value": "Census takers"
+        },
+        {
+          "range": "97",
+          "value": "Cadmium"
+        },
+        {
+          "range": "98",
+          "value": "Preserved fruit"
+        },
+        {
+          "range": "99",
+          "value": "Refugees (maybe an alien prisoner)"
+        }
+      ]
     }
-  ],
-  "shipSurvivorsStatus": [
-    {
-      "range": "0-89",
-      "value": "No survivors"
-    },
-    {
-      "range": "90-95",
-      "value": "{2d10} survivors (in cryosleep)"
-    },
-    {
-      "range": "96-99",
-      "value": "{2d10} survivors"
-    }
-  ],
-  "shipEngineStatus": [
-    {
-      "range": "0-80",
-      "value": "Engine, Thrusters, Jump Drive non-functioning"
-    },
-    {
-      "range": "81-93",
-      "value": "Stable Engine, Thrusters, Jump Drive"
-    },
-    {
-      "range": "94-99",
-      "value": "Unstable Core"
-    }
-  ],
-  "shipSalvage1": [
-    {
-      "range": "0-49",
-      "value": "{2d100} scrap"
-    },
-    {
-      "range": "50-75",
-      "value": "{1d10} fuel units"
-    },
-    {
-      "range": "76-81",
-      "value": "{2d10} galley stock"
-    },
-    {
-      "range": "82-85",
-      "value": "{1d100} cryopods"
-    },
-    {
-      "range": "86-88",
-      "value": "Medbay"
-    },
-    {
-      "range": "89-91",
-      "value": "Weapon"
-    },
-    {
-      "range": "92-95",
-      "value": "Computer"
-    },
-    {
-      "range": "96-99",
-      "value": "Jump drive"
-    }
-  ],
-  "shipSalvage2": [
-    {
-      "range": "0-60",
-      "value": "{4d10} ore"
-    },
-    {
-      "range": "61-75",
-      "value": "{3d10} metal"
-    },
-    {
-      "range": "76-85",
-      "value": "{1d100} trade units of random cargo"
-    },
-    {
-      "range": "86-92",
-      "value": "{1d10} precious metal"
-    },
-    {
-      "range": "93-99",
-      "value": "{1d10} contraband"
-    }
-  ],
-  "causeOfRuination": [
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "1-9",
-      "value": "Combat"
-    },
-    {
-      "range": "10-19",
-      "value": "Raided by pirates"
-    },
-    {
-      "range": "20-24",
-      "value": "Hyperspace malfunction"
-    },
-    {
-      "range": "25-29",
-      "value": "Abandoned ship"
-    },
-    {
-      "range": "30-34",
-      "value": "Insane AI"
-    },
-    {
-      "range": "35-39",
-      "value": "Mutiny"
-    },
-    {
-      "range": "40-44",
-      "value": "Crash: Other ship"
-    },
-    {
-      "range": "45-49",
-      "value": "Crash: Space debris"
-    },
-    {
-      "range": "50-54",
-      "value": "Crash: Jump drive miscalculation"
-    },
-    {
-      "range": "55-57",
-      "value": "Engine failure"
-    },
-    {
-      "range": "58-60",
-      "value": "Cannibalism"
-    },
-    {
-      "range": "61-63",
-      "value": "Nerve gas"
-    },
-    {
-      "range": "64-66",
-      "value": "Escape pod never returned"
-    },
-    {
-      "range": "67-69",
-      "value": "Betrayal/backstabbing"
-    },
-    {
-      "range": "70-71",
-      "value": "Succumbed to nightmares"
-    },
-    {
-      "range": "72-73",
-      "value": "Hatch opened, no air"
-    },
-    {
-      "range": "74-75",
-      "value": "Cargo-created mishap"
-    },
-    {
-      "range": "76-77",
-      "value": "Starvation"
-    },
-    {
-      "range": "78-79",
-      "value": "Part of a conspiracy"
-    },
-    {
-      "range": "80",
-      "value": "Thrusters slagged"
-    },
-    {
-      "range": "81",
-      "value": "Weapons system malfunction"
-    },
-    {
-      "range": "82",
-      "value": "Cryosleep never disengaged"
-    },
-    {
-      "range": "83",
-      "value": "Complex series of events"
-    },
-    {
-      "range": "84",
-      "value": "Suicide pact"
-    },
-    {
-      "range": "85",
-      "value": "Parasite infestation"
-    },
-    {
-      "range": "86",
-      "value": "Environmental systems failure"
-    },
-    {
-      "range": "87",
-      "value": "Uncontrollable fire"
-    },
-    {
-      "range": "88",
-      "value": "Failed fraud attempt"
-    },
-    {
-      "range": "89",
-      "value": "Void worshipping"
-    },
-    {
-      "range": "90",
-      "value": "Bizarre love triangle"
-    },
-    {
-      "range": "91",
-      "value": "Fight spiraled out of control"
-    },
-    {
-      "range": "92",
-      "value": "Chainsaw rampage"
-    },
-    {
-      "range": "93",
-      "value": "Drug addled debauchery"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    }
-  ],
-  "weird": [
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    },
-    {
-      "range": "0",
-      "value": "Virus"
-    }
-  ],
-  "cargoType": [
-    {
-      "range": "",
-      "value": "Body bags (full)"
-    },
-    {
-      "range": "",
-      "value": "Wine"
-    },
-    {
-      "range": "",
-      "value": "Complex navigational equipment"
-    },
-    {
-      "range": "",
-      "value": "Ceramics"
-    },
-    {
-      "range": "",
-      "value": "Antique books"
-    },
-    {
-      "range": "",
-      "value": "Garden gnomes (full of illegal stimulants)"
-    },
-    {
-      "range": "",
-      "value": "Opium"
-    },
-    {
-      "range": "",
-      "value": "Tea"
-    },
-    {
-      "range": "",
-      "value": "Silver bars"
-    },
-    {
-      "range": "",
-      "value": "Sensitive documents"
-    },
-    {
-      "range": "",
-      "value": "Anthropology mission"
-    },
-    {
-      "range": "",
-      "value": "Botanists/horticulturists"
-    },
-    {
-      "range": "",
-      "value": "Industrial engineers/architects"
-    },
-    {
-      "range": "",
-      "value": "Terraforming equipment"
-    },
-    {
-      "range": "",
-      "value": "Hydroponic plants"
-    },
-    {
-      "range": "",
-      "value": "Rare wood"
-    },
-    {
-      "range": "",
-      "value": "Lab rats"
-    },
-    {
-      "range": "",
-      "value": "Cultured cells"
-    },
-    {
-      "range": "",
-      "value": "Cremains"
-    },
-    {
-      "range": "",
-      "value": "Drug production starter equipment"
-    },
-    {
-      "range": "",
-      "value": "Common cloth"
-    },
-    {
-      "range": "",
-      "value": "Designer clothes"
-    },
-    {
-      "range": "",
-      "value": "Expensive fish (food)"
-    },
-    {
-      "range": "",
-      "value": "Pets"
-    },
-    {
-      "range": "",
-      "value": "Plastic junk (gewgaws)"
-    },
-    {
-      "range": "",
-      "value": "Legionaries (guns & ammo)"
-    },
-    {
-      "range": "",
-      "value": "Religious pilgrims (religious texts & symbols)"
-    },
-    {
-      "range": "",
-      "value": "Compressed algae blocks (1 = days rations, gross)"
-    },
-    {
-      "range": "",
-      "value": "Disarmed ordinance (lack detonators)"
-    },
-    {
-      "range": "",
-      "value": "Cars (high end)"
-    },
-    {
-      "range": "",
-      "value": "Medicine"
-    },
-    {
-      "range": "",
-      "value": "Cosmetics"
-    },
-    {
-      "range": "",
-      "value": "Race horse reproductive material*"
-    },
-    {
-      "range": "",
-      "value": "Livestock"
-    },
-    {
-      "range": "",
-      "value": "Prisoners"
-    },
-    {
-      "range": "",
-      "value": "Mobile black site (used for completely illegal interrogation)"
-    },
-    {
-      "range": "",
-      "value": "Census takers"
-    },
-    {
-      "range": "",
-      "value": "Cadmium"
-    },
-    {
-      "range": "",
-      "value": "Preserved fruit"
-    },
-    {
-      "range": "",
-      "value": "Refugees (maybe an alien prisoner)"
-    }
-  ],
-  "shipName1": [],
-  "shipName2": [],
-  "shipName3": [],
-  "shipModules": []
+
+  }
 }
