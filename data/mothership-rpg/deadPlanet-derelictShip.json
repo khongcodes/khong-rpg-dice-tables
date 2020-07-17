@@ -1,7 +1,7 @@
 {
   "main": {
     "shipClass": {
-      "type": "one roll table",
+      "type": "one roll range-table",
       "interface": "!1d100",
       "values": [
         {
@@ -43,7 +43,7 @@
       ]
     },
     "shipLifeSupportStatus": {
-      "type": "one roll table",
+      "type": "one roll range-table",
       "interface": "!1d100",
       "values": [
         {
@@ -61,7 +61,7 @@
       ]
     },
     "shipSurvivorsStatus": {
-      "type": "one roll table",
+      "type": "one roll range-table",
       "interface": "!1d100",
       "values": [
         {
@@ -79,7 +79,7 @@
       ]
     },
     "shipEngineStatus": {
-      "type": "one roll table",
+      "type": "one roll range-table",
       "interface": "!1d100",
       "values": [
         {
@@ -97,7 +97,7 @@
       ]
     },
     "shipSalvage1": {
-      "type": "one roll table",
+      "type": "one roll range-table",
       "interface": "!1d100",
       "values": [
         {
@@ -135,7 +135,7 @@
       ]
     },
     "shipSalvage2": {
-      "type": "one roll table",
+      "type": "one roll range-table",
       "interface": "!1d100",
       "values": [
         {
@@ -161,7 +161,7 @@
       ]
     },
     "causeOfRuination": {
-      "type": "one roll table",
+      "type": "one roll range-table",
       "interface": "!1d100",
       "values": [
         {
@@ -327,7 +327,7 @@
       ]
     },
     "weird": {
-      "type": "one roll table",
+      "type": "one roll range-table",
       "interface": "!1d100",
       "values": [
         {
@@ -584,7 +584,7 @@
           {
             "range": "9-10",
             "moduleName": "Weapon",
-            "moduleDetail": "{!1d6}",
+            "moduleDetail": "${!1d6}",
             "rollTable": [
               "Laser cutter",
               "Autocannon",
@@ -646,7 +646,7 @@
           {
             "range": "4",
             "moduleName": "Galley",
-            "moduleDetail": "${weaponCache}"
+            "moduleDetail": "$${weaponCache}"
           },
           {
             "range": "5",
@@ -656,7 +656,7 @@
           {
             "range": "6",
             "moduleName": "Barracks",
-            "moduleDetail": "${weaponCache}"
+            "moduleDetail": "$${weaponCache}"
           },
           {
             "range": "7",
@@ -666,7 +666,7 @@
           {
             "range": "8",
             "moduleName": "Living quarters",
-            "moduleDetail": "${weaponCache}"
+            "moduleDetail": "$${weaponCache}"
           },
           {
             "range": "9",
@@ -731,7 +731,7 @@
           {
             "range": "1-7",
             "moduleName": "Cargo hold",
-            "moduleDetail": "${cargoType}"
+            "moduleDetail": "$${cargoType}"
           },
           {
             "range": "8",
@@ -741,7 +741,7 @@
           {
             "range": "9-10",
             "moduleName": "Cargo hold",
-            "moduleDetail": "${cargoType}",
+            "moduleDetail": "$${cargoType}",
             "moduleDetailPrefix": "Currently being picked through by {2d10} armed scavengers - "
           }
         ],
@@ -749,7 +749,7 @@
           {
             "range": "1-4",
             "moduleName": "Cargo hold",
-            "moduleDetail": "${cargoType}"
+            "moduleDetail": "$${cargoType}"
           },
           {
             "range": "5-7",
@@ -811,13 +811,12 @@
       }
     },
     "jumpDriveMalfunction": {
-      "type": "one roll table",
+      "type": "one roll range-table",
       "interface": "1d100",
       "values": [
         {
           "range": "1-5",
-          "value": "{!1d10}",
-          "valuePrefix": "A large aquarium in the mess is filled with ",
+          "value": "A large aquarium in the mess is filled with ${!1d10}",
           "rollTable": [
             "Tilapia",
             "Trout",
@@ -910,7 +909,7 @@
       ]
     },
     "weaponsSupplyCache": {
-      "type": "one roll table",
+      "type": "one roll range-table",
       "interface": "1d100",
       "values": [
         {
@@ -976,7 +975,7 @@
       ]
     },
     "cargoType": {
-      "type": "one roll table",
+      "type": "one roll range-table",
       "interface": "!1d100",
       "values": [
         {

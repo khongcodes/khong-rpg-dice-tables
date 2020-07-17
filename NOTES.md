@@ -11,7 +11,7 @@
 - [ ] Mothership RPG
 - [ ] LANCER
 - [ ] UVG
-- [ ] Ironsworn
+- [ ] Stars without number
 
 # OTHER
 
@@ -24,7 +24,10 @@ check if obj has rollTable
 if so, reference rollTable
 otherwise get numeric value
 
-if ${} in moduleDetail
+if ${}
+reference rollTable
+
+if $${} in moduleDetail
 reference other table
 write specific case handler
 
@@ -33,6 +36,8 @@ if \d after $ get results for twice
 
 types:[
   "one roll table",
+  "one roll range-table",
+  "two roll range-table",
   "combined string",
   "coordinate",
   "lookup"

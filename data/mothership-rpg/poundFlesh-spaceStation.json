@@ -1,0 +1,1321 @@
+{
+  "main": {
+    "corespace": {
+      "name": {
+        "type": "combined string",
+        "interface": "!1d10 !1d10",
+        "values": [
+          [
+            "Azrael's",
+            "Dumah's",
+            "Marut's",
+            "Gorgon's",
+            "Soter's",
+            "Pontian's",
+            "Vitalian's",
+            "Iblis's",
+            "Al-Uzza's",
+            "Vanth's"
+          ],
+          [
+            "Price",
+            "Sorrow",
+            "Redemption",
+            "Revenge",
+            "Ring",
+            "Crown",
+            "Sword",
+            "Shield",
+            "Cross",
+            "Herald"
+          ]
+        ]
+      },
+      "coreStation": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          "Overcrowded habitat colony",
+          "Palatial estate",
+          "Secret corporate research facility",
+          "Marine battle school",
+          "Bustling trading port",
+          "Sprawling megatropolis",
+          "High security corporate vault",
+          "Semi-autonomous shipyard",
+          "Solitary monastery",
+          "Ancient jumpgate"
+        ]
+      },
+      "orbitingCelestialBody": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          "Still-terraforming planet",
+          "Overpopulated slumworld",
+          "Resource-rich planet",
+          "Desolate planetoid",
+          "White dwarf star",
+          "Moon of an inhabited planet",
+          "Unpopulated paradise world",
+          "Giant asteroid cluster",
+          "Red supergiant",
+          "Black hole (past event horizon)"
+        ]
+      },
+      "coreLeader": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          "First-colony descendent",
+          "Asteroid mining oligarch",
+          "Reclusive intellectual",
+          "Scheming marine general",
+          "Teamster union rep",
+          "Sadistic decadent",
+          "Decorated regional governor",
+          "Rimwar veteran commander",
+          "Reformed criminal outcast",
+          "Dynastic child-heir"
+        ]
+      },
+      "controllingFaction": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          "Radical colonial separatists",
+          "The Valecore Mining Consortium",
+          "The Exo-Credit Federated Union",
+          "The 91st Colonial Dragoons",
+          "Teamster's Local 101977L",
+          "The Yamaguchi-gumi Clan",
+          "The Crashlander Titan 2nd Fleet",
+          "The Principality of Christian XII",
+          "The Decanon Caliphate",
+          "The House of Tarkhan"
+        ]
+      }
+    },
+    "rimspace": {
+      "rimLandmark": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          "Heavily-guarded corporate DMZ",
+          "Battered asteroid field",
+          "Uninhabitable desert planet",
+          "Strip-mined ice world",
+          "First-generation pioneer colony",
+          "Resource-rich asteroid cluster",
+          "The disputed-territory border",
+          "Massive Jump-5 derelict hulk",
+          "Burgeoning off-world colony",
+          "Ship graveyard"
+        ]
+      },
+      "rimStation": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          "Independent colony",
+          "Run-down factory",
+          "Military base",
+          "Lighthouse",
+          "Asteroid mining",
+          "Max-security prison",
+          "Scrap-processing",
+          "Rest & Refuel",
+          "Black market",
+          "Abandoned derelict"
+        ]
+      },
+      "callSign": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          "Remote Site-{1d100}${!1d26}",
+          "{1d100}${!1d26}",
+          "Forward Base-{1d10}${!1d26}",
+          "Rimward-Post-{1d10}{1d10}",
+          "${!1d26}{1d100}",
+          "Supervisor-${!1d26}{1d10}",
+          "Control-{1d100}",
+          "Command-{1d10}{1d10}",
+          "Outpost-{1d100}${!1d26}{1d10}",
+          "Bridle-{1d10}"
+        ],
+        "rollTable": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+      },
+      "controllingFaction": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          "The Anders-Klimt Mining Corporation",
+          "The Gaff Android Labor Syndicate",
+          "The 601st Colonial Marine Regiment",
+          "Salo-Mercury Biomotors Inc.",
+          "The Apostles Gate Church",
+          "Confederated Systems Inc.",
+          "The \"Operator\" Fleet of mercenary raiders",
+          "The Sindec Alloyed Metals Corporation",
+          "SEBACO Mining Ltd.",
+          "The Limited Colonial Government"
+        ]
+      },
+      "rivallingFaction": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          "The Synthetic Liberation Front",
+          "Altruistic scientists",
+          "Neo-Haram anarchists",
+          "Violent Return-Earthers",
+          "Carter Tactical Concerns Ltd.",
+          "Armadyne Weapons, Inc.",
+          "House Sivaranjan",
+          "Secret Union Instigators",
+          "Black Dawn Mercenaries",
+          "The Family of Eleven"
+        ]
+      },
+      "rivalLeader": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          "Renegade android",
+          "Powerful rogue AI",
+          "Ruthless criminal despot",
+          "Charistmatic Revivalist",
+          "Perverse Corp. Warden",
+          "Highly intelligent mercenary captain",
+          "Cunning corporate spy",
+          "Merciless slaver",
+          "Stalwart union organizer",
+          "Relentless warrant officer"
+        ]
+      }
+    },
+    "common": {
+      "crisis": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          {
+            "name": "Hostage situation",
+            "detail": "Command of the station has been taken by a rival faction who demand {1d10}kcr ransom."
+          },
+          {
+            "name": "Refugee crisis",
+            "detail": "The station is overrun with refugees. Everything is {2d5} times more expensive than usual."
+          },
+          {
+            "name": "Food shortage",
+            "detail": "The station will pay {2d5} kcr for food and another random resource. Theft is rampant."
+          },
+          {
+            "name": "Quarantine",
+            "detail": "After boarding the station you learn that it has been quarantined. No one is allowed to leave."
+          },
+          {
+            "name": "Bout of civil unrest",
+            "detail": "Rioting and looting. Mercenary death squads roam the corridors executing collaborators."
+          },
+          {
+            "name": "Disaster",
+            "detail": "Crash landing, mass explosion, or sabotage. Station is on full alert and going down without repairs."
+          },
+          {
+            "name": "General strike",
+            "detail": "Unions have organized. Protests, picket lines and intense riots. Commerce is shut down."
+          },
+          {
+            "name": "Uncanny abandonment",
+            "detail": "The station hosts the aftermath of some bloody, haunted, or mysterious happening."
+          },
+          {
+            "name": "Martial law edict",
+            "detail": "All ships are boarded and inspected, station visas are issued and a curfew is in effect."
+          },
+          {
+            "name": "Blockade",
+            "detail": "The station is under siege by the rival faction and access has been cut off. Your ship will be boarded."
+          }
+        ]
+      },
+      "goods": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          "Equipment",
+          "Asteroid Ore",
+          "Weapons",
+          "Scrap Metal",
+          "Prisoners",
+          "Warp Cores",
+          "Galley Stock",
+          "Ship Parts",
+          "Used Ships",
+          "Fuel"
+        ]
+      },
+      "resource": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          "Android Laborers",
+          "Asteroid Mining Machinery",
+          "Hardened Mercenaries",
+          "Black Market Cybermods",
+          "Life-saving Medicine",
+          "Doctors who don’t ask Questions",
+          "Rations",
+          "Out of work Scientists",
+          "Oxygen Reserves",
+          "Recreational Drugs"
+        ]
+      },
+      "commonIssue": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          {
+            "name": "No artificial gravity",
+            "detail": "Zero-G skill check for complex manuevers."
+          },
+          {
+            "name": "Resource scarcity",
+            "detail": "Food, water, oxygen, shelter is hard to find."
+          },
+          {
+            "name": "Trade good scarcity",
+            "detail": "Lack of fuel, warp cores, ammunition"
+          },
+          {
+            "name": "Oxygen poor",
+            "detail": "Strenuous activities at disadvantage. O2 is taxed."
+          },
+          {
+            "name": "Non-standard day/night cycle",
+            "detail": "Resting at disadvantage."
+          },
+          {
+            "name": "Poor water treatment facilities",
+            "detail": "Healing at disadvantage."
+          },
+          {
+            "name": "Low security",
+            "detail": "High risk of theft, threat of violence, piracy, etc."
+          },
+          {
+            "name": "High security",
+            "detail": "High risk of authoritarian police, taxation, prison, etc."
+          },
+          {
+            "name": "Xenophobic population",
+            "detail": "Suspicious/hostile to strangers/outsiders."
+          },
+          {
+            "name": "Poor maintenance",
+            "detail": "Minimum stress +1. Resting and healing at disadvantage. High risk of damage to station during combat."
+          }
+        ]
+      },
+      "spaceStationStructure": {
+        "type": "one roll table",
+        "interface": "!1d10",
+        "values": [
+          {
+            "name": "Asteroid surface",
+            "detail": "This station has been built on the outside surface of the asteroid, much the same way a building rests on the surface of a planet."
+          },
+          {
+            "name": "Asteroid interior",
+            "detail": "While there may be structures on the outside of the asteroid the majority of the station exists \"underground\" as a series of tunnels, caves, or similar structures."
+          },
+          {
+            "name": "Spindle",
+            "detail": "A common design, shaped like a spinning top with towers rising from the top and/or bottom."
+          },
+          {
+            "name": "Cylinder",
+            "detail": "The cylinder's rotation could provide a rationale for artificial gravity and the station could be quite large, like an O'Neill Cylinder."
+          },
+          {
+            "name": "Sphere",
+            "detail": "Can be as big as a Dyson or Bernal sphere or as small as a single-pod station."
+          },
+          {
+            "name": "Torus/ring",
+            "detail": "The most common design. Like the Stanford Torus or Bishop Ring, the outer ring could provide enough centrifugal force to provide artificial gravity."
+          },
+          {
+            "name": "Tower",
+            "detail": "A station with an angular, blocky design, like a skyscraper flung into space."
+          },
+          {
+            "name": "Modular",
+            "detail": "Built from discrete modules or \"beads\" that can be removed or added on to."
+          },
+          {
+            "name": "Platform",
+            "detail": "Design based on a large ship. Clearly defined levels/decks."
+          },
+          {
+            "name": "Amalgamation",
+            "detail": "A combination of any of the other designs (roll 2 more times and combine results)."
+          }
+        ]
+      },
+      "noteworthyEstablishments": {
+        "type": "two roll range-table",
+        "interface": "1d6[!1d100]",
+        "values": [
+          {
+            "range": "1-3",
+            "categoryName": "Refuel/Repair",
+            "values": [
+              {
+                "range": "0-4",
+                "value": "Dry dock"
+              },
+              {
+                "range": "5-9",
+                "value": "Vehicle repair"
+              },
+              {
+                "range": "10-14",
+                "value": "Chop Shop"
+              },
+              {
+                "range": "15-19",
+                "value": "Bars"
+              },
+              {
+                "range": "20-24",
+                "value": "Showers"
+              },
+              {
+                "range": "25-29",
+                "value": "Capsule motel"
+              },
+              {
+                "range": "30-34",
+                "value": "Navigation library"
+              },
+              {
+                "range": "35-39",
+                "value": "Warp core storage"
+              },
+              {
+                "range": "40-44",
+                "value": "Teamster union hall"
+              },
+              {
+                "range": "45-49",
+                "value": "Military lounge"
+              },
+              {
+                "range": "50-54",
+                "value": "Commercial travel"
+              },
+              {
+                "range": "55-59",
+                "value": "Private hangar"
+              },
+              {
+                "range": "60-64",
+                "value": "Showers"
+              },
+              {
+                "range": "65-69",
+                "value": "Metal foundry"
+              },
+              {
+                "range": "70-74",
+                "value": "Ore trade/Refinery"
+              },
+              {
+                "range": "75-79",
+                "value": "Food court"
+              },
+              {
+                "range": "80-84",
+                "value": "Fuel bays/Warp cores"
+              },
+              {
+                "range": "85-89",
+                "value": "Slickscreens"
+              },
+              {
+                "range": "90",
+                "value": "Red light district"
+              },
+              {
+                "range": "91",
+                "value": "Black market"
+              },
+              {
+                "range": "92",
+                "value": "Tiny chapel"
+              },
+              {
+                "range": "93",
+                "value": "Weapons fabrication"
+              },
+              {
+                "range": "94",
+                "value": "Advanced R&D"
+              },
+              {
+                "range": "95",
+                "value": "Experimental FTL lab"
+              },
+              {
+                "range": "96",
+                "value": "Astronavigator terminals"
+              },
+              {
+                "range": "97",
+                "value": "Station overseer"
+              },
+              {
+                "range": "98",
+                "value": "Holding cells"
+              },
+              {
+                "range": "99",
+                "value": "Power station"
+              }
+            ]
+          },
+          {
+            "range": "4",
+            "categoryName": "Port/Market",
+            "values": [
+              {
+                "range": "0-4",
+                "value": "Food stand"
+              },
+              {
+                "range": "5-9",
+                "value": "Dry dock"
+              },
+              {
+                "range": "10-14",
+                "value": "Fence for stolen goods"
+              },
+              {
+                "range": "15-19",
+                "value": "Black market"
+              },
+              {
+                "range": "20-24",
+                "value": "Re-sleeving facility"
+              },
+              {
+                "range": "25-29",
+                "value": "Cybermod shop"
+              },
+              {
+                "range": "30-34",
+                "value": "Imports warehouse"
+              },
+              {
+                "range": "35-39",
+                "value": "Designer drugs"
+              },
+              {
+                "range": "40-44",
+                "value": "Gene therapy"
+              },
+              {
+                "range": "45-49",
+                "value": "Holotat shop"
+              },
+              {
+                "range": "50-54",
+                "value": "Glass blower"
+              },
+              {
+                "range": "55-59",
+                "value": "Technobladesmith"
+              },
+              {
+                "range": "60-64",
+                "value": "Slaughter yard"
+              },
+              {
+                "range": "65-69",
+                "value": "Fabric loom"
+              },
+              {
+                "range": "70-74",
+                "value": "Sweatshop"
+              },
+              {
+                "range": "75-79",
+                "value": "Gambling house"
+              },
+              {
+                "range": "80-84",
+                "value": "Dance club"
+              },
+              {
+                "range": "85-89",
+                "value": "Teamster bar"
+              },
+              {
+                "range": "90",
+                "value": "Cassette library"
+              },
+              {
+                "range": "91",
+                "value": "Specimens & oddities"
+              },
+              {
+                "range": "92",
+                "value": "Red light district"
+              },
+              {
+                "range": "93",
+                "value": "Military black site"
+              },
+              {
+                "range": "94",
+                "value": "Navigator guildhouse"
+              },
+              {
+                "range": "95",
+                "value": "Decorative rugs"
+              },
+              {
+                "range": "96",
+                "value": "Tea shop"
+              },
+              {
+                "range": "97",
+                "value": "Old Earth antique shop"
+              },
+              {
+                "range": "98",
+                "value": "Custom androids"
+              },
+              {
+                "range": "99",
+                "value": "Ship designer"
+              }
+            ]
+          },
+          {
+            "range": "5",
+            "categoryName": "Colony/Habitat",
+            "values": [
+              {
+                "range": "0-4",
+                "value": "Farming unit"
+              },
+              {
+                "range": "5-9",
+                "value": "Food court"
+              },
+              {
+                "range": "10-14",
+                "value": "Slickscreen"
+              },
+              {
+                "range": "15-19",
+                "value": "Bar/Club"
+              },
+              {
+                "range": "20-24",
+                "value": "Slaughterhouse"
+              },
+              {
+                "range": "25-29",
+                "value": "Seed/gene storage"
+              },
+              {
+                "range": "30-34",
+                "value": "Sleeping units"
+              },
+              {
+                "range": "35-39",
+                "value": "Meeting square"
+              },
+              {
+                "range": "40-44",
+                "value": "Aquaponics tanks"
+              },
+              {
+                "range": "45-49",
+                "value": "Markets"
+              },
+              {
+                "range": "50-54",
+                "value": "School/training facilities"
+              },
+              {
+                "range": "55-59",
+                "value": "Library/research lab"
+              },
+              {
+                "range": "60-64",
+                "value": "Upscale housing"
+              },
+              {
+                "range": "65-69",
+                "value": "Security outpost"
+              },
+              {
+                "range": "70-74",
+                "value": "Clinic"
+              },
+              {
+                "range": "75-79",
+                "value": "Factory"
+              },
+              {
+                "range": "80-84",
+                "value": "Greenhouse"
+              },
+              {
+                "range": "85-89",
+                "value": "Turret emplacement"
+              },
+              {
+                "range": "90",
+                "value": "Red light district"
+              },
+              {
+                "range": "91",
+                "value": "Brig"
+              },
+              {
+                "range": "92",
+                "value": "Power station"
+              },
+              {
+                "range": "93",
+                "value": "Pharmalab"
+              },
+              {
+                "range": "94",
+                "value": "Governor's mansion"
+              },
+              {
+                "range": "95",
+                "value": "Armory"
+              },
+              {
+                "range": "96",
+                "value": "Temple"
+              },
+              {
+                "range": "97",
+                "value": "Courthouse/records"
+              },
+              {
+                "range": "98",
+                "value": "Landing strip"
+              },
+              {
+                "range": "99",
+                "value": "Communication array"
+              }
+            ]
+          },
+          {
+            "range": "6",
+            "categoryName": "Military",
+            "values": [
+              {
+                "range": "0-4",
+                "value": "Admin offices"
+              },
+              {
+                "range": "5-9",
+                "value": "Drop station"
+              },
+              {
+                "range": "10-14",
+                "value": "Training rooms"
+              },
+              {
+                "range": "15-19",
+                "value": "Shooting range"
+              },
+              {
+                "range": "20-24",
+                "value": "Command center"
+              },
+              {
+                "range": "25-29",
+                "value": "Defensive weaponry"
+              },
+              {
+                "range": "30-34",
+                "value": "Vehicle repair center"
+              },
+              {
+                "range": "35-39",
+                "value": "Brig"
+              },
+              {
+                "range": "40-44",
+                "value": "Troopship carrier"
+              },
+              {
+                "range": "45-49",
+                "value": "Barracks"
+              },
+              {
+                "range": "50-54",
+                "value": "Interrogation rooms"
+              },
+              {
+                "range": "55-59",
+                "value": "Medbay"
+              },
+              {
+                "range": "60-64",
+                "value": "R&D department"
+              },
+              {
+                "range": "65-69",
+                "value": "Drop-tank hangar"
+              },
+              {
+                "range": "70-74",
+                "value": "Mess hall"
+              },
+              {
+                "range": "75-79",
+                "value": "Officer's lounge"
+              },
+              {
+                "range": "80-84",
+                "value": "\"Off-base\" housing"
+              },
+              {
+                "range": "85-89",
+                "value": "Master computer"
+              },
+              {
+                "range": "90",
+                "value": "Diplomatic embassy"
+              },
+              {
+                "range": "91",
+                "value": "Officer's quarters"
+              },
+              {
+                "range": "92",
+                "value": "Weapon testing"
+              },
+              {
+                "range": "93",
+                "value": "Fighter squadron"
+              },
+              {
+                "range": "94",
+                "value": "Ammunition storage"
+              },
+              {
+                "range": "95",
+                "value": "Re-sleeving facility"
+              },
+              {
+                "range": "96",
+                "value": "Cryochambers"
+              },
+              {
+                "range": "97",
+                "value": "Intelligence facility"
+              },
+              {
+                "range": "98",
+                "value": "Exomech hangar"
+              },
+              {
+                "range": "99",
+                "value": "Massive weapon"
+              }
+            ]
+          },
+          {
+            "range": "7",
+            "categoryName": "Mining/Factory",
+            "values": [
+              {
+                "range": "0-4",
+                "value": "Material processing"
+              },
+              {
+                "range": "5-9",
+                "value": "Shipping warehouse"
+              },
+              {
+                "range": "10-14",
+                "value": "Storage warehouse"
+              },
+              {
+                "range": "15-19",
+                "value": "Dry dock"
+              },
+              {
+                "range": "20-24",
+                "value": "Assembly line"
+              },
+              {
+                "range": "25-29",
+                "value": "Metal refinery"
+              },
+              {
+                "range": "30-34",
+                "value": "Air scrubber"
+              },
+              {
+                "range": "35-39",
+                "value": "Water reclamation"
+              },
+              {
+                "range": "40-44",
+                "value": "Sleeping pods"
+              },
+              {
+                "range": "45-49",
+                "value": "Cafeteria"
+              },
+              {
+                "range": "50-54",
+                "value": "Showers/soakers"
+              },
+              {
+                "range": "55-59",
+                "value": "Corporate conference room"
+              },
+              {
+                "range": "60-64",
+                "value": "Garage/hangar"
+              },
+              {
+                "range": "65-69",
+                "value": "Geology lab"
+              },
+              {
+                "range": "70-74",
+                "value": "Records/maps/blueprints"
+              },
+              {
+                "range": "75-79",
+                "value": "Slickscreen"
+              },
+              {
+                "range": "80-84",
+                "value": "Fighting ring"
+              },
+              {
+                "range": "85-89",
+                "value": "Android maintenance"
+              },
+              {
+                "range": "90",
+                "value": "Conjugal trailers"
+              },
+              {
+                "range": "91",
+                "value": "Xenobio lab"
+              },
+              {
+                "range": "92",
+                "value": "Extraction point"
+              },
+              {
+                "range": "93",
+                "value": "Infraction cells"
+              },
+              {
+                "range": "94",
+                "value": "Cloning facility"
+              },
+              {
+                "range": "95",
+                "value": "Communications"
+              },
+              {
+                "range": "96",
+                "value": "Exosuit hangar/repair"
+              },
+              {
+                "range": "97",
+                "value": "Life support"
+              },
+              {
+                "range": "98",
+                "value": "Laser-drilling array"
+              },
+              {
+                "range": "99",
+                "value": "Company store"
+              }
+            ]
+          },
+          {
+            "range": "8",
+            "categoryName": "Corporate/Research",
+            "values": [
+              {
+                "range": "0-4",
+                "value": "Offices"
+              },
+              {
+                "range": "5-9",
+                "value": "Open-floor-plan office"
+              },
+              {
+                "range": "10-14",
+                "value": "Cubicles"
+              },
+              {
+                "range": "15-19",
+                "value": "Testing lab"
+              },
+              {
+                "range": "20-24",
+                "value": "AI computer banks"
+              },
+              {
+                "range": "25-29",
+                "value": "Laboratory"
+              },
+              {
+                "range": "30-34",
+                "value": "Quarantine"
+              },
+              {
+                "range": "35-39",
+                "value": "Data analysis office"
+              },
+              {
+                "range": "40-44",
+                "value": "Android storage"
+              },
+              {
+                "range": "45-49",
+                "value": "Warehouse"
+              },
+              {
+                "range": "50-54",
+                "value": "Shipping & Receiving"
+              },
+              {
+                "range": "55-59",
+                "value": "Mail rooms"
+              },
+              {
+                "range": "60-64",
+                "value": "Meeting rooms"
+              },
+              {
+                "range": "65-69",
+                "value": "Clean room"
+              },
+              {
+                "range": "70-74",
+                "value": "Employee housing"
+              },
+              {
+                "range": "75-79",
+                "value": "Hazardous materials"
+              },
+              {
+                "range": "80-84",
+                "value": "Cryostorage"
+              },
+              {
+                "range": "85-89",
+                "value": "Containment lab"
+              },
+              {
+                "range": "90",
+                "value": "Private offices"
+              },
+              {
+                "range": "91",
+                "value": "Luxurious boardroom"
+              },
+              {
+                "range": "92",
+                "value": "High security vault"
+              },
+              {
+                "range": "93",
+                "value": "Illegal DNA-splicing lab"
+              },
+              {
+                "range": "94",
+                "value": "Embryonic storage"
+              },
+              {
+                "range": "95",
+                "value": "Morgue"
+              },
+              {
+                "range": "96",
+                "value": "Animal-testing pens"
+              },
+              {
+                "range": "97",
+                "value": "Killteam barracks"
+              },
+              {
+                "range": "98",
+                "value": "Experiment #237"
+              },
+              {
+                "range": "99",
+                "value": "Mega-AI brain"
+              }
+            ]
+          },
+          {
+            "range": "9",
+            "categoryName": "Prison",
+            "values": [
+              {
+                "range": "0-4",
+                "value": "Ruined cellblock"
+              },
+              {
+                "range": "5-9",
+                "value": "Administration offices"
+              },
+              {
+                "range": "10-14",
+                "value": "Morgue"
+              },
+              {
+                "range": "15-19",
+                "value": "Riot armory"
+              },
+              {
+                "range": "20-24",
+                "value": "Guard quarters"
+              },
+              {
+                "range": "25-29",
+                "value": "High security area"
+              },
+              {
+                "range": "30-34",
+                "value": "Isolation chambers"
+              },
+              {
+                "range": "35-39",
+                "value": "Cryostorage"
+              },
+              {
+                "range": "40-44",
+                "value": "VR exercise yard"
+              },
+              {
+                "range": "45-49",
+                "value": "Prison cells"
+              },
+              {
+                "range": "50-54",
+                "value": "Group dormitory"
+              },
+              {
+                "range": "55-59",
+                "value": "Quarantine unit"
+              },
+              {
+                "range": "60-64",
+                "value": "Solitary confinement"
+              },
+              {
+                "range": "65-69",
+                "value": "Canteen"
+              },
+              {
+                "range": "70-74",
+                "value": "Gruel kitchen"
+              },
+              {
+                "range": "75-79",
+                "value": "Labor camp"
+              },
+              {
+                "range": "80-84",
+                "value": "Execution chambers"
+              },
+              {
+                "range": "85-89",
+                "value": "Scrap metal workshop"
+              },
+              {
+                "range": "90",
+                "value": "Slickscreen classrooms"
+              },
+              {
+                "range": "91",
+                "value": "Illegal human testing"
+              },
+              {
+                "range": "92",
+                "value": "Mind wipe lab"
+              },
+              {
+                "range": "93",
+                "value": "Mass grave"
+              },
+              {
+                "range": "94",
+                "value": "Reprogramming facility"
+              },
+              {
+                "range": "95",
+                "value": "Military black site"
+              },
+              {
+                "range": "96",
+                "value": "AI prison server"
+              },
+              {
+                "range": "97",
+                "value": "Android scrapyard"
+              },
+              {
+                "range": "98",
+                "value": "Comissary"
+              },
+              {
+                "range": "99",
+                "value": "Crematorium"
+              }
+            ]
+          },
+          {
+            "range": "10",
+            "categoryName": "Religious",
+            "values": [
+              {
+                "range": "0-4",
+                "value": "Prayer gardens"
+              },
+              {
+                "range": "5-9",
+                "value": "Observatory"
+              },
+              {
+                "range": "10-14",
+                "value": "Cellarium"
+              },
+              {
+                "range": "15-19",
+                "value": "Chapter house"
+              },
+              {
+                "range": "20-24",
+                "value": "Dorter"
+              },
+              {
+                "range": "25-29",
+                "value": "Refectory"
+              },
+              {
+                "range": "30-34",
+                "value": "Infirmary"
+              },
+              {
+                "range": "35-39",
+                "value": "Kitchens"
+              },
+              {
+                "range": "40-44",
+                "value": "Lavatorium"
+              },
+              {
+                "range": "45-49",
+                "value": "Misericord"
+              },
+              {
+                "range": "50-54",
+                "value": "Scriptorium"
+              },
+              {
+                "range": "55-59",
+                "value": "Calefactory"
+              },
+              {
+                "range": "60-64",
+                "value": "Musalla"
+              },
+              {
+                "range": "65-69",
+                "value": "Minaret"
+              },
+              {
+                "range": "70-74",
+                "value": "Prayer hall"
+              },
+              {
+                "range": "75-79",
+                "value": "Ablution fountains"
+              },
+              {
+                "range": "80-84",
+                "value": "Chinjusha"
+              },
+              {
+                "range": "85-89",
+                "value": "Three gate"
+              },
+              {
+                "range": "90",
+                "value": "Bell tower"
+              },
+              {
+                "range": "91",
+                "value": "Shrine"
+              },
+              {
+                "range": "92",
+                "value": "Lecture hall"
+              },
+              {
+                "range": "93",
+                "value": "Grand reliquary"
+              },
+              {
+                "range": "94",
+                "value": "Massive statue"
+              },
+              {
+                "range": "95",
+                "value": "Secret chambers"
+              },
+              {
+                "range": "96",
+                "value": "Palatial gardens"
+              },
+              {
+                "range": "97",
+                "value": "Scourging room"
+              },
+              {
+                "range": "98",
+                "value": "Bishop's manor"
+              },
+              {
+                "range": "99",
+                "value": "Unmarked prison cell"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
