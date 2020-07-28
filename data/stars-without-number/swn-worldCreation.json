@@ -57,9 +57,862 @@
           "complications": "The government has a good reason to keep the truth concealed, The government ruthlessly oppresses the natives, The government is actually composed of offworlders",
           "things": "Elaborate spy devices, Memory erasure tech, Possessions of the last offworlder who decided to spread the truth",
           "places": "Desert airfield, Deep subterranean bunker, Hidden mountain valley"
+        },
+        {
+          "name": "Badlands World",
+          "detail": "Whatever the original climate and atmosphere type, something horrible happened to this world. Biological, chemical, or nanotechnical weaponry has reduced it to a wretched hellscape. Some local life might still be able to survive on its blasted surface, usually at some dire cost in health or humanity.",
+          "enemies": "Mutated badlands fauna, Desperate local, Badlands raider chief",
+          "friends": "Native desperately wishing to escape the world, Scientist researching ecological repair methods, Ruin scavenger",
+          "complications": "Radioactivity, Bioweapon traces, Broken terrain, Sudden local plague",
+          "things": "Maltech research core, Functional pretech weaponry, An uncontaminated well",
+          "places": "Untouched oasis, Ruined city, Salt flat"
+        },
+        {
+          "name": "Battleground",
+          "detail": "The world is a battleground for two or more outside powers. They may be interstellar rivals, or groups operating out of orbitals or other system bodies. Something about the planet is valuable enough for them to fight over, but the natives are too weak to be anything but animate obstacles to the fight.",
+          "enemies": "Ruthless military commander, Looter pack chieftain, Traitorous collaborator",
+          "friends": "Native desperately seeking protection, Pragmatic military officer, Hapless war orphan",
+          "complications": "The war just ended as both sides are leaving, The natives somehow brought this on themselves, A small group of natives profit tremendously from the fighting",
+          "things": "A cache of the resource the invaders seek, Abandoned prototype military gear, Precious spy intelligence lost by someone",
+          "places": "Artillery-pocked wasteland, Reeking refugee camp, Burnt-out shell of a city"
+        },
+        {
+          "name": "Beastmasters",
+          "detail": "The natives have extremely close bonds with the local fauna, possibly having special means of communication and control through tech or gengineering. Local animal life plays a major role in their society, industry, or warfare, and new kinds of beasts may be bred to suit their purposes.",
+          "enemies": "Half-feral warlord of a beast swarm, Coldly inhuman scientist, Altered beast with human intellect and furious malice",
+          "friends": "Native bonded with an adorable animal, Herder of very useful beasts, Animal-revering mystic",
+          "complications": "The “animals” are very heavily gengineered humans, The animals actually run the society, The animals have the same rights as humans",
+          "things": "Tech used to alter animal life, A plague vial that could wipe out the animals, A pretech device that can perform a wonder if operated by a beast",
+          "places": "Park designed as a comfortable home for beasts, Public plaza designed to accommodate animal companions, Factory full of animal workers"
+        },
+        {
+          "name": "Bubble cities",
+          "detail": "Whether due to a lack of atmosphere or an uninhabitable climate, the world’s cities exist within domes or pressurized buildings. In such sealed environments, techniques of surveillance and control can grow baroque and extreme.",
+          "enemies": "Native dreading outsider contamination, Saboteur from another bubble city, Local official hostile to outsider ignorance of laws",
+          "friends": "Local rebel against the city officials, Maintenance chief in need of help, Surveyor seeking new building sites",
+          "complications": "Bubble rupture, Failing atmosphere reprocessor, Native revolt against officials, All-seeing surveillance cameras",
+          "things": "Pretech habitat technology, Valuable industrial products, Master key codes to a city’s security system",
+          "places": "City power core, Surface of the bubble, Hydroponics complex, Warren-like hab block"
+        },
+        {
+          "name": "Cheap life",
+          "detail": "Human life is near-worthless on this world. Ubiquitous cloning, local conditions that ensure early death, a culture that reveres murder, or a social structure that utterly discounts the value of most human lives ensures that death is the likely outcome for any action that irritates someone consequential.",
+          "enemies": "Master assassin, Bloody-handed judge, Overseer of disposable clones",
+          "friends": "Endearing local whose life the PCs accidentally bought, Escapee from death seeking outside help, Reformer trying to change local mores",
+          "complications": "Radiation or local diseases ensure all locals die before twenty-five years of age, Tech ensures that death is just an annoyance, Locals are totally convinced of a blissful afterlife",
+          "things": "Device that revives or re-embodies the dead, Maltech engine fueled by human life, Priceless treasure held by a now-dead owner",
+          "places": "Thronging execution ground, extremely cursory cemetery, Factory full of lethal dangers that could be corrected easily"
+        },
+        {
+          "name": "Civil war",
+          "detail": "The world is currently torn between at least two opposing factions, all of which claim legitimacy. The war may be the result of a successful rebel uprising against tyranny, or it might just be the result of schemers who plan to be the new masters once the revolution is complete.",
+          "enemies": "Faction commissar, Angry native, Conspiracy theorist who blames offworlders for the war, Deserter looking out for himself, Guerrilla bandit chieftain",
+          "friends": "Faction loyalist seeking aid, Native caught in the crossfire, Offworlder seeking passage off the planet",
+          "complications": "The front rolls over the group, Famine strikes, Bandit infestations are in the way",
+          "things": "Ammo dump, Military cache, Treasure buried for after the war, Secret war plans",
+          "places": "Battle front, Bombed-out town, Rear-area red light zone, Propaganda broadcast tower"
+        },
+        {
+          "name": "Cold war",
+          "detail": "Two or more great powers control the planet, and they have a hostility to each other that’s just barely less than open warfare. The hostility might be ideological in nature, or it might revolve around control of some local resource.",
+          "enemies": "Suspicious chief of intelligence, Native who thinks the outworlders are with the other side, Femme fatale",
+          "friends": "Apolitical information broker, Spy for the other side, Unjustly accused innocent, “He’s a bastard, but he’s our bastard” official",
+          "complications": "Police sweep, Low-level skirmishing, “Red scare”",
+          "things": "List of traitors in government, secret military plans, Huge cache of weapons built up in preparation for war",
+          "places": "Seedy bar in a neutral area, Political rally, Isolated area where fighting is underway"
+        },
+        {
+          "name": "Colonized population",
+          "detail": "A neighboring world has successfully colonized this less-advanced or less-organized planet, and the natives aren’t happy about it. A puppet government may exist, but all real decisions are made by the local viceroy.",
+          "enemies": "Suspicious security personnel, Offworlder-hating natives, Local crime boss preying on rich offworlders",
+          "friends": "Native resistance leader, Colonial official seeking help, Native caught between the two sides",
+          "complications": "Natives won’t talk to offworlders, Colonial repression, Misunderstood local customs",
+          "things": "Relic of the resistance movement, List of collaborators, Precious substance extracted by colonial labor",
+          "places": "Deep wilderness resistance camp, City district off-limits to natives, Colonial labor site"
+        },
+        {
+          "name": "Cultural power",
+          "detail": "The world is a considerable cultural power in the sector, producing music, art, philosophy, or some similar intangible that their neighbors find irresistibly attractive. Other worlds might have a profound degree of cultural cachet as the inheritor of some venerable artistic tradition.",
+          "enemies": "Murderously eccentric artist, Crazed fan, Failed artist with an obsessive grudge, Critic with a crusade to enact",
+          "friends": "Struggling young artist, Pupil of the artistic tradition, Scholar of the art, Offworlder hating the source of corrupting alien ways",
+          "complications": "The art is slowly lethal to its masters, The art is mentally or physically addictive, The art is a fragment of ancient technical or military science",
+          "things": "The instrument of a legendary master, The only copy of a dead master’s opus, Proof of intellectual property ownership",
+          "places": "Recording or performance studio, Public festival choked with tourists, Monument to a dead master of the art"
+        },
+        {
+          "name": "Cybercommunists",
+          "detail": "On this world communism actually works, thanks to pretech computing devices and greater or lesser amounts of psychic precognition. Central planning nodes direct all production and employment on the world. Citizens in good standing have access to ample amounts of material goods for all needs and many wants. Instead of strife over wealth, conflicts erupt over political controls, cultural precepts, or control over the planning nodes. Many cybercommunist worlds show a considerable bias toward the private interests of those who run the planning nodes.",
+          "enemies": "Embittered rebel against perceived unfairness, Offworlder saboteur, Aspiring Stalin-figure",
+          "friends": "Idealistic planning node tech, Cynical anti-corruption cop, Precognitive economist",
+          "complications": "The pretech planning computers are breaking down, The planning only works because the locals have been mentally or physically altered, The planning computers can’t handle the increasing population within the system",
+          "things": "Planning node computer, Wildly destabilizing commodity that can’t be factored into plans, A tremendous store of valuables made by accident",
+          "places": "Humming factory, Apartment block of perfectly equal flats, Mass demonstration of unity"
+        },
+        {
+          "name": "Cyborgs",
+          "detail": "The planet’s population makes heavy use of cybernetics, with many of the inhabitants possessing at least a cosmetic amount of chrome. This may be the result of a strong local cyber tech base, a religious injunction, or simply a necessary measure to survive the local conditions.",
+          "enemies": "Ambitious hacker of cyber implants, Cybertech oligarch, Researcher craving fresh offworlders, Cybered-up gang boss",
+          "friends": "Charity-working implant physician, Idealistic young cyber researcher, Avant-garde activist",
+          "complications": "The powerful and dangerous come here often for cutting-edge implants, The cyber has some universal negative side-effect, Cyber and those implanted with it are forbidden to leave the planet as a tech security measure",
+          "things": "Unique prototype cyber implant, Secret research files, A virus that debilitates cyborgs, A cache of critically-needed therapeutic cyber",
+          "places": "Grimy slum chop-shop, Bloody lair of implant rippers, Stark plaza where everyone is seeing things through their augmented-reality cyber"
+        },
+        {
+          "name": "Cyclical doom",
+          "detail": "The world regularly suffers some apocalyptic catastrophe that wipes out organized civilization on it. The local culture is aware of this cycle and has traditions to ensure a fragment of civilization survives into the next era, but these traditions don’t always work properly, and sometimes dangerous fragments of the past emerge.",
+          "enemies": "Offworlder seeking to trigger the apocalypse early for profit, Local recklessly taking advantage of preparation stores, Demagogue claiming the cycle is merely a myth of the authorities",
+          "friends": "Harried official working to prepare, Offworlder studying the cycles, Local threatened by perils of the cycle’s initial stages",
+          "complications": "The cycles really are a myth of the authorities, The cycles are controlled by alien constructs, An outside power is interfering with preparation",
+          "things": "A lost cache of ancient treasures, Tech or archives that will pinpoint the cycle’s timing, Keycodes to bypass an ancient vault’s security",
+          "places": "Lethally-defended vault of forgotten secrets, Starport crowded with panicked refugees, Town existing in the shadow of some monstrous monument to a former upheaval"
+        },
+        {
+          "name": "Desert world",
+          "detail": "The world may have a breathable atmosphere and a human-tolerable temperature range, but it is an arid, stony waste outside of a few places made habitable by human effort. The deep wastes are largely unexplored and inhabited by outcasts and worse.",
+          "enemies": "Raider chieftain, Crazed hermit, Angry isolationists, Paranoid mineral prospector, Strange desert beast",
+          "friends": "Native guide, Research biologist, Aspiring terraformer",
+          "complications": "Sandstorms, Water supply failure, Native warfare over water rights",
+          "things": "Enormous water reservoir, Map of hidden wells, Pretech rainmaking equipment",
+          "places": "Oasis, “The Empty Quarter” of the desert, Hidden underground cistern"
+        },
+        {
+          "name": "Doomed world",
+          "detail": "The world is doomed, and the locals may or may not know it. Some cosmic catastrophe looms before them, and the locals have no realistic way to get everyone to safety. To the extent that the public is aware, society is disintegrating into a combination of religious fervor, abject hedonism, and savage violence.",
+          "enemies": "Crazed prophet of a false salvation, Ruthless leader seeking to flee with their treasures, Cynical ship captain selling a one-way trip into hard vacuum as escape to another world",
+          "friends": "Appealing waif or family head seeking escape, Offworld relief coordinator, Harried law officer",
+          "complications": "The doom is false or won’t actually kill everyone, The doom was intentionally triggered by someone, Mass escape is possible if warring groups can somehow be brought to cooperate",
+          "things": "Clearance for a ship to leave the planet, A cache of priceless cultural artifacts, The life savings of someone trying to buy passage out, Data that would prove to the public the end is nigh",
+          "places": "Open square beneath a sky angry with a foretaste of the impending ruin, Orgiastic celebration involving sex and murder in equal parts, Holy site full of desperate petitioners to the divine"
+        },
+        {
+          "name": "Dying race",
+          "detail": "The inhabitants of this world are dying out, and they know it. Through environmental toxins, hostile bio-weapons, or sheer societal despair, the culture cannot replenish its numbers. Members seek meaning in their own strange goals or peculiar faiths, though a few might struggle to find some way to reverse their slow yet inevitable doom.",
+          "enemies": "Hostile outsider who wants the locals dead, Offworlder seeking to take advantage of their weakened state, Invaders eager to push the locals out of their former lands",
+          "friends": "One of the few youth among the population, Determined and hopeful reformer, Researcher seeking a new method of reproduction",
+          "complications": "The dying culture’s values were monstrous, The race’s death is somehow necessary to prevent some grand catastrophe, The race is somehow convinced they deserve this fate",
+          "things": "Extremely valuable reproductive tech, Treasured artifacts of the former age, Bioweapon used on the race",
+          "places": "City streets devoid of pedestrians, Mighty edifice now crumbling with disrepair, Small dwelling full of people in a town now otherwise empty"
+        },
+        {
+          "name": "Eugenic cult",
+          "detail": "Even in the days before the Silence, major improvement of the human genome always seemed to come with unacceptable side-effects. Some worlds host secret cults that perpetuate these improvements regardless of the cost, and a few planets have been taken over entirely by the cults.",
+          "enemies": "Eugenic superiority fanatic, Mentally unstable homo superior, Mad eugenic scientist",
+          "friends": "Eugenic propagandist, Biotechnical investigator, Local seeking revenge on cult",
+          "complications": "The altered cultists look human, The locals are terrified of any unusual physical appearance, The genetic modifications- and drawbacks- are contagious with long exposure",
+          "things": "Serum that induces the alteration, Elixir that reverses the alteration, Pretech biotechnical databanks, List of secret cult sympathizers",
+          "places": "Eugenic breeding pit, Isolated settlement of altered humans, Public place infiltrated by cult sympathizers"
+        },
+        {
+          "name": "Exchange consulate",
+          "detail": "The Exchange of Light once served as the largest, most trusted banking and diplomatic service in human space. Even after the Silence, some worlds retain a functioning Exchange Consulate where banking services and arbitration can be arranged.",
+          "enemies": "Corrupt Exchange official, Indebted native who thinks the players are Exchange agents, Exchange official dunning the players for debts incurred",
+          "friends": "Consul in need of offworld help, Local banker seeking to hurt his competition, Exchange diplomat",
+          "complications": "The local Consulate has been corrupted, the Consulate is cut off from its funds, A powerful debtor refuses to pay",
+          "things": "Exchange vault codes, Wealth hidden to conceal it from a bankruptcy judgment, Location of forgotten vault",
+          "places": "Consulate meeting chamber, Meeting site between fractious disputants, Exchange vault"
+        },
+        {
+          "name": "Fallen hegemon",
+          "detail": "At some point in the past, this world was a hegemonic power over some or all of the sector, thanks to superior tech, expert diplomacy, the weakness of their neighbors, or inherited Mandate legitimacy. Some kind of crash or revolt broke their power, however, and now the world is littered with the wreckage of former glory.",
+          "enemies": "Bitter pretender to a meaningless throne, Resentful official dreaming of empire, Vengeful offworlder seeking to punish their old rulers",
+          "friends": "Realistic local leader trying to hold things together, Scholar of past glories, Refugee from an overthrown colonial enclave",
+          "complications": "The hegemon’s rule was enlightened and fair, It collapsed due to its own internal strife rather than external resistance, It pretends that nothing has happened to its power, It’s been counter-colonized by vengeful outsiders",
+          "things": "Precious insignia of former rule, Relic tech important to its power, Plundered colonial artifact",
+          "places": "Palace far too grand for its current occupant, Oversized spaceport now in disrepair, Boulevard lined with monuments to past glories"
+        },
+        {
+          "name": "Feral world",
+          "detail": "In the long, isolated night of the Silence, some worlds have experienced total moral and cultural collapse. Whatever remains has been twisted beyond recognition into assorted death cults, xenophobic fanaticism, horrific cultural practices, or other behavior unacceptable on more enlightened worlds. These worlds are almost invariably quarantined by other planets.",
+          "enemies": "Decadent noble, Mad cultist, Xenophobic local, Cannibal chief, Maltech researcher",
+          "friends": "Trapped outworlder, Aspiring reformer, Native wanting to avoid traditional flensing",
+          "complications": "Horrific local “celebration”, Inexplicable and repugnant social rules, Taboo zones and people",
+          "things": "Terribly misused piece of pretech, Wealth accumulated through brutal evildoing, Valuable possession owned by luckless outworlder victim",
+          "places": "Atrocity amphitheater, Traditional torture parlor, Ordinary location twisted into something terrible."
+        },
+        {
+          "name": "Flying cities",
+          "detail": "Perhaps the world is a gas giant, or plagued with unendurable storms at lower levels of the atmosphere. For whatever reason, the cities of this world fly above the surface of the planet. Perhaps they remain stationary, or perhaps they move from point to point in search of resources.",
+          "enemies": "Rival city pilot, Tech thief attempting to steal outworld gear, Saboteur or scavenger plundering the city’s tech",
+          "friends": "Maintenance tech in need of help, City defense force pilot, Meteorological researcher",
+          "complications": "Sudden storms, Drastic altitude loss, Rival city attacks, Vital machinery breaks down",
+          "things": "Precious refined atmospheric gases, Pretech grav engine plans, Meteorological codex predicting future storms",
+          "places": "Underside of the city, The one calm place on the planet’s surface, Catwalks stretching over unimaginable gulfs below."
+        },
+        {
+          "name": "Forbidden tech",
+          "detail": "Some group on this planet fabricates or uses maltech. Unbraked AIs doomed to metastasize into insanity, nation-destroying nanowarfare particles, slow-burn DNA corruptives, genetically engineered slaves, or something worse still. The planet’s larger population may or may not be aware of the danger in their midst.",
+          "enemies": "Mad scientist, Maltech buyer from offworld, Security enforcer",
+          "friends": "Victim of maltech, Perimeter agent, Investigative reporter, Conventional arms merchant",
+          "complications": "The maltech is being fabricated by an unbraked AI, The government depends on revenue from maltech sales to offworlders, Citizens insist that it’s not really maltech",
+          "things": "Maltech research data, The maltech itself, Precious pretech equipment used to create it",
+          "places": "Horrific laboratory, Hellscape sculpted by the maltech’s use, Government building meeting room"
+        },
+        {
+          "name": "Former warriors",
+          "detail": "The locals of this world were once famed for their martial prowess. They may have simply had a very militaristic culture, or were genetically engineered for combat, or developed high-tech weaponry, or had brilliant leadership. Those days are past, however, either due to crushing defeat, external restrictions, or a cultural turn toward peace.",
+          "enemies": "Unreformed warlord leader, Bitter mercenary chief, Victim of their warfare seeking revenge",
+          "friends": "Partisan of the new peaceful ways, Outsider desperate for military aid, Martial genius repressed by the new dispensation",
+          "complications": "Neighboring worlds want them pacified or dead, They only ever used their arts in self-defense, The source of their gifts has been “turned off” in a reversible way",
+          "things": "War trophy taken from a defeated foe, Key to re-activating their martial ways, Secret cache of high-tech military gear",
+          "places": "Cemetery of dead heroes, Memorial hall now left to dust and silence, Monument plaza dedicated to the new culture"
+        },
+        {
+          "name": "Freak geology",
+          "detail": "The geology or geography of this world is simply freakish. Perhaps it’s composed entirely of enormous mountain ranges, or regular bands of land and sea, or the mineral structures all fragment into perfect cubes. The locals have learned to deal with it and their culture will be shaped by its requirements.",
+          "enemies": "Crank xenogeologist, Cultist who believes it the work of aliens",
+          "friends": "Research scientist, Prospector, Artist",
+          "complications": "Local conditions that no one remembers to tell outworlders about, Lethal weather, Seismic activity",
+          "things": "Unique crystal formations, Hidden veins of a major precious mineral strike, Deed to a location of great natural beauty",
+          "places": "Atop a bizarre geological formation, Tourist resort catering to offworlders"
+        },
+        {
+          "name": "Freak weather",
+          "detail": "The planet is plagued with some sort of bizarre or hazardous weather pattern. Perhaps city-flattening storms regularly scourge the surface, or the world’s sun never pierces its thick banks of clouds.",
+          "enemies": "Criminal using the weather as a cover, Weather cultists convinced the offworlders are responsible for some disaster, Native predators dependent on the weather",
+          "friends": "Meteorological researcher, Holodoc crew wanting shots of the weather",
+          "complications": "The weather itself, Malfunctioning pretech terraforming engines that cause the weather",
+          "things": "Wind-scoured deposits of precious minerals, Holorecords of a spectacularly and rare weather pattern, Naturally-sculpted objects of intricate beauty",
+          "places": "Eye of the storm, The one sunlit place, Terraforming control room"
+        },
+        {
+          "name": "Friendly foe",
+          "detail": "Some hostile alien race or malevolent cabal has a branch or sect on this world that is actually quite friendly toward outsiders. For whatever internal reason, they are willing to negotiate and deal honestly with strangers, and appear to lack the worst impulses of their fellows.",
+          "enemies": "Driven hater of all their kind, Internal malcontent bent on creating conflict, Secret master who seeks to lure trust",
+          "friends": "Well-meaning bug-eyed monster, Principled eugenics cultist, Suspicious investigator",
+          "complications": "The group actually is as harmless and benevolent as they seem, The group offers a vital service at the cost of moral compromise, The group still feels bonds of affiliation with their hostile brethren",
+          "things": "Forbidden xenotech, Eugenic biotech template, Evidence to convince others of their kind that they are right",
+          "places": "Repurposed maltech laboratory, Alien conclave  building, Widely-feared starship interior"
+        },
+        {
+          "name": "Gold rush",
+          "detail": "Gold, silver, and other conventional precious minerals are common and cheap now that asteroid mining is practical for most worlds. But some minerals and compounds remain precious and rare, and this world has recently been discovered to have a supply of them. People from across the sector have come to strike it rich.",
+          "enemies": "Paranoid prospector, Aspiring mining tycoon, Rapacious merchant",
+          "friends": "Claim-jumped miner, Native alien, Curious tourist",
+          "complications": "The strike is a hoax, The strike is of a dangerous toxic substance, Export of the mineral is prohibited by the planetary government, The native aliens live around the strike’s location",
+          "things": "Cases of the refined element, Pretech mining equipment, A dead prospector’s claim deed",
+          "places": "Secret mine, Native alien village, Processing plant, Boom town"
+        },
+        {
+          "name": "Great work",
+          "detail": "The locals are obsessed with completing a massive project, one that has consumed them for generations. It might be the completion of a functioning spaceyard, a massive solar power array, a network of terraforming engines, or the universal conversion of their neighbors to their own faith. The purpose of their entire civilization is to progress and some day complete the work.",
+          "enemies": "Local planning to sacrifice the PCs for the work, Local who thinks the PCs threaten the work, Obsessive zealot ready to destroy someone or something important to the PCs for the sake of the work",
+          "friends": "Outsider studying the work, Local with a more temperate attitude, Supplier of work materials",
+          "complications": "The work is totally hopeless, Different factions disagree on what the work is, An outside power is determined to thwart the work",
+          "things": "Vital supplies for the work, Plans that have been lost, Tech that greatly speeds the work",
+          "places": "A bustling work site, Ancestral worker housing, Local community made only semi-livable by the demands of the work"
+        },
+        {
+          "name": "Hatred",
+          "detail": "For whatever reason, this world’s populace has a burning hatred for the inhabitants of a neighboring system. Perhaps this world was colonized by exiles, or there was a recent interstellar war, or ideas of racial or religious superiority have fanned the hatred. Regardless of the cause, the locals view their neighbor and any sympathizers with loathing.",
+          "enemies": "Native convinced that the offworlders are agents of Them, Cynical politician in need of scapegoats",
+          "friends": "Intelligence agent needing catspaws, Holodoc producers needing “an inside look”, Unlucky offworlder from the hated system",
+          "complications": "The characters are wearing or using items from the hated world, The characters are known to have done business there, The characters “look like” the hated others",
+          "things": "Proof of Their evildoing, Reward for turning in enemy agents, Relic stolen by Them years ago",
+          "places": "War crimes museum, Atrocity site, Captured and decommissioned spaceship kept as a trophy"
+        },
+        {
+          "name": "Heavy industry",
+          "detail": "With interstellar transport so limited in the bulk it can move, worlds have to be largely self-sufficient in industry. Some worlds are more sufficient than others, however, and this planet has a thriving manufacturing sector capable of producing large amounts of goods appropriate to its tech level. The locals may enjoy a correspondingly higher lifestyle, or the products might be devoted towards vast projects for the aggrandizement of the rulers.",
+          "enemies": "Tycoon monopolist, Industrial spy, Malcontent revolutionary",
+          "friends": "Aspiring entrepreneur, Worker union leader, Ambitious inventor",
+          "complications": "The factories are toxic, The resources extractable at their tech level are running out, The masses require the factory output for survival, The industries’ major output is being obsoleted by offworld tech",
+          "things": "Confidential industrial data, Secret union membership lists, Ownership shares in an industrial complex",
+          "places": "Factory floor, Union meeting hall, Toxic waste dump, R&D complex"
+        },
+        {
+          "name": "Heavy mining",
+          "detail": "This world has large stocks of valuable minerals, usually necessary for local industry, life support, or refinement into loads small enough to export offworld. Major mining efforts are necessary to extract the minerals, and many natives work in the industry.",
+          "enemies": "Mine boss, Tunnel saboteur, Subterranean predators",
+          "friends": "Hermit prospector, Offworld investor, Miner’s union representative",
+          "complications": "The refinery equipment breaks down, Tunnel collapse, Silicate life forms growing in the miners’ lungs",
+          "things": "The mother lode, Smuggled case of refined mineral, Faked crystalline mineral samples",
+          "places": "Vertical mine face, Tailing piles, Roaring smelting complex"
+        },
+        {
+          "name": "Hivemind",
+          "detail": "Natives of this world exist in a kind of mental gestalt, sharing thoughts and partaking of a single identity. Powerful pretech, exotic psionics, alien influence, or some other cause has left the world sharing one identity. Individual members may have greater or lesser degrees of effective coordination with the whole.",
+          "enemies": "A hivemind that wants to assimilate outsiders, A hivemind that has no respect for unjoined life, A hivemind that fears and hates unjoined life",
+          "friends": "A scholar studying the hivemind, A person severed from the gestalt, A relative of someone who has been assimilated",
+          "complications": "The hivemind only functions on this world, The hivemind has strict range limits, The hivemind has different personality factions, The hivemind only happens at particular times, The world is made of semi-sentient drones and a single AI",
+          "things": "Vital tech for maintaining the mind, Precious treasure held by now-assimilated outsider, Tech that “blinds” the hivemind to the tech’s users",
+          "places": "Barely tolerable living cells for individuals, Workside where individuals casually die in their labors, Community with absolutely no social or group-gathering facilities"
+        },
+        {
+          "name": "Holy war",
+          "detail": "A savage holy war is raging on this world, either between factions of locals or as a united effort against the pagans of some neighboring world. This war might involve a conventional religion, or it might be the result of a branding campaign, political ideology, artistic movement, or any other cause that people use as a substitute for traditional religion.",
+          "enemies": "Blood-mad pontiff, Coldly cynical secular leader, Totalitarian political demagogue",
+          "friends": "Desperate peacemaker, Hard-pressed refugee of the fighting, Peaceful religious leader who lost the internal debate",
+          "complications": "The targets of the war really are doing something diabolically horrible, The holy war is just a mask for a very traditional casus belli, The leaders don’t want the war won but only prolonged, Both this world and the target of the war are religion-obsessed",
+          "things": "Sacred relic of the faith, A captured blasphemer under a death sentence, Plunder seized in battle",
+          "places": "Massive holy structure, Razed community of infidels, Vast shrine to the martyrs dead in war"
+        },
+        {
+          "name": "Hostile biosphere",
+          "detail": "The world is teeming with life, and it hates humans. Perhaps the life is xenoallergenic, forcing filter masks and tailored antiallergens for survival. It could be the native predators are huge and fearless, or the toxic flora ruthlessly outcompetes earth crops.",
+          "enemies": "Local fauna, Nature cultist, Native aliens, Callous labor overseer",
+          "friends": "Xenobiologist, Tourist on safari, Grizzled local guide",
+          "complications": "Filter masks fail, Parasitic alien infestation, Crop greenhouses lose bio-integrity",
+          "things": "Valuable native biological extract, Abandoned colony vault, Remains of an unsuccessful expedition",
+          "places": "Deceptively peaceful glade, Steaming polychrome jungle, Nightfall when surrounded by Things"
+        },
+        {
+          "name": "Hostile space",
+          "detail": "The system in which the world exists is a dangerous neighborhood. Something about the system is perilous to inhabitants, either through meteor swarms, stellar radiation, hostile aliens in the asteroid belt, or periodic comet clouds.",
+          "enemies": "Alien raid leader, Meteor-launching terrorists, Paranoid local leader",
+          "friends": "Astronomic researcher, Local defense commander, Early warning monitor agent",
+          "complications": "The natives believe the danger is divine chastisement, The natives blame outworlders for the danger, The native elite profit from the danger in some way",
+          "things": "Early warning of a raid or impact, Abandoned riches in a disaster zone, Key to a secure bunker",
+          "places": "City watching an approaching asteroid, Village burnt in an alien raid, Massive ancient crater"
+        },
+        {
+          "name": "Immortals",
+          "detail": "Natives of this world are effectively immortal. They may have been gengineered for tremendous lifespans, or have found some local anagathic, or be cyborg life forms, or be so totally convinced of reincarnation that death is a cultural irrelevance. Any immortality technique is likely applicable only to them, or else it’s apt to be a massive draw to outside imperialists.",
+          "enemies": "Outsider determined to steal immortality, Smug local convinced of their immortal wisdom to rule all, Offworlder seeking the world’s ruin before it becomes a threat to all",
+          "friends": "Curious longevity researcher, Thrill-seeking local",
+          "complications": "Immortality requires doing something that outsiders can’t or won’t willingly do, The immortality ends if they leave the world, Death is the punishment for even minor crimes, Immortals must die or go offworld after a certain span, Immortality has brutal side-effects",
+          "things": "Immortality drug, Masterwork of an ageless artisan, Toxin that only affects immortals",
+          "places": "Community with no visible children, Unchanging structure of obvious ancient age, Cultural performance relying on a century of in-jokes"
+        },
+        {
+          "name": "Local specialty",
+          "detail": "The world may be sophisticated or barely capable of steam engines, but either way it produces something rare and precious to the wider galaxy. It might be some pharmaceutical extract produced by a secret recipe, a remarkably popular cultural product, or even gengineered humans uniquely suited for certain work.",
+          "enemies": "Monopolist, Offworlder seeking prohibition of the specialty, Native who views the specialty as sacred",
+          "friends": "Spy searching for the source, Artisan seeking protection, Exporter with problems",
+          "complications": "The specialty is repugnant in nature, The crafters refuse to sell to offworlders, The specialty is made in a remote, dangerous place, The crafters don’t want to make the specialty any more",
+          "things": "The specialty itself, The secret recipe, Sample of a new improved variety",
+          "places": "Secret manufactory, Hidden cache, Artistic competition for best artisan"
+        },
+        {
+          "name": "Local tech",
+          "detail": "The locals can create a particular example of extremely high tech, possibly even something that exceeds pretech standards. They may use unique local resources to do so, or have stumbled on a narrow scientific breakthrough, or still have a functional experimental manufactory.",
+          "enemies": "Keeper of the tech, Offworld industrialist, Automated defenses that suddenly come alive, Native alien mentors",
+          "friends": "Curious offworld scientist, Eager tech buyer, Native in need of technical help",
+          "complications": "The tech is unreliable, The tech only works on this world, The tech has poorly-understood side effects, The tech is alien in nature.",
+          "things": "The tech itself, An unclaimed payment for a large shipment, The secret blueprints for its construction, An ancient alien R&D database",
+          "places": "Alien factory, Lethal R&D center, Tech brokerage vault"
+        },
+        {
+          "name": "Major spaceyard",
+          "detail": "Most worlds of tech level 4 or greater have the necessary tech and orbital facilities to build spike drives and starships. This world is blessed with a major spaceyard facility, either inherited from before the Silence or painstakingly constructed in more recent decades. It can build even capital-class hulls, and do so more quickly and cheaply than its neighbors.",
+          "enemies": "Enemy saboteur, Industrial spy, Scheming construction tycoon, Aspiring ship hijacker",
+          "friends": "Captain stuck in drydock, Maintenance chief, Mad innovator",
+          "complications": "The spaceyard is an alien relic, The spaceyard is burning out from overuse, The spaceyard is alive, The spaceyard relies on maltech to function",
+          "things": "Intellectual property-locked pretech blueprints, Override keys for activating old pretech facilities, A purchased but unclaimed spaceship.",
+          "places": "Hidden shipyard bay, Surface of a partially-completed ship, Ship scrap graveyard"
+        },
+        {
+          "name": "Mandarinate",
+          "detail": "The planet is ruled by an intellectual elite chosen via ostensibly neutral examinations or tests. The values this system selects for may or may not have anything to do with actual practical leadership skills, and the examinations may be more or less corruptible.",
+          "enemies": "Corrupt test administrator, Incompetent but highly-rated graduate, Ruthless leader of a clan of high-testing relations",
+          "friends": "Crusader for test reform, Talented but poorly-connected graduate, Genius who tests badly",
+          "complications": "The test is totally unrelated to necessary governing skills, The test was very pertinent in the past but tech or culture has changed, The test is for a skill that is vital to maintaining society but irrelevant to day-to-day governance, The test is a sham and passage is based on wealth or influence",
+          "things": "Answer key to the next test, Lost essay of incredible merit, Proof of cheating",
+          "places": "Massive structure full of test-taking cubicles, School filled with desperate students, Ornate government building decorated with scholarly quotes and academic images"
+        },
+        {
+          "name": "Mandate base",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Maneaters",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Megacorps",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
+        },
+        {
+          "name": "Area 51",
+          "detail": "",
+          "enemies": "",
+          "friends": "",
+          "complications": "",
+          "things": "",
+          "places": ""
         }
-
-
       ]
     },
     "atmosphere": {
@@ -68,32 +921,32 @@
       "values": [
         {
           "range": "2",
-          "name": "Corrosive",
+          "name": "Corrosive, damaging to foreign objects",
           "detail": "Corrosive atmospheres are dangerously hostile to conventional vacc suits and other protective gear. They steadily strip away at a suit’s vent ports, wiring connections, and other weak spots until they eventually break through and flood the suit with a toxic cocktail that usually kills a victim in seconds. Weak atmospheres might require as much as a day to degrade a vacc suit, while strong ones might accomplish the job in an hour. Even forcefield-based environment suits such as a FEP suffer steady damage to their exposed elements.\n Native vacc suits are usually covered with an ablative layer or spray that can be regularly renewed, and their buildings often rely on a steadily-extruded slurry of neutralizing materials that can be constantly renewed by pores in the building surface itself. This often gives the building a drippy, half-melted look that may be more than cosmetic in the case of those structures that have failing slurry pumps. Advanced tech level 5 equipment may be able to overcome the effects, but even pretech is often taxed by the relentless rigors of this world. Vehicles and shuttles are kept in pressurized garages when not in use, and starships never land for long.\nCorrosive worlds have a number of intrinsic adventure complications, the largest being the way that every activity outside of a hab building comes with a built-in time limit. Whatever the party chooses to do outside of a building, it has to accomplish before their suit seals fail or the atmosphere corrodes a hole in their vehicle hull. A clever GM can use this problem to add extra tension to an otherwise simple task."
         },
         {
           "range": "3",
-          "name": "Inert",
+          "name": "Inert gas, useless for respiration",
           "detail": "Inert gas atmospheres aren’t hostile or poisonous, but they’re unbreathable by humans. If the planet’s climate is otherwise tolerable, the natives might be able to live and work outdoors without anything more than an air tank and face mask. Some degree of technical sophistication is going to be necessary for humanity to survive, and large supplies of oxygen are going to have to be extracted from some local source. “Air mines” might exist to replace the oxygen lost during human use, or local power plants might need to be kept running full blast in order to crack water molecules into hydrogen and oxygen.\nOn worlds with an unbreathable atmosphere, control of the air supply makes it much harder for locals to rebel against their leaders. Without the equipment and power to generate their own air supplies, would-be rebels are entirely at the mercy of those who control the oxygen. Most rulers pick up on this fact rapidly, and some worlds with unbreathable atmospheres might even make it a crime to own illicit oxygen generation equipment."
         },
         {
           "range": "4",
-          "name": "Airless/thin",
+          "name": "Airless/thin to the point of suffocation",
           "detail": "Airless or thin atmospheres are appropriate to asteroids, rocky planetoids, or barren worlds that have had their atmospheres burnt off by weapons or cosmic caprice. Whatever atmosphere exists is too thin to support human life, if it exists at all, and the world is largely naked to the chill of space and the blaze of stellar heat. Exposure to the planet’s surface without a vacc suit or pressurized building is as lethal as exposure to hard vacuum.\nAirless worlds are hostile to human life, but they excel at preserving the relics of the past. Provided that the ruins or remains are kept out of the baking heat of the local stellar body and the impact of random meteorites, they can survive for millions of years. Some exceptionally ancient alien ruins might even date back from before the world lost its atmosphere."
         },
         {
           "range": "5-9",
-          "name": "Breathable",
+          "name": "Breathable mix",
           "detail": "Breathable mix atmospheres can support human life without additional equipment or gengineered modification. Any world that has a human population in the millions or more almost certainly has a breathable mix atmosphere.\nWhile the air is breathable, almost every world has its own subtle cocktail of inert gases, atmospheric contaminants, and other odoriferous ingredients. For spacers accustomed to the filtered air supply of a starship, the “new world stink” of a fresh planetfall can be maddening, as few linger long enough to get used to the smell of the local air. Attempting to explain the source of this discomfort to the locals rarely results in positive results. Some spaceport bars make a point of their air filtration and composition mixers."
         },
         {
           "range": "10",
-          "name": "Thick",
+          "name": "Thick, but breathable with a pressure mask",
           "detail": "Thick atmospheres can usually be breathed with the aid of a filter mask, though the mix of contaminants renders it slowly or quickly toxic to humans who attempt to breathe it straight. Separate air supplies are not necessary to supplement the blend, but any society that means to survive on such a world must have sufficient technological expertise to manufacture and maintain large numbers of filter masks.\nThick atmospheres are often at least semi-opaque, and some worlds have thick atmospheres that are completely impenetrable to ordinary light. Deep banks of permanent fog might shroud the planet, or natives might have to go about with sophisticated ultraviolet or infrared viewing equipment if they don’t wish to be blind. Some banks of gases might be impenetrable to even these viewing tools, leaving a party vulnerable to moments of complete blindness while out on the surface of the world."
         },
         {
           "range": "11",
-          "name": "Invasive",
+          "name": "Invasive, penetrating suit seals",
           "detail": "Invasive toxic atmospheres are composed of a substantial proportion of molecules small enough to infiltrate past the seals of most vacc suits. This infiltration doesn’t harm the suit, but the molecules have to be steadily flushed by the system’s purification sensors before they build up to a debilitating level. This causes a much faster bleed of air as breathable oxygen is jettisoned along with the infiltrating molecules. Most invasive atmospheres cut oxygen supply durations by half, at best.\n Invasive atmospheres make oxygen an even more important resource than it is on inert gas worlds. Outdoor work is avoided whenever possible, as any failure of a suit’s toxin sensors or flush system can lead to death before the wearer even realizes something is wrong. Steady exposure to low levels of the toxins can also result in unfortunate effects even with a fully-functional suit. Hallucinations, chronic sickness, or worse can follow."
         },
         {
@@ -109,43 +962,123 @@
       "values": [
         {
           "range": "2",
-          "name": "Frozen",
+          "name": "Frozen, locked in perpetual ice",
+          "detail": "Frozen worlds are those with so weak a stellar primary or so great a distance that the average temperature is close to absolute zero. Any atmosphere that once existed has long since frozen into drifts of solidified oxygen or lakes of liquid helium. Exposure to these drifts is very dangerous. Vacc suits maintain a tolerable temperature easily because the stellar void is very empty, and there is little conduction of heat between the suit and empty space. Dunking a suit into a lake of thermally-conductive superchilled liquid can force the heating elements into sudden and drastic overload, draining a power cell in minutes or even seconds."
+        },
+        {
+          "range": "3",
+          "name": "Cold, dominated by glaciers and tundra",
+          "detail": "Cold worlds are uncomfortable, but a human can survive on them in nothing more than heavy clothing. The worst of the cold worlds are similar in condition to Earth’s Antarctic regions, barren wastes of ice and wind. The more clement ones have brief warmer seasons or equatorial bands that get enough solar radiation to support substantial agriculture.\nOn cold worlds, agricultural land is at a premium. The population is unlikely to be willing to limit its numbers to what hydroponic farms can provide, and they may lack the technology for wide-scale artificial production methods. Savage wars may have broken out over control of fertile growing regions, and populations have perhaps been driven away from the arable land into the cold zones and a lingering death.\nSome worlds retain installations from before the Silence deep within the frozen wastes, ancient bases and laboratories that were planted in an age when good launch sites and orbital windows meant more than trifles of temperature. These lost sites might be remembered in legend and story, and some native leaders might still be in possession of the automatic defense bypass codes handed down by their ancestors."
+        },
+        {
+          "range": "4-5",
+          "name": "Variable cold, with temperate places",
+          "detail": "Variable temperature worlds tend to show a greater distribution of climates than other worlds, either ranging from cold to temperate levels or temperate to hot levels. This may be a climate that changes world-wide when a long, slow orbit brings the planet into proximity with a stellar primary, or it might be a world that has substantially different climatic zones spread across its surface. The north pole of one world might be a sun-blasted desert that moderates to a cool, wet equator, or an icy world might be warmed here and there by complex channels of geothermally-heated subsurface rivers. Variable temperature worlds tend to have savage weather. The mixing of hot and cold air can send ferocious cyclones and raging hurricanes across the surface of the world, some large enough to consume most of a hemisphere."
+        },
+        {
+          "range": "6-8",
+          "name": "Temperate, Earthlike in ranges",
+          "detail": "Temperate worlds were the most popular colony sites, and most of the truly populous worlds of the frontier have a temperate climate. Many temperate worlds have temperature ranges not unlike that of Earth, though most are canted a little further toward cold or heat depending on their angle and proximity to the local star.\nTemperate worlds are the most likely to teem with native life as well, and to have alien ruins or remains located somewhere on their surface. Most frontier worlds never accumulated enough population to put a serious strain on a temperate world’s arable land, but this same capaciousness often allows for more complicated social divisions to develop. Natives of other worlds are often forced to cooperate or die, while those of a clement temperate world have the luxury of deep and lasting divisions."
+        },
+        {
+          "range": "9-10",
+          "name": "Variable warm, with temperate places",
+          "detail": "Variable temperature worlds tend to show a greater distribution of climates than other worlds, either ranging from cold to temperate levels or temperate to hot levels. This may be a climate that changes world-wide when a long, slow orbit brings the planet into proximity with a stellar primary, or it might be a world that has substantially different climatic zones spread across its surface. The north pole of one world might be a sun-blasted desert that moderates to a cool, wet equator, or an icy world might be warmed here and there by complex channels of geothermally-heated subsurface rivers. Variable temperature worlds tend to have savage weather. The mixing of hot and cold air can send ferocious cyclones and raging hurricanes across the surface of the world, some large enough to consume most of a hemisphere."
+        },
+        {
+          "range": "11",
+          "name": "Warm, tropical and hotter in places",
+          "detail": "Warm worlds come in two main flavors, depending on the prevalence of water. “Desert worlds” are hot enough or arid enough to be deprived of most surface water. Any life on such a planet has to be capable of extracting water from living prey, air currents or moisture supplies deep underground. Humans can survive on warm worlds without more than appropriate clothing, but desert-world humans must learn sophisticated techniques of water prospecting and well-drilling in order to maintain their agricultural systems. Warfare often revolves around these water systems.\nThe other common variety of warm world is one blessed with an abundance of surface water. These worlds tend to be covered with plant and animal life, teeming with thick jungles and vast mats of sargasso on seas that boil with piscids and other alien life analogs. These worlds can be quite prosperous for humans if the native life is edible, but inhabitants are often forced to deal with large predators and a vigorously ingenious native ecology of disease."
+        },
+        {
+          "range": "12",
+          "name": "Burning, intolerably hot on its surface",
+          "detail": "Burning worlds are too hot for a human to survive without equipment similar to a vacc suit in effectiveness. Rivulets of molten lead or copper might bleed from open veins on the hillsides, and many of the same perils that face an explorer on a frozen world have hotter equivalents on a burning one. Ash drifts, pools of molten metal, and superheated liquid vents can bring quick death to an unwary explorer, and the miners who inhabit such worlds must be forever vigilant against the perils of their burning home."
+        }
+      ]
+    },
+    "biosphere": {
+      "type": "one roll range-table",
+      "interface": "2d6",
+      "values": [
+        {
+          "range": "2",
+          "name": "Remnant biosphere",
+          "detail": "Biosphere remnants are the wreckage of a ruined ecology. Petrified trees, drifts of preserved bones, forests of dead plant life; something killed all the life on this planet in the relatively recent past. It may have been the exercise of a maltech planet-buster weapon, or a mutant microbe introduced by human colonists, or some volcanic eruption or asteroid impact that plunged the world into decades of frozen night.\nAny local civilization not sophisticated enough to escape the planet likely died when it did. Their ruins and remains might be found throughout the desolate wastes, along with more clues as to the cause of the devastation"
+        },
+        {
+          "range": "3",
+          "name": "Microbial life forms exist",
+          "detail": "Microbial life is often the only thing that exists on the more inhospitable planets, yet the wide variety of environments that can accommodate life means that these little beasts show up in some of the most unlikely places. Some varieties of slime mold have even managed to evolve on corrosive-atmosphere planets, forming a mucous-like outer shell against the atmosphere and then feeding and growing off the chemical byproducts of its erosion.\nMicrobial life can also be dangerous. While most alien microbes are unable to infect or harm the radically different biology of humans, some show enough ingenuity to accomplish even that difficult feat. Rumors of terrible “space plagues” that leave behind only drifting ships and garbled warnings remain a steady staple at spacer bars throughout the known universe."
+        },
+        {
+          "range": "4-5",
+          "name": "No native biosphere",
+          "detail": "No native biosphere is occasionally found on even the most temperate and otherwise habitable worlds. For one reason or another, life simply never evolved on these worlds, leaving them a blank slate for the agricultural and ecological efforts of humans. If the world is otherwise amenable to Terran life, such planets can be enormously fertile and agriculturally rich.\nThey can also be disasters waiting to happen. Pretech xenobiologists compiled standardized colonization packages of plants, animals, and insect life designed to expand smoothly and evenly to fill the niches of an uninhabited world. Not all colonists implemented these packages correctly, and some worlds had disasters or special circumstances that destabilized their efforts. Some empty worlds are now in a state of constant biological flux as the local ecology strives vainly to find some sort of equilibrium between the myriad imported species and their violent struggle.\nMore subtly, these worlds can be suddenly and drastically destabilized by the import of some offworld plant or animal. With no strong native ecology to fight off interlopers, the wrong beast or bug can lay waste to whole continents. These planets tend to be extremely paranoid about importation of foreign life forms."
+        },
+        {
+          "range": "6-8",
+          "name": "Human-miscible biosphere",
+          "detail": "Human-miscible biospheres are those in which some substantial portion of the native life is biologically compatible with human nutritional needs. The local plants and animals may not be tasty or terribly nourishing, but they can support life without the serious importation of Terran crop seeds and livestock.\nEven the friendlier human-miscible biospheres often lack the wide variety of edibles that evolved on Earth, and the natives often supplement their stocks of local foods with limited Terran agriculture. Exotic foods, spices, and liquors can be worth interstellar importation to feed the hunger for novelty possessed by the elites on these worlds.\nUnfortunately, the fact that humans can eat some native life means that it is very likely that some native life can eat humans as well. Large predators and diseases capable of human infection are by no means uncommon on these worlds, and small colonies can be hard-pressed to survive them."
+        },
+        {
+          "range": "9-10",
+          "name": "Immiscible biosphere",
+          "detail": "Immiscible biospheres are not friendly to humans. None of the local plants or animals are edible, and anything the colony needs to eat will have to be grown from Terran stock. Worse, it is common for the pollen and other microbial life of these worlds to be highly allergenic to humans, requiring the regular use of tailored antiallergenics to prevent eventual respiratory failure or exotic immune-system reactions.\nThese worlds are exceptionally susceptible to the temptation of human gengineering. Despite the persistent drawbacks, genetic flaws, and handicaps that human gengineering usually introduces in a subject, the desperate need to eat can drive worlds to wholesale experimentation on their progeny. The resultant altered humans are often able to digest the local food, but commonly pay for it in shortened life spans, physical disabilities, or an inability to consume Terran foodstuffs. Sometimes the consequences are worse still.\nImmiscible biospheres produce some of the most exotic plants and animals in human space. Unfettered by the limits of familiar evolutionary patterns, creatures of bizarre beauty and strange configurations are found on many of these worlds. Many lack the intelligence to realize that humans are as poisonous to them as they are to humans."
+        },
+        {
+          "range": "11",
+          "name": "Hybrid biosphere",
+          "detail": "Hybrid biospheres are a stable intermixing of Terran flora and fauna with local life forms. Most such worlds have been colonized for centuries before the Silence, giving the local ecology time to shake out into a relatively stable configuration of Earth-born organisms and native life. The native biology may or may not be miscible with human life, but it unlikely to be particularly hostile in any case, or else the interloping life forms would not have been able to get a foothold on the planet.\nHybrid biospheres often show strange examples of symbiosis and adaptation, with plants and animals forming new alliances. Large predators from one world may find themselves subsisting on herds of herbivorous alien life, while Terran vegetation provides sustenance for large populations of small, furred, insect-like grazers. Familiar animals may show seemingly bizarre behavior patterns that have formed in response to local conditions, perhaps becoming larger or more aggressive, or having been gengineered for compatibility."
+        },
+        {
+          "range": "12",
+          "name": "Engineered biosphere",
+          "detail": "Engineered biospheres are among the rarest, as they require enormous time and effort on the part of a highly advanced civilization. Whatever life exists on this planet has been extensively altered by an alien race or by advanced pretech gengineering methods. Some such worlds are paradise planets, carefully sculpted by some fabulously wealthy predecessor to suit their own tastes. Others are living forges, where foodstuffs and refined minerals are produced as byproducts from the basic organic processes of the world’s biosphere.\nSuch worlds tend to be fragile. Many engineered worlds are dependent upon regular stabilizing work to prevent genetic drift and adaptations that do not serve the creator’s purpose. Without regular pruning and adjustment, engineered biospheres can go badly awry. Some end up leaving nothing but genetic wreckage in their wake, while others go wrong in more subtle ways. Where once the biosphere existed to serve the inhabitants, a creaking engineered biosphere can leave the planet’s population chained to constant repair and maintenance efforts just to prevent a planetary collapse."
+        }
+      ]
+    },
+    "population": {
+      "type": "one roll range-table",
+      "interface": "2d6",
+      "values": [
+        {
+          "range": "2",
+          "name": "Failed colony",
           "detail": ""
         },
         {
           "range": "3",
-          "name": "Cold",
+          "name": "Outpost",
           "detail": ""
         },
         {
           "range": "4-5",
-          "name": "Variable cold",
+          "name": "Fewer than a million inhabitants",
           "detail": ""
         },
         {
           "range": "6-8",
-          "name": "Temperate",
+          "name": "Several million inhabitants",
           "detail": ""
         },
         {
           "range": "9-10",
-          "name": "Variable warm",
+          "name": "Hundreds of millions of inhabitants",
           "detail": ""
         },
         {
           "range": "11",
-          "name": "Warm",
+          "name": "Billions of inhabitants",
           "detail": ""
         },
         {
           "range": "12",
-          "name": "Burning",
+          "name": "Alien inhabitants",
           "detail": ""
         }
       ]
     },
-    "biosphere": {},
-    "population": {},
     "techLevel": {},
     "worldOrigin": {},
     "systemPointsOfInterest": {}
