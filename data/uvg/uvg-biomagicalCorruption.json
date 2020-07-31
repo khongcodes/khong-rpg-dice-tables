@@ -1,0 +1,120 @@
+{
+  "main": {
+    "exposure": {
+      "type": "one roll range-table",
+      "interface": "1d20",
+      "values": [
+        {
+          "range": "1-3",
+          "name": "It's visibly bad",
+          "detail": "Gain a deleterious and a cosmetic mutation."
+        },
+        {
+          "range": "4-10",
+          "name": "It's just plain bad",
+          "detail": "Gain a deleterious mutation."
+        },
+        {
+          "range": "11-12",
+          "name": "Ups and downs",
+          "detail": "Gain a deleterious and a beneficial mutation."
+        },
+        {
+          "range": "13",
+          "name": "Chaos",
+          "detail": "Gain a deleterious, cosmetic, and beneficial mutation"
+        },
+        {
+          "range": "14-19",
+          "name": "Visible but not bad",
+          "detail": "Gain a cosmetic and a beneficial mutation."
+        },
+        {
+          "range": "20",
+          "name": "The biomagical lottery favors you",
+          "detail": "Gain a beneficial mutation."
+        }
+      ]
+    }
+  },
+  "extended": {
+    "deleteriousMutations": {
+      "type": "one roll table",
+      "interface": "!1d20",
+      "values": [
+        "Teeth fall out or become needle-sharp. Eventually may turn into bite attack.",
+        "Skin rots or develops suppurating boils.",
+        "Ears wither away or turn into bony horns.",
+        "Hand withers or locks into claw. Eventually may become a weapon.",
+        "Vestigial fingers or toes. Eventually they may become fully functional.",
+        "Vestigial gills or gas bladder. Eventually may permit breathing water or gas.",
+        "Vestigial wings or flagellae. Eventually they may become functional.",
+        "Fingers wither or become raw. Eventually they may wither away.",
+        "Joints stiffen or become weak, but hypermobile. Movement slowed.",
+        "Chronic fatigue or keratin ropes grow from body. Eventually body may become sessile mass of keratin ropes.",
+        "Eyes turn milky and blind. Eventually eyes may evaporate and collapse out of eye sockets. Vision reduced to astral sight.",
+        "Intelligence reduced or personality becomes strangely alien.",
+        "Feet deformed or oddly turned. Eventually may turn into hooves, paws, or bird legs.",
+        "Vestigial tail or arm. Eventually may become functional.",
+        "Bones become soft or brittle. Eventually may dissolve entirely.",
+        "Back becomes fused or hunched. Eventually a shell-like carapace may form.",
+        "Strange bones erupt from skin in odd places. May develop into spikes or armor over time.",
+        "Additional eye or teeth grow somewhere odd. Eye is functional. Teeth can be coaxed to grow into an additional mouth with a bit of biomancy and surgery.",
+        "Tongue fuses to jaw or is covered in sharp radulae. Speech becomes strange.",
+        "Secondary brain begins to develop, eventually achieving a semblance of independent thought."
+      ]
+    },
+    "cosmeticMutations": {
+      "type": "one roll table",
+      "interface": "!1d20",
+      "values": [
+        "Hairless or exceptionally fluffy. May end up a true fur-ball.",
+        "Change skin and or hair colour.",
+        "Ears change shape.",
+        "Lips grow or disappear.",
+        "Nose grows or disappears. Possibility of prehensile nose.",
+        "Eyes change colour. May end up radically weird.",
+        "Grow taller or shorter. May become much taller or shorter.",
+        "Mouth widens or narrows. Eventually it may disappear.",
+        "Small horns or bony plates grow. This may turn into armor.",
+        "Patterns appear on skin. Eventually these may begin to move and shift. Later these movements may become controlled.",
+        "Voice changes, becomes oddly inhuman. Eventually it becomes a cascade of colours and sensations.",
+        "Blood changes colour, becoming blue or green.",
+        "Skin becomes smooth and waxy. Eventually it becomes translucent, then flesh follows.",
+        "Muscles grow slimmer or bulkier. Eventually this becomes extreme.",
+        "Skull changes, becoming rounder or elongated.",
+        "Features become animalistic. Eventually they may become completely animal.",
+        "Eyes grow larger or smaller. Eventually they may disappear or become disembodied.",
+        "Fingers grow longer or shorter. Eventually they may turn into long, multi-tool like assemblages of chitin and bone.",
+        "Bone structure becomes bulkier or more gracile.",
+        "Skin becomes cuttlefish-like, changing colour at the flickering of thought and emotion."
+      ]
+    },
+    "beneficialMutations": {
+      "type": "one roll table",
+      "interface": "!1d20",
+      "values": [
+        "Stronger. Strength increases. This may increase the stat beyond human maximums, as high as 7. Maximum bonus to d20 roll remains +13.",
+        "Better. Endurance increases. May end up as high as 7.",
+        "Faster. Agility increases. May go as high as 7.",
+        "Smarter. Thought increases. May go as high as 6 or 7, but strange madnesses start developing as brain becomes inhuman.",
+        "Psionic evolution. Mental ability develops or spell acquired as an innate ability usable once per day.",
+        "Tougher. Life increased. This can get ridiculous. May be useful for a wizard.",
+        "Resilient. Immune system boosted, gain ↑a against disease, poison, radiation, or any one other environmental effect.",
+        "Psionic augmentation. Develop supernatural aptitude with one type of skill and make all relevant rolls with ↑a.",
+        "Supersoldier reflexes. Gain ↑a on initiative. Always get one action during surprise round.",
+        "Expert mimicry. Can flawlessly reproduce any action seen. Always gain ↑a to a skill test to perform an action they have already seen performed (e.g., after seeing somebody climb the wall of the Red Tower, they gain ↑a on their own test).",
+        "Cosmic channeling. When hero sees somebody cast a spell they test Aura to see if you can grab an echo of it and save it in their personality matrix (inventory) for later.",
+        "Mule. Can carry twice as much as a normal human. Speed may eventually be reduced as carrying capacity increases.",
+        "Metabolic enhancement. Derive sustenance from anything organic, and stomach is immune to organic poisons. Unfortunately, alcohol barely works anymore.",
+        "Optic augmentation. Eyes become sharper and more amazing than those of any normal human.",
+        "Sensory expansion. Develop eerie new senses: vibration sense, echolocation, electro-detection, a magnetic sense. Choose one.",
+        "Chosen regenerator. No longer make death tests. Every time hero is reduced to zero Life their body goes into hibernation as it reassembles itself at rate of 1 Life per day. Each reassembly reduces Endurance by 1.",
+        "Plastic bone structure. Can slowly adjust the shape and size of bones, squeezing through small spaces, growing taller or shorter, or mimicking other people’s faces.",
+        "Predator. Quickly heal by consuming and reprocessing biomatter close to own basic body pattern. Recover 1 Life for every stone of flesh consumed (so about 10 Life for a fully grown humanoid). For humans, this means chimpanzees and lemurs work well, pigs less so … and, well, humans work best. During healing-feeding frenzy consume a stone of flesh per action.",
+        "Precognitive mutation. Occasionally see glimpses of the future. It hurts, but it works. Can spend 1 Life to roll a test to avoid damage with ↑a.",
+        "Secret weapon. Body carries natural weapons hidden within it, perhaps claws within fingers, blades within arms, or venomous fangs in the mouth. Whatever. Hero now has natural weaponry."
+      ]
+    }
+  }
+}

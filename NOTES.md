@@ -11,6 +11,18 @@
 - [ ] Mothership RPG
 - [ ] LANCER
 - [ ] UVG
+  - [x] Your traveler
+  - [x] Mutations
+  - [ ] Other voyagers
+  - [ ] Tool or kit
+  - [ ] Strange items or soap-sized treasures
+  - [ ] D30 trade goods
+  - [ ] Histories of the UVG
+  - [ ] Discovery
+  - [ ] Historic period/style of art
+  - [ ] Geography & Climate
+  - [ ] Languages
+  - [ ] Dead languages
 - [ ] Stars without number
 
 # OTHER
