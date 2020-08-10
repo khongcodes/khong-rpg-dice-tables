@@ -14,7 +14,7 @@
 - [ ] UVG
   - [x] Your traveler
   - [x] Mutations
-  - [ ] Other voyagers
+  - [x] Other voyagers
   - [ ] Tool or kit
   - [ ] Strange items or soap-sized treasures
   - [ ] D30 trade goods
@@ -49,6 +49,7 @@ if \d after $ get results for twice
 
 types:[
   "one roll table",
+  "one roll table - object",
   "one roll range-table",
   "two roll range-table",
   "combined string",

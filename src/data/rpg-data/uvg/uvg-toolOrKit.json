@@ -1,0 +1,118 @@
+{
+  "main": {
+    "toolOrKit": {
+      "type": "one roll table - object",
+      "interface": "!1d18",
+      "values": [
+        {
+          "name": "Adventure Kitchen",
+          "size": "Sack",
+          "description": "Portable stove, samovar, canteen, cast iron pots and pans, oils, salts and spices, ladles, tongs, knives, chopping blocks, and more. No more eating raw game!",
+          "cost": "€100"
+        },
+        {
+          "name": "Ambassador's Trunk",
+          "size": "Sack",
+          "description": "Fine dress, etiquette manuals, beads, liquors, ink, forgery equipment, sealing wax, hidden drug compartment. Perfect for trade deals or pretending you’re a count. Servant not included but recommended.",
+          "cost": "€500"
+        },
+        {
+          "name": "Dungeoneer's Kit",
+          "size": "Sack",
+          "description": "Telescoping pole, net, rope, hook, crowbar, hammer, lamp, oil flasks, block and tackle, pitons, magnifying glass, flour, chalk, grease, lock picks, and bag of marbles. Everything you need to poke around a dungeon.",
+          "cost": "€100"
+        },
+        {
+          "name": "Excavator's Kit",
+          "size": "Sack",
+          "description": "Block and tackle, pulley, cable, ropes, snap hooks, carabiners, knives, shovel, pick, crowbar, drill, chain, sledgehammer, rollers. The gear you want for easily removing heavy objects.",
+          "cost": "€100"
+        },
+        {
+          "name": "Farmboy's Big Adventure",
+          "size": "Sack",
+          "description": "Backpack with pockets for 5 bonus stones, pet rodent, memento, heirloom weapon, sack’s worth of trail mix.",
+          "cost": "€10"
+        },
+        {
+          "name": "Golem Coding Gear",
+          "size": "Sack",
+          "description": "Leather tubes of writing paper, inks, pens, chisels, scalpels, ritual writing desk, and portable potter’s wheel.",
+          "cost": "€200"
+        },
+        {
+          "name": "Inquisitor Standard Case",
+          "size": "Sack",
+          "description": "Pliers, portable rack, small bellows, selection of scalpels, lunchbox, comfortable chair, many coloured robes, nice shoes, kissable knuckle rings, fire-starting equipment, and more. You know what it’s for.",
+          "cost": "€200"
+        },
+        {
+          "name": "Mechanic's Chest",
+          "size": "Sack",
+          "description": "Tough steel chest full of picks, wrenches, nuts, screwdrivers, ratchets, extractors, pliers, hammers, snips, crimpers, files, scrapers, keys, Allen wrenches, bolts, wire, glue, duct tape and suggestive literature.",
+          "cost": "€200"
+        },
+        {
+          "name": "The Original Medikit",
+          "size": "Sack",
+          "description": "Everything a real doctor could want. Stethoscope, scalpels, placebos, alcohol, morphine and degree included.",
+          "cost": "€300"
+        },
+        {
+          "name": "My First Archaeologist Kit",
+          "size": "Sack",
+          "description": "Shovels, picks, sacks, ropes, buckets, brushes, pith helmets, more mustache wax, shiny boots, safety whip, notebooks, and lamps. Everything a budding tomb raider could want!",
+          "cost": "€100"
+        },
+        {
+          "name": "Naturalist's Portable Laboratory",
+          "size": "Sack",
+          "description": "Jars, flasks, pins, boxes, nets, scalpels, prods, pens, brushes, paints, notebooks, easels, and an organic source reprogramming handbook (with pictures in five colours!). Perfect for the amateur biomancer.",
+          "cost": "€200"
+        },
+        {
+          "name": "Navigator's Suitcase",
+          "size": "Sack",
+          "description": "Case of compasses, maps, little telescopes, odd crystals, and baroque clockwork for astrologer or wayfinder.",
+          "cost": "€200"
+        },
+        {
+          "name": "Necromancer Gear",
+          "size": "2 Sacks",
+          "description": "Saws, knives, scalpels, stakes, hammers, leather cords, needles, petri dishes, wires, batteries, starters, and legal tomes. Tailored to the aspiring dead-talker.",
+          "cost": "€300"
+        },
+        {
+          "name": "Porter's Pack",
+          "size": "Sack",
+          "description": "Great walking boots, beat-up tea flask, extra water bottle, sunscreen, lamp, bandages, sleeping bag, blister cream, numbing chew root, and carry rack for one more sack of supplies.",
+          "cost": "€20"
+        },
+        {
+          "name": "Prospector's Kit",
+          "size": "Sack",
+          "description": "Shovels, picks, sacks, ropes, buckets, brushes, pith helmets, boots, notebooks, more hammers, and a hidden revolver or stiletto.",
+          "cost": "€50"
+        },
+        {
+          "name": "Shaman's Gear",
+          "size": "Sack",
+          "description": "Psychopomp relics, antivenom, laxatives, emetics, pickles, pipe, tobacco, “tobacco,” and a psychedelic brick.",
+          "cost": "€100"
+        },
+        {
+          "name": "UVG Pro Hiker Kit",
+          "size": "Sack",
+          "description": "The tourist’s dream: toiletries, zinc sunscreen, tent, sturdy walking stick, Greenland army knife, sombrero, mustache wax, kangaroo bag, schnapps and wineskins, nifty cord belt, and a sturdy backpack.",
+          "cost": "€50"
+        },
+        {
+          "name": "Veterinarian Kit",
+          "size": "Sack",
+          "description": "Saws, rubber gloves, knives, scalpels, leather straps. Everything a doctor could want! Works on humans!",
+          "cost": "€100"
+        }
+      ]
+    }
+  }
+}
