@@ -10,6 +10,7 @@
 
 - [ ] Mothership RPG
 - [ ] LANCER
+  - [ ] The Long Rim
 - [ ] UVG
   - [x] Your traveler
   - [x] Mutations
