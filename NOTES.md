@@ -8,14 +8,17 @@
 
 # Planned rpgs
 
-- [ ] Mothership RPG
+- [x] Mothership RPG
 - [ ] LANCER
-  - [ ] The Long Rim
+  - [x] longRim spaceStation
+  - [x] longRim spaceStationNPC
+  - [x] longRim spaceStationpirateBand
+  - [ ] longRim enterprise
 - [ ] UVG
   - [x] Your traveler
   - [x] Mutations
   - [x] Other voyagers
-  - [ ] Tool or kit
+  - [x] Tool or kit
   - [ ] Strange items or soap-sized treasures
   - [ ] D30 trade goods
   - [ ] Histories of the UVG

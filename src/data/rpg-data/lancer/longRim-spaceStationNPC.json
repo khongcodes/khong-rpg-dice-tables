@@ -1,0 +1,138 @@
+{
+  "main": {
+    "descriptor": {
+      "type": "one roll table",
+      "interface": "!1d20",
+      "values": [
+        "Exhausted",
+        "Sexy",
+        "Filthy",
+        "Corpulent",
+        "Cocky",
+        "Starving",
+        "Gloomy",
+        "Stranded",
+        "Passionate",
+        "Loud",
+        "Stoic",
+        "Part-time",
+        "Sweaty",
+        "Cigarette-Smoking",
+        "Flamboyant",
+        "Beefy",
+        "Nervous",
+        "Gruff",
+        "Well-Armed",
+        "Thrifty"
+      ]
+    },
+    "occupationPrimary": {
+      "type": "one roll table",
+      "interface": "!1d20",
+      "values": [
+        "Foreman",
+        "Stevedore",
+        "Goon",
+        "“Sheriff”",
+        "Bureaucrat",
+        "Fence",
+        "Sex Worker",
+        "Security Guard",
+        "Gravity Racer",
+        "Political Boss",
+        "Nearlight drive technician",
+        "Monk",
+        "Station Engineer",
+        "Private Eye",
+        "Harbor, Charter, or Enterprise Pilot",
+        "Night Mayor",
+        "Marine",
+        "Urchin",
+        "Medical Technician",
+        "Bounty Hunter"
+      ]
+    },
+    "occupationAlternateClandestine": {
+      "type": "one roll table",
+      "interface": "!1d20",
+      "values": [
+        "Chop shop doctor",
+        "Petty Thief",
+        "Corpro Intelligence (Undercover)",
+        "Smuggler",
+        "Stowaway from the Core, seeking passage out to the Dawnline Shore",
+        "Refugee from the Dawnline Shore, seeking safe ground",
+        "Dealer in exotic flora and fauna",
+        "Remote-activated killer, aware or not of their true nature",
+        "Swindler",
+        "Weapons dealer",
+        "Zero-g Farmer",
+        "Pilgrim",
+        "Ungrateful partisan",
+        "Muckraker",
+        "HORUS cell member",
+        "Local Fixer",
+        "Union or Harrison Armory Veteran",
+        "Addict (brighteyes, gliss, gazer, etc)",
+        "Horizon collectivist",
+"Pit fighter"
+      ]
+    },
+    "quirk": {
+      "type": "one roll table",
+      "interface": "!1d20",
+      "values": [
+        "An oversized, distinctive, or otherwise notable hat or headgear",
+        "One eye is covered by an eye patch, is a noticeable prosthetic, or has been replaced with something decorative",
+        "Old burn scars, visible even when clothed",
+        "Constantly reaching for, moving with reference to, or tapping weapon",
+        "Dresses in garish clothing",
+        "Often drunk, or otherwise intoxicated",
+        "A pathological liar (you think)",
+        "Very well connected, or related to about half the station",
+        "Knows jack shit about mechs, lancers, or pilots, but pretends they do",
+        "Has an exotic pet",
+        "Much taller than a person born downwell due to a life spent in artificial gravity",
+        "Often carries pamphlets of Ungrateful, HORUS, or Horizon propaganda",
+        "Has an excellent mental map of the station",
+        "Wears cracked eyeglasses",
+        "Has one or more visibly cybernetic limbs, in poor repair and condition",
+        "Used to be a lancer",
+        "Covered head to toe in Sparri saga tattoos, may or may not be Sparri",
+        "Does not speak Union Common, but can communicate using an automatic translator",
+        "Impressive hair or facial hair",
+        "Often followed, willingly or not, by innumerable dock rats or street urchins"
+      ]
+    },
+    "motivation": {
+      "type": "combined string",
+      "interface": "!1d10 !1d20",
+      "values": [
+        [
+          "Access to",
+          "Safety of",
+          "Information on",
+          "Transport for",
+          "Possession of",
+          "Elimination of",
+          "Hiding of",
+          "Cover for",
+          "Return of",
+          "Retribution for"
+        ],
+        [
+          "food",
+          "dangerous, rare or expensive flora or fauna",
+          "family",
+          "weapons",
+          "debt",
+          "high quality narcotics",
+          "reputation",
+          "blackmail",
+          "workers",
+          "a local politician, VIP, or enterprise middlema."
+        ]
+      ]
+    }
+  }
+}

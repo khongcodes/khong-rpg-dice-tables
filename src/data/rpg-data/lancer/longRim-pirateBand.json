@@ -1,0 +1,116 @@
+{
+  "main": {
+    "pirateBandName": {
+      "type": "combined string",
+      "interface": "!1d20 !1d20",
+      "values": [
+        [
+          "Colossal",
+          "Skull",
+          "Vector",
+          "Red",
+          "Realspace",
+          "Tiger",
+          "Fifty Talent",
+          "108",
+          "The All-",
+          "Strong",
+          "The Big",
+          "The Long",
+          "The/Los",
+          "The Free",
+          "The Golden",
+          "Pack",
+          "Private Company",
+          "Unlimited",
+          "Transit",
+          "Skyside"
+        ],
+        [
+          "Devils",
+          "Gods",
+          "Family",
+          "Tigers",
+          "Company",
+          "Hunters",
+          "Dogs",
+          "Triad",
+          "Kings",
+          "Solutions Unlimited",
+          "Gunners",
+          "Howlers",
+          "Calaveras",
+          "Runners",
+          "Group",
+          "Bosses",
+          "Patrol",
+          "Rimside",
+          "Interstellar",
+          "Interstation"
+        ]
+      ]
+    },
+    "hustles": {
+      "type": "one roll table",
+      "interface": "!1d10",
+      "values": [
+        {
+          "name": "Toll taking",
+          "detail": "Exaction of rent, bribes, tribute, or labor from local stations, freighters, or other passers-by"
+        },
+        {
+          "name": "Trafficking",
+          "detail": "Slavery and the smuggling of people (natural-born or clones), typically for unpaid labor"
+        },
+        {
+          "name": "Smuggling",
+          "detail": "Surreptitious transport of goods (illicit, normal, or unsavory) to avoid tariffs, taxes, embargoes, blockades, or fees"
+        },
+        {
+          "name": "Hijacking",
+          "detail": "Direct capture of ships, typically for ransom, but sometimes for parts"
+        },
+        {
+          "name": "Monopoly",
+          "detail": "Absolute control of a necessary resource - like fuel, water, or food - in the local area"
+        },
+        {
+          "name": "Kidnapping",
+          "detail": "Capture of VIPs, typically as hostages to secure ransom payments"
+        },
+        {
+          "name": "Raiding",
+          "detail": "Direct, violent assault on passing ships or vulnerable stations to forcibly take resources or people for use or sale"
+        },
+        {
+          "name": "Mercenaries",
+          "detail": "Soldiers for hire on a contract basis"
+        },
+        {
+          "name": "Narcotics",
+          "detail": "Manufacture and distribution of narcotics"
+        },
+        {
+          "name": "Horde",
+          "detail": "A rare type of group, constantly on the move. Hordes have no allies but may wield influence over cowed or oppressed populations that they command with threats of punishment. Hordes survive solely by raiding stations and ships that they deem vulnerable and valuable. They typically grow by pressing captives into service or conscripting from local populations at gunpoint. Hordes rarely last more than a few months before dispersing, though some are large enough to follow a pattern of seasonal or tidal surges and droughts"
+        }
+      ]
+    },
+    "mainAsset": {
+      "type": "one roll table",
+      "interface": "!1d10",
+      "values": [
+        "A fully armed warship kept in excellent shape. This ship was taken from Union or a state navy and although an older model, it is still deadly compared to other ships in the Rim. It has a spinal cannon or significant ordinance, plentiful batteries of cannons or lances, and is capable of destroying a station if its commander wishes. It might be used as a mobile base of operations.",
+        "A well-armed squad of 4-5 Elite mechs.",
+        "An impeccably hidden base, located in a cloud of debris or a dead zone that confuses sensors.",
+        "A titanic, unique mech. You can build this as a Size 4 mech with the Ultra template. It is is well armored enough to tackle ships and may require multiple pilots to crew.",
+        "An NHP that acts as a powerful advisor or a de facto leader. Rare for the Rim, this NHP is maintained by a team of skilled technicians, and grants a powerful advantage to its organization.",
+        "A powerful hacking corps that works out of an old comms station. They are capable of stealing ships and redirecting supplies without firing a shot, and they usually avoid direct conflict.",
+        "A long-range, space-to-space kinetic weapon platform that can easily disable passing ships and threaten stations. Its power source is buried deep inside an asteroid and it can only fire once every hour or so.",
+        "A small army (50-100 units) of combat subalterns armed with energy weapons.",
+        "A sub-blink snare – a temperamental, nonlethal anti-ship system that can disable ships’ reactors without harming their crew. It needs a central activator on a ship or nearby station to hold a ship in place.",
+        "A leashed asteroid at least 6 miles (or 10 kilometers) in diameter. Can be redirected, albeit slowly, to threaten stations or ships."
+      ]
+    }
+  }
+}

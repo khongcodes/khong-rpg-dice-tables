@@ -1,0 +1,19 @@
+{
+  "main": {
+    "holdings": {
+      "type": "one roll table",
+      "interface": "!1d10",
+      "values": []
+    },
+    "representative": {
+      "type": "one roll table",
+      "interface": "!1d10",
+      "values": []
+    },
+    "strength": {
+      "type": "one roll table",
+      "interface": "!1d10",
+      "values": []
+    }
+  }
+}

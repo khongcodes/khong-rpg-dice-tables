@@ -1,0 +1,200 @@
+{
+  "main": {
+    "stationSeed": {
+      "type": "one roll range-table",
+      "interface": "1d20",
+      "values": [
+        {
+          "range": "1-2",
+          "value": "Abandoned Union Navy shipyard, purchased and sold over and over to successive owners until it was eventually hauled out to the Rim. The population might be anywhere from minor to massive."
+        },
+        {
+          "range": "3-4",
+          "value": "A pirate colony based around an old surveying ship that has been permanently fused to its escorts. Now, it is nominally governed by an anarchist pirate queen. The colony keeps its doors open to outsiders but moves every 3-5 local days to avoid detection, bristling with weapons and thick with armed guards."
+        },
+        {
+          "range": "5-6",
+          "value": "A well-known IPS-Northstar refueling station, neutral ground for trade and services. This station is fequented by IPS-N’s Trunk Security and serves as a local base for the corpro’s patrol cutters. The central ring is full of the parked ships and charter captains ready and willing to run any job you need, for the right price."
+        },
+        {
+          "range": "7-8",
+          "value": "A long-abandoned mining colony, drilled deep into an enormous asteroid. Habitation is centered around its warm reactor core. The hundreds of miles of tunnels outside are more or less empty, you think. People disappear here often."
+        },
+        {
+          "range": "9-10",
+          "value": "A quiet old Union Navy outpost, barnacled with merchants and traders, small diplomatic offices representing the major powers, serviceable bars, official and unofficial checkpoints, and people willing to get you what you need if you’ve got the manna to cover it. This outpost is staffed by bored Union personnel mostly there to run customs checks."
+        },
+        {
+          "range": "11-12",
+          "value": "An enormous domed Volador trade bazaar with stable artificial gravity. Although they originally built it, los Voladores have not been here for hundreds of subjective years. It has largely been taken over by outside construction, and now it serves as the capital station for a powerful enterprise."
+        },
+        {
+          "range": "13-14",
+          "value": "A collection of salvaged freighters, lashed together to form a massive, rambling habitat full of dark corners, hidden warrens, and other secrets. Theoretically, it can even move if enough of the old ship drives can be re-ignited."
+        },
+        {
+          "range": "15-16",
+          "value": "A community of hydroponic farming habitats and humble agricultural families built among a collection of leashed asteroids, with a central hub for trade. This station is rumored to be a popular “retirement” destination for Horizon collectivists, and it may even be home to a “free” NHP. It’s rather calm and nice."
+        },
+        {
+          "range": "17-18",
+          "value": "A decommissioned Harrison Armory legion outpost from the first Dawnline colonization push, now a playground for long-haul freighter crews. It is filled with nightclubs, gambling dens, and pleasure houses, and as with most places in the Rim, anything goes here if you’ve got the manna. This station is popular with professional pirates from many enterprises, who see it as a neutral ground where they can have a good time."
+        },
+        {
+          "range": "19-20",
+          "value": "A hollowed-out asteroid or massive cylinder ship with an expansive station built on the inside surface, spinning at a comfortable 1 g. The metropolis on the inside is home to thousands of souls, and has petitioned Union for official state recognition."
+        }
+      ]
+    },
+    "stationNameSeed": {
+      "type": "one roll table",
+      "interface": "!1d20",
+      "values": [
+        "Hades, Hellmouth, Pandemonium, Devildance, Tartarus, Umber",
+        "Deliverance, Salvation, Gate of Heaven, Nirvana, Gloria, Bardo",
+        "Persistence, Samsara, Resolute, Redoubt, Dauntless, Stableground",
+        "Far Point, Highwater, Overlander, Horizon’s End, Rim ‘o The World, “___” End",
+        "Borea, Tundra, Percipita, Cumulus, Alpine, Frost",
+        "Petergate, Harper’s Hope, Rose Landing, Salahville, Ramahall, Law’s Point",
+        "Fat Chance, Hardly Truly, Rollem, Freerad, Lucky, “…” Casino…",
+        "Raftland, The Leash, Harbor, Dry-dock, Null Pier, “___” Maritime",
+        "Terminus, Interchange, Switch, Hub, Terminal, Apex",
+        "Barbadas, Arruda, Signas, Mollitempos, Tzatazi, Garudanas",
+        "“___” Hole, “___” Pit, “___” Depths, “___” Deep, Lower “___” , Under “___”",
+        "Goose, Eagle, Falcon, Raptor, Avia, Duck",
+        "“___” Fields, “___” Garden, “___” Orchards, “___” Forest, Nest, Dell",
+        "Icebreaker, Derrick, Well, Carver, Site, Drill",
+        "EM 51817",
+        "Nasser’s Cleft, “___” Canyon, “___” Fissure, Spires, Arches, Cliff",
+        "The Olympic, Sunstar, The Heavens, Comet’s Tail, The Glittering Arc, Diadem 1",
+        "Saynomore, Anythingelse, Cannagetcha, Pickr’Poison, Namaprice, F’sale",
+        "The Endless Gallery, Mirrorhell, The Silent Station, Derelict 42B, Titan, Solo Gate",
+        "Nowhere, The Eye, Blink’s Gate, Coma Station, Voidhall, The Concordance"
+      ]
+    },
+    "districtNameSeed": {
+      "type": "one roll table",
+      "interface": "!1d20",
+      "values": [
+        "The Shambles",
+        "Dockside",
+        "“___” Fields",
+        "“___” Bay",
+        "Core",
+        "Mall",
+        "“___” Lower",
+        "Storage",
+        "Ring Central",
+        "Nest",
+        "The Chokey",
+        "Upper “___”",
+        "“___” Processing",
+        "River Street",
+        "Warrens",
+        "Down Central",
+        "Spacer’s Walk",
+        "Narrows",
+        "Spires",
+        "Geo-“___”"
+      ]
+    },
+    "purposes": {
+      "type": "one roll range-table",
+      "interface": "1d20",
+      "values": [
+        {
+          "range": "1-2",
+          "value": "Asteroid Mining"
+        },
+        {
+          "range": "3-4",
+          "value": "General resupply for freighters"
+        },
+        {
+          "range": "5-6",
+          "value": "Smuggling cove"
+        },
+        {
+          "range": "7-8",
+          "value": "Hydroponic or terrestrial-analogous farming"
+        },
+        {
+          "range": "9-10",
+          "value": "Open bazaar or trading hub"
+        },
+        {
+          "range": "11-12",
+          "value": "Entertainment and nightlife"
+        },
+        {
+          "range": "13-14",
+          "value": "Military post"
+        },
+        {
+          "range": "15-16",
+          "value": "Mercenary Haven/Drinking Hole"
+        },
+        {
+          "range": "17-18",
+          "value": "Last fuel stop before the void"
+        },
+        {
+          "range": "19-20",
+          "value": "Criminal enterprise"
+        }
+      ]
+    },
+    "curiosities": {
+      "type": "one roll table",
+      "interface": "!1d20",
+      "values": [
+        "Open air produce market for local families that appears along the spinal corridor once every three core standard days. The produce is grown in bags and tends to be oddly shaped and very juicy. Most spacers prefer it that way.",
+        "A wizened hermit who can see the future with about 50% accuracy for any given reading (you can roll for this, if you like). They can’t see more than a day or so into the future and live mostly off donations. They claim to be a former operative of the UIB – Union Intelligence Bureau – who acquired their abilities during clandestine operations.",
+        "A large population of feral kraits – dog-sized crustaceans that have adapted almost perfectly for life on stations. They make excellent pets, produce very little waste, and consume very little food and water.",
+        "A cluttered chop shop for cyberware and prosthetics, as well as a low-cost wetware-installation and repair facility. The operation is run by an aging doctor with increasingly poor hearing and eyesight who enjoys the respect and custom of the locals. Everything is clean, despite appearances.",
+        "A water hub where locals must show up daily to receive their water ration. Over time, the hub has transformed into an impromptu social club and cafe where the local variation on tea and biscuits is served in bulk, and for very cheap. The site remains open around the clock despite the distribution period being only a few hours.",
+        "A set of exposed thermal pipes used by most of the locals to do their cooking despite many complaints from engineering. The area around the pipes is sweltering and full of amazing smells.",
+        "A HORUS technocult blister attached to the side of the station by a punch corridor and several umbilicals. The cult trades for food with the locals in return for information. Station admin steadfastly denies their existence, despite their operation being in plain sight.",
+        "A gang of station kids who will trade information for off-station food, with a vast preference for candy. It seems like they can get into nearly anything on the station (including off-limits or clandestine areas) and are total shitkickers in a fight.",
+        "A man called the Groundskeeper who has a reputation as a master forger. He can spoof most IFF signatures, ship transponders, badges of office, and official papers – for a price. He lives in a ramshackle barge attached to the station, but ready to leave any time.",
+        "An old Schedule 2 printer, although it is in terrible shape and clogged with back-orders. The printer facility is run by an overworked officer whose operating floor space is about 90 percent paperwork and old servers by volume.",
+        "“The best burger joint in the Orion Arm”, run by a Sparri technoshaman who claims to have invented a new stasis freezing technique for keeping meat fresh on long-haul journeys. Don’t ask too much about it or they get testy. The burgers live up to the hype.",
+        "A humble shrine or fine temple to Christ the Buddha, usually adorned with lanterns. Please remove your shoes before entering.",
+        "A cramped but characterful cinema run by an enthusiast who grew up in the Rim. It is slightly outdated and tends to get the most recent stuff from the Capital worlds pretty late; in the meantime, there is a well-curated program of old films.",
+        "An opulent pleasure barge has been stranded at the station for several weeks. The Smith Shimano executive who resides there is extremely upset at the refueling delay and believes it to be intentional. They are eager for help in freeing themselves from the administrative and bureaucratic red tape keeping them there.",
+        "A gambling and gaming hall built alongside the main concourse. It is populated at all hours and doubles as a bar and smoking lounge. The popular Sparri board game kapkat is played here, and the sound of jingling machines can be heard up and down nearby areas of the station. The makeshift casino often hosts live shows and impromptu fights.",
+        "An inactive IPS-N Tortuga has been welded into the station wall and serves as a power source. It is seen as a mascot or guardian by the locals.",
+        "Down a back-alley maintenance corridor behind a bar, seekers can find gliss. These crustaceans have powerful narcotic effects; most people smoke them right out of their shells.",
+        "An overgrown hydro farm that has broken into the station’s pipes, causing large parts of the station to become humid and lush with dark green or purple foliage. Rather than clear out the growth, the station managers have turned the overgrown areas into resources for station food, medicine, and trade goods.",
+        "A weapons dealer does business out of an old apartment stack. They always have coffee brewing and are friendly, but you know it’s all business. They employ a large population of aging and imported ISP-N subalterns to assist.",
+        "The House of Cats: a jazz cafe, bar, restaurant, gambling parlor, and house of courtesans. It is never closed, extremely loud, and designed to drain all your loose manna and station credit. The establishment is garishly decorated in the style of old Terran palatial estates. In offers a fun time, but it is dangerous to get too attached."
+      ]
+    },
+    "problems": {
+      "type": "one roll table",
+      "interface": "!1d20",
+      "values": [
+        "The station’s orbit is decaying and it will fall into the nearest star or planetary body in the next year or so. A deadlock between engineering and leadership has prevented anything from being done about this.",
+        "A cycle of blood debts has led to a huge feud between several families on the station. Skirmishes with knives and guns are common in the streets, and the locals who haven’t fled have gone into lockdown.",
+        "The station’s life support systems are in desperate need of repair. Parts of the station have no light or air, or are massively hot or cold. To make matters worse, the engineering team sent into Life Support to fix the problem never fixed it, never returned, and won’t respond to communications requests.",
+        "A Volador has died of (seemingly) natural causes while on a diplomatic mission to the station: there is absolutely no protocol for how to deal with burial, and the station’s leaders don’t know how to get in contact with los Voladores to let them know.",
+        "The station administrator’s child has gone missing.",
+        "The station is infested with a population of unusually large predatory kraits that are currently plaguing the maintenance and hydroponics decks.",
+        "A corrupt political boss holds sway over station resources and refuses to budge without proper deference or bribes. They claim they are bringing order to the station and have given the population an ultimatum delivered at the barrels of their security forces’ guns: knuckle under or get spaced.",
+        "There’s been another gruesome murder – the third in a month. It’s clear now that there’s a serial killer on the station.",
+        "The stations’ spin sections are out of alignment and the wobbling toruses sometimes spin a little too close, causing “gravity” outages and wild fluctuations. It needs fixing, and soon: station engineers predict that left unfixed, these gravity fluctuations could tear the station apart.",
+        "An unregistered skip vessel from the Dawnline Shore has docked at the station. The passengers claim to be political dissidents in need of sanctuary, which has sparked a divisive debate aboard the station: some think they should be granted asylum, while others fret about the station’s resource budget. All the while, a Harrison Armory (or Karrakin) patrol burns towards the station, sure to spark a confrontation when they arrive.",
+        "A pirate or marauder band has parked nearby and frequently raids the station or its visitors to exact tribute. The station’s enterprise is refusing to send protection teams until the locals pony up and pay for missing protection payments, so the raids continue. The people are in need of help, but any assistance is sure to piss off both the marauder’s enterprise and the local station’s enterprise.",
+        "An apocalyptic cult has filtered into the station, placing some of their adherents in important infrastructure and security positions. Left unchecked, their eschatological designs will see the end of the station and – possibly – have consequences for nearby sectors of the Long Rim.",
+        "The station is a de-facto haven for narcotics smugglers. Gliss, brighteyes, gazer – whatever you want, you can get it here. The only problem is that these smugglers are unaffiliated, and a pair of rival enterprises seem ready to “negotiate” ownership, whether the station wants them to or not.",
+        "Supplies are critically short and hoarding is commonplace. Regular shipments have been “delayed” by a local cordon – either at the hands of an enterprise or a more legitimate power – and the locals are getting desperate for relief.",
+        "The station’s population has grown massively in recent years, putting a significant strain on resources. Some factions argue that an exodus is necessary, while others advocate for opening up long-sealed sections of the station and exploiting the open space. Those sections, though, have been sealed for a reason…",
+        "A popular revolution has recently overthrown the station’s previous owners and the situation is still volatile; the revolutionary group has issued a broad-band call for support and fighters, but this has also alerted a nearby enterprise that sees this as an opportunity for them to expand its own territory.",
+        "The station was recently abandoned by Harrison Armory, who pulled almost all funding, resources, and security and left without explanation. The local population, beleaguered, is searching for answers; meanwhile, a skeleton team of Armory personnel can be seen operating in sealed-off sections of the station, unresponsive to the local populations’ petitions for information.",
+        "A Sparri mercenary company rolls through at regular intervals and trashes the place with wild partying. They’re good business, but they leave a mess, and it’s starting to grate on the locals.",
+        "A HORUS cell keeps threatening to redirect an asteroid into the station if they are not paid at regular intervals.",
+        "The station is a neutral territory for several Rim enterprises that use it as a marketplace and diplomatic hub. Because of this, when the main concourse is bombed, the enterprises all suspect each other, and the tenuous diplomatic arrangement begins to grow tenser and tenser."
+      ]
+    }
+  }
+}
