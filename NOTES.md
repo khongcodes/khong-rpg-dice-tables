@@ -19,8 +19,8 @@
   - [x] Mutations
   - [x] Other voyagers
   - [x] Tool or kit
-  - [ ] Strange items or soap-sized treasures
-  - [ ] D30 trade goods
+  - [x] Strange items or soap-sized treasures
+  - [x] D30 trade goods
   - [ ] Histories of the UVG
   - [ ] Discovery
   - [ ] Historic period/style of art
@@ -52,7 +52,6 @@ if \d after $ get results for twice
 
 types:[
   "one roll table",
-  "one roll table - object",
   "one roll range-table",
   "two roll range-table",
   "combined string",

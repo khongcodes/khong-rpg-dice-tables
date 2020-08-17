@@ -1,0 +1,24 @@
+{
+  "main": {
+    "forgottenTimes": {
+      "type": "one roll table",
+      "interface": "!1d12",
+      "values": []
+    },
+    "dimlyRememberedStrife": {
+      "type": "one roll table",
+      "interface": "!1d12",
+      "values": []
+    },
+    "fabledStories": {
+      "type": "one roll table",
+      "interface": "!1d12",
+      "values": []
+    },
+    "oralHistoriesOfRevolution": {
+      "type": "one roll table",
+      "interface": "!1d12",
+      "values": []
+    }
+  }
+}

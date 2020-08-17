@@ -1,0 +1,220 @@
+{
+  "main": {
+    "tradeGoods": {
+      "type": "one roll table",
+      "interface": "!1d30",
+      "values": [
+        {
+          "name": "Alchemical lubricants",
+          "description": "Various wet things that keep machines running.",
+          "use": "Popular with mechanomancers & engineers.",
+          "source": "Iron Road",
+          "cost": "€100"
+        },
+        {
+          "name": "Beast egg masses",
+          "description": "Fleshy, squishy, and fickle. Keep in cooled vats to prevent from spoiling.",
+          "use": "Biomancers have advantage when growing these into new servitor creatures.",
+          "source": "Forest of Meat",
+          "cost": "€500"
+        },
+        {
+          "name": "Bone-work",
+          "description": "Moldable or editable chunks of raw bone, still warm with bone-sculpture.",
+          "use": "Beloved of necromancers and bone wizards.",
+          "source": "Behemoth Shell",
+          "cost": "€200"
+        },
+        {
+          "name": "Chitin cap",
+          "description": "Sheets and rods and fibres of chitin grown from the Umber fungoid bio-mantics. Once more common.",
+          "use": "An important component of both buildings and autogolems.",
+          "source": "Fallen Umber",
+          "cost": "€100"
+        },
+        {
+          "name": "Common intoxicants",
+          "description": "Drugs like cat coffee (Violet City), felix whizz, and purple haze. Broadly tolerated, like tea is today.",
+          "use": "Make life more tolerable for the poor and bereft. Often weakly addictive.",
+          "source": "Various",
+          "cost": "€2,000"
+        },
+        {
+          "name": "Cosmic scales",
+          "description": "In different shapes and colours, iridescent and rare, there must be mines near the Dark City.",
+          "use": "Rich Rainbowlanders craft suits and capes with them, twinkling as they go.",
+          "source": "Forest of Meat",
+          "cost": "€600"
+        },
+        {
+          "name": "Dryland coral seeds ",
+          "description": "Incredibly vulnerable and have to be kept in sealed containers to protect them from the open air.",
+          "use": "A valuable construction material, lets petromancers grow entire buildings.",
+          "source": "Ivory Plain",
+          "cost": "€1,000"
+        },
+        {
+          "name": "Gems and jewels",
+          "description": "Rare stones of ancient manufacture, rubies and sapphires and emeralds.",
+          "use": "Great for focusing light and making illusions.",
+          "source": "Spectrum Palace",
+          "cost": "€25,000"
+        },
+        {
+          "name": "Gold",
+          "description": "Red, white, or midnight blue. The demiurges gave this metal many hues.",
+          "use": "It’s gold. Also useful for electromancers.",
+          "source": "Unknown",
+          "cost": "€15,000"
+        },
+        {
+          "name": "Indigo ivories",
+          "description": "From the teeth of the rare midnight beasts of the Deep West.",
+          "use": "Beautiful and tough, often carved into jewelry and tools with crystal chisels.",
+          "source": "Dark Light Passage",
+          "cost": "€500"
+        },
+        {
+          "name": "Joy worms",
+          "description": "Empathic, symbiont worm-like creatures that release endorphins. Popular with many masters.",
+          "use": "Implanted in workers or servitor beasts, they flood the consciousness with pleasure and joy even during odious and boring tasks.",
+          "source": "Unknown",
+          "cost": "€500"
+        },
+        {
+          "name": "Karma dust",
+          "description": "Purified extract of the demiurges, so they say. The Inquisition bans karma dust with a vengeance.",
+          "use": "Removes sins, annihilates memories, purifies souls. Foils detection magics and machines.",
+          "source": "Spectrum Crossing",
+          "cost": "€1,000"
+        },
+        {
+          "name": "Last steel",
+          "description": "Nodules of ever-warm, oily steel from the Long Ago.",
+          "use": "Smiths swear it’s almost alive.",
+          "source": "Dead Bridge",
+          "cost": "€400"
+        },
+        {
+          "name": "Livingstone bricks",
+          "description": "Packed in clay, the seeds slowly petrify their surroundings into living stone.",
+          "use": "Petromancers use these to grow stone art, decorations, and furniture.",
+          "source": "Ribs of the Father",
+          "cost": "€200"
+        },
+        {
+          "name": "Marrow-beet",
+          "description": "Gastropod lichen symbiote, tight in its shell. It can stay alive for months.",
+          "use": "Edible, protein-rich gory chunks in calcinous shells.",
+          "source": "Behemoth Shell",
+          "cost": "€100"
+        },
+        {
+          "name": "Medimagicals",
+          "description": "Ointments, potions, and implants of all sorts.",
+          "use": "Easier for doctors to fix people with supplies.",
+          "source": "Near Moon",
+          "cost": "€400"
+        },
+        {
+          "name": "Mounts",
+          "description": "Horses, trail birds, or whatever they breed here.",
+          "use": "They carry stuff. And themselves!",
+          "source": "Grass Colossus",
+          "cost": "€100"
+        },
+        {
+          "name": "Odd fruits",
+          "description": "Luminescent vavilov velvets and Cherenkov cherries, prized and delicate.",
+          "use": "Delicious. Fresh may be more valuable.",
+          "source": "Porcelain Citadel",
+          "cost": "€100"
+        },
+        {
+          "name": "Radiothermal fuel",
+          "description": "Poisonous rods to feed into radiothermal barrels.",
+          "use": "Food for the archaic power making machines.",
+          "source": "Black City",
+          "cost": "€500"
+        },
+        {
+          "name": "Rainbow silks",
+          "description": "Shifting colours woven from the silky strands of crystal spiders by the Spectrum Satraps.",
+          "use": "Great for colour-shifting clothes. Or camouflage.",
+          "source": "Spectrum Palace",
+          "cost": "€500"
+        },
+        {
+          "name": "Rare drugs",
+          "description": "Rare and illegal intoxicants like black light lotus, cat snip, dog’s tail, and whiskers.",
+          "use": "Powerful, but strongly addictive. Sources must be discovered outside of destinations.",
+          "source": "Off-grid",
+          "cost": "€10,000"
+        },
+        {
+          "name": "Replacement bodies",
+          "description": "Fine, compliant bodies—perfect for biomancy.",
+          "use": "Ordinary slaves can be as little as €200.",
+          "source": "Three Sticks Lake",
+          "cost": "€2,000"
+        },
+        {
+          "name": "Saffron",
+          "description": "Mind-altering spice made from the Yellow Land saffron plants. More valuable out West.",
+          "use": "Improves cognition and boosts reflexes.",
+          "source": "Yellow Land",
+          "cost": "€1,000"
+        },
+        {
+          "name": "Sanguine porcelains",
+          "description": "Mined from the deposits of older times. Unknown if still manufactured anywhere.",
+          "use": "Prized as a pigment or for carving.",
+          "source": "Potsherd Crater",
+          "cost": "€200"
+        },
+        {
+          "name": "Silver ",
+          "description": "And other similar precious metals. Copper wires, vanadium nuts, chromium knives.",
+          "use": "Useful for alchemists and golemancers.",
+          "source": "Endless Houses",
+          "cost": "€2,000"
+        },
+        {
+          "name": "Soul-stones",
+          "description": "Highly illegal animantic containers charged with distilled spirit.",
+          "use": "Can be used for storing souls and soles.",
+          "source": "Refracting Trees",
+          "cost": "€10,000"
+        },
+        {
+          "name": "Ultra jay needles",
+          "description": "Rare drug from the crystal feathers of a UV bird.",
+          "use": "Used as status symbol in Rainbowlands.",
+          "source": "Unknown",
+          "cost": "€25,000"
+        },
+        {
+          "name": "Vampire wines",
+          "description": "Rich and ruby red, revitalizing for they grow from source-rich soils infused with the flesh of creation.",
+          "use": "More valuable further West.",
+          "source": "Red Land",
+          "cost": "€100"
+        },
+        {
+          "name": "Vidy crystals",
+          "description": "Ancient orbs laced with eminently forgettable tales of comedy and tragedy.",
+          "use": "Mass entertainment.Harvested from ancient ruins. Great rewatch value!",
+          "source": "Endless Houses",
+          "cost": "€500"
+        },
+        {
+          "name": "Weapons and armors",
+          "description": "Restricted military-grade equipment.",
+          "use": "Enough to armor and arm three elite troops.",
+          "source": "Hidden ammofacs",
+          "cost": "€3,000"
+        }
+      ]
+    }
+  }
+}
