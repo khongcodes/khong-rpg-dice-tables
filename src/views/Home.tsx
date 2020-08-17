@@ -1,5 +1,7 @@
 // NOTES
 ///////////////////////////////////////////////////////////////////
+// Store state in session from App component
+
 
 // IMPORTS
 ///////////////////////////////////////////////////////////////////
@@ -7,14 +9,31 @@
 
 import React from 'react';
 
+import { AddRollButton } from "../components/Buttons";
+
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
-const Home: React.FC = () => {
+const Roll = () => {
   return (
     <div>
-      I'm Home
+      I'm a roll
+    </div>
+  )
+}
+
+const Home: React.FC = () => {
+  
+  return (
+    <div>
+      <div>
+        {}
+      </div>
+
+      <div>
+        <AddRollButton />
+      </div>
     </div>
   )
 }

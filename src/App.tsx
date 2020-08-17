@@ -1,27 +1,30 @@
 // NOTES
 ///////////////////////////////////////////////////////////////////
+// Check if session can be created with redux
+// pass state (number of rolls) to Home
 
 // IMPORTS
 ///////////////////////////////////////////////////////////////////
 // 1. React
 // 2. components
 
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import Layout from "./viewsCommon/Layout";
+import Layout from "./components/Layout";
 import Home from "./views/Home";
 import About from "./views/About";
-
 
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
-function App() {
+const App = () => {
+
+
   return (
     <BrowserRouter>
-      <Layout>
+      <Layout >
         <div>
           i'm in
         </div>
