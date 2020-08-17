@@ -4,25 +4,19 @@
 // IMPORTS
 ///////////////////////////////////////////////////////////////////
 // 1. React
-// 2. components
 
 import React from 'react';
-
-
-import Layout from "./viewsCommon/Layout";
 
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
-function App() {
+const Home: React.FC = () => {
   return (
-    <Layout>
-      <div>
-        i'm in
-      </div>
-    </Layout>
-  );
+    <div>
+      I'm Home
+    </div>
+  )
 }
 
-export default App;
+export default Home;
