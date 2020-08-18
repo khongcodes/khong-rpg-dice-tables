@@ -32,7 +32,7 @@
         ]
       },
       "coreStation": {
-        "type": "one roll table",
+        "type": "one-roll string table",
         "interface": "!1d10",
         "values": [
           "Overcrowded habitat colony",
@@ -48,7 +48,7 @@
         ]
       },
       "orbitingCelestialBody": {
-        "type": "one roll table",
+        "type": "one-roll string table",
         "interface": "!1d10",
         "values": [
           "Still-terraforming planet",
@@ -64,7 +64,7 @@
         ]
       },
       "coreLeader": {
-        "type": "one roll table",
+        "type": "one-roll string table",
         "interface": "!1d10",
         "values": [
           "First-colony descendent",
@@ -80,7 +80,7 @@
         ]
       },
       "controllingFaction": {
-        "type": "one roll table",
+        "type": "one-roll string table",
         "interface": "!1d10",
         "values": [
           "Radical colonial separatists",
@@ -98,7 +98,7 @@
     },
     "rimspace": {
       "rimLandmark": {
-        "type": "one roll table",
+        "type": "one-roll string table",
         "interface": "!1d10",
         "values": [
           "Heavily-guarded corporate DMZ",
@@ -114,7 +114,7 @@
         ]
       },
       "rimStation": {
-        "type": "one roll table",
+        "type": "one-roll string table",
         "interface": "!1d10",
         "values": [
           "Independent colony",
@@ -130,7 +130,7 @@
         ]
       },
       "callSign": {
-        "type": "one roll table",
+        "type": "one-roll string table",
         "interface": "!1d10",
         "values": [
           "Remote Site-{1d100}${!1d26}",
@@ -147,7 +147,7 @@
         "rollTable": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
       },
       "controllingFaction": {
-        "type": "one roll table",
+        "type": "one-roll string table",
         "interface": "!1d10",
         "values": [
           "The Anders-Klimt Mining Corporation",
@@ -163,7 +163,7 @@
         ]
       },
       "rivallingFaction": {
-        "type": "one roll table",
+        "type": "one-roll string table",
         "interface": "!1d10",
         "values": [
           "The Synthetic Liberation Front",
@@ -179,7 +179,7 @@
         ]
       },
       "rivalLeader": {
-        "type": "one roll table",
+        "type": "one-roll string table",
         "interface": "!1d10",
         "values": [
           "Renegade android",
@@ -197,7 +197,7 @@
     },
     "common": {
       "crisis": {
-        "type": "one roll table",
+        "type": "one-roll detail table",
         "interface": "!1d10",
         "values": [
           {
@@ -243,7 +243,7 @@
         ]
       },
       "goods": {
-        "type": "one roll table",
+        "type": "one-roll string table",
         "interface": "!1d10",
         "values": [
           "Equipment",
@@ -259,7 +259,7 @@
         ]
       },
       "resource": {
-        "type": "one roll table",
+        "type": "one-roll string table",
         "interface": "!1d10",
         "values": [
           "Android Laborers",
@@ -275,7 +275,7 @@
         ]
       },
       "commonIssue": {
-        "type": "one roll table",
+        "type": "one-roll detail table",
         "interface": "!1d10",
         "values": [
           {
@@ -321,7 +321,7 @@
         ]
       },
       "spaceStationStructure": {
-        "type": "one roll table",
+        "type": "one-roll detail table",
         "interface": "!1d10",
         "values": [
           {
@@ -367,7 +367,7 @@
         ]
       },
       "noteworthyEstablishments": {
-        "type": "two roll range-table",
+        "type": "two-roll range-table",
         "interface": "1d6[!1d100]",
         "values": [
           {

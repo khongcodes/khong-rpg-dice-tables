@@ -1,7 +1,7 @@
 {
   "main": {
     "worldType": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d20",
       "values": [
         "Barren, with no atmosphere, no water, and scarce valuable resources; under a ceaseless barrage ofterrible radiation.",
@@ -27,7 +27,7 @@
       ]
     },
     "definingNaturalFeature": {
-      "type": "one roll table",
+      "type": "one-roll detail table",
       "interface": "!1d20",
       "values": [
         {
@@ -113,7 +113,7 @@
       ]
     },
     "definingAnthropocentricFeature": {
-      "type": "one roll table",
+      "type": "one-roll detail table",
       "interface": "!1d20",
       "values": [
         {
@@ -199,7 +199,7 @@
       ]
     },
     "environments": {
-      "type": "one roll table",
+      "type": "one-roll detail table",
       "interface": "!1d20",
       "values": [
         {

@@ -12,6 +12,14 @@ import React from 'react';
 import { AddRollButton } from "../components/Buttons";
 
 
+// SETUP
+///////////////////////////////////////////////////////////////////
+
+type HomeProps = {
+  testState: number;
+  updateState: VoidFunction;
+}
+
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
@@ -23,16 +31,21 @@ const Roll = () => {
   )
 }
 
-const Home: React.FC = () => {
+const Home: React.FC<HomeProps> = ({ testState, updateState }) => {
   
+  const increment = (event: React.MouseEvent) => {
+    updateState();
+  }
+
   return (
     <div>
       <div>
-        {}
+        {testState}
       </div>
 
       <div>
-        <AddRollButton />
+        <button onClick={increment}>add</button>
+        {/* <AddRollButton /> */}
       </div>
     </div>
   )

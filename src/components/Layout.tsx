@@ -10,7 +10,7 @@ import { useLocation, Link } from "react-router-dom";
 // SETUP
 ///////////////////////////////////////////////////////////////////
 type LayoutProps = {
-  children: React.ReactNode[] | React.ReactNode
+  children: React.ReactNode[] | React.ReactNode;
 }
 
 // COMPONENTS & LOGIC

@@ -20,7 +20,10 @@ import About from "./views/About";
 ///////////////////////////////////////////////////////////////////
 
 const App = () => {
+  const [testState, setTestState] = useState(1);
+  const incrementTestState: VoidFunction = () => setTestState(testState + 1);
 
+  const [rolls, setRolls] = useState();
 
   return (
     <BrowserRouter>
@@ -30,7 +33,7 @@ const App = () => {
         </div>
         <Routes>
           <Route path="/about" element={<About />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home testState={testState} updateState={incrementTestState} />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>
