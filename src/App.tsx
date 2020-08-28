@@ -11,7 +11,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import { Roll } from "./model/Roll";
+import { Roll, RollsStateType } from "./model/Roll";
 
 import Layout from "./components/Layout";
 import Home from "./views/Home";
@@ -21,20 +21,24 @@ import About from "./views/About";
 // SETUP
 ///////////////////////////////////////////////////////////////////
 
-
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
 const App = () => {
-  const [testState, setTestState] = useState(1);
-  const incrementTestState: VoidFunction = () => setTestState(testState + 1);
-
-  const [rolls, setRolls] = useState<Roll[] | []>([]);
+  const [rollsState, setRollsState] = useState<RollsStateType>([]);
   
-  const addRoll = (rollArray: Roll[] | []) => {
-    setRolls([...rollArray, new Roll]);
+  const addRoll = (rollsArray: RollsStateType) => {
+    setRollsState([ ...rollsArray, new Roll() ]);
   }
 
+  const removeRollById = (
+    rollsArray: RollsStateType,
+    id: string
+  ) => {
+    setRollsState([ ...rollsArray.filter((roll: Roll) => (roll.id != id)) ]);
+  }
+
+  console.log(rollsState);
 
   return (
     <BrowserRouter>
@@ -44,7 +48,7 @@ const App = () => {
         </div>
         <Routes>
           <Route path="/about" element={<About />} />
-          <Route path="/" element={<Home rolls={rolls} addRoll={addRoll} />} />
+          <Route path="/" element={<Home rolls={rollsState} addRoll={addRoll} removeRollById={removeRollById} />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>

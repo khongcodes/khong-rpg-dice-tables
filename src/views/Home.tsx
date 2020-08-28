@@ -7,27 +7,29 @@
 ///////////////////////////////////////////////////////////////////
 // 1. React
 
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Roll } from "../model/Roll";
+import { Roll, RollsStateType } from "../model/Roll";
 
 import RollComponent from "../components/RollComponent";
-import { AddRollButton } from "../components/Buttons";
+// import { AddRollButton } from "../components/Buttons";
 
 
 // SETUP
 ///////////////////////////////////////////////////////////////////
 
 type HomeProps = {
-  rolls: Roll[] | [];
-  addRoll: (rollArray: Roll[] | []) => void;
+  rolls: RollsStateType;
+  addRoll: (rollArray: RollsStateType) => void;
+  removeRollById: (rollArray: RollsStateType, id: string) => void;
 }
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
-const Home: React.FC<HomeProps> = ({ rolls, addRoll }) => {
-  console.log(rolls.length)
+const Home: React.FC<HomeProps> = ({ rolls, addRoll, removeRollById }) => {
+
+  const removeThisRoll = (id: string) => removeRollById(rolls, id);
 
   return (
     <div>
@@ -35,7 +37,11 @@ const Home: React.FC<HomeProps> = ({ rolls, addRoll }) => {
         {
           rolls.length === 0 ? <></> : 
             (rolls as Roll[]).map(roll => 
-              <RollComponent key={roll.id} data={roll}/>
+              <RollComponent 
+                key={roll.id}
+                data={roll}
+                removeThisRoll={removeThisRoll}
+              />
             ) 
         }
       </div>

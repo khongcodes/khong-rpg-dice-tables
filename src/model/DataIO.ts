@@ -81,7 +81,13 @@ type Lookuptype = {
 
 
 
-const rollNames = ["lancer-iterativeWorld", "b", "c"] as const;
+const tableNames = <const> [
+  "lancer-iterativeWorld",
+  "mothership-trinketsPatches",
+  "mothership-spaceStationCorespace",
+  "mothership-spaceStationRimspace",
+  "mothership-derelictShip"
+];
 
 // roll object itself has optional rollTable value (see poundFlesh-spaceStation - callsign)
 
@@ -158,7 +164,8 @@ const formats = [
 
 const mothershipOutputSpecs = <const> {
   trinketsPatches: {
-    name: "Mothership RPG - D100 Trinkets and Patches",
+    selectedValue: "mothership-trinketsPatches",
+    stringName: "Mothership RPG - D100 Trinkets and Patches",
     d100Trinkets: {
       name: "D100 Trinkets",
       format: "simple"
@@ -171,7 +178,8 @@ const mothershipOutputSpecs = <const> {
 
   // needs special handling for the dual nature of this data
   spaceStation: {
-    names: ["Mothership RPG/Pound of Flesh - Space Station (Corespace)", "Mothership RPG/Pound of Flesh - Space Station (Rimspace)"],
+    selectedValue: ["mothership-spaceStationCorespace", "mothership-spaceStationRimspace"],
+    stringName: ["Mothership RPG/Pound of Flesh - Space Station (Corespace)", "Mothership RPG/Pound of Flesh - Space Station (Rimspace)"],
     corespace: {
       name: {
         name: "Name",
@@ -248,7 +256,8 @@ const mothershipOutputSpecs = <const> {
     }
   },
   derelictShip: {
-    name: "Mothership RPG/Dead Planet - Derelict Ship",
+    selectedValue: "mothership-derelictShip",
+    stringName: "Mothership RPG/Dead Planet - Derelict Ship",
     shipClass: {
       name: "Ship Class",
       format: "detail ref-shipMapByClass"
@@ -319,7 +328,8 @@ type LancerInputTypes = {
 
 const lancerOutputSpecs = <const> {
   iterativeWorld: {
-    name: "LANCER - Iterative World Generation",
+    selectValue: "lancer-iterativeWorld",
+    stringName: "LANCER - Iterative World Generation",
     worldType: {
       name: "World Type",
       format: "simple"
