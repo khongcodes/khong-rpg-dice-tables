@@ -11,7 +11,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import { Roll, RollsStateType } from "./model/Roll";
+import { TableRoll, TableRollsStateType } from "./model/TableRoll";
 
 import Layout from "./components/Layout";
 import Home from "./views/Home";
@@ -25,20 +25,20 @@ import About from "./views/About";
 ///////////////////////////////////////////////////////////////////
 
 const App = () => {
-  const [rollsState, setRollsState] = useState<RollsStateType>([]);
+  // const [tableRollsState, setTableRollsState] = useState<TableRollsStateType>([]);
   
-  const addRoll = (rollsArray: RollsStateType) => {
-    setRollsState([ ...rollsArray, new Roll() ]);
-  }
+  // // const addRoll = (tableRollsArray: TableRollsStateType) => {
+  // //   setTableRollsState([ ...tableRollsArray, new TableRoll() ]);
+  // // }
 
-  const removeRollById = (
-    rollsArray: RollsStateType,
-    id: string
-  ) => {
-    setRollsState([ ...rollsArray.filter((roll: Roll) => (roll.id != id)) ]);
-  }
+  // // const removeRollById = (
+  // //   tableRollsArray: TableRollsStateType,
+  // //   id: string
+  // // ) => {
+  // //   setTableRollsState([ ...tableRollsArray.filter((roll: TableRoll) => (roll.id != id)) ]);
+  // // }
 
-  console.log(rollsState);
+  // console.log(tableRollsState);
 
   return (
     <BrowserRouter>
@@ -48,7 +48,7 @@ const App = () => {
         </div>
         <Routes>
           <Route path="/about" element={<About />} />
-          <Route path="/" element={<Home rolls={rollsState} addRoll={addRoll} removeRollById={removeRollById} />} />
+          <Route path="/" element={<Home />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>

@@ -6,18 +6,18 @@
 
 import React, { useState } from 'react';
 
-import { Roll } from "../model/Roll";
+import { TableRoll } from "../model/TableRoll";
 
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
-type RollComponentProps = {
-  data: Roll;
+type TableRollComponentProps = {
+  data: TableRoll;
   removeThisRoll: (id: string) => void;
 }
 
-const RollComponent: React.FC<RollComponentProps> = ({ data, removeThisRoll }) => {
+const TableRollComponent: React.FC<TableRollComponentProps> = ({ data, removeThisRoll }) => {
   const [selectedTable, setSelectedTable] = useState<string>("none");
 
   const handleSelectTable = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -58,4 +58,4 @@ const RollComponent: React.FC<RollComponentProps> = ({ data, removeThisRoll }) =
   )
 }
 
-export default RollComponent
+export default TableRollComponent

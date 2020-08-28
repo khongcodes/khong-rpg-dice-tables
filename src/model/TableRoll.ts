@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-export class Roll {
+export class TableRoll {
   id: string;
   table: string | undefined;
   
@@ -16,4 +16,4 @@ export class Roll {
 
 };
 
-export type RollsStateType = Roll[] | [];
+export type TableRollsStateType = Array<TableRoll> | [] | undefined

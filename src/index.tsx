@@ -10,25 +10,38 @@
 // IMPORTS
 ///////////////////////////////////////////////////////////////////
 // 1. React
-// 2. components & util
-// 3. styles
+// 2. Redux
+// 3. components & util
+// 4. reducers
+// 5. styles
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { Provider } from "react-redux";
+import { createStore, compose } from "redux";
+
 import App from './App';
+
+import rootReducer from "./reducers";
 
 import "./assets/styles/global.sass";
 
 // import * as serviceWorker from './serviceWorker';
 
+// SETUP
+///////////////////////////////////////////////////////////////////
+
+let store = createStore(rootReducer, compose());
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
