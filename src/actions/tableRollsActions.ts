@@ -1,5 +1,6 @@
 import { TableRoll } from "../model/TableRoll";
 import { Dispatch } from "redux";
+import { Action } from "history";
 
 const tableRollsActionTypeNames = [
   "ADD_ROLL",
@@ -15,7 +16,7 @@ export type TableRollsActionType = {
   payload: TableRoll;
 }
 
-export const addTableRoll = () => (
+export const addTableRoll: Action = () => (
   (dispatch: Dispatch) => {
     const newRoll = new TableRoll();
     dispatch({type: "ADD_ROLL", payload: newRoll})

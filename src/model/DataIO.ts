@@ -79,15 +79,37 @@ type Lookuptype = {
   values: object;
 }
 
-
-
-const tableNames = <const> [
+export const tableSelectValues = <const> [
   "lancer-iterativeWorld",
   "mothership-trinketsPatches",
   "mothership-spaceStationCorespace",
   "mothership-spaceStationRimspace",
   "mothership-derelictShip"
 ];
+
+export const tableNames = <const> [
+  {
+    selectValue: "lancer-iterativeWorld",
+    stringName: "LANCER - Iterative World Generation"
+  },
+  {
+    selectValue: "mothership-trinketsPatches",
+    stringName: "Mothership RPG - Trinkets & Patches"
+  },
+  {
+    selectValue: "mothership-spaceStationCorespace",
+    stringName: "Mothership RPG / Pound of Flesh - Space Station (Corespace)"
+  },
+  {
+    selectValue: "mothership-spaceStationRimspace",
+    stringName: "Mothership RPG / Pound of Flesh - Space Station (Rimspace)"
+  },
+  {
+    selectValue: "mothership-derelictShip",
+    stringName: "Mothership RPG / Dead Planet - Derelict Ship"
+  }
+];
+
 
 // roll object itself has optional rollTable value (see poundFlesh-spaceStation - callsign)
 
@@ -155,24 +177,28 @@ type MothershipInputTypes = {
   
 }
 
-const formats = [
+export const bodyRollFormats = <const> [
   "simple",
   "detail",
   "... ref-propName",
   "reference"
-]
+];
 
 const mothershipOutputSpecs = <const> {
   trinketsPatches: {
-    selectedValue: "mothership-trinketsPatches",
-    stringName: "Mothership RPG - D100 Trinkets and Patches",
-    d100Trinkets: {
-      name: "D100 Trinkets",
-      format: "simple"
+    tableName: {
+      selectedValue: "mothership-trinketsPatches",
+      stringName: "Mothership RPG - D100 Trinkets and Patches",
     },
-    d100Patches: {
-      name: "D100 Patches",
-      format: "simple"
+    body: {
+      d100Trinkets: {
+        name: "D100 Trinkets",
+        format: "simple"
+      },
+      d100Patches: {
+        name: "D100 Patches",
+        format: "simple"
+      }
     }
   },
 
