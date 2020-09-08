@@ -1,72 +1,81 @@
-import { tableNames, tableSelectValues, bodyRollFormats } from "../../model/DataIO";
+import { tables, tableSelectValues, bodyRollFormats } from "../../model/DataIO";
 
 
-///////////////////////////////////////////////////////////////////////////
-////////////////                                                      STORE
+// ///////////////////////////////////////////////////////////////////////////
+// ////////////////                                                      STORE
 
-export type BodyRollSimple = {
-  format: "simple";
-  mutable: true;
-  values: Array<string>;
-}
+// export type BodyRollNameType = {
+//   prop: string;
+//   stringName: string;
+// }
 
-export type BodyRollDetail = {
-  format: "detail";
-  mutable: false;
-  values: Array<{
-    name: string;
-    detail: string;
-  }>;
-}
+// export type BodyRollSimple = {
+//   name: BodyRollNameType;
+//   format: "simple";
+//   mutable: true;
+//   values: Array<string>;
+// }
 
-export type BodyRollDetailMutable = {
-  format: "detail";
-  mutable: true;
-  values: Array<{
-    name: string;
-    detail: string;
-  }>;
-}
+// export type BodyRollDetail = {
+//   name: BodyRollNameType;
+//   format: "detail";
+//   mutable: false;
+//   values: Array<{
+//     name: string;
+//     detail: string;
+//   }>;
+// }
 
-export type BodyRollTypes = 
-| BodyRollSimple
-| BodyRollDetail
-| BodyRollDetailMutable;
+// export type BodyRollDetailMutable = {
+//   name: BodyRollNameType;
+//   format: "detail";
+//   mutable: true;
+//   values: Array<{
+//     name: string;
+//     detail: string;
+//   }>;
+// }
+
+// export type BodyRollTypes = 
+// | BodyRollSimple
+// | BodyRollDetail
+// | BodyRollDetailMutable;
+
+// // export interface BodyRoll {
+// //   name: BodyRollNameType;
+// //   format: typeof bodyRollFormats[number];
+// //   values: BodyRollTypes[];
+// // }
+
+// export interface TableRoll {
+//   id: string;
+//   tableName: typeof tableNames[number];
+//   body: BodyRollTypes[];
+// }
+
+// export type TableSelectValueTypes = typeof tableSelectValues[number];
+
+// export interface TableRollsState {
+//   tableRolls: TableRoll[];
+// }
 
 
-export interface BodyRoll {
-  name: string;
-  format: typeof bodyRollFormats[number];
-  values: BodyRollTypes[];
-}
+// ///////////////////////////////////////////////////////////////////////////
+// ////////////////                                                    ACTIONS
 
-export interface TableRoll {
-  id: string;
-  tableName: typeof tableNames[number];
-  body: {
+// export const ADD_TABLEROLL = "ADD_TABLEROLL";
+// export const DELETE_TABLEROLL = "DELETE_TABLEROLL";
 
-  }
-}
+// interface AddTableRollAction {
+//   type: typeof ADD_TABLEROLL
+//   payload: TableSelectValueTypes
+// };
 
-export interface TableRollsState {
-  tableRolls: TableRoll[];
-}
+// interface DeleteTableRollAction {
+//   type: typeof DELETE_TABLEROLL
+//   payload: string
+// }
 
-
-///////////////////////////////////////////////////////////////////////////
-////////////////                                                    ACTIONS
-
-export const ADD_ROLL = "ADD_ROLL";
-export const DELETE_ROLL = "DELETE_ROLL";
-
-interface AddRollAction {
-  type: typeof ADD_ROLL
-  payload: typeof tableSelectValues[number]
-};
-
-interface DeleteRollAction {
-  type: typeof DELETE_ROLL
-  payload: string
-}
-
-export type TableRollActionTypes = AddRollAction | DeleteRollAction;
+// export type TableRollActionTypes = 
+// | AddTableRollAction 
+// | DeleteTableRollAction;

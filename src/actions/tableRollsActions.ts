@@ -16,9 +16,9 @@ export type TableRollsActionType = {
   payload: TableRoll;
 }
 
-export const addTableRoll: Action = () => (
-  (dispatch: Dispatch) => {
-    const newRoll = new TableRoll();
-    dispatch({type: "ADD_ROLL", payload: newRoll})
-  }
-)
+// export const addTableRoll: Action = () => (
+//   (dispatch: Dispatch) => {
+//     const newRoll = new TableRoll();
+//     dispatch({type: "ADD_ROLL", payload: newRoll})
+//   }
+// )
