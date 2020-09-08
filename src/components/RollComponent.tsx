@@ -6,14 +6,14 @@
 
 import React, { useState } from 'react';
 
-import { Roll } from "../model/Roll";
+import { TableRoll } from "../model/TableRoll";
 
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
 type RollComponentProps = {
-  data: Roll;
+  data: TableRoll;
   removeThisRoll: (id: string) => void;
 }
 
@@ -22,7 +22,7 @@ const RollComponent: React.FC<RollComponentProps> = ({ data, removeThisRoll }) =
 
   const handleSelectTable = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedTable(event.target.value);
-    data.setType(event.target.value);
+    // data.setType(event.target.value);
   };
 
   const handleRollTable = (event: React.FormEvent<HTMLFormElement>) => {
