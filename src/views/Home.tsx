@@ -11,7 +11,7 @@ import React from 'react';
 
 import { TableGroup, TableRollsStateType } from "../model/TableGroup";
 
-import TableRollComponent from "../components/TableRollComponent";
+import TableRollComponent from "../components/TableGroupComponent";
 // import { AddRollButton } from "../components/Buttons";
 
 

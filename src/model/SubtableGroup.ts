@@ -25,6 +25,7 @@ export class SubtableGroup {
     displaySpec: SubtableDisplaySpecType,
     subtableData: CombinedBodyRollType,
   ) {
+    // might not need bookName, tableName, etc: just tableid
     this.id = uuidv4();
     this.bookName = bookName;
     this.tableName = tableName;

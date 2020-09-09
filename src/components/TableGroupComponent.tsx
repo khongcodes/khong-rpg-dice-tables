@@ -19,15 +19,21 @@ type TableGroupComponentProps = {
 
 const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ data, removeThisRoll }) => {
   const [selectedTable, setSelectedTable] = useState<string>("none");
+  const [initialized, setInitialized] = useState<boolean>(false);
 
   const handleSelectTable = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedTable(event.target.value);
-    data.setTableName(event.target.value);
+    console.log(event.target.value);
+    // data.setTableName(event.target.value);
   };
 
   const handleRollTable = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setInitialized(true);
     console.log(selectedTable)
+
+    // Rolls the tablegroup
+    data.setTableName(selectedTable);
   }
   
   return (
@@ -51,7 +57,11 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ data, removeT
           </optgroup>
         </select>
 
-        <input type="submit" value="Roll"/> 
+        <input 
+          type="submit"
+          value={!initialized ? "Roll" : "Reroll"}
+          disabled={selectedTable === "none"}
+        /> 
       </form>
 
     </div>

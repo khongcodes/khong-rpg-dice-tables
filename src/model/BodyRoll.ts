@@ -8,9 +8,7 @@ export class BodyRoll {
   subtableId: string;
   value: CombinedRollValuesType | string;
 
-  constructor(
-    subtableId: string,
-  ) {
+  constructor( subtableId: string ) {
     this.id = uuidv4();
     this.subtableId = subtableId;
     this.value = this.rollValues(subtableId);
