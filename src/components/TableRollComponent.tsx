@@ -22,7 +22,7 @@ const TableRollComponent: React.FC<TableRollComponentProps> = ({ data, removeThi
 
   const handleSelectTable = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedTable(event.target.value);
-    // data.setType(event.target.value);
+    data.setType(event.target.value);
   };
 
   const handleRollTable = (event: React.FormEvent<HTMLFormElement>) => {

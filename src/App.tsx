@@ -25,20 +25,20 @@ import About from "./views/About";
 ///////////////////////////////////////////////////////////////////
 
 const App = () => {
-  // const [tableRollsState, setTableRollsState] = useState<TableRollsStateType>([]);
+  const [rollsState, setRollsState] = useState<TableRollsStateType>([]);
   
-  // // const addRoll = (tableRollsArray: TableRollsStateType) => {
-  // //   setTableRollsState([ ...tableRollsArray, new TableRoll() ]);
-  // // }
+  const addRoll = (rollsArray: TableRollsStateType) => {
+    setRollsState([ ...rollsArray, new TableRoll() ]);
+  }
 
-  // // const removeRollById = (
-  // //   tableRollsArray: TableRollsStateType,
-  // //   id: string
-  // // ) => {
-  // //   setTableRollsState([ ...tableRollsArray.filter((roll: TableRoll) => (roll.id != id)) ]);
-  // // }
+  const removeRollById = (
+    rollsArray: TableRollsStateType,
+    id: string
+  ) => {
+    setRollsState([ ...rollsArray.filter((roll: TableRoll) => (roll.id !== id)) ]);
+  }
 
-  // console.log(tableRollsState);
+  console.log(rollsState);
 
   return (
     <BrowserRouter>
@@ -48,7 +48,7 @@ const App = () => {
         </div>
         <Routes>
           <Route path="/about" element={<About />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home rolls={rollsState} addRoll={addRoll} removeRollById={removeRollById} />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>

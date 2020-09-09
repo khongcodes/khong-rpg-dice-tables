@@ -18,12 +18,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Provider } from "react-redux";
-import { createStore, compose } from "redux";
+// import { Provider } from "react-redux";
+// import { createStore, compose } from "redux";
 
 import App from './App';
 
-import rootReducer from "./reducers";
+// import rootReducer from "./reducers";
 
 import "./assets/styles/global.sass";
 
@@ -32,16 +32,16 @@ import "./assets/styles/global.sass";
 // SETUP
 ///////////////////////////////////////////////////////////////////
 
-let store = createStore(rootReducer, compose());
+// let store = createStore(rootReducer, compose());
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    {/* <Provider store={store}> */}
       <App />
-    </Provider>
+    {/* </Provider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

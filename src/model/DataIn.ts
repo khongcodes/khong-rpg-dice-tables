@@ -80,16 +80,29 @@ type Lookuptype = {
   values: object;
 }
 
+export type CombinedBodyRollType =
+| OnerollStringTableRolltype
+| OnerollDetailTableRolltype
+| OnerollSimpleRangetableRolltype
+| TworollRangetableRolltype
+| CoordinaterollDetailNorangerangetableRolltype
+| CombinedStringRolltype
+| Lookuptype;
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////////
 ////////                                                         DATA INPUT TYPES
 
 export type LancerInputTypes = {
   iterativeWorld: {
-    worldType: OnerollStringTableRolltype;
-    definingNaturalFeature: OnerollDetailTableRolltype;
-    definingAnthropocentricFeature: OnerollDetailTableRolltype;
-    environments: OnerollDetailTableRolltype;
+    main: {
+      worldType: OnerollStringTableRolltype;
+      definingNaturalFeature: OnerollDetailTableRolltype;
+      definingAnthropocentricFeature: OnerollDetailTableRolltype;
+      environments: OnerollDetailTableRolltype;
+    }
   }
 }
 

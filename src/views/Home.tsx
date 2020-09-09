@@ -9,7 +9,7 @@
 
 import React from 'react';
 
-import { TableRoll, RollsStateType } from "../model/TableRoll";
+import { TableRoll, TableRollsStateType } from "../model/TableRoll";
 
 import TableRollComponent from "../components/TableRollComponent";
 // import { AddRollButton } from "../components/Buttons";
@@ -19,9 +19,9 @@ import TableRollComponent from "../components/TableRollComponent";
 ///////////////////////////////////////////////////////////////////
 
 type HomeProps = {
-  rolls: RollsStateType;
-  addRoll: (rollArray: RollsStateType) => void;
-  removeRollById: (rollArray: RollsStateType, id: string) => void;
+  rolls: TableRollsStateType;
+  addRoll: (rollArray: TableRollsStateType) => void;
+  removeRollById: (rollArray: TableRollsStateType, id: string) => void;
 }
 
 // COMPONENTS & LOGIC

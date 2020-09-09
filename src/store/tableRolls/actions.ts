@@ -1,6 +1,7 @@
 // // actions pass payload from user response to reducers
 
 // import { TableRoll, ADD_TABLEROLL, DELETE_TABLEROLL, TableRollActionTypes, TableSelectValueTypes } from "./types";
+import React from 'react'
 
 // export function addTableRoll(selectValue: TableSelectValueTypes): TableRollActionTypes {
 //   return {

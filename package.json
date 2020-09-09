@@ -14,6 +14,7 @@
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
     "react-router-dom": "^6.0.0-beta.0",
     "react-scripts": "^3.4.3",
     "typescript": "~3.7.2",
@@ -42,7 +43,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react": "^16.9.48",
+    "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "@types/react-redux": "^7.1.9"
   }

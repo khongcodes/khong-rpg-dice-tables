@@ -1,6 +1,6 @@
-import { combineReducers } from "redux";
-import tableRolls from "./tableRollsReducer";
-
-export default combineReducers(
-  tableRolls
-)
+// import { combineReducers } from "redux";
+// import tableRolls from "./tableRollsReducer";
+import React from "react";
+// export default combineReducers(
+//   tableRolls
+// )

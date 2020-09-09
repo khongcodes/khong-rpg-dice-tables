@@ -16,13 +16,15 @@ export const tableNamesByBooks = <const> {
       "name", "coreStation", "orbitingCelestialBody", "coreLeader", "controllingFaction",
       "crisis", "goods", "resource", "commonIssue", "spaceStationStructure", "noteworthyEstablishments"
     ],
-    spaceStationRimSpace: [
+    spaceStationRimspace: [
       "rimLandmark", "rimStation", "callSign", "controllingFaction", "rivallingFaction", "rivalLeader",
       "crisis", "goods", "resource", "commonIssue", "spaceStationStructure", "noteworthyEstablishments"
     ],
     derelictShip: [ "shipClass", "shipLifeSupportStatus", "shipSurvivorStatus", "shipEngineStatus", "shipSalvage1", "shipSalvage2", "causeOfRuination", "weird", "shipName", "shipModules", "jumpDriveMalfunction" ]
   }
 }
+
+// const allTableNamesObj = Object.keys(tableNamesByBooks).map
 
 export const tableSelectValues = <const> [
   "lancer-iterativeWorld",
@@ -70,10 +72,11 @@ export const bodyRollFormats = <const> [
 /////////////////////////////////////////////////////////////////////////////////
 ////////                                                            TYPE DEFINING
 
-type AllTableNames = keyof typeof tableNamesByBooks[typeof bookNames[number]];
-type BodyRollNames = typeof tableNamesByBooks[typeof bookNames[number]][AllTableNames]
+// export type AllTableNames = keyof typeof tableNamesByBooks["lancer"] | keyof typeof tableNamesByBooks["mothership"];
+export type AllTableNames = keyof typeof tableNamesByBooks[typeof bookNames[number]];
+export type BodyRollNames = typeof tableNamesByBooks[typeof bookNames[number]][AllTableNames]
 
-type TableSpecType = {
+export type TableSpecType = {
   referenceType: "simple"|"shared"|"reference";
   tableName: typeof tableNames[number];
   body: {
@@ -207,7 +210,7 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
       }
     }
   },
-  spaceStationRimSpace: {
+  spaceStationRimspace: {
     referenceType: "shared",
     tableName: {
       selectValue: "mothership-spaceStationRimspace",
