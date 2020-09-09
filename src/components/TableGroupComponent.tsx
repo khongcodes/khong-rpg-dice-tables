@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 
 import { TableGroup } from "../model/TableGroup";
 
+import availableRolls from "../controlPanel/availableRolls.json";
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
@@ -15,6 +16,24 @@ import { TableGroup } from "../model/TableGroup";
 type TableGroupComponentProps = {
   data: TableGroup;
   removeThisRoll: (id: string) => void;
+}
+
+const AvailableOptions = () => {
+  const optGroupsFromAvailableRolls = [];
+
+  for (let i = 0; i < availableRolls.bookNames.length; i++) {
+    optGroupsFromAvailableRolls.push(
+      <optgroup label={availableRolls.bookNames[i]}>
+        {availableRolls.options[i].map(option => (
+          <option value={option.selectValue}>
+            {option.stringName}
+          </option>
+        ))}
+      </optgroup>
+    )
+  }
+  
+  return ( <>{optGroupsFromAvailableRolls}</> );
 }
 
 const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ data, removeThisRoll }) => {
@@ -44,17 +63,7 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ data, removeT
 
         <select value={selectedTable} onChange={handleSelectTable}>
           <option value="none">Select a table</option>
-
-          <optgroup label="LANCER">
-            <option value="lancer-iterativeWorld">LANCER - Iterative World</option>
-          </optgroup>
-
-          <optgroup label="Mothership RPG">
-            <option value="mothership-trinketsPatches">Mothership - Trinkets & Patches</option>
-            <option value="mothership-spaceStationCorespace">Mothership - Space Station (Corespace)</option>
-            <option value="mothership-spaceStationRimspace">Mothership - Space Station (Rimspace)</option>
-            <option value="mothership-derelictShip">Mothership - Derelict Ship</option>
-          </optgroup>
+          <AvailableOptions />
         </select>
 
         <input 
