@@ -24,8 +24,6 @@ export const tableNamesByBooks = <const> {
   }
 }
 
-// const allTableNamesObj = Object.keys(tableNamesByBooks).map
-
 export const tableSelectValues = <const> [
   "lancer-iterativeWorld",
   "mothership-trinketsPatches",
@@ -34,7 +32,7 @@ export const tableSelectValues = <const> [
   "mothership-derelictShip"
 ]
 
-export const tableNames = <const> [
+export const tableIdentObjs = <const> [
   {
     selectValue: "initial",
     stringName: "Select a table"
@@ -61,7 +59,7 @@ export const tableNames = <const> [
   }
 ];
 
-export const bodyRollFormats = <const> [
+const bodyRollFormats = <const> [
   "simple",
   "detail",
   // "... ref-propName",
@@ -72,25 +70,27 @@ export const bodyRollFormats = <const> [
 /////////////////////////////////////////////////////////////////////////////////
 ////////                                                            TYPE DEFINING
 
-// export type AllTableNames = keyof typeof tableNamesByBooks["lancer"] | keyof typeof tableNamesByBooks["mothership"];
-export type AllTableNames = keyof typeof tableNamesByBooks[typeof bookNames[number]];
-export type BodyRollNames = typeof tableNamesByBooks[typeof bookNames[number]][AllTableNames]
+export type AllTableIdentObjs = typeof tableIdentObjs[number];
+export type AllBookNames = typeof bookNames[number];
+export type AllTableNames = keyof typeof tableNamesByBooks[AllBookNames];
+export type AllBodyRollNames = typeof tableNamesByBooks[AllBookNames][AllTableNames]
+
+export type AllBodyRollFormats = typeof bodyRollFormats[number] | string;
+
+export type SubtableDisplaySpecType = {
+  name: string;
+  format: AllBodyRollFormats;
+};
 
 export type TableSpecType = {
   referenceType: "simple"|"shared"|"reference";
-  tableName: typeof tableNames[number];
+  tableName: AllTableIdentObjs;
   body: {
     main: {
-      [key in BodyRollNames]: {
-        name: string;
-        format: typeof bodyRollFormats[number] | string;
-      };
+      [key in AllBodyRollNames]: SubtableDisplaySpecType;
     };
     common?: {
-      [key in BodyRollNames]: {
-        name: string;
-        format: typeof bodyRollFormats[number] | string;
-      };
+      [key in AllBodyRollNames]: SubtableDisplaySpecType;
     };
   }
 }
@@ -348,7 +348,7 @@ type CombinedOutputSpecType =
 | MothershipOutputSpecType
 
 export const allTablesByBook: {
-  [key in typeof bookNames[number]]: CombinedOutputSpecType
+  [key in AllBookNames]: CombinedOutputSpecType
 } = {
   lancer: lancerOutputSpecs,
   mothership: mothershipOutputSpecs

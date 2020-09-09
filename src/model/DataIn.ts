@@ -30,6 +30,13 @@ type NestedNamedRangeRollValue = RangeModifier & {
   values: RangeSimpleRollValue[];
 }
 
+export type CombinedRollValuesType = 
+| SimpleRollValue
+| DetailRollValue
+| RangeSimpleRollValue
+| RangeDetailRollValue
+| NestedNamedRangeRollValue;
+
 const rollTypes = <const> [
   "one-roll string table",
   "one-roll detail table",
@@ -75,7 +82,7 @@ type CombinedStringRolltype = RollTypeBase & {
   values: string[][];
 }
 
-type Lookuptype = {
+type Lookuptype = RollTypeBase & {
   type: "lookup";
   values: object;
 }

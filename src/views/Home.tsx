@@ -9,7 +9,7 @@
 
 import React from 'react';
 
-import { TableRoll, TableRollsStateType } from "../model/TableRoll";
+import { TableGroup, TableRollsStateType } from "../model/TableGroup";
 
 import TableRollComponent from "../components/TableRollComponent";
 // import { AddRollButton } from "../components/Buttons";
@@ -36,7 +36,7 @@ const Home: React.FC<HomeProps> = ({ rolls, addRoll, removeRollById }) => {
       <div>
         {
           rolls.length === 0 ? <></> : 
-            (rolls as TableRoll[]).map(roll => 
+            (rolls as TableGroup[]).map(roll => 
               <TableRollComponent 
                 key={roll.id}
                 data={roll}

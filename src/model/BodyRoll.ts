@@ -1,73 +1,23 @@
-import { CombinedBodyRollType } from "./DataIn";
-import { bookNames, tableNames, AllTableNames, BodyRollNames} from "./DataOut";
+import { v4 as uuidv4 } from "uuid";
+import { CombinedRollValuesType } from "./DataIn";
 
-import rpgData from "../data/loader";
+import { SubtableGroup } from "./SubtableGroup";
 
 export class BodyRoll {
-  bookName: typeof bookNames[number];
-  tableName: typeof tableNames[number];
-  referenceName: BodyRollNames;
-  format: string;
-  name: string;
+  id: string;
+  subtableId: string;
+  value: CombinedRollValuesType | string;
 
   constructor(
-    bookName: typeof bookNames[number],
-    tableName: typeof tableNames[number],
-    referenceName: string,
-    format: string,
-    name: string
-    // formatData: {name: string, format: string}
+    subtableId: string,
   ) {
-    this.bookName = bookName;
-    this.tableName = tableName;
-    this.referenceName = referenceName as BodyRollNames;
-    this.format = format;
-    this.name = name;
-    
-    // console.log(AllTableNames)
-    // console.log(tableName)
-    const bodyRollData = rpgData[bookName][tableName as AllTableNames]["main"][referenceName] as CombinedBodyRollType;
-
-    console.log(`bodyRollName: ${name}\npresentationFormat: ${format}\nbodyRollType: ${bodyRollData.type} `);
-    let diceResults;
-    
-    switch (bodyRollData.type) {
-      case "one-roll string table":
-        diceResults = this.rollDice(bodyRollData.interface);
-        if (typeof diceResults !== "string") {
-          console.log(bodyRollData.values[diceResults[0]])
-        } else {
-          console.log("error")
-        }
-        break;
-
-      case "one-roll detail table":
-        diceResults = this.rollDice(bodyRollData.interface);
-        if (typeof diceResults !== "string") {
-          console.log(bodyRollData.values[diceResults[0]])
-        } else {
-          console.log("error")
-        }
-        break;
-
-      case "one-roll simple range-table":
-        break;
-      case "two-roll range-table":
-        break;
-      case "coordinate-roll detail norange-range-table":
-        break;
-      case "combined string":
-        break;
-      case "lookup":
-        break;
-      default:
-        return
-    }
-
-    console.log(bodyRollData);
+    this.id = uuidv4();
+    this.subtableId = subtableId;
+    this.value = this.rollValues(subtableId);
+    console.log(this)
   }
 
-  rollDice(input:string): number[] | "error" {
+  rollDice(input:string): number[] | string {
     const exclamationModifier = input[0] === "!";
     const inputString = !exclamationModifier ? input : input.slice(1);
     const numOfDice = parseInt(inputString.split("d")[0]) ;
@@ -86,17 +36,58 @@ export class BodyRoll {
       return resultArray;
 
     } else {
-      return "error"
+      return "ERROR BodyRoll.rollDice(): invalid interface input"
     }
-    // if (exclamationModifier) {
-    //   inputString = input.slice(1);
+  }
 
-    //   // startNum = parseInt(inputString.split("d")[0])
-    //   exclusiveEndNum = parseInt(inputString.split("d")[1])
-    // } else {
-    //   inputString = input;
-    //   exclusiveEndNum = parseInt(inputString.split("d")[1])
-    // }
+  rollValues(subtableId: string): CombinedRollValuesType | string {
+    const mySubtable = SubtableGroup.collection.find(subtable => subtable.id === subtableId);
+    if (!mySubtable) {
+      return "ERROR BodyRoll.getValues(): my Subtable couldn't be found";
+    } else {
+      const subtableData = mySubtable.subtableData;
+      const diceResults = this.rollDice(subtableData.interface);
+
+      let returnValue: CombinedRollValuesType | string = "";
+
+      switch (subtableData.type) {
+        case "one-roll string table":
+          if (typeof diceResults !== "string") {
+            returnValue = subtableData.values[diceResults[0]];
+            // console.log(`returnValue: ${returnValue}`);
+          } else {
+            returnValue = "ERROR BodyRoll.rollValues(): one-roll string table returned string";
+            // console.log(returnValue);
+          }
+          break;
+
+        case "one-roll detail table":
+          if (typeof diceResults !== "string") {
+            returnValue = subtableData.values[diceResults[0]];
+            // console.log(`returnValue: ${returnValue}`);
+          } else {
+            returnValue = "ERROR BodyRoll.rollValues(): one-roll detail table returned string";
+            // console.log(returnValue);
+          }
+          break;
+  
+        case "one-roll simple range-table":
+          break;
+        case "two-roll range-table":
+          break;
+        case "coordinate-roll detail norange-range-table":
+          break;
+        case "combined string":
+          break;
+        case "lookup":
+          break;
+        default:
+          break;
+      }
+
+      return returnValue;
+
+    }
   }
 
 

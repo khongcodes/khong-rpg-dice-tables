@@ -1,4 +1,4 @@
-import { TableRoll} from "../model/TableRoll";
+import { TableGroup } from "../model/TableGroup";
 // import { TableRollsStateType } from "../model/TableRoll";
 // import { TableRollsActionType } from "../actions/tableRollsActions";
 // import { Reducer } from "react";

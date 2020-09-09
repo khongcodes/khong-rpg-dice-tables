@@ -11,7 +11,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import { TableRoll, TableRollsStateType } from "./model/TableRoll";
+import { TableGroup, TableRollsStateType } from "./model/TableGroup";
 
 import Layout from "./components/Layout";
 import Home from "./views/Home";
@@ -28,14 +28,14 @@ const App = () => {
   const [rollsState, setRollsState] = useState<TableRollsStateType>([]);
   
   const addRoll = (rollsArray: TableRollsStateType) => {
-    setRollsState([ ...rollsArray, new TableRoll() ]);
+    setRollsState([ ...rollsArray, new TableGroup() ]);
   }
 
   const removeRollById = (
     rollsArray: TableRollsStateType,
     id: string
   ) => {
-    setRollsState([ ...rollsArray.filter((roll: TableRoll) => (roll.id !== id)) ]);
+    setRollsState([ ...rollsArray.filter((roll: TableGroup) => (roll.id !== id)) ]);
   }
 
   console.log(rollsState);
