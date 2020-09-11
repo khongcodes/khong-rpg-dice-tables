@@ -1,37 +1,81 @@
-// // reducers are pure functions that take previous state, an action, and return next state
-// // this reducer will declare the type of actions it will receieve
-// // as well as what it should return - the appropriate slice of state
-import React from 'react'
+// reducers are pure functions that take previous state, an action, and return next state
+// this reducer will declare the type of actions it will receieve
+// as well as what it should return - the appropriate slice of state
 
-// import {
-//   TableRollsState,
-//   TableRollActionTypes,
-//   ADD_TABLEROLL,
-//   DELETE_TABLEROLL
-// } from "./types";
+// if there are bugs here, state may be mutating:
+// if solution can't be found, look into Immer library or
+// redux/CreateSlice
 
-// const initialState: TableRollsState = {
-//   tableRolls: []
-// };
+// ALL LOGIC NEEDS TO BE PERFORMED SEPARATE FROM TABLEGROUPS/ROLLS AS INSTANCE METHODS
+// perhaps functional library invocation
 
-// export function tableRollsReducer(
-//   state = initialState,
-//   action: TableRollActionTypes
-// ): TableRollsState {
-//   switch (action.type) {
-//     case ADD_TABLEROLL:
-//       return {
-//         tableRolls: [...state.tableRolls, action.payload]
-//       };
+import {
+  TableGroupsState, TableGroupActionTypes,
+  ADD_TABLEGROUP, SETTABLE_TABLEGROUP, DELETE_TABLEGROUP, ROLL_TABLEGROUP
+} from "./types";
 
-//     case DELETE_TABLEROLL:
-//       return {
-//         tableRolls: state.tableRolls.filter(
-//           tableRollObj => tableRollObj.id !== action.payload
-//         )
-//       };
+import { TableGroup } from "../../model/TableGroup";
 
-//     default:
-//       return state;
-//   }
-// }
+const initialState = {
+  tables: []
+} as TableGroupsState;
+
+
+function findIndexOfTable(tableArray: TableGroup[], id: string): number {
+  return tableArray.findIndex(tableGroup => tableGroup.id === id)
+}
+
+function deepCopy(array: any[]) {
+  return JSON.parse(JSON.stringify(array));
+}
+
+export function tableRollsReducer(
+  state = initialState,
+  action: TableGroupActionTypes
+): TableGroupsState {
+  let indexOfTable, newState;
+
+  switch (action.type) {
+    case ADD_TABLEGROUP:
+      return {
+        tables: [...state.tables, new TableGroup()]
+      };
+
+    case SETTABLE_TABLEGROUP:
+      indexOfTable = findIndexOfTable(state.tables, action.payload.id);
+
+      if (indexOfTable === -1) {
+        return state;
+      } else {        
+        newState = {
+          tables: deepCopy(state.tables)
+        };
+        newState.tables[indexOfTable].setTableName(action.payload.selectValue);
+
+        return newState;
+      }
+
+    case DELETE_TABLEGROUP:
+      return {
+        tables: state.tables.filter(
+          tableGroup => tableGroup.id !== action.payload
+        )
+      };
+
+    case ROLL_TABLEGROUP:
+      indexOfTable = findIndexOfTable(state.tables, action.payload);
+
+      if (indexOfTable === -1) {
+        return state;
+      } else {
+        newState = {
+          tables: deepCopy(state.tables)
+        };
+        newState.tables[indexOfTable].rerollTable();
+        return newState;
+      }
+
+    default:
+      return state;
+  }
+}

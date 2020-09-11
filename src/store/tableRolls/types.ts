@@ -1,10 +1,14 @@
 // import { tables, tableSelectValues, bodyRollFormats } from "../../model/DataIO";
-import React from 'react'
+import { TableGroup } from "../../model/TableGroup";
 
-
+import { AllTableNames } from "../../model/DataOut";
 
 // ///////////////////////////////////////////////////////////////////////////
 // ////////////////                                                      STORE
+
+export interface TableGroupsState {
+  tables: TableGroup[];
+}
 
 // export type BodyRollNameType = {
 //   prop: string;
@@ -65,19 +69,36 @@ import React from 'react'
 // ///////////////////////////////////////////////////////////////////////////
 // ////////////////                                                    ACTIONS
 
-// export const ADD_TABLEROLL = "ADD_TABLEROLL";
-// export const DELETE_TABLEROLL = "DELETE_TABLEROLL";
+export const ADD_TABLEGROUP = "ADD_TABLEGROUP";
+export const SETTABLE_TABLEGROUP = "SETTABLE_TABLEGROUP";
+export const DELETE_TABLEGROUP = "DELETE_TABLEGROUP";
+export const ROLL_TABLEGROUP = "ROLL_TABLEGROUP";
 
-// interface AddTableRollAction {
-//   type: typeof ADD_TABLEROLL
-//   payload: TableSelectValueTypes
-// };
+interface AddTableGroupAction {
+  type: typeof ADD_TABLEGROUP
+  payload: null
+};
 
-// interface DeleteTableRollAction {
-//   type: typeof DELETE_TABLEROLL
-//   payload: string
-// }
+interface SettableTableGroupAction {
+  type: typeof SETTABLE_TABLEGROUP
+  payload: {
+    id: string,
+    selectValue: AllTableNames
+  }
+}
 
-// export type TableRollActionTypes = 
-// | AddTableRollAction 
-// | DeleteTableRollAction;
+interface DeleteTableGroupAction {
+  type: typeof DELETE_TABLEGROUP
+  payload: string
+}
+
+interface RollTableGroupAction {
+  type: typeof ROLL_TABLEGROUP
+  payload: string
+}
+
+export type TableGroupActionTypes = 
+| AddTableGroupAction
+| SettableTableGroupAction
+| DeleteTableGroupAction
+| RollTableGroupAction;

@@ -73,7 +73,7 @@ export class TableGroup {
   }
 
   rerollTable() {
-
+    console.log("made ya look")
   }
 }
 

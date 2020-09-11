@@ -25,7 +25,7 @@ const AvailableOptions = () => {
     optGroupsFromAvailableRolls.push(
       <optgroup label={availableRolls.bookNames[i]}>
         {availableRolls.options[i].map(option => (
-          <option value={option.selectValue}>
+          <option value={option.selectValue} key={option.selectValue}>
             {option.stringName}
           </option>
         ))}

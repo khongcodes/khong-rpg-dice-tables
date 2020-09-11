@@ -1,19 +1,35 @@
-// // actions pass payload from user response to reducers
+// actions pass payload from user response to reducers
 
-// import { TableRoll, ADD_TABLEROLL, DELETE_TABLEROLL, TableRollActionTypes, TableSelectValueTypes } from "./types";
-import React from 'react'
+import { AllTableNames } from "../../model/DataOut";
+import { TableGroupActionTypes,
+  ADD_TABLEGROUP, SETTABLE_TABLEGROUP, DELETE_TABLEGROUP, ROLL_TABLEGROUP
+} from "./types";
 
-// export function addTableRoll(selectValue: TableSelectValueTypes): TableRollActionTypes {
-//   return {
-//     type: ADD_TABLEROLL,
-//     payload: selectValue
-//   }
-// }
 
-// export function deleteTableRoll(id: string): TableRollActionTypes {
-//   return {
-//     type: DELETE_TABLEROLL,
-//     payload: id
-//   }
-// }
+export function addTableGroup(): TableGroupActionTypes {
+  return {
+    type: ADD_TABLEGROUP,
+    payload: null
+  }
+}
 
+export function setTableGroup(selectValue: AllTableNames): TableGroupActionTypes {
+  return {
+    type: SETTABLE_TABLEGROUP,
+    payload: selectValue
+  }
+}
+
+export function deleteTableGroup(id: string): TableGroupActionTypes {
+  return {
+    type: DELETE_TABLEGROUP,
+    payload: id
+  }
+}
+
+export function rollTableGroup(id: string) {
+  return {
+    type: ROLL_TABLEGROUP,
+    payload: id
+  }
+}

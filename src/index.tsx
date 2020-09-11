@@ -18,30 +18,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// import { Provider } from "react-redux";
-// import { createStore, compose } from "redux";
+import { Provider } from "react-redux";
+import store from "./store/index";
 
 import App from './App';
 
-// import rootReducer from "./reducers";
-
 import "./assets/styles/global.sass";
 
+import { addTableGroup } from "./store/tableRolls/actions";
 // import * as serviceWorker from './serviceWorker';
 
 // SETUP
 ///////////////////////////////////////////////////////////////////
 
-// let store = createStore(rootReducer, compose());
-
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
 ReactDOM.render(
+  
   <React.StrictMode>
-    {/* <Provider store={store}> */}
+    {console.log(store.dispatch(addTableGroup()))}
+    <Provider store={store}>
       <App />
-    {/* </Provider> */}
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
