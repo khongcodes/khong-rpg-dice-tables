@@ -87,6 +87,72 @@ export class BodyRoll {
 
     }
   }
+}
 
+const rollDice = (formatString: string): number[] | string => {
+  const exclamationModifier = formatString[0] === "!";
+  const inputString = !exclamationModifier ? formatString : formatString.slice(1);
+  const numOfDice = parseInt(inputString.split("d")[0]) ;
+  const exclusiveEndNum = parseInt(inputString.split("d")[1]);
+  const resultArray = [];
+  
+  if (exclusiveEndNum !== NaN && numOfDice !== NaN) {
+    
+    for (let time = 1; time <= numOfDice; time++) {
+      let thisResult = Math.floor(Math.random() * exclusiveEndNum);
+      if (!exclamationModifier) {
+        thisResult += 1;
+      }
+      resultArray.push(thisResult);
+    }
+    return resultArray;
 
+  } else {
+    return "ERROR BodyRoll.rollDice(): invalid interface input"
+  }
+}
+
+// ASSUMES subtable is valid
+const rollValues = (subtable: SubtableGroup) => {
+  const subtableData = subtable.subtableData;
+  const diceResults = rollDice(subtableData.interface);
+
+  let returnValue: CombinedRollValuesType | string = "";
+
+  switch (subtableData.type) {
+    case "one-roll string table":
+      if (typeof diceResults !== "string") {
+        returnValue = subtableData.values[diceResults[0]];
+        // console.log(`returnValue: ${returnValue}`);
+      } else {
+        returnValue = "ERROR BodyRoll.rollValues(): one-roll string table returned string";
+        // console.log(returnValue);
+      }
+      break;
+
+    case "one-roll detail table":
+      if (typeof diceResults !== "string") {
+        returnValue = subtableData.values[diceResults[0]];
+        // console.log(`returnValue: ${returnValue}`);
+      } else {
+        returnValue = "ERROR BodyRoll.rollValues(): one-roll detail table returned string";
+        // console.log(returnValue);
+      }
+      break;
+
+    case "one-roll simple range-table":
+      break;
+    case "two-roll range-table":
+      break;
+    case "coordinate-roll detail norange-range-table":
+      break;
+    case "combined string":
+      break;
+    case "lookup":
+      break;
+    default:
+      break;
+  }
+
+  return returnValue;
 }

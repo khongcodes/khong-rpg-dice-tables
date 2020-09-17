@@ -11,8 +11,11 @@ export const lancerData: LancerInputTypes = {
   iterativeWorld: lancerItWoGen
 }
 
-// export const mothershipData: MothershipInputTypes = {
-export const mothershipData = {
+// WHEN INPUTTING DATA FOR SPACE STATIONS
+// CONSTRUCT NEW DATA OBJECTS FOR RIMSPACE AND CORESPACE STATIONS
+// combining common fields
+
+export const mothershipData: MothershipInputTypes = {
   trinketsPatches: mothershipTrinkets
 }
 

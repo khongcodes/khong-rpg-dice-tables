@@ -121,6 +121,7 @@ export type MothershipInputTypes = {
       d100Patches: OnerollStringTableRolltype;
     };
   };
+  /*
   spaceStation: {
     main: {
       corespace: {
@@ -168,6 +169,7 @@ export type MothershipInputTypes = {
       cargoType: OnerollSimpleRangetableRolltype;
     };
   };
+  */
 
   
 }

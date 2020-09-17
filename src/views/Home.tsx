@@ -9,7 +9,7 @@
 
 import React from 'react';
 
-import { TableGroup, TableRollsStateType } from "../model/TableGroup";
+import { TableGroup, TableGroupsState } from "../store/tableGroups/types";
 
 import TableRollComponent from "../components/TableGroupComponent";
 // import { AddRollButton } from "../components/Buttons";
@@ -19,9 +19,9 @@ import TableRollComponent from "../components/TableGroupComponent";
 ///////////////////////////////////////////////////////////////////
 
 type HomeProps = {
-  rolls: TableRollsStateType;
-  addRoll: (rollArray: TableRollsStateType) => void;
-  removeRollById: (rollArray: TableRollsStateType, id: string) => void;
+  rolls: TableGroupsState;
+  addRoll: (rollArray: TableGroupsState) => void;
+  removeRollById: (rollArray: TableGroupsState, id: string) => void;
 }
 
 // COMPONENTS & LOGIC
@@ -34,7 +34,7 @@ const Home: React.FC<HomeProps> = ({ rolls, addRoll, removeRollById }) => {
   return (
     <div>
       <div>
-        {
+        {/* {
           rolls.length === 0 ? <></> : 
             (rolls as TableGroup[]).map(roll => 
               <TableRollComponent 
@@ -43,7 +43,7 @@ const Home: React.FC<HomeProps> = ({ rolls, addRoll, removeRollById }) => {
                 removeThisRoll={removeThisRoll}
               />
             ) 
-        }
+        } */}
       </div>
 
       <div>

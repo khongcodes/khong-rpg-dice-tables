@@ -25,7 +25,7 @@ import App from './App';
 
 import "./assets/styles/global.sass";
 
-import { addTableGroup } from "./store/tableRolls/actions";
+import { addTableGroup } from "./store/tableGroups/actions";
 // import * as serviceWorker from './serviceWorker';
 
 // SETUP

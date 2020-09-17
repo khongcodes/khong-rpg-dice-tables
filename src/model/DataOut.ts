@@ -24,6 +24,8 @@ export const tableNamesByBooks = <const> {
   }
 }
 
+// export const tableNames = bookNames.map(a => Object.keys(tableNamesByBooks[a])).flat() as const;
+// tableNames as const
 export const tableSelectValues = <const> [
   "lancer-iterativeWorld",
   "mothership-trinketsPatches",

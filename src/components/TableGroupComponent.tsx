@@ -6,7 +6,7 @@
 
 import React, { useState } from 'react';
 
-import { TableGroup } from "../model/TableGroup";
+import { TableGroup } from "../store/tableGroups/types";
 
 import availableRolls from "../controlPanel/availableRolls.json";
 
@@ -52,7 +52,7 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ data, removeT
     console.log(selectedTable)
 
     // Rolls the tablegroup
-    data.setTableName(selectedTable);
+    // data.setTableName(selectedTable);
   }
   
   return (
