@@ -14,18 +14,6 @@
       {
         "selectValue": "mothership-trinketsPatches",
         "stringName": "Mothership RPG - Trinkets & Patches"
-      },
-      {
-        "selectValue": "mothership-spaceStationCorespace",
-        "stringName": "Mothership RPG / Pound of Flesh - Space Station (Corespace)"
-      },
-      {
-        "selectValue": "mothership-spaceStationRimspace",
-        "stringName": "Mothership RPG / Pound of Flesh - Space Station (Rimspace)"
-      },
-      {
-        "selectValue": "mothership-derelictShip",
-        "stringName": "Mothership RPG / Dead Planet - Derelict Ship"
       }
     ]
   ]
