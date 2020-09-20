@@ -7,8 +7,24 @@ export interface BodyRoll {
 }
 
 export interface BodyRollsState {
-  byId: {
+  readonly byId: {
     [key: string]: BodyRoll;
   };
-  allIds: string[];
+  readonly allIds: string[];
 }
+
+
+///////////////////////////////////////////////////////////////////////////
+////////////////                                                    ACTIONS
+
+export const ADD_BODYROLL = "ADD_BODYROLL"
+
+interface AddBodyRollAction {
+  type: typeof ADD_BODYROLL;
+  payload: {
+    subtableId: string;
+  }
+}
+
+export type BodyRollActionTypes = 
+| AddBodyRollAction;

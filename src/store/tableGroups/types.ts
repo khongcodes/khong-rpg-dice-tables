@@ -1,6 +1,8 @@
 // import { tables, tableSelectValues, bodyRollFormats } from "../../model/DataIO";
 // import { TableGroup } from "../../model/TableGroup";
 
+// import { DeepReadonly } from "utility-types"
+
 import { CombinedInputDataType, CombinedRollValuesType } from "../../model/DataIn";
 import { 
   AllBookNames, AllTableIdentObjs, AllBodyRollNames, AllTableNames,
@@ -16,17 +18,18 @@ export interface TableGroup {
   id: string;
   bookKey: AllBookNames;
   tableKey: AllTableNames;
-  subtableCollection: SubtableGroup[];
+  subtableCollection: string[];
   tableData: {} | CombinedInputDataType;
 }
 
+// declaring readonly protects immutability of initial state
+// (only shallow - DeepReadonly seems to create trouble with union string-literal types)
 export interface TableGroupsState {
-  byId: {
+  readonly byId: {
     [key: string]: TableGroup;
   };
-  allIds: string[];
+  readonly allIds: string[];
 }
-
 
 // ///////////////////////////////////////////////////////////////////////////
 // ////////////////                                                    ACTIONS

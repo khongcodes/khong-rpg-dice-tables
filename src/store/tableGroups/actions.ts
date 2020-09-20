@@ -1,4 +1,7 @@
 // actions pass payload from user response to reducers
+import { Action } from "redux"
+import { ThunkAction } from "redux-thunk"
+import { RootState } from "..";
 
 import { AllTableNames } from "../../model/DataOut";
 import { TableGroupActionTypes,
@@ -33,3 +36,13 @@ export function rollTableGroup(id: string) {
     payload: id
   }
 }
+
+
+// THUNK ACTIONS
+
+// export function fullySetTableGroup(selectValue: AllTableNames): ThunkAction<void, RootState, unknown, Action<string>> {
+//   return (dispatch) => {
+//     dispatch( setTableGroup(selectValue, id) );
+
+//   }
+// }

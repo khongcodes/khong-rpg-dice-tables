@@ -5,4 +5,4 @@ import { RootState } from "../index"
 
 export const tableGroupsSelector = (state: RootState) => state.tableGroups.byId;
 
-export const getTableGroupById = (state: RootState, id: string) => tableGroupsSelector(state)[id];
+export const selectTableGroupById = (state: RootState, id: string) => tableGroupsSelector(state)[id];

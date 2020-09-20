@@ -30,7 +30,6 @@ export const ADD_SUBTABLEGROUP = "ADD_SUBTABLEGROUP"
 interface AddSubtableGroupAction {
   type: typeof ADD_SUBTABLEGROUP;
   payload: {
-    id: string;
     tableId: string;
   }
 }

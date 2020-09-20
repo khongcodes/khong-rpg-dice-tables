@@ -37,7 +37,7 @@ import { addTableGroup } from "./store/tableGroups/actions";
 ReactDOM.render(
   
   <React.StrictMode>
-    {console.log(store.dispatch(addTableGroup()))}
+    {/* {console.log(store.dispatch(addTableGroup()))} */}
     <Provider store={store}>
       <App />
     </Provider>

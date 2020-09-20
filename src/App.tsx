@@ -25,20 +25,6 @@ import About from "./views/About";
 ///////////////////////////////////////////////////////////////////
 
 const App = () => {
-  // const [rollsState, setRollsState] = useState<TableRollsStateType>([]);
-  
-  // const addRoll = (rollsArray: TableRollsStateType) => {
-  //   setRollsState([ ...rollsArray, new TableGroup() ]);
-  // }
-
-  // const removeRollById = (
-  //   rollsArray: TableRollsStateType,
-  //   id: string
-  // ) => {
-  //   setRollsState([ ...rollsArray.filter((roll: TableGroup) => (roll.id !== id)) ]);
-  // }
-
-  // console.log(rollsState);
 
   return (
     <BrowserRouter>
@@ -48,7 +34,7 @@ const App = () => {
         </div>
         <Routes>
           <Route path="/about" element={<About />} />
-          {/* <Route path="/" element={<Home rolls={rollsState} addRoll={addRoll} removeRollById={removeRollById} />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>

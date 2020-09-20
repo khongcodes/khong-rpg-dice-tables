@@ -29,10 +29,6 @@ const initialState = {
 } as TableGroupsState;
 
 
-// function findIndexOfTable(tableArray: TableGroup[], id: string): number {
-//   return tableArray.findIndex(tableGroup => tableGroup.id === id)
-// }
-
 export function tableGroupsReducer(
   state = initialState,
   action: TableGroupActionTypes
@@ -41,6 +37,7 @@ export function tableGroupsReducer(
   let newId: string;
 
   switch (action.type) {
+
     case ADD_TABLEGROUP:
       newId = uuidv4();
       return {
