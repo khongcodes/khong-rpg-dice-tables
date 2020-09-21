@@ -26,7 +26,7 @@ export function setTableGroup(selectValue: AllTableNames): TableGroupActionTypes
 export function deleteTableGroup(id: string): TableGroupActionTypes {
   return {
     type: DELETE_TABLEGROUP,
-    payload: id
+    payload: { id }
   }
 }
 

@@ -10,13 +10,13 @@
 import React, { Dispatch } from 'react';
 import { connect } from "react-redux";
 
-import { tableGroupsSelector } from "../store/tableGroups/selectors";
+import { selectTableGroupIds } from "../store/tableGroups/selectors";
 
 import { TableGroup, TableGroupsState } from "../store/tableGroups/types";
 import { RootState, RootAction } from "../store";
 
 import TableRollComponent from "../components/TableGroupComponent";
-import { addTableGroup } from '../store/tableGroups/actions';
+import { addTableGroup, deleteTableGroup } from '../store/tableGroups/actions';
 // import { AddRollButton } from "../components/Buttons";
 
 
@@ -24,24 +24,45 @@ import { addTableGroup } from '../store/tableGroups/actions';
 ///////////////////////////////////////////////////////////////////
 
 type HomeProps = {
-  addTableGroup?: () => void;
+  addTableGroup: () => void;
+  deleteTableGroup: (id: string) => void;
+  tableGroupIds: string[];
 }
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
-const Home: React.FC<HomeProps> = ({addTableGroup}) => {
+const Home: React.FC<HomeProps> = ({ 
+  tableGroupIds, 
+  addTableGroup, deleteTableGroup
+}) => {
 
   const handleAddTableGroup = () => {
-    if (addTableGroup) {
+    // if (addTableGroup) {
       console.log("adding");
       addTableGroup();
-    }
+    // }
+  }
+
+  const handleDeleteTableGroup = (id: string) => {
+    // if (deleteTableGroup) {
+      console.log("deleting");
+      deleteTableGroup(id);
+    // }
   }
 
   return (
     <div>
       <div>
+        {
+          tableGroupIds.map(tableGroupId => (
+            <TableRollComponent 
+              key={tableGroupId}
+              tableGroupId={tableGroupId}
+              deleteTableGroup={handleDeleteTableGroup}
+            />
+          )
+        )}
         {/* {
           rolls.length === 0 ? <></> : 
             (rolls as TableGroup[]).map(roll => 
@@ -63,12 +84,13 @@ const Home: React.FC<HomeProps> = ({addTableGroup}) => {
   )
 }
 
-// const mapStateToProps = (state: RootState) => {
-//   return { tableGroups: tableGroupsSelector(state) };
-// }
+const mapStateToProps = (state: RootState) => {
+  return { tableGroupIds: selectTableGroupIds(state) };
+}
 
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
   addTableGroup: () => dispatch(addTableGroup()),
+  deleteTableGroup: (id: string) => dispatch(deleteTableGroup(id))
 })
 
-export default connect(undefined, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

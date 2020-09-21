@@ -54,7 +54,9 @@ interface SettableTableGroupAction {
 
 interface DeleteTableGroupAction {
   type: typeof DELETE_TABLEGROUP
-  payload: string
+  payload: {
+    id: string;
+  }
 }
 
 interface RollTableGroupAction {

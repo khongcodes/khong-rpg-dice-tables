@@ -17,10 +17,9 @@ import {
 } from "./types";
 
 import { AllBookNames, AllTableNames } from "../../model/DataOut";
+import rpgData from "../../data/loader";
 
 import store from "../index";
-
-import rpgData from "../../data/loader";
 
 
 const initialState = {
@@ -52,6 +51,13 @@ export function tableGroupsReducer(
         }),
         allIds: [...state.allIds, newId]
       };
+
+      case DELETE_TABLEGROUP:
+        const { [action.payload.id]: removedTableGroup, ...newStateExcludingId } = state.byId;
+        return {
+          byId: newStateExcludingId,
+          allIds: state.allIds.filter(obj => obj !== action.payload.id)
+        };
 
       case SETTABLE_TABLEGROUP:
         // const thisTable = state.byId[action.payload.id];
