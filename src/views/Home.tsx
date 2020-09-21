@@ -7,11 +7,16 @@
 ///////////////////////////////////////////////////////////////////
 // 1. React
 
-import React from 'react';
+import React, { Dispatch } from 'react';
+import { connect } from "react-redux";
 
-import { Roll, RollsStateType } from "../model/Roll";
+import { tableGroupsSelector } from "../store/tableGroups/selectors";
 
-import RollComponent from "../components/RollComponent";
+import { TableGroup, TableGroupsState } from "../store/tableGroups/types";
+import { RootState, RootAction } from "../store";
+
+import TableRollComponent from "../components/TableGroupComponent";
+import { addTableGroup } from '../store/tableGroups/actions';
 // import { AddRollButton } from "../components/Buttons";
 
 
@@ -19,41 +24,51 @@ import RollComponent from "../components/RollComponent";
 ///////////////////////////////////////////////////////////////////
 
 type HomeProps = {
-  rolls: RollsStateType;
-  addRoll: (rollArray: RollsStateType) => void;
-  removeRollById: (rollArray: RollsStateType, id: string) => void;
+  addTableGroup?: () => void;
 }
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
-const Home: React.FC<HomeProps> = ({ rolls, addRoll, removeRollById }) => {
+const Home: React.FC<HomeProps> = ({addTableGroup}) => {
 
-  const removeThisRoll = (id: string) => removeRollById(rolls, id);
+  const handleAddTableGroup = () => {
+    if (addTableGroup) {
+      console.log("adding");
+      addTableGroup();
+    }
+  }
 
   return (
     <div>
       <div>
-        {
+        {/* {
           rolls.length === 0 ? <></> : 
-            (rolls as Roll[]).map(roll => 
-              <RollComponent 
+            (rolls as TableGroup[]).map(roll => 
+              <TableRollComponent 
                 key={roll.id}
                 data={roll}
                 removeThisRoll={removeThisRoll}
               />
             ) 
-        }
+        } */}
       </div>
 
       <div>
-        <button onClick={() => addRoll(rolls)}>Add Roll</button>
+        <button onClick={() => handleAddTableGroup()}>
+          Add tableGroup
+        </button>
       </div>
     </div>
   )
 }
 
-// This expression is not callable.
-//   Each member of the union type '(<U>(callbackfn: (value: Roll, index: number, array: Roll[]) => U, thisArg?: any) => U[]) | (<U>(callbackfn: (value: never, index: number, array: never[]) => U, thisArg?: any) => U[])' has signatures, but none of those signatures are compatible with each other.
+// const mapStateToProps = (state: RootState) => {
+//   return { tableGroups: tableGroupsSelector(state) };
+// }
 
-export default Home;
+const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
+  addTableGroup: () => dispatch(addTableGroup()),
+})
+
+export default connect(undefined, mapDispatchToProps)(Home);

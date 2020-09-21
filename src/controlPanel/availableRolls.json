@@ -1,8 +1,20 @@
-[
-  {
-    
-  },
-  {
-
-  }
-]
+{
+  "bookNames": [
+    "LANCER",
+    "Mothership RPG"
+  ],
+  "options": [
+    [
+      {
+        "selectValue": "lancer-iterativeWorld",
+        "stringName": "LANCER - Iterative World Generation"
+      }    
+    ],
+    [
+      {
+        "selectValue": "mothership-trinketsPatches",
+        "stringName": "Mothership RPG - Trinkets & Patches"
+      }
+    ]
+  ]
+}

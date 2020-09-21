@@ -10,25 +10,37 @@
 // IMPORTS
 ///////////////////////////////////////////////////////////////////
 // 1. React
-// 2. components & util
-// 3. styles
+// 2. Redux
+// 3. components & util
+// 4. reducers
+// 5. styles
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { Provider } from "react-redux";
+import store from "./store/index";
 
 import App from './App';
 
 import "./assets/styles/global.sass";
 
+import { addTableGroup } from "./store/tableGroups/actions";
 // import * as serviceWorker from './serviceWorker';
 
+// SETUP
+///////////////////////////////////////////////////////////////////
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
 ReactDOM.render(
+  
   <React.StrictMode>
-    <App />
+    {/* {console.log(store.dispatch(addTableGroup()))} */}
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

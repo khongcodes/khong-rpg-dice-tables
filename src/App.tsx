@@ -11,7 +11,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import { Roll, RollsStateType } from "./model/Roll";
+import { TableGroup, TableGroupsState } from "./store/tableGroups/types";
 
 import Layout from "./components/Layout";
 import Home from "./views/Home";
@@ -25,20 +25,6 @@ import About from "./views/About";
 ///////////////////////////////////////////////////////////////////
 
 const App = () => {
-  const [rollsState, setRollsState] = useState<RollsStateType>([]);
-  
-  const addRoll = (rollsArray: RollsStateType) => {
-    setRollsState([ ...rollsArray, new Roll() ]);
-  }
-
-  const removeRollById = (
-    rollsArray: RollsStateType,
-    id: string
-  ) => {
-    setRollsState([ ...rollsArray.filter((roll: Roll) => (roll.id != id)) ]);
-  }
-
-  console.log(rollsState);
 
   return (
     <BrowserRouter>
@@ -48,7 +34,7 @@ const App = () => {
         </div>
         <Routes>
           <Route path="/about" element={<About />} />
-          <Route path="/" element={<Home rolls={rollsState} addRoll={addRoll} removeRollById={removeRollById} />} />
+          <Route path="/" element={<Home />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>

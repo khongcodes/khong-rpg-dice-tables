@@ -30,6 +30,13 @@ type NestedNamedRangeRollValue = RangeModifier & {
   values: RangeSimpleRollValue[];
 }
 
+export type CombinedRollValuesType = 
+| SimpleRollValue
+| DetailRollValue
+| RangeSimpleRollValue
+| RangeDetailRollValue
+| NestedNamedRangeRollValue;
+
 const rollTypes = <const> [
   "one-roll string table",
   "one-roll detail table",
@@ -75,10 +82,21 @@ type CombinedStringRolltype = RollTypeBase & {
   values: string[][];
 }
 
-type Lookuptype = {
+type Lookuptype = RollTypeBase & {
   type: "lookup";
   values: object;
 }
+
+export type CombinedBodyRollType =
+| OnerollStringTableRolltype
+| OnerollDetailTableRolltype
+| OnerollSimpleRangetableRolltype
+| TworollRangetableRolltype
+| CoordinaterollDetailNorangerangetableRolltype
+| CombinedStringRolltype
+| Lookuptype;
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -86,10 +104,12 @@ type Lookuptype = {
 
 export type LancerInputTypes = {
   iterativeWorld: {
-    worldType: OnerollStringTableRolltype;
-    definingNaturalFeature: OnerollDetailTableRolltype;
-    definingAnthropocentricFeature: OnerollDetailTableRolltype;
-    environments: OnerollDetailTableRolltype;
+    main: {
+      worldType: OnerollStringTableRolltype;
+      definingNaturalFeature: OnerollDetailTableRolltype;
+      definingAnthropocentricFeature: OnerollDetailTableRolltype;
+      environments: OnerollDetailTableRolltype;
+    }
   }
 }
 
@@ -101,6 +121,7 @@ export type MothershipInputTypes = {
       d100Patches: OnerollStringTableRolltype;
     };
   };
+  /*
   spaceStation: {
     main: {
       corespace: {
@@ -148,6 +169,7 @@ export type MothershipInputTypes = {
       cargoType: OnerollSimpleRangetableRolltype;
     };
   };
+  */
 
   
 }

@@ -16,7 +16,7 @@ export const tableNamesByBooks = <const> {
       "name", "coreStation", "orbitingCelestialBody", "coreLeader", "controllingFaction",
       "crisis", "goods", "resource", "commonIssue", "spaceStationStructure", "noteworthyEstablishments"
     ],
-    spaceStationRimSpace: [
+    spaceStationRimspace: [
       "rimLandmark", "rimStation", "callSign", "controllingFaction", "rivallingFaction", "rivalLeader",
       "crisis", "goods", "resource", "commonIssue", "spaceStationStructure", "noteworthyEstablishments"
     ],
@@ -24,6 +24,8 @@ export const tableNamesByBooks = <const> {
   }
 }
 
+// export const tableNames = bookNames.map(a => Object.keys(tableNamesByBooks[a])).flat() as const;
+// tableNames as const
 export const tableSelectValues = <const> [
   "lancer-iterativeWorld",
   "mothership-trinketsPatches",
@@ -32,7 +34,7 @@ export const tableSelectValues = <const> [
   "mothership-derelictShip"
 ]
 
-export const tableNames = <const> [
+export const tableIdentObjs = <const> [
   {
     selectValue: "initial",
     stringName: "Select a table"
@@ -59,7 +61,7 @@ export const tableNames = <const> [
   }
 ];
 
-export const bodyRollFormats = <const> [
+const bodyRollFormats = <const> [
   "simple",
   "detail",
   // "... ref-propName",
@@ -70,24 +72,27 @@ export const bodyRollFormats = <const> [
 /////////////////////////////////////////////////////////////////////////////////
 ////////                                                            TYPE DEFINING
 
-type AllTableNames = keyof typeof tableNamesByBooks[typeof bookNames[number]];
-type BodyRollNames = typeof tableNamesByBooks[typeof bookNames[number]][AllTableNames]
+export type AllTableIdentObjs = typeof tableIdentObjs[number];
+export type AllBookNames = typeof bookNames[number];
+export type AllTableNames = keyof typeof tableNamesByBooks[AllBookNames];
+export type AllBodyRollNames = typeof tableNamesByBooks[AllBookNames][AllTableNames]
 
-type TableSpecType = {
+export type AllBodyRollFormats = typeof bodyRollFormats[number] | string;
+
+export type SubtableDisplaySpecType = {
+  name: string;
+  format: AllBodyRollFormats;
+};
+
+export type TableSpecType = {
   referenceType: "simple"|"shared"|"reference";
-  tableName: typeof tableNames[number];
+  tableName: AllTableIdentObjs;
   body: {
     main: {
-      [key in BodyRollNames]: {
-        name: string;
-        format: typeof bodyRollFormats[number] | string;
-      };
+      [key in AllBodyRollNames]: SubtableDisplaySpecType;
     };
     common?: {
-      [key in BodyRollNames]: {
-        name: string;
-        format: typeof bodyRollFormats[number] | string;
-      };
+      [key in AllBodyRollNames]: SubtableDisplaySpecType;
     };
   }
 }
@@ -207,7 +212,7 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
       }
     }
   },
-  spaceStationRimSpace: {
+  spaceStationRimspace: {
     referenceType: "shared",
     tableName: {
       selectValue: "mothership-spaceStationRimspace",
@@ -345,7 +350,7 @@ type CombinedOutputSpecType =
 | MothershipOutputSpecType
 
 export const allTablesByBook: {
-  [key in typeof bookNames[number]]: CombinedOutputSpecType
+  [key in AllBookNames]: CombinedOutputSpecType
 } = {
   lancer: lancerOutputSpecs,
   mothership: mothershipOutputSpecs
