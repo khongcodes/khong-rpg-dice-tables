@@ -6,7 +6,7 @@
 import { CombinedInputDataType, CombinedRollValuesType } from "../../model/DataIn";
 import { 
   AllBookNames, AllTableIdentObjs, AllBodyRollNames, AllTableNames,
-  SubtableDisplaySpecType 
+  SubtableDisplaySpecType, AllTableSelectValues
 } from "../../model/DataOut";
 
 import { SubtableGroup } from "../subtableGroups/types";
@@ -37,7 +37,7 @@ export interface TableGroupsState {
 export const ADD_TABLEGROUP = "ADD_TABLEGROUP";
 export const SETTABLE_TABLEGROUP = "SETTABLE_TABLEGROUP";
 export const DELETE_TABLEGROUP = "DELETE_TABLEGROUP";
-export const ROLL_TABLEGROUP = "ROLL_TABLEGROUP";
+// export const ROLL_TABLEGROUP = "ROLL_TABLEGROUP";
 
 interface AddTableGroupAction {
   type: typeof ADD_TABLEGROUP
@@ -48,7 +48,8 @@ interface SettableTableGroupAction {
   type: typeof SETTABLE_TABLEGROUP
   payload: {
     id: string,
-    selectValue: AllTableNames
+    selectValue: AllTableSelectValues,
+    subtableIds: string[]
   }
 }
 
@@ -59,13 +60,13 @@ interface DeleteTableGroupAction {
   }
 }
 
-interface RollTableGroupAction {
-  type: typeof ROLL_TABLEGROUP
-  payload: string
-}
+// interface RollTableGroupAction {
+//   type: typeof ROLL_TABLEGROUP
+//   payload: string
+// }
 
 export type TableGroupActionTypes = 
 | AddTableGroupAction
 | SettableTableGroupAction
-| DeleteTableGroupAction
-| RollTableGroupAction;
+| DeleteTableGroupAction;
+// | RollTableGroupAction;

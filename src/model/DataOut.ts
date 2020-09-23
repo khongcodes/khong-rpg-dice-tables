@@ -72,6 +72,7 @@ const bodyRollFormats = <const> [
 /////////////////////////////////////////////////////////////////////////////////
 ////////                                                            TYPE DEFINING
 
+export type AllTableSelectValues = typeof tableSelectValues[number];
 export type AllTableIdentObjs = typeof tableIdentObjs[number];
 export type AllBookNames = typeof bookNames[number];
 export type AllTableNames = keyof typeof tableNamesByBooks[AllBookNames];
@@ -83,6 +84,12 @@ export type SubtableDisplaySpecType = {
   name: string;
   format: AllBodyRollFormats;
 };
+
+export const getKeysFromSelectValue = (selectedTable: AllTableSelectValues) => {
+  const bookKey = selectedTable.split("-")[0] as AllBookNames;
+  const tableKey = selectedTable.split("-")[1] as AllTableNames;
+  return { bookKey, tableKey };
+}
 
 export type TableSpecType = {
   referenceType: "simple"|"shared"|"reference";
@@ -349,7 +356,7 @@ type CombinedOutputSpecType =
 | LancerOutputSpecType
 | MothershipOutputSpecType
 
-export const allTablesByBook: {
+export const allTablesDisplaySpecsByBook: {
   [key in AllBookNames]: CombinedOutputSpecType
 } = {
   lancer: lancerOutputSpecs,

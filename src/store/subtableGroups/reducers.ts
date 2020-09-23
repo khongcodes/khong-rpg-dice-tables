@@ -2,8 +2,10 @@ import store from "../index";
 
 import { 
   SubtableGroup, SubtableGroupsState , SubtableGroupActionTypes,
-  ADD_SUBTABLEGROUP
+  ADDALLTOTABLE_SUBTABLEGROUP
 } from "./types";
+
+import { selectSubtableIdsByTableGroupId } from "../tableGroups/selectors"
 
 const initialState = {
   byId: {},
@@ -17,13 +19,10 @@ export function subtableGroupsReducer(
   
   switch (action.type) {
     // ONLY CASE WHERE SUBTABLEGROUP WOULD BE ADDED IS IN SETTING TABLEGROUP
-    case ADD_SUBTABLEGROUP:
-      
+    case ADDALLTOTABLE_SUBTABLEGROUP:
       return {
-        byId: Object.assign({}, state.byId, {
-
-        }),
-        allIds: [...state.allIds]
+        byId: Object.assign({}, state.byId, action.payload),
+        allIds: [...state.allIds, ...Object.keys(action.payload)]
       }
 
     default:

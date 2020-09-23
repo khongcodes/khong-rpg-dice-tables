@@ -6,7 +6,7 @@ import { CombinedInputDataType } from "./DataIn";
 import { 
   tableSelectValues, tableIdentObjs,
   AllBookNames, AllTableIdentObjs, AllTableNames, AllBodyRollNames,
-  allTablesByBook, tableNamesByBooks,
+  // allTablesByBook, tableNamesByBooks,
   TableSpecType
 } from "./DataOut";
 

@@ -3,9 +3,9 @@ import { Action } from "redux"
 import { ThunkAction } from "redux-thunk"
 import { RootState } from "..";
 
-import { AllTableNames } from "../../model/DataOut";
+import { AllTableNames, AllTableSelectValues } from "../../model/DataOut";
 import { TableGroupActionTypes,
-  ADD_TABLEGROUP, SETTABLE_TABLEGROUP, DELETE_TABLEGROUP, ROLL_TABLEGROUP
+  ADD_TABLEGROUP, SETTABLE_TABLEGROUP, DELETE_TABLEGROUP
 } from "./types";
 
 
@@ -16,10 +16,14 @@ export function addTableGroup(): TableGroupActionTypes {
   }
 }
 
-export function setTableGroup(selectValue: AllTableNames): TableGroupActionTypes {
+export function setTableGroup(
+  id: string,
+  selectValue: AllTableSelectValues,
+  subtableIds: string[]
+): TableGroupActionTypes {
   return {
     type: SETTABLE_TABLEGROUP,
-    payload: selectValue
+    payload: { id, selectValue, subtableIds }
   }
 }
 
@@ -27,13 +31,6 @@ export function deleteTableGroup(id: string): TableGroupActionTypes {
   return {
     type: DELETE_TABLEGROUP,
     payload: { id }
-  }
-}
-
-export function rollTableGroup(id: string) {
-  return {
-    type: ROLL_TABLEGROUP,
-    payload: id
   }
 }
 

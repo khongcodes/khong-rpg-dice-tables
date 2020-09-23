@@ -1,20 +1,18 @@
-import React from 'react'
-import { idText } from 'typescript';
-
-import { SubtableGroupActionTypes,
-  ADD_SUBTABLEGROUP
+import { AddAllSubtablesDispatchInput,
+  SubtableGroupActionTypes,
+  ADDALLTOTABLE_SUBTABLEGROUP,
 } from "./types";
+import { AllBodyRollNames, SubtableDisplaySpecType } from "../../model/DataOut";
 
-// use thunk?????
 
-// export function addSubtableGroup(
-//   tableId: string,
-//   tableSubtableCollection: string[]
-// ): SubtableGroupActionTypes {
-//   return {
-//     type: ADD_SUBTABLEGROUP,
-//     payload: {
-//       tableId: tableId
-//     }
-//   }
-// }
+export function addAllToTableSubtableGroup(subtablesData: AddAllSubtablesDispatchInput[]): SubtableGroupActionTypes {
+  const addedSubtablesObj = subtablesData.reduce((container: {[key: string]: AddAllSubtablesDispatchInput}, subtableInfo) => {
+    container[subtableInfo.id] = Object.assign({bodyRollCollection: []}, subtableInfo);
+    return container;
+  }, {});
+
+  return {
+    type: ADDALLTOTABLE_SUBTABLEGROUP,
+    payload: addedSubtablesObj
+  }
+}

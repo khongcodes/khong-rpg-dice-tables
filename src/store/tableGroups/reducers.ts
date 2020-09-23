@@ -13,7 +13,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import {
   TableGroup, TableGroupsState, TableGroupActionTypes,
-  ADD_TABLEGROUP, SETTABLE_TABLEGROUP, DELETE_TABLEGROUP, ROLL_TABLEGROUP
+  ADD_TABLEGROUP, SETTABLE_TABLEGROUP, DELETE_TABLEGROUP
 } from "./types";
 
 import { AllBookNames, AllTableNames } from "../../model/DataOut";
@@ -72,7 +72,7 @@ export function tableGroupsReducer(
               ...state.byId[action.payload.id],
               bookKey: bookKey,
               tableKey: tableKey,
-              subtableCollection: Object.keys(rpgData[bookKey][tableKey]["main"]).map(a => uuidv4()),
+              subtableCollection: action.payload.subtableIds,
               tableData: rpgData[bookKey][tableKey]
             }
           })

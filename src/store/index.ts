@@ -1,5 +1,5 @@
-import thunk from "redux-thunk";
-import { combineReducers } from "redux";
+import thunk, {ThunkAction} from "redux-thunk";
+import { combineReducers, Action } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 
 import { tableGroupsReducer } from "./tableGroups/reducers";

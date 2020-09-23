@@ -82,15 +82,15 @@ const Home: React.FC<HomeProps> = ({
       </div>
     </div>
   )
-}
+};
 
 const mapStateToProps = (state: RootState) => {
   return { tableGroupIds: selectTableGroupIds(state) };
-}
+};
 
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
   addTableGroup: () => dispatch(addTableGroup()),
   deleteTableGroup: (id: string) => dispatch(deleteTableGroup(id))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

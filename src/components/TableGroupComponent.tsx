@@ -4,23 +4,37 @@
 // IMPORTS
 ///////////////////////////////////////////////////////////////////
 
-import React, { useState, Dispatch } from 'react';
+import React, { useState, Dispatch, ReactEventHandler } from 'react';
 import { connect } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
 import { TableGroup } from "../store/tableGroups/types";
-import { RootState, RootAction } from "../store"
+import { 
+  AllTableSelectValues, AllTableNames, AllBodyRollNames, SubtableDisplaySpecType,
+  allTablesDisplaySpecsByBook, tableNamesByBooks,
+  getKeysFromSelectValue
+} from "../model/DataOut";
+import { RootState, RootAction } from "../store";
+import { selectTableGroupById } from '../store/tableGroups/selectors';
+import { setTableGroup } from "../store/tableGroups/actions";
+import { addAllToTableSubtableGroup } from "../store/subtableGroups/actions";
 
 import availableRolls from "../controlPanel/availableRolls.json";
-import { selectTableGroupById } from '../store/tableGroups/selectors';
-import { deleteTableGroup } from '../store/tableGroups/actions';
+
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
 
 type TableGroupComponentProps = {
   tableGroupId: string;
-  deleteTableGroup: (id: string) => void;
   tableGroup?: TableGroup;
+  setTableGroup?: (
+    tableGroupId: string,
+    selectedTable: AllTableSelectValues
+    ) => void;
+    
+  addSubtables?: (tableGroup: TableGroup) => void;
+  deleteTableGroup: (id: string) => void;
   // data: TableGroup;
   // removeThisRoll: (id: string) => void;
 }
@@ -30,9 +44,9 @@ const AvailableOptions = () => {
 
   for (let i = 0; i < availableRolls.bookNames.length; i++) {
     optGroupsFromAvailableRolls.push(
-      <optgroup label={availableRolls.bookNames[i]}>
-        {availableRolls.options[i].map(option => (
-          <option value={option.selectValue} key={option.selectValue}>
+      <optgroup label={availableRolls.bookNames[i]} key={i}>
+        {availableRolls.options[i].map((option,index) => (
+          <option value={option.selectValue} key={index}>
             {option.stringName}
           </option>
         ))}
@@ -43,63 +57,52 @@ const AvailableOptions = () => {
   return ( <>{optGroupsFromAvailableRolls}</> );
 }
 
-// const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ data, removeThisRoll }) => {
-  // const [selectedTable, setSelectedTable] = useState<string>("none");
-  // const [initialized, setInitialized] = useState<boolean>(false);
 
-//   const handleSelectTable = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//     setSelectedTable(event.target.value);
-//     console.log(event.target.value);
-//     // data.setTableName(event.target.value);
-//   };
-
-//   const handleRollTable = (event: React.FormEvent<HTMLFormElement>) => {
-//     event.preventDefault();
-//     setInitialized(true);
-//     console.log(selectedTable)
-
-//     // Rolls the tablegroup
-//     // data.setTableName(selectedTable);
-//   }
-  
-//   return (
-//     <div>
-
-//       <form onSubmit={handleRollTable}>
-//         <input type="button" value="X" onClick={()=>removeThisRoll(data.id)} />
-
-//         <select value={selectedTable} onChange={handleSelectTable}>
-//           <option value="none">Select a table</option>
-//           <AvailableOptions />
-//         </select>
-
-//         <input 
-//           type="submit"
-//           value={!initialized ? "Roll" : "Reroll"}
-//           disabled={selectedTable === "none"}
-//         /> 
-//       </form>
-
-//     </div>
-//   )
-// }
-
-const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId, tableGroup, deleteTableGroup }) => {
-  const [selectedTable, setSelectedTable] = useState<string>("none");
+const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId, tableGroup, deleteTableGroup, setTableGroup, addSubtables }) => {
+  const [selectedTable, setSelectedTable] = useState<"none" | AllTableNames>("none");
   const [initialized, setInitialized] = useState<boolean>(false);
+
+  const handleSelectTable: ReactEventHandler = (event: React.ChangeEvent<HTMLSelectElement>) => setSelectedTable(event.target.value as "none" | AllTableNames);
+  
+  const handleRollTable: ReactEventHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!initialized) {setInitialized(true);}
+
+
+    if (selectedTable !== "none" && setTableGroup) {
+      console.log("setting table")
+      setTableGroup(tableGroupId, selectedTable);
+
+      console.log("tableGroup is not undefined; setting tableGroup")
+      // addSubtables(tableGroup);
+    }
+    
+  }
 
   console.log(tableGroup)
 
   return (
-    <div>
-      id: {tableGroupId}
+    <div style={{"marginBottom": "20px"}}>
+      <div>
+        <p>
+          id: {tableGroupId}<br/>
+          selectedTable: {selectedTable}<br/>
+          initialized: {initialized.toString()}
+        </p>
+      </div>
+      
 
-      {/* <form>
+      <form onSubmit={handleRollTable}>
         <input 
           type="button"
           value="X"
           onClick={() => deleteTableGroup(tableGroupId)}
         />
+
+        <select value={selectedTable} onChange={handleSelectTable}>
+          <option value="none">Select a table</option>
+          <AvailableOptions />
+        </select>
 
         <input 
           type="submit"
@@ -107,15 +110,46 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId,
           disabled={ selectedTable === "none" }
         />
         
-      </form> */}
+      </form>
+
+      <div>
+        {
+          tableGroup?.subtableCollection.map(a => <p>{a}</p>)
+        }
+      </div>
       
     </div>
   )
-}
+};
 
 const mapStateToProps = (state: RootState, ownProps: TableGroupComponentProps) => {
   const { tableGroupId } = ownProps;
-  return { tableGroup: selectTableGroupById(state, tableGroupId) }
-}
+  return { 
+    tableGroup: selectTableGroupById(state, tableGroupId),
+  }
+};
 
-export default connect(mapStateToProps)(TableGroupComponent)
+const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
+  setTableGroup: (tableGroupId: string, selectedTable: AllTableSelectValues) => {
+    
+    const { bookKey, tableKey } = getKeysFromSelectValue(selectedTable);
+    const listOfSubtableKeys = tableNamesByBooks[bookKey][tableKey] as AllBodyRollNames[];
+    const mapOfSubtableDisplaySpecs = allTablesDisplaySpecsByBook[bookKey][tableKey]["body"]["main"];
+
+    const subtableInfo = listOfSubtableKeys.map((subtableKey: AllBodyRollNames) => ({
+      id: uuidv4(),
+      tableGroupId: tableGroupId,
+      subtableKey: subtableKey as AllBodyRollNames,
+      displaySpec: mapOfSubtableDisplaySpecs[subtableKey] as SubtableDisplaySpecType
+    }));
+
+    const subtableIds = subtableInfo.map(({id}) => id);
+
+    console.log(subtableInfo);
+    dispatch(setTableGroup(tableGroupId, selectedTable, subtableIds));
+    // dispatch: delete all subtables with this tableGroupId
+    dispatch(addAllToTableSubtableGroup(subtableInfo));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TableGroupComponent);

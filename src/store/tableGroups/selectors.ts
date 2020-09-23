@@ -9,4 +9,6 @@ export const selectTableGroupIds = (state: RootState) => tableGroupsSelector(sta
 
 export const selectTableGroupById = (state: RootState, id: string) => tableGroupsSelector(state).byId[id];
 
+export const selectSubtableIdsByTableGroupId = (state: RootState, id: string) => selectTableGroupById(state, id).subtableCollection;
+
 // export const allTableGroupsSequential = (state: RootState) => tableGroupsSelector(state).allIds.map(id => selectTableGroupById(state, id));
