@@ -1,18 +1,20 @@
-import { AddAllSubtablesDispatchInput,
+import { ClearAndRepopulateSubtablesDispatchInput,
   SubtableGroupActionTypes,
-  ADDALLTOTABLE_SUBTABLEGROUP,
+  CLEARANDREPOPULATETABLE_SUBTABLEGROUP,
 } from "./types";
-import { AllBodyRollNames, SubtableDisplaySpecType } from "../../model/DataOut";
 
 
-export function addAllToTableSubtableGroup(subtablesData: AddAllSubtablesDispatchInput[]): SubtableGroupActionTypes {
-  const addedSubtablesObj = subtablesData.reduce((container: {[key: string]: AddAllSubtablesDispatchInput}, subtableInfo) => {
-    container[subtableInfo.id] = Object.assign({bodyRollCollection: []}, subtableInfo);
+export function clearAndRepopulateTableSubtableGroup(tableGroupId: string, subtablesData: ClearAndRepopulateSubtablesDispatchInput[]): SubtableGroupActionTypes {
+  const addedSubtablesObj = subtablesData.reduce((container: {[key: string]: ClearAndRepopulateSubtablesDispatchInput}, subtableInfo) => {
+    container[subtableInfo.id] = Object.assign({bodyRollCollection: [], tableGroupId: tableGroupId}, subtableInfo);
     return container;
   }, {});
 
   return {
-    type: ADDALLTOTABLE_SUBTABLEGROUP,
-    payload: addedSubtablesObj
+    type: CLEARANDREPOPULATETABLE_SUBTABLEGROUP,
+    payload: {
+      tableGroupId: tableGroupId,
+      subtables: addedSubtablesObj
+    }
   }
 }

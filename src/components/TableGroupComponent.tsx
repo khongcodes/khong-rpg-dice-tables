@@ -17,10 +17,11 @@ import {
 import { RootState, RootAction } from "../store";
 import { selectTableGroupById } from '../store/tableGroups/selectors';
 import { setTableGroup } from "../store/tableGroups/actions";
-import { addAllToTableSubtableGroup } from "../store/subtableGroups/actions";
+import { clearAndRepopulateTableSubtableGroup } from "../store/subtableGroups/actions";
 
 import availableRolls from "../controlPanel/availableRolls.json";
 
+import SubtableGroupComponent from "./SubtableGroupComponent";
 
 // COMPONENTS & LOGIC
 ///////////////////////////////////////////////////////////////////
@@ -68,18 +69,18 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId,
     event.preventDefault();
     if (!initialized) {setInitialized(true);}
 
-
     if (selectedTable !== "none" && setTableGroup) {
-      console.log("setting table")
+      // console.log("setting table")
       setTableGroup(tableGroupId, selectedTable);
 
-      console.log("tableGroup is not undefined; setting tableGroup")
+      // console.log("tableGroup is not undefined; setting tableGroup")
       // addSubtables(tableGroup);
     }
-    
   }
 
-  console.log(tableGroup)
+  const getRandomValue = () => {}
+
+  // console.log(tableGroup)
 
   return (
     <div style={{"marginBottom": "20px"}}>
@@ -114,7 +115,14 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId,
 
       <div>
         {
-          tableGroup?.subtableCollection.map(a => <p>{a}</p>)
+          !!tableGroup ? 
+            tableGroup.subtableCollection.map(subtableId => (
+              <SubtableGroupComponent 
+                tableGroupId={tableGroupId}
+                subtableGroupId={subtableId}
+              />
+            ))
+          : <></>
         }
       </div>
       
@@ -131,24 +139,19 @@ const mapStateToProps = (state: RootState, ownProps: TableGroupComponentProps) =
 
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
   setTableGroup: (tableGroupId: string, selectedTable: AllTableSelectValues) => {
-    
     const { bookKey, tableKey } = getKeysFromSelectValue(selectedTable);
     const listOfSubtableKeys = tableNamesByBooks[bookKey][tableKey] as AllBodyRollNames[];
     const mapOfSubtableDisplaySpecs = allTablesDisplaySpecsByBook[bookKey][tableKey]["body"]["main"];
 
     const subtableInfo = listOfSubtableKeys.map((subtableKey: AllBodyRollNames) => ({
       id: uuidv4(),
-      tableGroupId: tableGroupId,
       subtableKey: subtableKey as AllBodyRollNames,
       displaySpec: mapOfSubtableDisplaySpecs[subtableKey] as SubtableDisplaySpecType
     }));
-
     const subtableIds = subtableInfo.map(({id}) => id);
 
-    console.log(subtableInfo);
     dispatch(setTableGroup(tableGroupId, selectedTable, subtableIds));
-    // dispatch: delete all subtables with this tableGroupId
-    dispatch(addAllToTableSubtableGroup(subtableInfo));
+    dispatch(clearAndRepopulateTableSubtableGroup(tableGroupId, subtableInfo));
   }
 });
 

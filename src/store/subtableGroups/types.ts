@@ -31,7 +31,7 @@ export interface SubtableGroupsState {
 ///////////////////////////////////////////////////////////////////////////
 ////////////////                                                    ACTIONS
 
-export const ADDALLTOTABLE_SUBTABLEGROUP = "ADDALLTOTABLE_SUBTABLEGROUP"
+export const CLEARANDREPOPULATETABLE_SUBTABLEGROUP = "CLEARANDREPOPULATETABLE_SUBTABLEGROUP"
 export const DELETEFROMTABLE_SUBTABLEGROUP = "DELETEFROMTABLE_SUBTABLEGROUP"
 
 // interface AddAllToTableSubtableGroupAction {
@@ -44,16 +44,20 @@ export const DELETEFROMTABLE_SUBTABLEGROUP = "DELETEFROMTABLE_SUBTABLEGROUP"
 //   }[];
 // }
 
-export type AddAllSubtablesDispatchInput = {
+export type ClearAndRepopulateSubtablesDispatchInput = {
   id: string,
-  tableGroupId: string,
   subtableKey: AllBodyRollNames,
   displaySpec: SubtableDisplaySpecType
 }
 
-interface AddAllToTableSubtableGroupAction {
-  type: typeof ADDALLTOTABLE_SUBTABLEGROUP;
-  payload: { [key: string]: AddAllSubtablesDispatchInput }
+interface ClearAndRepopulateTableSubtableGroupAction {
+  type: typeof CLEARANDREPOPULATETABLE_SUBTABLEGROUP;
+  payload: {
+    tableGroupId: string;
+    subtables: {
+      [key: string]: ClearAndRepopulateSubtablesDispatchInput 
+    }
+  }
 }
 
 // type AddAllToTableThunkSubtableGroupAction = ThunkAction<void, RootState, unknown, Action<string>>;
@@ -74,5 +78,5 @@ interface DeleteFromTableSubtableGroupAction {
 }
 
 export type SubtableGroupActionTypes = 
-| AddAllToTableSubtableGroupAction
+| ClearAndRepopulateTableSubtableGroupAction
 | DeleteFromTableSubtableGroupAction;
