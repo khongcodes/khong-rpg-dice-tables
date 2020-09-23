@@ -117,9 +117,10 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId,
         {
           !!tableGroup ? 
             tableGroup.subtableCollection.map(subtableId => (
-              <SubtableGroupComponent 
+              <SubtableGroupComponent
                 tableGroupId={tableGroupId}
                 subtableGroupId={subtableId}
+                key={subtableId}
               />
             ))
           : <></>

@@ -2,7 +2,7 @@ import { CombinedRollValuesType } from "../../model/DataIn"
 
 export interface BodyRoll {
   id: string;
-  subtableId: string;
+  subtableGroupId: string;
   value: CombinedRollValuesType;
 }
 
@@ -22,7 +22,8 @@ export const ADD_BODYROLL = "ADD_BODYROLL"
 interface AddBodyRollAction {
   type: typeof ADD_BODYROLL;
   payload: {
-    subtableId: string;
+    id: string;
+    subtableGroupId: string;
   }
 }
 

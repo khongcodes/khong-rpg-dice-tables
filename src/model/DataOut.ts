@@ -78,7 +78,7 @@ export type AllBookNames = typeof bookNames[number];
 export type AllTableNames = keyof typeof tableNamesByBooks[AllBookNames];
 export type AllBodyRollNames = typeof tableNamesByBooks[AllBookNames][AllTableNames]
 
-export type AllBodyRollFormats = typeof bodyRollFormats[number] | string;
+export type AllBodyRollFormats = typeof bodyRollFormats[number];
 
 export type SubtableDisplaySpecType = {
   name: string;

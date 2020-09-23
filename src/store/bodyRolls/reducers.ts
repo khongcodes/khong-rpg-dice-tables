@@ -18,6 +18,7 @@ export function bodyRollsReducer(
 
   switch (action.type) {
     case ADD_BODYROLL:
+      console.log("I'm in the reducer")
       return {
         byId: Object.assign({}, state.byId, {
 
