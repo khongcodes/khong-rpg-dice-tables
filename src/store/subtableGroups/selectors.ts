@@ -8,3 +8,11 @@ export const selectSubtableGroupById = (state: RootState, id: string) => subtabl
 export const selectSubtableGroupIdsByTableGroupId = (state: RootState, id: string): string[] => {
   return selectTableGroupById(state, id).subtableCollection;
 }
+
+export const selectSubtableGroupDataInTableGroupData = (
+  state: RootState,
+  subtableId: string
+) => {
+  const subtable = selectSubtableGroupById(state, subtableId);
+  return selectTableGroupById(state, subtable.tableGroupId).tableData["main"][subtable.subtableKey];
+}

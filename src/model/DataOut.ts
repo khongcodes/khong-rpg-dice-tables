@@ -83,6 +83,7 @@ export type AllBodyRollFormats = typeof bodyRollFormats[number];
 export type SubtableDisplaySpecType = {
   name: string;
   format: AllBodyRollFormats;
+  initialRollCount: number | string;
 };
 
 export const getKeysFromSelectValue = (selectedTable: AllTableSelectValues) => {
@@ -120,19 +121,23 @@ const lancerOutputSpecs: LancerOutputSpecType = {
       main: {
         worldType: {
           name: "World Type",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         definingNaturalFeature: {
           name: "Defining Natural Feature",
-          format: "detail"
+          format: "detail",
+          initialRollCount: 1
         },
         definingAnthropocentricFeature: {
           name: "Defining Anthropocentric Feature",
-          format: "detail"
+          format: "detail",
+          initialRollCount: 1
         },
         environments: {
           name: "Environmental Factors",
-          format: "detail"
+          format: "detail",
+          initialRollCount: 1
         }
       }
     }
@@ -151,11 +156,13 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
       main: {
         d100Trinkets: {
           name: "D100 Trinkets",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         d100Patches: {
           name: "D100 Patches",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         }
       }
     }

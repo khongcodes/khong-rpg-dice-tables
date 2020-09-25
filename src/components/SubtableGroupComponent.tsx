@@ -4,26 +4,84 @@ import { v4 as uuidv4 } from "uuid";
 
 import { RootState, RootAction } from "../store/";
 import { SubtableGroup } from "../store/subtableGroups/types";
-import { selectSubtableGroupById } from "../store/subtableGroups/selectors";
-import { addBodyRoll } from "../store/bodyRolls/actions";
+
+import { selectSubtableGroupById, selectSubtableGroupDataInTableGroupData } from "../store/subtableGroups/selectors";
+import { addBodyRollIdsSubtableGroup } from "../store/subtableGroups/actions";
+import { addBodyRoll, errorWithBodyRoll } from "../store/bodyRolls/actions";
+// import { AllBodyRollNames } from '../model/DataOut';
+import { CombinedBodyRollType, CombinedRollValuesType } from "../model/DataIn";
+
+import { rollValues, 
+  // SubtableError,
+  // ERROR_INVALIDSUBTABLEINTERFACE as subtableError1,
+  // ERROR_INVALIDSUBTABLETYPE as subtableError2
+} from "../util/rollDice";
+
+type SubtableGroupComponentMappedState = {
+  subtableGroup?: SubtableGroup;
+  subtableData?: CombinedBodyRollType;
+};
+
+type SubtableGroupComponentMappedDispatch = {
+  initializeSubtableBodyRolls?: (
+    initializingData: InitializeSubtableDispatchDataInput,
+    bodyRollData: InitializeSubtableDispatchBodyRollInput
+  ) => void;
+};
 
 type SubtableGroupComponentProps = {
   tableGroupId: string;
   subtableGroupId: string;
-  subtableGroup?: SubtableGroup;
+} & 
+SubtableGroupComponentMappedState & 
+SubtableGroupComponentMappedDispatch;
 
-  initializeSubtableBodyRolls?: (subtableGroupId: string) => void;
-};
+type InitializeSubtableDispatchDataInput = {
+  tableGroupId: string;
+  subtableGroupId: string;
+}
+
+type BodyRollDispatchInput = {
+  id: string;
+  value: CombinedRollValuesType | string;
+}
+
+type InitializeSubtableDispatchBodyRollInput = Array<BodyRollDispatchInput>
+
 
 const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
-  tableGroupId, subtableGroupId, subtableGroup,
+  tableGroupId, subtableGroupId, 
+  subtableGroup, subtableData,
   initializeSubtableBodyRolls
 }) => {
-  useEffect(
-    () => {
-      if (initializeSubtableBodyRolls) { initializeSubtableBodyRolls(subtableGroupId) }
+
+  // on creation of component 
+  //  (on creation of new subtableGroup in redux store; 
+  //    triggered by resetting the tableGroup's selectValue 
+  //      (or clicking "reroll" button on tableGroup)
+  //  )
+  useEffect(() => {
+    // initializeSubtableBodyRolls needs to be confirmed as !undefined
+    if (initializeSubtableBodyRolls && subtableGroup && subtableData) {
+      
+      console.log(rollValues(subtableData));
+      const { initialRollCount } = subtableGroup.displaySpec;
+      const initializingData: InitializeSubtableDispatchDataInput = { tableGroupId, subtableGroupId };
+      const bodyRollData: InitializeSubtableDispatchBodyRollInput = [];
+      if (typeof initialRollCount !== "number") {
+        // example "reference different table"
+      } else {
+        for (let i = 0; i < initialRollCount; i++) {
+          bodyRollData.push({
+            id: uuidv4(),
+            value: rollValues(subtableData)
+          })
+        }
+      }
+
+      initializeSubtableBodyRolls(initializingData, bodyRollData);
     }
-  ,[subtableGroupId])
+  }, [subtableGroup, /*& subtableData*/])
 
   return (
     <div>
@@ -34,7 +92,7 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
       </p>
 
       <button>delete all</button>
-      <button>reroll all</button>
+      <button onClick={() => console.log(subtableData)}>reroll all</button>
       <button>add bodyroll</button>
 
 
@@ -45,17 +103,36 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
 const mapStateToProps = (state: RootState, ownProps: SubtableGroupComponentProps) => {
   const { subtableGroupId } = ownProps;
   return {
-    subtableGroup: selectSubtableGroupById(state, subtableGroupId)
+    subtableGroup: selectSubtableGroupById(state, subtableGroupId),
+    subtableData: selectSubtableGroupDataInTableGroupData(state, subtableGroupId)
   }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
-  initializeSubtableBodyRolls: (subtableGroupId: string) => {
-    const newBodyRollId = uuidv4();
-    dispatch(addBodyRoll(newBodyRollId, subtableGroupId));
+  initializeSubtableBodyRolls: (
+    initializingData: InitializeSubtableDispatchDataInput,
+    bodyRollData: InitializeSubtableDispatchBodyRollInput
+  ) => {
+    const { tableGroupId, subtableGroupId } = initializingData;
 
-    // the above makes one bodyroll
-    // update the subtable
+    for (let i = 0; i < bodyRollData.length; i++) {
+      if (typeof bodyRollData[i].value === "string") {
+        dispatch(errorWithBodyRoll({ tableGroupId, subtableGroupId }, bodyRollData[i].value as string ));
+      } else {
+        dispatch(addBodyRoll(
+          tableGroupId, 
+          subtableGroupId, 
+          bodyRollData[i] as {
+            id: string, 
+            value: CombinedRollValuesType
+          }
+        ));
+      }
+    }
+
+    // update subtableGroup bodyRollCollection
+    const validBodyRollIds: string[] = bodyRollData.filter(a => typeof a.value !== "string").map(a => a.id);
+    dispatch(addBodyRollIdsSubtableGroup(subtableGroupId, validBodyRollIds));
   }
 })
 

@@ -2,11 +2,10 @@ import store from "../index";
 
 import { 
   SubtableGroup, SubtableGroupsState , SubtableGroupActionTypes,
-  CLEARANDREPOPULATETABLE_SUBTABLEGROUP
+  CLEARANDREPOPULATETABLE_SUBTABLEGROUP, 
+  ADDBODYROLLIDS_SUBTABLEGROUP
 } from "./types";
 
-import { selectSubtableIdsByTableGroupId } from "../tableGroups/selectors"
-import { subtableGroupsSelector } from "./selectors";
 
 const initialState = {
   byId: {},
@@ -21,15 +20,6 @@ export function subtableGroupsReducer(
   switch (action.type) {
     // ONLY CASE WHERE SUBTABLEGROUP WOULD BE ADDED IS IN SETTING TABLEGROUP
     case CLEARANDREPOPULATETABLE_SUBTABLEGROUP:
-
-      // if (state.allIds.length === 0) {
-      //   return {
-      //     byId: {},
-      //     // allIds: [action.payload.subtables]
-      //   }
-      // } else {
-
-      // }
       const oldSubtables = Object.keys(state.byId).filter((id: string) => state.byId[id].tableGroupId === action.payload.tableGroupId);
       const newStateById = {...state.byId};
       for (let i = 0; i < oldSubtables.length; i++) {
@@ -40,6 +30,21 @@ export function subtableGroupsReducer(
       return {
         byId: Object.assign(newStateById, action.payload.subtables),
         allIds: excludeOldSubtableIds.concat(Object.keys(action.payload.subtables))
+      }
+
+    case ADDBODYROLLIDS_SUBTABLEGROUP:
+      return {
+        byId: {
+          ...state.byId,
+          [action.payload.subtableGroupId]: {
+            ...state.byId[action.payload.subtableGroupId],
+            bodyRollCollection: [
+              ...action.payload.bodyRollIds,
+              ...state.byId[action.payload.subtableGroupId].bodyRollCollection
+            ]
+          }
+        },
+        allIds: [...state.allIds]
       }
 
     default:

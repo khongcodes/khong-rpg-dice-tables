@@ -1,6 +1,7 @@
 import { ClearAndRepopulateSubtablesDispatchInput,
   SubtableGroupActionTypes,
   CLEARANDREPOPULATETABLE_SUBTABLEGROUP,
+  ADDBODYROLLIDS_SUBTABLEGROUP
 } from "./types";
 
 
@@ -17,4 +18,14 @@ export function clearAndRepopulateTableSubtableGroup(tableGroupId: string, subta
       subtables: addedSubtablesObj
     }
   }
+}
+
+export function addBodyRollIdsSubtableGroup(subtableGroupId: string, bodyRollIds: string[]): SubtableGroupActionTypes {
+  return {
+    type: ADDBODYROLLIDS_SUBTABLEGROUP,
+    payload: {
+      subtableGroupId, 
+      bodyRollIds
+    }
+  };
 }

@@ -19,7 +19,7 @@ export interface TableGroup {
   bookKey: AllBookNames;
   tableKey: AllTableNames;
   subtableCollection: string[];
-  tableData: {} | CombinedInputDataType;
+  tableData: CombinedInputDataType[AllTableNames];
 }
 
 // declaring readonly protects immutability of initial state

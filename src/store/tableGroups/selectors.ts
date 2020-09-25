@@ -1,7 +1,7 @@
 import { createSelector, Selector } from "@reduxjs/toolkit";
 
 // import { TableGroupsState } from "./types";
-import { RootState } from "../index"
+import { RootState } from "../index";
 
 export const tableGroupsSelector = (state: RootState) => state.tableGroups;
 
@@ -11,4 +11,3 @@ export const selectTableGroupById = (state: RootState, id: string) => tableGroup
 
 export const selectSubtableIdsByTableGroupId = (state: RootState, id: string) => selectTableGroupById(state, id).subtableCollection;
 
-// export const allTableGroupsSequential = (state: RootState) => tableGroupsSelector(state).allIds.map(id => selectTableGroupById(state, id));

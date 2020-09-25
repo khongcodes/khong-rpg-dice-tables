@@ -144,15 +144,26 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
     const listOfSubtableKeys = tableNamesByBooks[bookKey][tableKey] as AllBodyRollNames[];
     const mapOfSubtableDisplaySpecs = allTablesDisplaySpecsByBook[bookKey][tableKey]["body"]["main"];
 
-    const subtableInfo = listOfSubtableKeys.map((subtableKey: AllBodyRollNames) => ({
-      id: uuidv4(),
-      subtableKey: subtableKey as AllBodyRollNames,
-      displaySpec: mapOfSubtableDisplaySpecs[subtableKey] as SubtableDisplaySpecType
-    }));
+    const subtableInfo = listOfSubtableKeys.map((subtableKey: AllBodyRollNames) => {
+      const displaySpec = mapOfSubtableDisplaySpecs[subtableKey] as SubtableDisplaySpecType;
+      // const bodyRollIdsForSubtable = [];
+      // for (let i = 0; i < displaySpec.initialRollCount; i++) {
+      //   bodyRollIdsForSubtable.push(uuidv4());
+      // }
+      return {
+        id: uuidv4(),
+        subtableKey: subtableKey as AllBodyRollNames,
+        displaySpec: displaySpec,
+        // bodyRollCollection: bodyRollIdsForSubtable
+      }
+    });
     const subtableIds = subtableInfo.map(({id}) => id);
+    // const bodyRollIds = subtableInfo.map(({id, bodyRollCollection}) => ({id, bodyRollCollection}));
 
     dispatch(setTableGroup(tableGroupId, selectedTable, subtableIds));
+    // dispatch, clear bodyRolls associated with tableGroupId
     dispatch(clearAndRepopulateTableSubtableGroup(tableGroupId, subtableInfo));
+    
   }
 });
 
