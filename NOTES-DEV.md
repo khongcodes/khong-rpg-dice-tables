@@ -1,3 +1,10 @@
+//////////////////////////////////////////////////////////////////
+09/25 4:09 PM
+
+MAKE SURE views/Home.tsx mapDispatch deleteTableGroup DELETES ALL CHILDREN OBJECTS IN STORE!!!!!!!
+
+
+//////////////////////////////////////////////////////////////////
 finally finished getting store structure setup
 
 next -

@@ -49,7 +49,7 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
     case "detail":
       return (
         <div>
-          <p>value: {(value as DetailRollValue).name}</p>
+          <p>name: {(value as DetailRollValue).name}</p>
           <p>detail: {(value as DetailRollValue).detail}</p>
         </div>
       )

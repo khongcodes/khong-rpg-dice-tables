@@ -37,19 +37,8 @@ const Home: React.FC<HomeProps> = ({
   addTableGroup, deleteTableGroup
 }) => {
 
-  const handleAddTableGroup = () => {
-    // if (addTableGroup) {
-      console.log("adding");
-      addTableGroup();
-    // }
-  }
-
-  const handleDeleteTableGroup = (id: string) => {
-    // if (deleteTableGroup) {
-      console.log("deleting");
-      deleteTableGroup(id);
-    // }
-  }
+  const handleAddTableGroup = () => addTableGroup();
+  const handleDeleteTableGroup = (id: string) => deleteTableGroup(id);
 
   return (
     <div>
@@ -63,16 +52,6 @@ const Home: React.FC<HomeProps> = ({
             />
           )
         )}
-        {/* {
-          rolls.length === 0 ? <></> : 
-            (rolls as TableGroup[]).map(roll => 
-              <TableRollComponent 
-                key={roll.id}
-                data={roll}
-                removeThisRoll={removeThisRoll}
-              />
-            ) 
-        } */}
       </div>
 
       <div>
@@ -90,7 +69,10 @@ const mapStateToProps = (state: RootState) => {
 
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
   addTableGroup: () => dispatch(addTableGroup()),
-  deleteTableGroup: (id: string) => dispatch(deleteTableGroup(id))
+  deleteTableGroup: (id: string) => {
+    // MAKE SURE ALL CHILDREN ARE DELETED!!!!!!!!!!!!
+    dispatch(deleteTableGroup(id))
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

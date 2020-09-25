@@ -79,10 +79,6 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId,
     }
   }
 
-  const getRandomValue = () => {}
-
-  // console.log(tableGroup)
-
   return (
     <div style={{"marginBottom": "20px"}}>
       <div>
@@ -164,7 +160,6 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
     dispatch(setTableGroup(tableGroupId, selectedTable, subtableIds));
     dispatch(deleteByTableGroupBodyRoll(tableGroupId));
     dispatch(clearAndRepopulateTableSubtableGroup(tableGroupId, subtableInfo));
-    
   }
 });
 
