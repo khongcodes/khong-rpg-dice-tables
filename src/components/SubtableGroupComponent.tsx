@@ -17,6 +17,8 @@ import { rollValues,
   // ERROR_INVALIDSUBTABLETYPE as subtableError2
 } from "../util/rollDice";
 
+import BodyRollComponent from './BodyRollComponent';
+
 type SubtableGroupComponentMappedState = {
   subtableGroup?: SubtableGroup;
   subtableData?: CombinedBodyRollType;
@@ -78,10 +80,9 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
           })
         }
       }
-
       initializeSubtableBodyRolls(initializingData, bodyRollData);
     }
-  }, [subtableGroup, /*& subtableData*/])
+  }, [!!subtableGroup])
 
   return (
     <div>
@@ -94,6 +95,16 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
       <button>delete all</button>
       <button onClick={() => console.log(subtableData)}>reroll all</button>
       <button>add bodyroll</button>
+
+      {
+        !!subtableGroup ? subtableGroup.bodyRollCollection.map(bodyRollId => (
+          <BodyRollComponent
+            bodyRollId={bodyRollId}
+            key={bodyRollId}
+          />
+        ))
+        : <></>
+      }
 
 
     </div>
@@ -119,6 +130,7 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
       if (typeof bodyRollData[i].value === "string") {
         dispatch(errorWithBodyRoll({ tableGroupId, subtableGroupId }, bodyRollData[i].value as string ));
       } else {
+        console.log(`making bodyroll`)
         dispatch(addBodyRoll(
           tableGroupId, 
           subtableGroupId, 

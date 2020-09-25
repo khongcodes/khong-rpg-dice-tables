@@ -18,6 +18,7 @@ import { RootState, RootAction } from "../store";
 import { selectTableGroupById } from '../store/tableGroups/selectors';
 import { setTableGroup } from "../store/tableGroups/actions";
 import { clearAndRepopulateTableSubtableGroup } from "../store/subtableGroups/actions";
+import { deleteByTableGroupBodyRoll } from "../store/bodyRolls/actions";
 
 import availableRolls from "../controlPanel/availableRolls.json";
 
@@ -161,7 +162,7 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
     // const bodyRollIds = subtableInfo.map(({id, bodyRollCollection}) => ({id, bodyRollCollection}));
 
     dispatch(setTableGroup(tableGroupId, selectedTable, subtableIds));
-    // dispatch, clear bodyRolls associated with tableGroupId
+    dispatch(deleteByTableGroupBodyRoll(tableGroupId));
     dispatch(clearAndRepopulateTableSubtableGroup(tableGroupId, subtableInfo));
     
   }

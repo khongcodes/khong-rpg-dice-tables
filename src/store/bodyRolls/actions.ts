@@ -1,6 +1,9 @@
 import {
   BodyRollActionTypes, ErrorBodyRollInput,
-  ADD_BODYROLL, ERROR_BODYROLL
+  ADD_BODYROLL,
+  DELETE_BODYROLL,
+  DELETEBYTABLEGROUP_BODYROLL,
+  ERROR_BODYROLL
 } from "./types";
 
 import { CombinedRollValuesType } from "../../model/DataIn";
@@ -21,6 +24,20 @@ export function addBodyRoll(
       subtableGroupId, 
       tableGroupId
     }
+  }
+}
+
+export function deleteBodyRoll(id: string): BodyRollActionTypes {
+  return {
+    type: DELETE_BODYROLL,
+    payload: { id }
+  }
+}
+
+export function deleteByTableGroupBodyRoll(tableGroupId: string): BodyRollActionTypes {
+  return {
+    type: DELETEBYTABLEGROUP_BODYROLL,
+    payload: { tableGroupId }
   }
 }
 

@@ -13,19 +13,19 @@ type OptionalModifier = {
 /////////////////////////////////////////////////////////////////////////////////
 ////////                                                       DEFINE TABLE TYPES
 
-type SimpleRollValue = OptionalModifier & {
+export type SimpleRollValue = OptionalModifier & {
   value: string;
 };
 
-type DetailRollValue = OptionalModifier & {
+export type DetailRollValue = OptionalModifier & {
   name: string;
   detail: string;
 };
 
-type RangeSimpleRollValue = RangeModifier & SimpleRollValue;
-type RangeDetailRollValue = RangeModifier & DetailRollValue;
+export type RangeSimpleRollValue = RangeModifier & SimpleRollValue;
+export type RangeDetailRollValue = RangeModifier & DetailRollValue;
 
-type NestedNamedRangeRollValue = RangeModifier & {
+export type NestedNamedRangeRollValue = RangeModifier & {
   categoryName: string;
   values: RangeSimpleRollValue[];
 }

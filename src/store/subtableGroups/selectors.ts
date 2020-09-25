@@ -1,4 +1,5 @@
 import { RootState } from "../index";
+import { selectBodyRollById } from "../bodyRolls/selectors";
 import { selectTableGroupById } from "../tableGroups/selectors";
 
 export const subtableGroupsSelector = (state: RootState) => state.subtableGroups.byId;
@@ -15,4 +16,14 @@ export const selectSubtableGroupDataInTableGroupData = (
 ) => {
   const subtable = selectSubtableGroupById(state, subtableId);
   return selectTableGroupById(state, subtable.tableGroupId).tableData["main"][subtable.subtableKey];
+}
+
+export const selectFormatByBodyRollId = (state: RootState, bodyRollId: string) => {
+  const subtable = selectBodyRollById(state, bodyRollId);
+  if (subtable) {
+    return selectSubtableGroupById(state, subtable.subtableGroupId).displaySpec.format;
+  } else {
+    return;
+  }
+  
 }

@@ -21,6 +21,7 @@ export function clearAndRepopulateTableSubtableGroup(tableGroupId: string, subta
 }
 
 export function addBodyRollIdsSubtableGroup(subtableGroupId: string, bodyRollIds: string[]): SubtableGroupActionTypes {
+  console.log("addbodyrollids")
   return {
     type: ADDBODYROLLIDS_SUBTABLEGROUP,
     payload: {
