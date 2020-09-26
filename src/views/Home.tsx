@@ -17,6 +17,8 @@ import { RootState, RootAction } from "../store";
 
 import TableRollComponent from "../components/TableGroupComponent";
 import { addTableGroup, deleteTableGroup } from '../store/tableGroups/actions';
+import { deleteByTableGroupSubtableGroup } from "../store/subtableGroups/actions";
+import { deleteByTableGroupBodyRoll } from "../store/bodyRolls/actions";
 // import { AddRollButton } from "../components/Buttons";
 
 
@@ -70,8 +72,9 @@ const mapStateToProps = (state: RootState) => {
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
   addTableGroup: () => dispatch(addTableGroup()),
   deleteTableGroup: (id: string) => {
-    // MAKE SURE ALL CHILDREN ARE DELETED!!!!!!!!!!!!
-    dispatch(deleteTableGroup(id))
+    dispatch(deleteByTableGroupBodyRoll(id));
+    dispatch(deleteByTableGroupSubtableGroup(id));
+    dispatch(deleteTableGroup(id));
   }
 });
 

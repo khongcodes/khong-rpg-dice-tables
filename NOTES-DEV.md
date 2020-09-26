@@ -3,6 +3,8 @@
 
 MAKE SURE views/Home.tsx mapDispatch deleteTableGroup DELETES ALL CHILDREN OBJECTS IN STORE!!!!!!!
 
+DISABLE buttons where functionality is not yet ready (e.g. reroll all tableGroupBodyRolls)
+
 
 //////////////////////////////////////////////////////////////////
 finally finished getting store structure setup

@@ -69,7 +69,7 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
   console.log(bodyRoll)
   return (
     <div>
-      <button>delete</button>
+      <button disabled>delete</button>
       
       <p>
         id: {bodyRollId}

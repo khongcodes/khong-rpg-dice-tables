@@ -92,9 +92,9 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
         displaySpec: {subtableGroup?.displaySpec.format}
       </p>
 
-      <button>delete all</button>
-      <button onClick={() => console.log(subtableData)}>reroll all</button>
-      <button>add bodyroll</button>
+      <button disabled>delete all</button>
+      <button disabled>reroll all</button>
+      <button disabled>add bodyroll</button>
 
       {
         !!subtableGroup ? subtableGroup.bodyRollCollection.map(bodyRollId => (

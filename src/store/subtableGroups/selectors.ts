@@ -15,7 +15,8 @@ export const selectSubtableGroupDataInTableGroupData = (
   subtableId: string
 ) => {
   const subtable = selectSubtableGroupById(state, subtableId);
-  return selectTableGroupById(state, subtable.tableGroupId).tableData["main"][subtable.subtableKey];
+  
+  return subtable !== undefined ? selectTableGroupById(state, subtable.tableGroupId).tableData["main"][subtable.subtableKey] : undefined;
 }
 
 export const selectFormatByBodyRollId = (state: RootState, bodyRollId: string) => {
@@ -25,5 +26,4 @@ export const selectFormatByBodyRollId = (state: RootState, bodyRollId: string) =
   } else {
     return;
   }
-  
 }
