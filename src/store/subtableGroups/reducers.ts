@@ -1,11 +1,11 @@
 // import { SubtableGroup } from "../../model/SubtableGroup";
-import store from "../index";
-
 import { 
   SubtableGroup, SubtableGroupsState , SubtableGroupActionTypes,
   CLEARANDREPOPULATETABLE_SUBTABLEGROUP,
   DELETEBYTABLEGROUP_SUBTABLEGROUP,
-  ADDBODYROLLIDS_SUBTABLEGROUP
+  ADDBODYROLLIDS_SUBTABLEGROUP,
+  DELETEBODYROLLID_SUBTABLEGROUP,
+  DELETEBODYROLLCOLLECTION_SUBTABLEGROUP
 } from "./types";
 
 
@@ -63,7 +63,31 @@ export function subtableGroupsReducer(
           }
         },
         allIds: [...state.allIds]
-      }
+      };
+    
+    case DELETEBODYROLLID_SUBTABLEGROUP:
+      return {
+        byId: {
+          ...state.byId,
+          [action.payload.subtableGroupId]: {
+            ...state.byId[action.payload.subtableGroupId],
+            bodyRollCollection: state.byId[action.payload.subtableGroupId].bodyRollCollection.filter(id => id !== action.payload.bodyRollId)
+          }
+        },
+        allIds: [...state.allIds]
+      };
+
+    case DELETEBODYROLLCOLLECTION_SUBTABLEGROUP:
+      return {
+        byId: {
+          ...state.byId,
+          [action.payload.subtableGroupId]: {
+            ...state.byId[action.payload.subtableGroupId],
+            bodyRollCollection: []
+          }
+        },
+        allIds: [...state.allIds]
+      };
 
     default:
       return state;

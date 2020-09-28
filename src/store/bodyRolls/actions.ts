@@ -4,6 +4,7 @@ import {
   SET_BODYROLL,
   DELETE_BODYROLL,
   DELETEBYTABLEGROUP_BODYROLL,
+  DELETEBYSUBTABLEGROUP_BODYROLL,
   ERROR_BODYROLL
 } from "./types";
 
@@ -46,6 +47,13 @@ export function deleteByTableGroupBodyRoll(tableGroupId: string): BodyRollAction
   return {
     type: DELETEBYTABLEGROUP_BODYROLL,
     payload: { tableGroupId }
+  }
+}
+
+export function deleteBySubtableGroupBodyRoll(subtableGroupId: string) : BodyRollActionTypes {
+  return {
+    type: DELETEBYSUBTABLEGROUP_BODYROLL,
+    payload: { subtableGroupId }
   }
 }
 

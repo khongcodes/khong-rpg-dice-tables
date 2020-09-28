@@ -26,7 +26,7 @@ export const ADD_BODYROLL = "ADD_BODYROLL";
 export const SET_BODYROLL = "SET_BODYROLL";
 export const DELETE_BODYROLL = "DELETE_BODYROLL";
 export const DELETEBYTABLEGROUP_BODYROLL = "DELETEBYTABLEGROUP_BODYROLL";
-// export const DELETEBYSUBTABLEGROUP_BODYROLL = "DELETEBYTABLEGROUP_BODYROLL";
+export const DELETEBYSUBTABLEGROUP_BODYROLL = "DELETEBYSUBTABLEGROUP_BODYROLL";
 export const ERROR_BODYROLL = "ERROR_BODYROLL";
 
 interface AddBodyRollAction {
@@ -61,6 +61,13 @@ interface DeleteByTableGroupBodyRollAction {
   }
 }
 
+interface DeleteBySubtableGroupBodyRollAction {
+  type: typeof DELETEBYSUBTABLEGROUP_BODYROLL;
+  payload: {
+    subtableGroupId: string;
+  }
+}
+
 interface ErrorBodyRollAction {
   type: typeof ERROR_BODYROLL;
   payload: {
@@ -76,5 +83,6 @@ export type BodyRollActionTypes =
 | SetBodyRollAction
 | DeleteBodyRollAction
 | DeleteByTableGroupBodyRollAction
+| DeleteBySubtableGroupBodyRollAction
 | ErrorBodyRollAction;
 

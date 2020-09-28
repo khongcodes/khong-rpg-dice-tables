@@ -2,7 +2,9 @@ import { ClearAndRepopulateSubtablesDispatchInput,
   SubtableGroupActionTypes,
   CLEARANDREPOPULATETABLE_SUBTABLEGROUP,
   DELETEBYTABLEGROUP_SUBTABLEGROUP,
-  ADDBODYROLLIDS_SUBTABLEGROUP
+  ADDBODYROLLIDS_SUBTABLEGROUP,
+  DELETEBODYROLLID_SUBTABLEGROUP,
+  DELETEBODYROLLCOLLECTION_SUBTABLEGROUP
 } from "./types";
 
 
@@ -29,7 +31,6 @@ export function deleteByTableGroupSubtableGroup(tableGroupId: string): SubtableG
 }
 
 export function addBodyRollIdsSubtableGroup(subtableGroupId: string, bodyRollIds: string[]): SubtableGroupActionTypes {
-  console.log("addbodyrollids")
   return {
     type: ADDBODYROLLIDS_SUBTABLEGROUP,
     payload: {
@@ -37,4 +38,21 @@ export function addBodyRollIdsSubtableGroup(subtableGroupId: string, bodyRollIds
       bodyRollIds
     }
   };
+}
+
+export function deleteBodyRollIdSubtableGroup(subtableGroupId: string, bodyRollId: string): SubtableGroupActionTypes {
+  return {
+    type: DELETEBODYROLLID_SUBTABLEGROUP,
+    payload: { 
+      subtableGroupId,
+      bodyRollId 
+    }
+  }
+}
+
+export function deleteBodyRollCollectionSubtableGroup(subtableGroupId: string): SubtableGroupActionTypes {
+  return {
+    type: DELETEBODYROLLCOLLECTION_SUBTABLEGROUP,
+    payload: { subtableGroupId }
+  }
 }

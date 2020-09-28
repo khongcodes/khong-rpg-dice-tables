@@ -1,21 +1,36 @@
-import store from "../index";
-
 import {
   BodyRoll, BodyRollsState, BodyRollActionTypes, 
   ADD_BODYROLL,
   SET_BODYROLL,
   DELETE_BODYROLL,
   DELETEBYTABLEGROUP_BODYROLL,
+  DELETEBYSUBTABLEGROUP_BODYROLL,
   ERROR_BODYROLL
 } from "./types"
-
-import { utilityDeleteFromStateByTableGroupId } from "../subtableGroups/reducers"
 
 
 const initialState = {
   byId: {},
   allIds: []
 } as BodyRollsState;
+
+
+const removeBodyRollsBy = (
+  state = initialState,
+  key: "tableGroupId" | "subtableGroupId",
+  suppliedId: string
+) => {
+  const newByIdState = {...state.byId};
+  const bodyRollIdsByKey = state.allIds.filter(bodyRollId => state.byId[bodyRollId][key] === suppliedId);
+  for (let i = 0; i < bodyRollIdsByKey.length; i++){
+    delete newByIdState[bodyRollIdsByKey[i]];
+  }
+  return {
+    byId: newByIdState,
+    allIds: state.allIds.filter(bodyRollId => !bodyRollIdsByKey.includes(bodyRollId))
+  }
+}
+
 
 export function bodyRollsReducer(
   state = initialState,
@@ -55,22 +70,18 @@ export function bodyRollsReducer(
       };
 
     case DELETEBYTABLEGROUP_BODYROLL:
-      const newStateWithoutRollByTableGroupId = {...state.byId};
-      const bodyRollIdsByTableGroupId = state.allIds.filter(id => state.byId[id].tableGroupId === action.payload.tableGroupId);
-      for (let i = 0; i < bodyRollIdsByTableGroupId.length; i++){
-        delete newStateWithoutRollByTableGroupId[bodyRollIdsByTableGroupId[i]];
-      }
+      return removeBodyRollsBy(state, "tableGroupId", action.payload.tableGroupId);
 
-      return {
-        byId: newStateWithoutRollByTableGroupId,
-        allIds: state.allIds.filter(id => !bodyRollIdsByTableGroupId.includes(id))
-      };
+    case DELETEBYSUBTABLEGROUP_BODYROLL:
+      return removeBodyRollsBy(state, "subtableGroupId", action.payload.subtableGroupId);
     
+
     case ERROR_BODYROLL:
       console.log("action.payload:");
       console.log(action.payload);
       return state;
 
+      
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 import { connect } from "react-redux";
 
 import { RootState, RootAction } from "../store";
@@ -12,6 +12,9 @@ import {
   SimpleRollValue,
   DetailRollValue
 } from "../model/DataIn";
+
+import { deleteBodyRoll } from "../store/bodyRolls/actions";
+import { deleteBodyRollIdSubtableGroup } from "../store/subtableGroups/actions";
 
 
 
@@ -28,8 +31,9 @@ type BodyRollComponentMappedState = {
 };
 
 type BodyRollComponentMappedDispatch = {
-
+  deleteBodyRoll?: (subtableGroupId: string, bodyRollId: string) => void;
 };
+
 
 type FormattedBodyRollContentInput = {
   format: AllBodyRollFormats;
@@ -65,16 +69,21 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
 }
 
 const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
-  bodyRollId, 
+  bodyRollId, rerollFn,
   bodyRoll, format,
-  rerollFn
+  deleteBodyRoll
 }) => {
   
   const handleReroll = () => rerollFn(bodyRollId);
+  const handleDelete = () => {
+    if (bodyRoll && deleteBodyRoll) { deleteBodyRoll(bodyRoll.subtableGroupId, bodyRollId); }
+  }
 
   return (
     <div>
-      <button disabled>delete</button>
+      <button onClick={handleDelete}>
+        delete
+      </button>
       
       <p>
         id: {bodyRollId}
@@ -97,6 +106,13 @@ const mapStateToProps = (state: RootState, ownProps: BodyRollComponentProps) => 
     bodyRoll: selectBodyRollById(state, bodyRollId),
     format: selectFormatByBodyRollId(state, bodyRollId)
   }
-}
+};
 
-export default connect(mapStateToProps)(BodyRollComponent);
+const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
+  deleteBodyRoll: (subtableGroupId: string, bodyRollId: string) => {
+    dispatch(deleteBodyRoll(bodyRollId));
+    dispatch(deleteBodyRollIdSubtableGroup(subtableGroupId, bodyRollId));
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(BodyRollComponent);
