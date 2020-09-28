@@ -1,5 +1,9 @@
-import { ClearAndRepopulateSubtablesDispatchInput,
-  SubtableGroupActionTypes,
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
+// 1. Store
+
+import {
+  ClearAndRepopulateSubtablesDispatchInput, SubtableGroupActionTypes,
   CLEARANDREPOPULATETABLE_SUBTABLEGROUP,
   DELETEBYTABLEGROUP_SUBTABLEGROUP,
   ADDBODYROLLIDS_SUBTABLEGROUP,
@@ -8,18 +12,23 @@ import { ClearAndRepopulateSubtablesDispatchInput,
 } from "./types";
 
 
-export function clearAndRepopulateTableSubtableGroup(tableGroupId: string, subtablesData: ClearAndRepopulateSubtablesDispatchInput[]): SubtableGroupActionTypes {
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                ACTION CREATORS
+
+export function clearAndRepopulateTableSubtableGroup(
+  tableGroupId: string,
+  subtablesData: ClearAndRepopulateSubtablesDispatchInput[]
+): SubtableGroupActionTypes {
+  
   const addedSubtablesObj = subtablesData.reduce((container: {[key: string]: ClearAndRepopulateSubtablesDispatchInput}, subtableInfo) => {
     container[subtableInfo.id] = Object.assign({bodyRollCollection: [], tableGroupId: tableGroupId}, subtableInfo);
     return container;
   }, {});
+  const subtables = addedSubtablesObj;
 
   return {
     type: CLEARANDREPOPULATETABLE_SUBTABLEGROUP,
-    payload: {
-      tableGroupId: tableGroupId,
-      subtables: addedSubtablesObj
-    }
+    payload: { tableGroupId, subtables }
   }
 }
 
@@ -33,20 +42,14 @@ export function deleteByTableGroupSubtableGroup(tableGroupId: string): SubtableG
 export function addBodyRollIdsSubtableGroup(subtableGroupId: string, bodyRollIds: string[]): SubtableGroupActionTypes {
   return {
     type: ADDBODYROLLIDS_SUBTABLEGROUP,
-    payload: {
-      subtableGroupId, 
-      bodyRollIds
-    }
+    payload: { subtableGroupId, bodyRollIds }
   };
 }
 
 export function deleteBodyRollIdSubtableGroup(subtableGroupId: string, bodyRollId: string): SubtableGroupActionTypes {
   return {
     type: DELETEBODYROLLID_SUBTABLEGROUP,
-    payload: { 
-      subtableGroupId,
-      bodyRollId 
-    }
+    payload: { subtableGroupId, bodyRollId }
   }
 }
 

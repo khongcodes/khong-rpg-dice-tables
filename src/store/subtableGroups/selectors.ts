@@ -1,6 +1,14 @@
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
+
 import { RootState } from "../index";
+
 import { selectBodyRollById } from "../bodyRolls/selectors";
 import { selectTableGroupById } from "../tableGroups/selectors";
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                      SELECTORS
 
 export const subtableGroupsSelector = (state: RootState) => state.subtableGroups.byId;
 
@@ -15,7 +23,6 @@ export const selectSubtableGroupDataInTableGroupData = (
   subtableId: string
 ) => {
   const subtable = selectSubtableGroupById(state, subtableId);
-  
   return subtable !== undefined ? selectTableGroupById(state, subtable.tableGroupId).tableData["main"][subtable.subtableKey] : undefined;
 }
 

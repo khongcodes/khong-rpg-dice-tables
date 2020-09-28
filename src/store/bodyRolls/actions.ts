@@ -1,3 +1,8 @@
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
+// 1. Store
+// 2. Data-reading utilities
+
 import {
   BodyRollActionTypes, ErrorBodyRollInput,
   ADD_BODYROLL,
@@ -10,6 +15,10 @@ import {
 
 import { CombinedRollValuesType } from "../../model/DataIn";
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                ACTION CREATORS
+
 export function addBodyRoll(
   tableGroupId: string,
   subtableGroupId: string,
@@ -18,14 +27,10 @@ export function addBodyRoll(
     value: CombinedRollValuesType
   }
 ): BodyRollActionTypes {
+  const { id, value } = bodyRollData;
   return {
     type: ADD_BODYROLL,
-    payload: { 
-      id: bodyRollData.id,
-      value: bodyRollData.value,
-      subtableGroupId, 
-      tableGroupId
-    }
+    payload: { id, value, subtableGroupId, tableGroupId }
   }
 }
 

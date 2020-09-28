@@ -1,7 +1,11 @@
-import { createSelector, Selector } from "@reduxjs/toolkit";
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
 
-// import { TableGroupsState } from "./types";
 import { RootState } from "../index";
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                      SELECTORS
 
 export const tableGroupsSelector = (state: RootState) => state.tableGroups;
 

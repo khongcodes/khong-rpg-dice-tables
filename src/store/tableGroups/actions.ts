@@ -1,13 +1,20 @@
-// actions pass payload from user response to reducers
-import { Action } from "redux"
-import { ThunkAction } from "redux-thunk"
-import { RootState } from "..";
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
+// 1. Store
+// 2. Data-reading utilities
 
-import { AllTableNames, AllTableSelectValues } from "../../model/DataOut";
-import { TableGroupActionTypes,
-  ADD_TABLEGROUP, SETTABLE_TABLEGROUP, DELETE_TABLEGROUP
+import {
+  TableGroupActionTypes,
+  ADD_TABLEGROUP,
+  SETTABLE_TABLEGROUP,
+  DELETE_TABLEGROUP
 } from "./types";
 
+import { AllTableSelectValues } from "../../model/DataOut";
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                ACTION CREATORS
 
 export function addTableGroup(): TableGroupActionTypes {
   return {
@@ -35,7 +42,7 @@ export function deleteTableGroup(id: string): TableGroupActionTypes {
 }
 
 
-// THUNK ACTIONS
+// THUNK ACTION EXAMPLE
 
 // export function fullySetTableGroup(selectValue: AllTableNames): ThunkAction<void, RootState, unknown, Action<string>> {
 //   return (dispatch) => {

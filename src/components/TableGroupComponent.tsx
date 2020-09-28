@@ -1,45 +1,66 @@
-// NOTES
-///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                          NOTES
 
-// IMPORTS
-///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
+// 1. React & packages
+// 2. REDUX: Store types
+// 3. REDUX: Selectors
+// 4. REDUX: Actions
+// 5. Data reading utilities
+// 6. Configuration data
+// 7. Components
 
 import React, { useState, Dispatch, ReactEventHandler } from 'react';
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
+import { RootState, RootAction } from "../store";
 import { TableGroup } from "../store/tableGroups/types";
+
+import { selectTableGroupById } from '../store/tableGroups/selectors';
+
+import { setTableGroup } from "../store/tableGroups/actions";
+import { clearAndRepopulateTableSubtableGroup } from "../store/subtableGroups/actions";
+import { deleteByTableGroupBodyRoll } from "../store/bodyRolls/actions";
+
 import { 
   AllTableSelectValues, AllTableNames, AllBodyRollNames, SubtableDisplaySpecType,
   allTablesDisplaySpecsByBook, tableNamesByBooks,
   getKeysFromSelectValue
 } from "../model/DataOut";
-import { RootState, RootAction } from "../store";
-import { selectTableGroupById } from '../store/tableGroups/selectors';
-import { setTableGroup } from "../store/tableGroups/actions";
-import { clearAndRepopulateTableSubtableGroup } from "../store/subtableGroups/actions";
-import { deleteByTableGroupBodyRoll } from "../store/bodyRolls/actions";
 
 import availableRolls from "../controlPanel/availableRolls.json";
 
 import SubtableGroupComponent from "./SubtableGroupComponent";
 
-// COMPONENTS & LOGIC
-///////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                          SETUP
 
 type TableGroupComponentProps = {
+  // base props
   tableGroupId: string;
+  deleteTableGroup: (id: string) => void;
+} &
+TableGroupComponentMappedProps &
+TableGroupComponentMappedDispatch;
+
+type TableGroupComponentMappedProps = {
   tableGroup?: TableGroup;
+};
+
+type TableGroupComponentMappedDispatch = {
   setTableGroup?: (
     tableGroupId: string,
     selectedTable: AllTableSelectValues
     ) => void;
-    
   addSubtables?: (tableGroup: TableGroup) => void;
-  deleteTableGroup: (id: string) => void;
-  // data: TableGroup;
-  // removeThisRoll: (id: string) => void;
-}
+};
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                             COMPONENTS & LOGIC
 
 const AvailableOptions = () => {
   const optGroupsFromAvailableRolls = [];
@@ -65,18 +86,13 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId,
   const [initialized, setInitialized] = useState<boolean>(false);
 
   const handleSelectTable: ReactEventHandler = (event: React.ChangeEvent<HTMLSelectElement>) => setSelectedTable(event.target.value as "none" | AllTableNames);
+  const handleDeleteTable: ReactEventHandler = () => deleteTableGroup(tableGroupId);
   
   const handleRollTable: ReactEventHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!initialized) {setInitialized(true);}
 
-    if (selectedTable !== "none" && setTableGroup) {
-      // console.log("setting table")
-      setTableGroup(tableGroupId, selectedTable);
-
-      // console.log("tableGroup is not undefined; setting tableGroup")
-      // addSubtables(tableGroup);
-    }
+    if (selectedTable !== "none" && setTableGroup) { setTableGroup(tableGroupId, selectedTable); }
   }
 
   return (
@@ -94,7 +110,7 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId,
         <input 
           type="button"
           value="X"
-          onClick={() => deleteTableGroup(tableGroupId)}
+          onClick={handleDeleteTable}
         />
 
         <select value={selectedTable} onChange={handleSelectTable}>
@@ -107,7 +123,6 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId,
           value={ !initialized ? "Roll" : "Reroll" }
           disabled={ selectedTable === "none" }
         />
-        
       </form>
 
       <div>
@@ -144,7 +159,7 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
     // this triggers deleting existing SubtableGroupComponents
     // and then creation of new SubtableGroupComponents,
     // which then triggers creation of BodyRolls in STORE with useEffect()
-    
+
   setTableGroup: (tableGroupId: string, selectedTable: AllTableSelectValues) => {
     const { bookKey, tableKey } = getKeysFromSelectValue(selectedTable);
     const listOfSubtableKeys = tableNamesByBooks[bookKey][tableKey] as AllBodyRollNames[];
@@ -152,19 +167,13 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
 
     const subtableInfo = listOfSubtableKeys.map((subtableKey: AllBodyRollNames) => {
       const displaySpec = mapOfSubtableDisplaySpecs[subtableKey] as SubtableDisplaySpecType;
-      // const bodyRollIdsForSubtable = [];
-      // for (let i = 0; i < displaySpec.initialRollCount; i++) {
-      //   bodyRollIdsForSubtable.push(uuidv4());
-      // }
       return {
         id: uuidv4(),
         subtableKey: subtableKey as AllBodyRollNames,
         displaySpec: displaySpec,
-        // bodyRollCollection: bodyRollIdsForSubtable
       }
     });
     const subtableIds = subtableInfo.map(({id}) => id);
-    // const bodyRollIds = subtableInfo.map(({id, bodyRollCollection}) => ({id, bodyRollCollection}));
 
     dispatch(setTableGroup(tableGroupId, selectedTable, subtableIds));
     dispatch(deleteByTableGroupBodyRoll(tableGroupId));

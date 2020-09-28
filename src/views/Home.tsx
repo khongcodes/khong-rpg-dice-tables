@@ -1,29 +1,29 @@
-// NOTES
-///////////////////////////////////////////////////////////////////
-// Store state in session from App component
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                          NOTES
 
-
-// IMPORTS
-///////////////////////////////////////////////////////////////////
-// 1. React
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
+// 1. React & packages
+// 2. REDUX: Store types
+// 3. REDUX: Selectors
+// 4. REDUX: Actions
+// 5. Components
 
 import React, { Dispatch } from 'react';
 import { connect } from "react-redux";
 
-import { selectTableGroupIds } from "../store/tableGroups/selectors";
-
-import { TableGroup, TableGroupsState } from "../store/tableGroups/types";
 import { RootState, RootAction } from "../store";
 
-import TableRollComponent from "../components/TableGroupComponent";
+import { selectTableGroupIds } from "../store/tableGroups/selectors";
+
 import { addTableGroup, deleteTableGroup } from '../store/tableGroups/actions';
 import { deleteByTableGroupSubtableGroup } from "../store/subtableGroups/actions";
 import { deleteByTableGroupBodyRoll } from "../store/bodyRolls/actions";
-// import { AddRollButton } from "../components/Buttons";
 
+import TableRollComponent from "../components/TableGroupComponent";
 
-// SETUP
-///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                          SETUP
 
 type HomeProps = {
   addTableGroup: () => void;
@@ -31,8 +31,8 @@ type HomeProps = {
   tableGroupIds: string[];
 }
 
-// COMPONENTS & LOGIC
-///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                             COMPONENTS & LOGIC
 
 const Home: React.FC<HomeProps> = ({ 
   tableGroupIds, 
@@ -65,9 +65,9 @@ const Home: React.FC<HomeProps> = ({
   )
 };
 
-const mapStateToProps = (state: RootState) => {
-  return { tableGroupIds: selectTableGroupIds(state) };
-};
+const mapStateToProps = (state: RootState) => ({
+  tableGroupIds: selectTableGroupIds(state)
+});
 
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
   addTableGroup: () => dispatch(addTableGroup()),

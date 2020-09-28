@@ -1,5 +1,9 @@
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
+// 1. Store
+
 import {
-  BodyRoll, BodyRollsState, BodyRollActionTypes, 
+  BodyRollsState, BodyRollActionTypes, 
   ADD_BODYROLL,
   SET_BODYROLL,
   DELETE_BODYROLL,
@@ -9,11 +13,13 @@ import {
 } from "./types"
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                          SETUP
+
 const initialState = {
   byId: {},
   allIds: []
 } as BodyRollsState;
-
 
 const removeBodyRollsBy = (
   state = initialState,
@@ -29,8 +35,11 @@ const removeBodyRollsBy = (
     byId: newByIdState,
     allIds: state.allIds.filter(bodyRollId => !bodyRollIdsByKey.includes(bodyRollId))
   }
-}
+};
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        REDUCER
 
 export function bodyRollsReducer(
   state = initialState,
@@ -81,7 +90,7 @@ export function bodyRollsReducer(
       console.log(action.payload);
       return state;
 
-      
+
     default:
       return state;
   }

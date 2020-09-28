@@ -1,6 +1,9 @@
-// import { SubtableGroup } from "../../model/SubtableGroup";
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
+// 1. Store
+
 import { 
-  SubtableGroup, SubtableGroupsState , SubtableGroupActionTypes,
+  SubtableGroupsState , SubtableGroupActionTypes,
   CLEARANDREPOPULATETABLE_SUBTABLEGROUP,
   DELETEBYTABLEGROUP_SUBTABLEGROUP,
   ADDBODYROLLIDS_SUBTABLEGROUP,
@@ -9,13 +12,15 @@ import {
 } from "./types";
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                          SETUP
+
 const initialState = {
   byId: {},
   allIds: []
 } as SubtableGroupsState;
 
-
-export const utilityDeleteFromStateByTableGroupId = (
+const utilityDeleteFromStateByTableGroupId = (
   state = initialState,
   tableGroupId: string
 ): SubtableGroupsState => {
@@ -31,6 +36,9 @@ export const utilityDeleteFromStateByTableGroupId = (
   }
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        REDUCER
 
 export function subtableGroupsReducer(
   state = initialState,

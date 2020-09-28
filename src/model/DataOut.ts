@@ -1,5 +1,5 @@
-/////////////////////////////////////////////////////////////////////////////////
-////////                                                               DATA SETUP
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                     DATA SETUP
 
 export const bookNames = <const> [
   "lancer", 
@@ -24,8 +24,6 @@ export const tableNamesByBooks = <const> {
   }
 }
 
-// export const tableNames = bookNames.map(a => Object.keys(tableNamesByBooks[a])).flat() as const;
-// tableNames as const
 export const tableSelectValues = <const> [
   "lancer-iterativeWorld",
   "mothership-trinketsPatches",
@@ -69,8 +67,18 @@ const bodyRollFormats = <const> [
 ];
 
 
-/////////////////////////////////////////////////////////////////////////////////
-////////                                                            TYPE DEFINING
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                              UTILITY FUNCTIONS
+
+export const getKeysFromSelectValue = (selectedTable: AllTableSelectValues) => {
+  const bookKey = selectedTable.split("-")[0] as AllBookNames;
+  const tableKey = selectedTable.split("-")[1] as AllTableNames;
+  return { bookKey, tableKey };
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                               TYPE DEFINITIONS
 
 export type AllTableSelectValues = typeof tableSelectValues[number];
 export type AllTableIdentObjs = typeof tableIdentObjs[number];
@@ -79,19 +87,11 @@ export type AllTableNames = keyof typeof tableNamesByBooks[AllBookNames];
 export type AllBodyRollNames = typeof tableNamesByBooks[AllBookNames][AllTableNames]
 
 export type AllBodyRollFormats = typeof bodyRollFormats[number];
-
 export type SubtableDisplaySpecType = {
   name: string;
   format: AllBodyRollFormats;
   initialRollCount: number | string;
 };
-
-export const getKeysFromSelectValue = (selectedTable: AllTableSelectValues) => {
-  const bookKey = selectedTable.split("-")[0] as AllBookNames;
-  const tableKey = selectedTable.split("-")[1] as AllTableNames;
-  return { bookKey, tableKey };
-}
-
 export type TableSpecType = {
   referenceType: "simple"|"shared"|"reference";
   tableName: AllTableIdentObjs;
@@ -109,6 +109,10 @@ type LancerTableNames = keyof typeof tableNamesByBooks.lancer;
 type MothershipTableNames = keyof typeof tableNamesByBooks.mothership;
 type LancerOutputSpecType = { [key in LancerTableNames]: TableSpecType };
 type MothershipOutputSpecType = { [key in MothershipTableNames]: TableSpecType };
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                   OUTPUT SPECS
 
 const lancerOutputSpecs: LancerOutputSpecType = {
   iterativeWorld: {
@@ -361,7 +365,7 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
 
 type CombinedOutputSpecType = 
 | LancerOutputSpecType
-| MothershipOutputSpecType
+| MothershipOutputSpecType;
 
 export const allTablesDisplaySpecsByBook: {
   [key in AllBookNames]: CombinedOutputSpecType

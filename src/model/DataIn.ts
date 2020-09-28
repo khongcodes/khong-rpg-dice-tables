@@ -1,5 +1,5 @@
-/////////////////////////////////////////////////////////////////////////////////
-////////                                                                 PARTIALS
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                       PARTIALS
 
 type RangeModifier = {
   range: string;
@@ -10,8 +10,8 @@ type OptionalModifier = {
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////
-////////                                                       DEFINE TABLE TYPES
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                             DEFINE TABLE TYPES
 
 export type SimpleRollValue = OptionalModifier & {
   value: string;
@@ -98,8 +98,8 @@ export type CombinedBodyRollType =
 
 
 
-/////////////////////////////////////////////////////////////////////////////////
-////////                                                         DATA INPUT TYPES
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                               DATA INPUT TYPES
 
 export type LancerInputTypes = {
   iterativeWorld: {
@@ -175,4 +175,4 @@ export type MothershipInputTypes = {
 
 export type CombinedInputDataType = 
 | LancerInputTypes
-| MothershipInputTypes
+| MothershipInputTypes;

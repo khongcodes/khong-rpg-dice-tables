@@ -1,18 +1,11 @@
-// import { tables, tableSelectValues, bodyRollFormats } from "../../model/DataIO";
-// import { TableGroup } from "../../model/TableGroup";
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
 
-// import { DeepReadonly } from "utility-types"
+import { CombinedInputDataType } from "../../model/DataIn";
+import { AllBookNames, AllTableNames, AllTableSelectValues } from "../../model/DataOut";
 
-import { CombinedInputDataType, CombinedRollValuesType } from "../../model/DataIn";
-import { 
-  AllBookNames, AllTableIdentObjs, AllBodyRollNames, AllTableNames,
-  SubtableDisplaySpecType, AllTableSelectValues
-} from "../../model/DataOut";
-
-import { SubtableGroup } from "../subtableGroups/types";
-
-///////////////////////////////////////////////////////////////////////////
-////////////////                                                      STORE
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                               MODEL AND STATE TYPE DEFINITIONS
 
 export interface TableGroup {
   id: string;
@@ -31,13 +24,12 @@ export interface TableGroupsState {
   readonly allIds: string[];
 }
 
-// ///////////////////////////////////////////////////////////////////////////
-// ////////////////                                                    ACTIONS
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        ACTIONS
 
 export const ADD_TABLEGROUP = "ADD_TABLEGROUP";
 export const SETTABLE_TABLEGROUP = "SETTABLE_TABLEGROUP";
 export const DELETE_TABLEGROUP = "DELETE_TABLEGROUP";
-// export const ROLL_TABLEGROUP = "ROLL_TABLEGROUP";
 
 interface AddTableGroupAction {
   type: typeof ADD_TABLEGROUP
@@ -60,13 +52,7 @@ interface DeleteTableGroupAction {
   }
 }
 
-// interface RollTableGroupAction {
-//   type: typeof ROLL_TABLEGROUP
-//   payload: string
-// }
-
 export type TableGroupActionTypes = 
 | AddTableGroupAction
 | SettableTableGroupAction
 | DeleteTableGroupAction;
-// | RollTableGroupAction;

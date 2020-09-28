@@ -1,10 +1,25 @@
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                          NOTES
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
+// 1. React & packages
+// 2. REDUX: Store types
+// 3. REDUX: Selectors
+// 4. REDUX: Actions
+// 5. Data-reading utilities
+
 import React, { Dispatch } from 'react';
 import { connect } from "react-redux";
 
 import { RootState, RootAction } from "../store";
 import { BodyRoll } from '../store/bodyRolls/types';
+
 import { selectBodyRollById } from "../store/bodyRolls/selectors";
 import { selectFormatByBodyRollId } from "../store/subtableGroups/selectors";
+
+import { deleteBodyRollIdSubtableGroup } from "../store/subtableGroups/actions";
+import { deleteBodyRoll } from "../store/bodyRolls/actions";
 
 import { AllBodyRollFormats } from "../model/DataOut";
 import { 
@@ -13,10 +28,9 @@ import {
   DetailRollValue
 } from "../model/DataIn";
 
-import { deleteBodyRoll } from "../store/bodyRolls/actions";
-import { deleteBodyRollIdSubtableGroup } from "../store/subtableGroups/actions";
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                          SETUP
 
 type BodyRollComponentProps = {
   bodyRollId: string;
@@ -39,6 +53,10 @@ type FormattedBodyRollContentInput = {
   format: AllBodyRollFormats;
   value: CombinedRollValuesType
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                             COMPONENTS & LOGIC
 
 const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
   { format, value }

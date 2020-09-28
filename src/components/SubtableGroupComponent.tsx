@@ -1,3 +1,16 @@
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                          NOTES
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
+// 1. React & packages
+// 2. REDUX: Store types
+// 3. REDUX: Selectors
+// 4. REDUX: Actions
+// 5. Data-reading utilities
+// 6. Utilities
+// 7. Components
+
 import React, { Dispatch, useEffect } from 'react';
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
@@ -11,7 +24,6 @@ import {
   addBodyRollIdsSubtableGroup,
   deleteBodyRollCollectionSubtableGroup
  } from "../store/subtableGroups/actions";
-
  import {
   addBodyRoll,
   setBodyRoll,
@@ -20,19 +32,18 @@ import {
 
 import { CombinedBodyRollType, CombinedRollValuesType } from "../model/DataIn";
 
-import { rollValues, 
-  // SubtableError,
-  // ERROR_INVALIDSUBTABLEINTERFACE as subtableError1,
-  // ERROR_INVALIDSUBTABLETYPE as subtableError2
-} from "../util/rollDice";
+import { rollValues } from "../util/rollDice";
 
 import BodyRollComponent from './BodyRollComponent';
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                          SETUP
 
 type SubtableGroupComponentMappedState = {
   subtableGroup?: SubtableGroup;
   subtableData?: CombinedBodyRollType;
 };
-
 type SubtableGroupComponentMappedDispatch = {
   initializeSubtableBodyRolls?: (
     initializingData: BodyRollParentData,
@@ -40,10 +51,12 @@ type SubtableGroupComponentMappedDispatch = {
   ) => void;
   rerollBodyRoll?: (subtableData: CombinedBodyRollType) => ( id: string ) => void;
   rerollAllBodyRolls?: (subtableData: CombinedBodyRollType, bodyRollIds: string[]) => void;
-  addBodyRoll?: ( bodyRollParentInfo: BodyRollParentData, bodyRollInput: BodyRollDispatchInput ) => void;
+  addBodyRoll?: (
+    bodyRollParentInfo: BodyRollParentData,
+    bodyRollInput: BodyRollDispatchInput
+    ) => void;
   deleteAllBodyRolls?: (subtableGroupId: string) => void;
 };
-
 type SubtableGroupComponentProps = {
   tableGroupId: string;
   subtableGroupId: string;
@@ -55,14 +68,15 @@ type BodyRollParentData = {
   tableGroupId: string;
   subtableGroupId: string;
 }
-
 type BodyRollDispatchInput = {
   id: string;
   value: CombinedRollValuesType;
 }
-
 type InitializeSubtableDispatchBodyRollInput = Array<BodyRollDispatchInput>
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                             COMPONENTS & LOGIC
 
 const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   tableGroupId, subtableGroupId, 
@@ -109,10 +123,8 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   };
 
   const handleDeleteAllBodyRolls = () => { 
-    if (deleteAllBodyRolls) { deleteAllBodyRolls(subtableGroupId); }
+    if (deleteAllBodyRolls) { deleteAllBodyRolls(subtableGroupId as string); }
   }
-
-
 
   return (
     <div>
@@ -161,7 +173,6 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
     bodyRollsData: InitializeSubtableDispatchBodyRollInput
   ) => {
     const { tableGroupId, subtableGroupId } = bodyRollParentInfo;
-
     for (let i = 0; i < bodyRollsData.length; i++) {
       dispatch(addBodyRoll(
         tableGroupId, 
@@ -172,7 +183,6 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
         }
       ));
     }
-
     // update subtableGroup bodyRollCollection
     const validBodyRollIds: string[] = bodyRollsData.filter(a => typeof a.value !== "string").map(a => a.id);
     dispatch(addBodyRollIdsSubtableGroup(subtableGroupId, validBodyRollIds));

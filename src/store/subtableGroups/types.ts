@@ -1,7 +1,10 @@
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
+
 import { AllBodyRollNames, SubtableDisplaySpecType } from "../../model/DataOut"
 
-///////////////////////////////////////////////////////////////////////////
-////////////////                                                      STORE
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                               MODEL AND STATE TYPE DEFINITIONS
 
 export interface SubtableGroup {
   id: string;
@@ -19,8 +22,8 @@ export interface SubtableGroupsState {
 }
 
 
-///////////////////////////////////////////////////////////////////////////
-////////////////                                                    ACTIONS
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        ACTIONS
 
 export const CLEARANDREPOPULATETABLE_SUBTABLEGROUP = "CLEARANDREPOPULATETABLE_SUBTABLEGROUP";
 export const ADDBODYROLLIDS_SUBTABLEGROUP = "ADDBODYROLLIDS_SUBTABLEGROUP";
