@@ -1,6 +1,7 @@
 import {
   BodyRollActionTypes, ErrorBodyRollInput,
   ADD_BODYROLL,
+  SET_BODYROLL,
   DELETE_BODYROLL,
   DELETEBYTABLEGROUP_BODYROLL,
   ERROR_BODYROLL
@@ -24,6 +25,13 @@ export function addBodyRoll(
       subtableGroupId, 
       tableGroupId
     }
+  }
+}
+
+export function setBodyRoll( id: string, value: CombinedRollValuesType ): BodyRollActionTypes {
+  return {
+    type: SET_BODYROLL,
+    payload: { id, value }
   }
 }
 

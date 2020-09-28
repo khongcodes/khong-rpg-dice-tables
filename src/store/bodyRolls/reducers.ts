@@ -3,6 +3,7 @@ import store from "../index";
 import {
   BodyRoll, BodyRollsState, BodyRollActionTypes, 
   ADD_BODYROLL,
+  SET_BODYROLL,
   DELETE_BODYROLL,
   DELETEBYTABLEGROUP_BODYROLL,
   ERROR_BODYROLL
@@ -34,6 +35,17 @@ export function bodyRollsReducer(
         }),
         allIds: [...state.allIds, action.payload.id]
       };
+
+    case SET_BODYROLL:
+      return {
+        byId: Object.assign({}, state.byId, {
+          [action.payload.id]: {
+            ...state.byId[action.payload.id],
+            value: action.payload.value
+          }
+        }),
+        allIds: [...state.allIds]
+      }
 
     case DELETE_BODYROLL: 
       const {[action.payload.id]: throwAwayValue, ...newStateWithoutRollById} = state.byId;

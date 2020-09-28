@@ -17,6 +17,7 @@ import {
 
 type BodyRollComponentProps = {
   bodyRollId: string;
+  rerollFn: (id: string) => void;
 } & 
 BodyRollComponentMappedState & 
 BodyRollComponentMappedDispatch;
@@ -64,9 +65,13 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
 }
 
 const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
-  bodyRollId, bodyRoll, format
+  bodyRollId, 
+  bodyRoll, format,
+  rerollFn
 }) => {
-  console.log(bodyRoll)
+  
+  const handleReroll = () => rerollFn(bodyRollId);
+
   return (
     <div>
       <button disabled>delete</button>
@@ -81,7 +86,7 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
         : <></>
       }
 
-      <button>reroll</button>
+      <button onClick={handleReroll}>reroll</button>
     </div>
   )
 };

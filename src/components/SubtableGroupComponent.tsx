@@ -7,7 +7,7 @@ import { SubtableGroup } from "../store/subtableGroups/types";
 
 import { selectSubtableGroupById, selectSubtableGroupDataInTableGroupData } from "../store/subtableGroups/selectors";
 import { addBodyRollIdsSubtableGroup } from "../store/subtableGroups/actions";
-import { addBodyRoll, errorWithBodyRoll } from "../store/bodyRolls/actions";
+import { addBodyRoll, setBodyRoll, errorWithBodyRoll } from "../store/bodyRolls/actions";
 // import { AllBodyRollNames } from '../model/DataOut';
 import { CombinedBodyRollType, CombinedRollValuesType } from "../model/DataIn";
 
@@ -16,6 +16,8 @@ import { rollValues,
   // ERROR_INVALIDSUBTABLEINTERFACE as subtableError1,
   // ERROR_INVALIDSUBTABLETYPE as subtableError2
 } from "../util/rollDice";
+
+import { AllBodyRollFormats } from "../model/DataOut"
 
 import BodyRollComponent from './BodyRollComponent';
 
@@ -29,6 +31,7 @@ type SubtableGroupComponentMappedDispatch = {
     initializingData: InitializeSubtableDispatchDataInput,
     bodyRollData: InitializeSubtableDispatchBodyRollInput
   ) => void;
+  rerollBodyRoll?: (subtableData: CombinedBodyRollType) => ( id: string ) => void;
 };
 
 type SubtableGroupComponentProps = {
@@ -54,7 +57,8 @@ type InitializeSubtableDispatchBodyRollInput = Array<BodyRollDispatchInput>
 const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   tableGroupId, subtableGroupId, 
   subtableGroup, subtableData,
-  initializeSubtableBodyRolls
+  initializeSubtableBodyRolls,
+  rerollBodyRoll
 }) => {
 
   // on creation of component 
@@ -97,9 +101,10 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
       <button disabled>add bodyroll</button>
 
       {
-        !!subtableGroup ? subtableGroup.bodyRollCollection.map(bodyRollId => (
+        !!subtableGroup && (rerollBodyRoll && subtableData) ? subtableGroup.bodyRollCollection.map(bodyRollId => (
           <BodyRollComponent
             bodyRollId={bodyRollId}
+            rerollFn={rerollBodyRoll(subtableData)}
             key={bodyRollId}
           />
         ))
@@ -145,7 +150,9 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
     // update subtableGroup bodyRollCollection
     const validBodyRollIds: string[] = bodyRollData.filter(a => typeof a.value !== "string").map(a => a.id);
     dispatch(addBodyRollIdsSubtableGroup(subtableGroupId, validBodyRollIds));
-  }
+  },
+
+  rerollBodyRoll: (subtableData: CombinedBodyRollType) => (id: string) => { dispatch(setBodyRoll(id, rollValues(subtableData))); }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SubtableGroupComponent);

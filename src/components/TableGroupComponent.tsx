@@ -136,6 +136,15 @@ const mapStateToProps = (state: RootState, ownProps: TableGroupComponentProps) =
 };
 
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
+    // (re/roll tablegroup button)
+    // STORE: set tableGroup (retain id)
+    // STORE: delete all bodyRolls (delete ids)
+    // STORE: delete and recreate subTables (delete ids, recreate ids)
+    // 
+    // this triggers deleting existing SubtableGroupComponents
+    // and then creation of new SubtableGroupComponents,
+    // which then triggers creation of BodyRolls in STORE with useEffect()
+    
   setTableGroup: (tableGroupId: string, selectedTable: AllTableSelectValues) => {
     const { bookKey, tableKey } = getKeysFromSelectValue(selectedTable);
     const listOfSubtableKeys = tableNamesByBooks[bookKey][tableKey] as AllBodyRollNames[];

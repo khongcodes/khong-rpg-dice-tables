@@ -35,7 +35,7 @@ const rollDice = (diceInterface: string): number[] => {
   }
 }
 
-export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollValuesType | string => {
+export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollValuesType => {
   const diceResults = rollDice(subtableData.interface);
   // if (typeof diceResults === "string") { return ERROR_INVALIDSUBTABLEINTERFACE }
 
@@ -47,17 +47,17 @@ export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollVal
       return subtableData.values[diceResults[0]];
     
     case "one-roll simple range-table":
-      return "";
+      return { value: "" };
     case "two-roll range-table":
-      return "";
+      return { value: "" };
     case "coordinate-roll detail norange-range-table":
-      return "";
+      return { value: "" };
     case "combined string":
-      return "";
+      return { value: "" };
     case "lookup":
-      return "";
+      return { value: "" };
    
       default:
-      return "";
+      return { value: "" };
   }
 }
