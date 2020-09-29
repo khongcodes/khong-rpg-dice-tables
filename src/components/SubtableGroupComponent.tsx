@@ -30,7 +30,15 @@ import {
   deleteBySubtableGroupBodyRoll
 } from "../store/bodyRolls/actions";
 
-import { CombinedBodyRollType, CombinedRollValuesType } from "../model/DiceRollTypes";
+import {
+  CombinedBodyRollType,
+  CombinedRollValuesType,
+  SimpleRollValue,
+  DetailRollValue
+} from "../model/DiceRollTypes";
+import {
+  SubtableDisplaySpecMDetailFormat
+} from "../model/TableKeyStructuresAndFormats"
 
 import { rollValues } from "../util/rollDice";
 
@@ -49,17 +57,45 @@ type SubtableGroupComponentMappedDispatch = {
     initializingData: BodyRollParentData,
     bodyRollsData: InitializeSubtableDispatchBodyRollInput
   ) => void;
+  
   rerollBodyRoll?: (subtableData: CombinedBodyRollType) => ( id: string ) => void;
+  
+  rerollBodyRollMDetailReference?: (
+    subtableGroup: SubtableGroup,
+    subtableData: CombinedBodyRollType,
+    querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any,
+    getValueForMDetailReferenceFormat: (
+      subtableGroup: SubtableGroup,
+      subtableData: CombinedBodyRollType,
+      querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any,
+    ) => {name: string, detail: string[]}
+  ) => (id: string) => void;
+
   rerollAllBodyRolls?: (subtableData: CombinedBodyRollType, bodyRollIds: string[]) => void;
+  
+  rerollAllBodyRollsMDetailReference?: (
+    bodyRollIds: string[],
+    subtableGroup: SubtableGroup,
+    subtableData: CombinedBodyRollType,
+    querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any,
+    getValueForMDetailReferenceFormat: (
+      subtableGroup: SubtableGroup,
+      subtableData: CombinedBodyRollType,
+      querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any,
+    ) => {name: string, detail: string[]}
+  ) => void;
+
   addBodyRoll?: (
     bodyRollParentInfo: BodyRollParentData,
     bodyRollInput: BodyRollDispatchInput
     ) => void;
+
   deleteAllBodyRolls?: (subtableGroupId: string) => void;
 };
 type SubtableGroupComponentProps = {
   tableGroupId: string;
   subtableGroupId: string;
+  querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any;
 } & 
 SubtableGroupComponentMappedState & 
 SubtableGroupComponentMappedDispatch;
@@ -74,14 +110,37 @@ type BodyRollDispatchInput = {
 }
 type InitializeSubtableDispatchBodyRollInput = Array<BodyRollDispatchInput>
 
+type GetValueForMDetailReferenceFormatInputTypes = {
+  subtableGroup: SubtableGroup,
+  subtableData: CombinedBodyRollType,
+  querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any
+}
+
+
+const getValueForMDetailReferenceFormat = (
+  subtableGroup: SubtableGroup,
+  subtableData: CombinedBodyRollType,
+  querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any
+) => {
+  const referenceSubtableKey = (subtableGroup.displaySpec as SubtableDisplaySpecMDetailFormat).reference;
+  const rolledValue = rollValues(subtableData);
+  const lookupKey = rolledValue.hasOwnProperty("value") ? (rolledValue as SimpleRollValue).value : (rolledValue as DetailRollValue).detail;
+  const result = querySiblingSubtableInExtendedGroup(referenceSubtableKey, lookupKey)
+  const resultObjIntoStringArray = Object.keys(result).map(keyName => `${keyName}: ${result[keyName]}`);
+  return {
+    name: lookupKey,
+    detail: resultObjIntoStringArray
+  }
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                             COMPONENTS & LOGIC
 
 const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
-  tableGroupId, subtableGroupId, 
+  tableGroupId, subtableGroupId, querySiblingSubtableInExtendedGroup,
   subtableGroup, subtableData,
-  initializeSubtableBodyRolls, rerollBodyRoll, rerollAllBodyRolls, addBodyRoll, deleteAllBodyRolls
+  initializeSubtableBodyRolls, rerollBodyRoll, rerollAllBodyRolls, addBodyRoll, deleteAllBodyRolls,
+  rerollBodyRollMDetailReference, rerollAllBodyRollsMDetailReference
 }) => {
 
   // on creation of component 
@@ -92,11 +151,21 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   useEffect(() => {
     // initializeSubtableBodyRolls needs to be confirmed as !undefined
     if (initializeSubtableBodyRolls && subtableGroup && subtableData) {   
-      const { initialRollCount } = subtableGroup.displaySpec;
+      // const { initialRollCount } = subtableGroup.displaySpec;
+      const initialRollCount = subtableGroup.displaySpec.initialRollCount || 1;
       const initializingData: BodyRollParentData = { tableGroupId, subtableGroupId };
       const bodyRollsData: InitializeSubtableDispatchBodyRollInput = [];
-      if (typeof initialRollCount !== "number") {
-        // EXAMPLE: if format says something unexpected like "reference different table"
+      
+      if (subtableGroup.displaySpec.format === "mDetail ref") {
+        const valueWithReferencedDetails = getValueForMDetailReferenceFormat(subtableGroup, subtableData, querySiblingSubtableInExtendedGroup);
+        
+        for (let i = 0; i < initialRollCount; i++) {
+          bodyRollsData.push({
+            id: uuidv4(),
+            value: valueWithReferencedDetails
+          })
+        }
+
       } else {
         for (let i = 0; i < initialRollCount; i++) {
           bodyRollsData.push({
@@ -110,15 +179,34 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   }, [!!subtableGroup])
 
   const handleRerollAllBodyRolls = () => {
-    if (rerollAllBodyRolls && subtableGroup && subtableData) { rerollAllBodyRolls(subtableData, subtableGroup.bodyRollCollection); }
+    if (rerollAllBodyRolls && subtableGroup && subtableData) {
+
+      if (subtableGroup.displaySpec.format === "mDetail ref" && !!rerollAllBodyRollsMDetailReference) {
+        for (let i = 0; i < subtableGroup.bodyRollCollection.length; i++) {
+          rerollAllBodyRollsMDetailReference(subtableGroup.bodyRollCollection, subtableGroup, subtableData, querySiblingSubtableInExtendedGroup, getValueForMDetailReferenceFormat);
+        }
+
+      } else {
+        rerollAllBodyRolls(subtableData, subtableGroup.bodyRollCollection);
+      }
+    }
   };
 
   const handleAddBodyRoll = () => {
     if (addBodyRoll && subtableData && subtableGroup ) { 
-      addBodyRoll({ tableGroupId, subtableGroupId }, {
-        id: uuidv4(),
-        value: rollValues(subtableData)
-      });
+
+      if (subtableGroup.displaySpec.format === "mDetail ref") {
+        addBodyRoll({ tableGroupId, subtableGroupId }, {
+          id: uuidv4(),
+          value: getValueForMDetailReferenceFormat(subtableGroup, subtableData, querySiblingSubtableInExtendedGroup)
+        });
+
+      } else {
+        addBodyRoll({ tableGroupId, subtableGroupId }, {
+          id: uuidv4(),
+          value: rollValues(subtableData)
+        });
+      }
     }
   };
 
@@ -145,10 +233,11 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
       </button>
 
       {
-        !!subtableGroup && (rerollBodyRoll && subtableData) ? subtableGroup.bodyRollCollection.map(bodyRollId => (
+        !!subtableGroup && (rerollBodyRoll && subtableData && rerollBodyRollMDetailReference) ? subtableGroup.bodyRollCollection.map(bodyRollId => (
           <BodyRollComponent
             bodyRollId={bodyRollId}
             rerollFn={rerollBodyRoll(subtableData)}
+            rerollBodyRollMDetailRef={rerollBodyRollMDetailReference(subtableGroup, subtableData, querySiblingSubtableInExtendedGroup, getValueForMDetailReferenceFormat)}
             key={bodyRollId}
           />
         ))
@@ -191,11 +280,42 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
   // function composition: DON'T have to pass subtableData directly to child BodyRoll component
   rerollBodyRoll: (subtableData: CombinedBodyRollType) => (id: string) => { dispatch(setBodyRoll(id, rollValues(subtableData))); },
 
+  rerollBodyRollMDetailReference: (
+    subtableGroup: SubtableGroup,
+    subtableData: CombinedBodyRollType,
+    querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any,
+    getValueForMDetailReferenceFormat: (
+      subtableGroup: SubtableGroup,
+      subtableData: CombinedBodyRollType,
+      querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any,
+    ) => {name: string, detail: string[]}
+  ) => (id: string) => {
+    const value = getValueForMDetailReferenceFormat(subtableGroup, subtableData, querySiblingSubtableInExtendedGroup)
+    dispatch(setBodyRoll(id, value))
+  },
+
   rerollAllBodyRolls: (
     subtableData: CombinedBodyRollType,
     bodyRollIds: string[]
   ) => {
     for (let i = 0; i < bodyRollIds.length; i++) { dispatch(setBodyRoll(bodyRollIds[i], rollValues(subtableData))) }
+  },
+
+  rerollAllBodyRollsMDetailReference: (
+    bodyRollIds: string[],
+    subtableGroup: SubtableGroup,
+    subtableData: CombinedBodyRollType,
+    querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any,
+    getValueForMDetailReferenceFormat: (
+      subtableGroup: SubtableGroup,
+      subtableData: CombinedBodyRollType,
+      querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any,
+    ) => {name: string, detail: string[]}
+  ) => {
+    for (let i = 0; i < bodyRollIds.length; i++) {
+      const value = getValueForMDetailReferenceFormat(subtableGroup, subtableData, querySiblingSubtableInExtendedGroup)
+      dispatch(setBodyRoll(bodyRollIds[i], value))
+    }
   },
 
   addBodyRoll: (
@@ -210,7 +330,8 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
   deleteAllBodyRolls: (subtableGroupId: string) => {
     dispatch(deleteBySubtableGroupBodyRoll(subtableGroupId));
     dispatch(deleteBodyRollCollectionSubtableGroup(subtableGroupId));
-  }
+  },
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SubtableGroupComponent);

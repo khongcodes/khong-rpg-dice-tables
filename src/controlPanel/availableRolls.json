@@ -22,6 +22,10 @@
       {
         "selectValue": "mothership-spaceStationRimspace",
         "stringName": "Mothership RPG / Pound of Flesh - Space Station (Rimspace)"
+      },
+      {
+        "selectValue": "mothership-derelictShip",
+        "stringName": "Mothership RPG / Dead Planet - Derelict Ship"
       }
     ]
   ]

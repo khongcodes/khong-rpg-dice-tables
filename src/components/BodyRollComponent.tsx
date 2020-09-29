@@ -25,7 +25,8 @@ import { AllBodyRollFormats } from "../model/TableKeyStructuresAndFormats";
 import { 
   CombinedRollValuesType,
   SimpleRollValue,
-  DetailRollValue
+  DetailRollValue,
+  MultiDetailRollValue
 } from "../model/DiceRollTypes";
 
 
@@ -35,6 +36,7 @@ import {
 type BodyRollComponentProps = {
   bodyRollId: string;
   rerollFn: (id: string) => void;
+  rerollBodyRollMDetailRef: (id: string) => void;
 } & 
 BodyRollComponentMappedState & 
 BodyRollComponentMappedDispatch;
@@ -78,6 +80,18 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
         </div>
       )
 
+    case "mDetail ref":
+      return (
+        <div>
+          <p>name: {(value as MultiDetailRollValue).name}</p>
+          {(value as MultiDetailRollValue).detail.map((detail: string, index: number) => 
+            <p key={index}>
+              { detail }
+            </p>
+          )}
+        </div>
+      )
+
     case "reference":
       return (
         <div></div>
@@ -88,12 +102,19 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
 }
 
 const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
-  bodyRollId, rerollFn,
+  bodyRollId, rerollFn, rerollBodyRollMDetailRef,
   bodyRoll, format,
   deleteBodyRoll
 }) => {
   
-  const handleReroll = () => rerollFn(bodyRollId);
+  const handleReroll = () => {
+    if (format === "mDetail ref") {
+      rerollBodyRollMDetailRef(bodyRollId);
+    } else {
+      rerollFn(bodyRollId);
+    }
+  };
+  
   const handleDelete = () => {
     if (bodyRoll && deleteBodyRoll) { deleteBodyRoll(bodyRoll.subtableGroupId, bodyRollId); }
   }

@@ -22,6 +22,12 @@ export type DetailRollValue = OptionalModifier & {
   detail: string;
 };
 
+// created when displaySpec.format == "mDetail ref"
+export type MultiDetailRollValue = OptionalModifier & {
+  name: string;
+  detail: string[];
+}
+
 export type RangeSimpleRollValue = RangeModifier & SimpleRollValue;
 export type RangeDetailRollValue = RangeModifier & DetailRollValue;
 
@@ -33,6 +39,7 @@ export type NestedNamedRangeRollValue = RangeModifier & {
 export type CombinedRollValuesType = 
 | SimpleRollValue
 | DetailRollValue
+| MultiDetailRollValue
 | RangeSimpleRollValue
 | RangeDetailRollValue
 | NestedNamedRangeRollValue;
@@ -151,10 +158,10 @@ export type MothershipInputTypes = {
       noteworthyEstablishments: TworollRangetableRolltype;
     }
   };
-  /*
   derelictShip: {
     main: {
       shipClass: OnerollSimpleRangetableRolltype;
+      shipName: CombinedStringRolltype;
       shipLifeSupportStatus: OnerollSimpleRangetableRolltype;
       shipSurvivorStatus: OnerollSimpleRangetableRolltype;
       shipEngineStatus: OnerollSimpleRangetableRolltype;
@@ -162,19 +169,15 @@ export type MothershipInputTypes = {
       shipSalvage2: OnerollSimpleRangetableRolltype;
       causeofRuination: OnerollSimpleRangetableRolltype;
       weird: OnerollSimpleRangetableRolltype;
+      jumpDriveMalfunction: OnerollSimpleRangetableRolltype;
     };
     extended: {
-      shipName: CombinedStringRolltype;
       shipModules: CoordinaterollDetailNorangerangetableRolltype;
       shipMapByClass: Lookuptype;
-      jumpDriveMalfunction: OnerollSimpleRangetableRolltype;
       weaponsSupplyCache: OnerollSimpleRangetableRolltype;
       cargoType: OnerollSimpleRangetableRolltype;
     };
   };
-  */
-
-  
 }
 
 export type CombinedInputDataType = 

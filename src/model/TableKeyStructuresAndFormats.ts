@@ -8,19 +8,45 @@ export const bookNames = <const> [
 
 export const tableNamesByBooks = <const> {
   lancer: {
-    iterativeWorld: [ "worldType", "definingNaturalFeature", "definingAnthropocentricFeature", "environments" ]
+    iterativeWorld: [
+      "worldType",
+      "definingNaturalFeature",
+      "definingAnthropocentricFeature",
+      "environments" 
+    ]
   },
   mothership: {
     trinketsPatches: [ "d100Trinkets", "d100Patches" ],
     spaceStationCorespace: [
-      "name", "coreStation", "orbitingCelestialBody", "coreLeader", "controllingFaction",
-      "crisis", "goods", "resource", "commonIssue", "spaceStationStructure", "noteworthyEstablishments"
+      "name",
+      "coreStation",
+      "orbitingCelestialBody",
+      "coreLeader",
+      "controllingFaction",
+      "crisis","goods", "resource", "commonIssue", "spaceStationStructure", "noteworthyEstablishments"
     ],
     spaceStationRimspace: [
-      "rimLandmark", "rimStation", "callSign", "controllingFaction", "rivallingFaction", "rivalLeader",
+      "rimLandmark",
+      "rimStation",
+      "callSign",
+      "controllingFaction",
+      "rivallingFaction",
+      "rivalLeader",
       "crisis", "goods", "resource", "commonIssue", "spaceStationStructure", "noteworthyEstablishments"
     ],
-    derelictShip: [ "shipClass", "shipLifeSupportStatus", "shipSurvivorStatus", "shipEngineStatus", "shipSalvage1", "shipSalvage2", "causeOfRuination", "weird", "shipName", "shipModules", "jumpDriveMalfunction" ]
+    derelictShip: [
+      "shipClass",
+      "shipName",
+      "shipLifeSupportStatus",
+      "shipSurvivorStatus",
+      "shipEngineStatus",
+      "shipSalvage1",
+      "shipSalvage2",
+      "causeOfRuination",
+      "weird",
+      "jumpDriveMalfunction",
+      "shipModules"
+    ]
   }
 }
 
@@ -62,7 +88,8 @@ export const tableIdentObjs = <const> [
 const bodyRollFormats = <const> [
   "simple",
   "detail",
-  // "... ref-propName",
+  "mDetail ref",
+  "detail check-ref",
   "reference"
 ];
 
@@ -87,13 +114,35 @@ export type AllTableNames = keyof typeof tableNamesByBooks[AllBookNames];
 export type AllBodyRollNames = typeof tableNamesByBooks[AllBookNames][AllTableNames]
 
 export type AllBodyRollFormats = typeof bodyRollFormats[number];
-export type SubtableDisplaySpecType = {
+
+type SubtableDisplaySpecBaseType = {
   name: string;
-  format: AllBodyRollFormats;
-  initialRollCount: number | string;
+  format: "simple" | "detail";
+  initialRollCount?: number | string;
 };
+
+export type SubtableDisplaySpecMDetailFormat = {
+  name: string;
+  format: "mDetail ref";
+  initialRollCount?: number | string;
+  reference: string;
+}
+
+type SubtableDisplaySpecReferenceCountFormat = {
+  name: string;
+  format: "simple" | "detail";
+  initialRollCount: "reference";
+  reference: string;
+}
+
+export type SubtableDisplaySpecType =
+| SubtableDisplaySpecBaseType
+| SubtableDisplaySpecMDetailFormat
+| SubtableDisplaySpecReferenceCountFormat;
+
+
 export type TableSpecType = {
-  referenceType: "simple"|"shared"|"reference";
+  referenceType: "simple"|"reference";
   tableName: AllTableIdentObjs;
   body: {
     main: {
@@ -126,22 +175,18 @@ const lancerOutputSpecs: LancerOutputSpecType = {
         worldType: {
           name: "World Type",
           format: "simple",
-          initialRollCount: 1
         },
         definingNaturalFeature: {
           name: "Defining Natural Feature",
           format: "detail",
-          initialRollCount: 1
         },
         definingAnthropocentricFeature: {
           name: "Defining Anthropocentric Feature",
           format: "detail",
-          initialRollCount: 1
         },
         environments: {
           name: "Environmental Factors",
           format: "detail",
-          initialRollCount: 1
         }
       }
     }
@@ -161,12 +206,10 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
         d100Trinkets: {
           name: "D100 Trinkets",
           format: "simple",
-          initialRollCount: 1
         },
         d100Patches: {
           name: "D100 Patches",
           format: "simple",
-          initialRollCount: 1
         }
       }
     }
@@ -184,52 +227,42 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
         name: {
           name: "Name",
           format: "simple",
-          initialRollCount: 1
         },
         coreStation: {
           name: "Station Type",
           format: "simple",
-          initialRollCount: 1
         },
         orbitingCelestialBody: {
           name: "Orbiting Celestial Body",
           format: "simple",
-          initialRollCount: 1
         },
         coreLeader: {
           name: "Core Leader",
           format: "simple",
-          initialRollCount: 1
         },
         controllingFaction: {
           name: "Controlling Faction",
           format: "simple",
-          initialRollCount: 1
         },
         crisis: {
           name: "Crisis",
           format: "detail",
-          initialRollCount: 1
         },
         goods: {
           name: "Available Goods",
           format: "simple",
-          initialRollCount: 1
         },
         resource: {
           name: "Scarce Resource",
           format: "simple",
-          initialRollCount: 1
         },
         commonIssue: {
           name: "Common Issue",
           format: "detail",
-          initialRollCount: 1
         },
         spaceStationStructure: {
           name: "Structure",
           format: "detail",
-          initialRollCount: 1
         },
         noteworthyEstablishments: {
           name: "Noteworthy Establishments",
@@ -250,57 +283,46 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
         rimLandmark: {
           name: "Landmark on the Rim",
           format: "simple",
-          initialRollCount: 1
         },
         rimStation: {
           name: "Station Type",
           format: "simple",
-          initialRollCount: 1
         },
         callSign: {
           name: "Callsign",
           format: "simple",
-          initialRollCount: 1
         },
         controllingFaction: {
           name: "Controlling Faction",
           format: "simple",
-          initialRollCount: 1
         },
         rivallingFaction: {
           name: "Rivalling Faction",
           format: "simple",
-          initialRollCount: 1
         },
         rivalLeader: {
           name: "Rival Faction's Leader",
           format: "simple",
-          initialRollCount: 1
         },
         crisis: {
           name: "Crisis",
           format: "detail",
-          initialRollCount: 1
         },
         goods: {
           name: "Available Goods",
           format: "simple",
-          initialRollCount: 1
         },
         resource: {
           name: "Scarce Resource",
           format: "simple",
-          initialRollCount: 1
         },
         commonIssue: {
           name: "Common Issue",
           format: "detail",
-          initialRollCount: 1
         },
         spaceStationStructure: {
           name: "Structure",
           format: "detail",
-          initialRollCount: 1
         },
         noteworthyEstablishments: {
           name: "Noteworthy Establishments",
@@ -320,7 +342,12 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
       main: {
         shipClass: {
           name: "Ship Class",
-          format: "detail ref-shipMapByClass"
+          format: "mDetail ref",
+          reference: "shipMapByClass"
+        },
+        shipName: {
+          name: "Ship Name",
+          format: "simple"
         },
         shipLifeSupportStatus: {
           name: "Life Support Status",
@@ -350,20 +377,18 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
           name: "Something Weird",
           format: "simple"
         },
-        shipName: {
-          name: "Ship Name",
+        jumpDriveMalfunction: {
+          name: "Jump Drive Malfunction",
           format: "simple"
         },
         shipModules: {
           name: "Ship Modules",
-          format: "detail"
-        },
-        jumpDriveMalfunction: {
-          name: "Jump Drive Malfunction",
-          format: "simple"
+          format: "detail check-ref",
+          initialRollCount: "reference",
+          reference: "shipMapByClass[shipClass][modules]"
         }
       },
-      // extra: {
+      // extended: {
       //   shipMapByClass: {
       //     name: "Ship Map",
       //     format: "reference"

@@ -44,7 +44,7 @@ const checkAndParseResult = (result: string, rollTable: string[] | undefined) =>
 const parseBracketsWithRollTable = (string: string, rollTable: string[]) => {
   const matches = string.match(ROLLTABLESYNTAX);
   if (!!matches) {
-    const diceResults = matches.map((singleMatch: string) => rollDice(peelParseBrackets(singleMatch))[0]);
+    const diceResults = matches.map((singleMatch: string) => rollDice(peelParseBrackets(singleMatch)));
     const results = diceResults.map((number: number) => rollTable[number]);
 
     let newString = string;
@@ -60,7 +60,7 @@ const parseBracketsWithRollTable = (string: string, rollTable: string[]) => {
 const parseBracketWithDiceResult = (string: string) => {
   const matches = string.match(PARSEDICEROLLSYNTAX);
   if (!!matches) {
-    const diceResults = matches.map((singleMatch: string) => rollDice(peelParseBrackets(singleMatch))[0]);
+    const diceResults = matches.map((singleMatch: string) => rollDice(peelParseBrackets(singleMatch)));
     
     let newString = string;
     for (let i = 0; i < diceResults.length; i++) {
@@ -76,7 +76,7 @@ const parseBracketWithDiceResult = (string: string) => {
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                               CALCULATE VALUES
 
-const rollDice = (diceInterface: string): number[] => {
+const rollDice = (diceInterface: string): number => {
   const exclamationModifier = diceInterface[0] === "!";
   const diceInterfaceString = !exclamationModifier ? diceInterface : diceInterface.slice(1);
   const numOfDice = parseInt(diceInterfaceString.split("d")[0]);
@@ -91,10 +91,9 @@ const rollDice = (diceInterface: string): number[] => {
       }
       resultArray.push(thisResult);
     }
-    return resultArray;
-
+    return resultArray.reduce((a, v) => a + v);
   } else {
-    return resultArray;
+    return 0;
   }
 }
 
@@ -106,33 +105,48 @@ export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollVal
 
     case "one-roll string table":
       const orstDiceResult = rollDice(subtableData.interface);
-      const orstResult = subtableData.values[orstDiceResult[0]];
-      return { value: checkAndParseResult(orstResult, subtableData.rollTable) };
+      const orstResult = subtableData.values[orstDiceResult];
+      const orstRollTable = subtableData.rollTable;
+      return { value: checkAndParseResult(orstResult, orstRollTable) };
 
 
     case "one-roll detail table":
       const ordtDiceResult = rollDice(subtableData.interface);
-      const ordtResult = subtableData.values[ordtDiceResult[0]];
+      const ordtResult = subtableData.values[ordtDiceResult];
+      const ordtRollTable = ordtResult.rollTable || subtableData.rollTable;
       return {
         name: ordtResult.name,
-        detail: checkAndParseResult(ordtResult.detail, subtableData.rollTable)
+        detail: checkAndParseResult(ordtResult.detail, ordtRollTable)
       };
     
 
     case "one-roll simple range-table":
-      return { value: "" };
+      const orsrtDiceResults = rollDice(subtableData.interface);
+      const orsrtResult = subtableData.values.find(option => isInRange(orsrtDiceResults, option));
+      const orsrtRollTable = orsrtResult?.rollTable || subtableData.rollTable;
+      if (orsrtResult) {
+        // orsrtRollTable is allowed to be undefined
+        return { value: checkAndParseResult(orsrtResult.value, orsrtRollTable) };
+      }
+      else {
+        printError(subtableData, subtableData.type);
+        return { 
+          value: "error: two-roll range-table in util/rollDice.ts: rollValues():" 
+        }
+      }
 
 
     case "two-roll range-table":
       const [trrtFirstDiceInput, trrtSecondDiceInput] = subtableData.interface.split(/\[|\]/);
-      const trrtDiceResults = [rollDice(trrtFirstDiceInput)[0], rollDice(trrtSecondDiceInput)[0]];
+      const trrtDiceResults = [rollDice(trrtFirstDiceInput), rollDice(trrtSecondDiceInput)];
       const trrtFirstSet = subtableData.values.find(set => isInRange(trrtDiceResults[0], set))
       const trrtFinalResult = trrtFirstSet?.values.find(set => isInRange(trrtDiceResults[1], set))
-      
+      const trrtRollTable = trrtFinalResult?.rollTable || subtableData.rollTable;
+
       if (trrtFirstSet && trrtFinalResult)  {
         return { 
           name: trrtFirstSet.categoryName,
-          detail: checkAndParseResult(trrtFinalResult.value, subtableData.rollTable)
+          detail: checkAndParseResult(trrtFinalResult.value, trrtRollTable)
         }
       } else {
         return { value: "error: two-roll range-table in util/rollDice.ts: rollValues()" }
@@ -145,7 +159,7 @@ export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollVal
 
     case "combined string":
       const csDiceInput = subtableData.interface.split(" ");
-      const csDiceResults = csDiceInput.map((input: string) => rollDice(input)[0]);
+      const csDiceResults = csDiceInput.map((input: string) => rollDice(input));
       const csResultComponents = csDiceResults.map((diceResultNum: number, index: number) => subtableData.values[index][diceResultNum]);
       return { value: csResultComponents.join(" ") };
 
@@ -173,3 +187,9 @@ export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollVal
 // export type SubtableError = 
 // | typeof ERROR_INVALIDSUBTABLEINTERFACE
 // | typeof ERROR_INVALIDSUBTABLETYPE;
+
+const printError = (subtableData: CombinedBodyRollType, string: CombinedBodyRollType["type"]) => {
+  console.log(`error: ${string} in util/rollDice.ts: rollValues():`);
+  console.log(subtableData);
+  console.log();
+}

@@ -95,6 +95,18 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId,
     if (selectedTable !== "none" && setTableGroup) { setTableGroup(tableGroupId, selectedTable); }
   }
 
+  // query sibling subtableGroup in case of displaySpec.format == "mDetail ref"
+  // used in mothership / dead planet - derelict
+  const querySiblingSubtableInExtendedGroup = (key1: string, key2: string) => {
+    if (tableGroup && tableGroup.tableData["extended"]) {
+      return tableGroup.tableData["extended"][key1]["values"][key2];
+    }
+  }
+  
+  // if (tableGroup && tableGroup.tableData["extended"]) {
+  //   console.log(tableGroup.tableData["extended"]["shipMapByClass"])
+  // }
+
   return (
     <div style={{"marginBottom": "20px"}}>
       <div>
@@ -132,6 +144,7 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId,
               <SubtableGroupComponent
                 tableGroupId={tableGroupId}
                 subtableGroupId={subtableId}
+                querySiblingSubtableInExtendedGroup = {querySiblingSubtableInExtendedGroup}
                 key={subtableId}
               />
             ))

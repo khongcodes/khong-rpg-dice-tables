@@ -42,6 +42,48 @@
         }
       ]
     },
+    "shipName": {
+      "type": "combined string",
+      "interface": "!1d10 !1d10 !1d10",
+      "values": [
+        [
+          "IAGO",
+          "HECATE",
+          "OBERON",
+          "WHITEHALL ",
+          "DUNCAN",
+          "BANQUO",
+          "WINTER",
+          "MARLOWE",
+          "TEMPEST",
+          "FAUST"
+        ],
+        [
+          "VALEFOR",
+          "OPHANIM",
+          "MARAX",
+          "MARINER",
+          "LABOLAS",
+          "ASTAROTH",
+          "CHERUBIM",
+          "TYRANT",
+          "BALAAM",
+          "MURMUR"
+        ],
+        [
+          "ECHO",
+          "ALPHA",
+          "OMEGA",
+          "KING",
+          "BEGGAR",
+          "DELTA",
+          "EPISLON",
+          "JIBRIL",
+          "BRAVO",
+          "TANGO"
+        ]
+      ]
+    },
     "shipLifeSupportStatus": {
       "type": "one-roll simple range-table",
       "interface": "!1d100",
@@ -60,7 +102,7 @@
         }
       ]
     },
-    "shipSurvivorsStatus": {
+    "shipSurvivorStatus": {
       "type": "one-roll simple range-table",
       "interface": "!1d100",
       "values": [
@@ -491,51 +533,108 @@
           "value": "Fruit basket, greeting card inexplicably addressed to crew"
         }
       ]
+    },
+    "jumpDriveMalfunction": {
+      "type": "one-roll simple range-table",
+      "interface": "1d100",
+      "values": [
+        {
+          "range": "1-5",
+          "value": "A large aquarium in the mess is filled with ${!1d10}",
+          "rollTable": [
+            "Tilapia",
+            "Trout",
+            "Salmon",
+            "Jellyfish",
+            "Catfish",
+            "Oysters",
+            "Octopi",
+            "Squid",
+            "Snails",
+            "Strange mass"
+          ]
+        },
+        {
+          "range": "6-10",
+          "value": "Three befuddled spacefarers lounge about the deck, perplexed this is not the Golden Heart. They are: Rio Uribe, Cara Delevinge and Irina Lazareanu (fashionable socialites). They wear corseted jackets, crinolined ballerina skirts and towering stilettos and make excellent negotiators and always have a contact anywhere the crew may wind up. Their salary is 7,000 credits and they only work as a team."
+        },
+        {
+          "range": "11-15",
+          "value": "Pass your character sheet one space clockwise: you are now the character passed to you (if applicable, an NPC controlled by the DM is part of this circle)."
+        },
+        {
+          "range": "16-20",
+          "value": "Within the ship: gravity is delayed 3 seconds (objects remain suspended for 3 seconds before falling) for {1d4} hours."
+        },
+        {
+          "range": "21-25",
+          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
+        },
+        {
+          "range": "26-30",
+          "value": "In the pocket of every crew member is a sealed letter signed by a crew member selected at random. The letter is an arduous confession to acts so singularly vile and unconscionable that reading them triggers a stress test (d10/2). To aid the crew member who \"wrote\" each letter requires a fear save."
+        },
+        {
+          "range": "31-35",
+          "value": "There is an elaborate lacquered box. Inside is a black cat with white eyes; all scans show it to be dead. It is perfectly alive and somewhat friendly."
+        },
+        {
+          "range": "36-40",
+          "value": "A \"bird\" - that looks like a cubist painting - flutters about, reciting the digits to pi. At an arbitrary point the bird explodes in a soft hiss of ink. The next mathematics check each crew member makes is with advantage."
+        },
+        {
+          "range": "41-45",
+          "value": "Movement is blindingly fast. You accelerate at breakneck speed. You can vaporize yourself running into a wall - Body save with disadvantage to not smash into a wall for 4d10 damage. This ends in what feels like seconds but is actually 4 hours."
+        },
+        {
+          "range": "46-50",
+          "value": "The crew are wholly convinced they are someone else's dream; that their entire existence is simply fragments of a dreaming state. They are immune to stress checks unless someone suggests the dreamer may awaken. It also requires a sanity save to take rapid self-preserving action."
+        },
+        {
+          "range": "51-55",
+          "value": "Physical continuity is out of whack. When the crew walks into a room, individually roll for what room they wind up in. The room's orientation is: [1d10] 1-5: normal, 6-8: inverted(left-right), 9-10: inverted(upside-down)."
+        },
+        {
+          "range": "56-60",
+          "value": "Exiting warp: there is a table set with a feast and a marble bust of each crew member on the table facing their seat."
+        },
+        {
+          "range": "61-65",
+          "value": "Everyone becomes a mirror version of themselves (right handed people become left handed, scars are on opposite side, etc.). Gain 2 stress. Some gear may be difficult to use."
+        },
+        {
+          "range": "66-70",
+          "value": "The ship and crew have been bounced backward by a time ripple. [1d10]: 1-4: They each have 5 more XP, 5-6: They can roll advantage on all saves this session, 7-8: They can roll advantage on all checks this session, 9: The ship has a new module that was never there before, 10: Everyone has d10 more stress."
+        },
+        {
+          "range": "71-75",
+          "value": "A duplicate of every crew member appears. The warden rolls secretly to determine whether each player is the original or duplicate."
+        },
+        {
+          "range": "76-80",
+          "value": "There's a heavy mist throughout the ship and all sounds echo for the next d10/2 hours."
+        },
+        {
+          "range": "81-85",
+          "value": "Everyone's clothing is worn thin and patched up and it wasn't like that before they entered the cryopods."
+        },
+        {
+          "range": "86-90",
+          "value": "Shadows separate from their owner, moving ahead of them until a sanity save is made."
+        },
+        {
+          "range": "91-95",
+          "value": "Every wound received reopens and bleeds. Panic check. Everyone is covered in blood until a sanity save is made and the crew realizes it's an illusion."
+        },
+        {
+          "range": "96-100",
+          "value": "Everyone the crew members have ever loved and left behind is looking at them in every reflection. This fades gradually after {d10} days. Roll a die: Even result: Sanity check or 1d10 stress each time they look into a mirror, Odd result: Gain advantage on fear checks for one day."
+        }
+      ]
     }
   },
+
   "extended": {
-    "shipName": {
-      "type": "combined string",
-      "interface": "!1d10 !1d10 !1d10",
-      "values": [
-        [
-          "IAGO",
-          "HECATE",
-          "OBERON",
-          "WHITEHALL ",
-          "DUNCAN",
-          "BANQUO",
-          "WINTER",
-          "MARLOWE",
-          "TEMPEST",
-          "FAUST"
-        ],
-        [
-          "VALEFOR",
-          "OPHANIM",
-          "MARAX",
-          "MARINER",
-          "LABOLAS",
-          "ASTAROTH",
-          "CHERUBIM",
-          "TYRANT",
-          "BALAAM",
-          "MURMUR"
-        ],
-        [
-          "ECHO",
-          "ALPHA",
-          "OMEGA",
-          "KING",
-          "BEGGAR",
-          "DELTA",
-          "EPISLON",
-          "JIBRIL",
-          "BRAVO",
-          "TANGO"
-        ]
-      ]
-    },
     "shipModules": {
       "type": "coordinate-roll detail norange-range-table",
       "interface": "!1d6[1d10]",
@@ -646,7 +745,7 @@
           {
             "range": "4",
             "name": "Galley",
-            "detail": "$${weaponCache}"
+            "detail": "$${weaponSupplyCache}"
           },
           {
             "range": "5",
@@ -656,7 +755,7 @@
           {
             "range": "6",
             "name": "Barracks",
-            "detail": "$${weaponCache}"
+            "detail": "$${weaponSupplyCache}"
           },
           {
             "range": "7",
@@ -666,7 +765,7 @@
           {
             "range": "8",
             "name": "Living quarters",
-            "detail": "$${weaponCache}"
+            "detail": "$${weaponSupplyCache}"
           },
           {
             "range": "9",
@@ -683,7 +782,7 @@
           {
             "range": "1",
             "name": "Medbay",
-            "detail": "$2{weaponCache}",
+            "detail": "$${weaponCache}",
             "detailPrefix": "Stocked to the gills: "
           },
           {
@@ -772,11 +871,11 @@
     "shipMapByClass": {
       "type": "lookup",
       "values": {
-        "Blockade runner": {
+        "Blockade Runner": {
           "modules": 15,
           "levels": "1+"
         },
-        "Colony ship": {
+        "Colony Ship": {
           "modules": 20,
           "levels": "3+"
         },
@@ -792,11 +891,11 @@
           "modules": 17,
           "levels": "2+"
         },
-        "Mining frigate": {
+        "Mining Frigate": {
           "modules": 12,
           "levels": "2+"
         },
-        "Research vessel": {
+        "Research Vessel": {
           "modules": 8,
           "levels": "1+"
         },
@@ -809,104 +908,6 @@
           "levels": "2+"
         }
       }
-    },
-    "jumpDriveMalfunction": {
-      "type": "one-roll simple range-table",
-      "interface": "1d100",
-      "values": [
-        {
-          "range": "1-5",
-          "value": "A large aquarium in the mess is filled with ${!1d10}",
-          "rollTable": [
-            "Tilapia",
-            "Trout",
-            "Salmon",
-            "Jellyfish",
-            "Catfish",
-            "Oysters",
-            "Octopi",
-            "Squid",
-            "Snails",
-            "Strange mass"
-          ]
-        },
-        {
-          "range": "6-10",
-          "value": "Three befuddled spacefarers lounge about the deck, perplexed this is not the Golden Heart. They are: Rio Uribe, Cara Delevinge and Irina Lazareanu (fashionable socialites). They wear corseted jackets, crinolined ballerina skirts and towering stilettos and make excellent negotiators and always have a contact anywhere the crew may wind up. Their salary is 7,000 credits and they only work as a team."
-        },
-        {
-          "range": "11-15",
-          "value": "Pass your character sheet one space clockwise: you are now the character passed to you (if applicable, an NPC controlled by the DM is part of this circle)."
-        },
-        {
-          "range": "16-20",
-          "value": "Within the ship: gravity is delayed 3 seconds (objects remain suspended for 3 seconds before falling) for {1d4} hours."
-        },
-        {
-          "range": "21-25",
-          "value": "Time moves differently for everyone. Time to physically travel for each crew member is measured in (rolled individually): 1d4 seconds, minutes, hours, days. Lasts 24 hours."
-        },
-        {
-          "range": "26-30",
-          "value": "In the pocket of every crew member is a sealed letter signed by a crew member selected at random. The letter is an arduous confession to acts so singularly vile and unconscionable that reading them triggers a stress test (d10/2). To aid the crew member who \"wrote\" each letter requires a fear save."
-        },
-        {
-          "range": "31-35",
-          "value": "There is an elaborate lacquered box. Inside is a black cat with white eyes; all scans show it to be dead. It is perfectly alive and somewhat friendly."
-        },
-        {
-          "range": "36-40",
-          "value": "A \"bird\" - that looks like a cubist painting - flutters about, reciting the digits to pi. At an arbitrary point the bird explodes in a soft hiss of ink. The next mathematics check each crew member makes is with advantage."
-        },
-        {
-          "range": "41-45",
-          "value": "Movement is blindingly fast. You accelerate at breakneck speed. You can vaporize yourself running into a wall - Body save with disadvantage to not smash into a wall for 4d10 damage. This ends in what feels like seconds but is actually 4 hours."
-        },
-        {
-          "range": "46-50",
-          "value": "The crew are wholly convinced they are someone else's dream; that their entire existence is simply fragments of a dreaming state. They are immune to stress checks unless someone suggests the dreamer may awaken. It also requires a sanity save to take rapid self-preserving action."
-        },
-        {
-          "range": "51-55",
-          "value": "Physical continuity is out of whack. When the crew walks into a room, individually roll for what room they wind up in. The room's orientation is: [1d10] 1-5: normal, 6-8: inverted(left-right), 9-10: inverted(upside-down)."
-        },
-        {
-          "range": "56-60",
-          "value": "Exiting warp: there is a table set with a feast and a marble bust of each crew member on the table facing their seat."
-        },
-        {
-          "range": "61-65",
-          "value": "Everyone becomes a mirror version of themselves (right handed people become left handed, scars are on opposite side, etc.). Gain 2 stress. Some gear may be difficult to use."
-        },
-        {
-          "range": "66-70",
-          "value": "The ship and crew have been bounced backward by a time ripple. [1d10]: 1-4: They each have 5 more XP, 5-6: They can roll advantage on all saves this session, 7-8: They can roll advantage on all checks this session, 9: The ship has a new module that was never there before, 10: Everyone has d10 more stress."
-        },
-        {
-          "range": "71-75",
-          "value": "A duplicate of every crew member appears. The warden rolls secretly to determine whether each player is the original or duplicate."
-        },
-        {
-          "range": "76-80",
-          "value": "There's a heavy mist throughout the ship and all sounds echo for the next d10/2 hours."
-        },
-        {
-          "range": "81-85",
-          "value": "Everyone's clothing is worn thin and patched up and it wasn't like that before they entered the cryopods."
-        },
-        {
-          "range": "86-90",
-          "value": "Shadows separate from their owner, moving ahead of them until a sanity save is made."
-        },
-        {
-          "range": "91-95",
-          "value": "Every wound received reopens and bleeds. Panic check. Everyone is covered in blood until a sanity save is made and the crew realizes it's an illusion."
-        },
-        {
-          "range": "96-100",
-          "value": "Everyone the crew members have ever loved and left behind is looking at them in every reflection. This fades gradually after {d10} days. Roll a die: Even result: Sanity check or 1d10 stress each time they look into a mirror, Odd result: Gain advantage on fear checks for one day."
-        }
-      ]
     },
     "weaponsSupplyCache": {
       "type": "one-roll simple range-table",
@@ -1140,6 +1141,5 @@
         }
       ]
     }
-
   }
 }

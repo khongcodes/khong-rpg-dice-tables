@@ -7,6 +7,7 @@ const lancerItWoGen = require("./rpg-data/lancer/lancer-iterativeWorld.json");
 
 const mothershipTrinkets = require("./rpg-data/mothership-rpg/mothership-trinketsPatches.json");
 const mothershipSpaceStationRaw = require("./rpg-data/mothership-rpg/poundFlesh-spaceStation.json");
+const mothershipDerelict = require("./rpg-data/mothership-rpg/deadPlanet-derelictShip.json");
 
 const combineCommonSubtables = (tableJson: any): object => {
   const tableKeys = Object.keys(tableJson.main).filter(tableName => tableName !== "common")
@@ -43,7 +44,8 @@ export const lancerData: LancerInputTypes = {
 export const mothershipData: MothershipInputTypes = {
   trinketsPatches: mothershipTrinkets,
   spaceStationCorespace: mothershipSpaceStationCorespace,
-  spaceStationRimspace: mothershipSpaceStationRimspace
+  spaceStationRimspace: mothershipSpaceStationRimspace,
+  derelictShip: mothershipDerelict
 } as MothershipInputTypes
 
 const rpgData = {
