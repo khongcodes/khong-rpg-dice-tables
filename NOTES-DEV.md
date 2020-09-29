@@ -1,4 +1,20 @@
 //////////////////////////////////////////////////////////////////
+09/29 03:34 PM
+
+Ay caramba
+
+See if the mess in SubtableGroupComponent can be refactored.
+
+Start writing documentation for RPG Data files
+
+Implement displaySpec.initialRollCount: "reference"
+
+Figure out how to implement tables using $${{}} to reference other tables - "ref-check" - upon receiving result from rollValues(); query to other table if needed?
+
+Implement one more table
+
+
+//////////////////////////////////////////////////////////////////
 09/28 10:18 PM
 
 Add "url" field to rpg-data json files - users should be able to see and buy the rpgs they're interested in
