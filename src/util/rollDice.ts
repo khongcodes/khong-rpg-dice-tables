@@ -1,48 +1,14 @@
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                        IMPORTS
+
 import {
   CombinedBodyRollType, CombinedRollValuesType,
   NestedNamedRangeRollValue, RangeSimpleRollValue
 } from "../model/DiceRollTypes";
 
-// export const ERROR_INVALIDSUBTABLEINTERFACE = "ERROR util/rollDice.ts:rollDice(): invalid subtableData.interface";
-// export const ERROR_INVALIDSUBTABLETYPE = "ERROR util/rollDice.ts:rollValues(): invalid subtableData.type";
 
-// export const subtableErrors = [
-//   ERROR_INVALIDSUBTABLEINTERFACE,
-//   ERROR_INVALIDSUBTABLETYPE
-// ];
-
-// export type SubtableError = 
-// | typeof ERROR_INVALIDSUBTABLEINTERFACE
-// | typeof ERROR_INVALIDSUBTABLETYPE;
-
-// transform with ROLLTABLESYNTAX first
-const ROLLTABLESYNTAX = /\$\{!*\d+d\d+\}/g
-const PARSEDICEROLLSYNTAX = /\{!*\d+d\d+\}/g
-const PARSEBRACKETS = /{|\}/;
-
-const peelParseBrackets = (string: string): string => string.split(PARSEBRACKETS)[1];
-
-const rollDice = (diceInterface: string): number[] => {
-  const exclamationModifier = diceInterface[0] === "!";
-  const diceInterfaceString = !exclamationModifier ? diceInterface : diceInterface.slice(1);
-  const numOfDice = parseInt(diceInterfaceString.split("d")[0]);
-  const exclusiveEndNum = parseInt(diceInterfaceString.split("d")[1]);
-  const resultArray: number[] = [];
-
-  if (!isNaN(exclusiveEndNum) && !isNaN(numOfDice)) {
-    for (let time = 1; time <= numOfDice; time++) {
-      let thisResult = Math.floor(Math.random() * exclusiveEndNum);
-      if (!exclamationModifier) {
-        thisResult += 1;
-      }
-      resultArray.push(thisResult);
-    }
-    return resultArray;
-
-  } else {
-    return resultArray;
-  }
-}
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                    CHECK RANGE
 
 const isInRange = (
   number: number,
@@ -56,6 +22,16 @@ const isInRange = (
     return parseInt(readRange[0]) === number;
   }
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                             OUTPUT TRANSFORMING - TEXT PARSING
+
+const ROLLTABLESYNTAX = /\$\{!*\d+d\d+\}/g
+const PARSEDICEROLLSYNTAX = /\{!*\d+d\d+\}/g
+const PARSEBRACKETS = /{|\}/;
+
+const peelParseBrackets = (string: string): string => string.split(PARSEBRACKETS)[1];
 
 const checkAndParseResult = (result: string, rollTable: string[] | undefined) => {
   if (rollTable) {
@@ -96,16 +72,43 @@ const parseBracketWithDiceResult = (string: string) => {
   }
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                               CALCULATE VALUES
+
+const rollDice = (diceInterface: string): number[] => {
+  const exclamationModifier = diceInterface[0] === "!";
+  const diceInterfaceString = !exclamationModifier ? diceInterface : diceInterface.slice(1);
+  const numOfDice = parseInt(diceInterfaceString.split("d")[0]);
+  const exclusiveEndNum = parseInt(diceInterfaceString.split("d")[1]);
+  const resultArray: number[] = [];
+
+  if (!isNaN(exclusiveEndNum) && !isNaN(numOfDice)) {
+    for (let time = 1; time <= numOfDice; time++) {
+      let thisResult = Math.floor(Math.random() * exclusiveEndNum);
+      if (!exclamationModifier) {
+        thisResult += 1;
+      }
+      resultArray.push(thisResult);
+    }
+    return resultArray;
+
+  } else {
+    return resultArray;
+  }
+}
+
+
 export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollValuesType => {
   // if (typeof diceResults === "string") { return ERROR_INVALIDSUBTABLEINTERFACE }
 
   switch (subtableData.type) {
+
     case "one-roll string table":
       const orstDiceResult = rollDice(subtableData.interface);
       const orstResult = subtableData.values[orstDiceResult[0]];
-      // DOES IT HAVE THE {} or ${}?
-      // IF SO ACCESS ROLLTABLE
       return { value: checkAndParseResult(orstResult, subtableData.rollTable) };
+
 
     case "one-roll detail table":
       const ordtDiceResult = rollDice(subtableData.interface);
@@ -115,8 +118,10 @@ export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollVal
         detail: checkAndParseResult(ordtResult.detail, subtableData.rollTable)
       };
     
+
     case "one-roll simple range-table":
       return { value: "" };
+
 
     case "two-roll range-table":
       const [trrtFirstDiceInput, trrtSecondDiceInput] = subtableData.interface.split(/\[|\]/);
@@ -124,16 +129,19 @@ export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollVal
       const trrtFirstSet = subtableData.values.find(set => isInRange(trrtDiceResults[0], set))
       const trrtFinalResult = trrtFirstSet?.values.find(set => isInRange(trrtDiceResults[1], set))
       
-      if (trrtFinalResult)  {
-        // name: firstset.categoryName
-        // detail: finalResult.value
-        return { value: checkAndParseResult(trrtFinalResult.value, subtableData.rollTable) }
+      if (trrtFirstSet && trrtFinalResult)  {
+        return { 
+          name: trrtFirstSet.categoryName,
+          detail: checkAndParseResult(trrtFinalResult.value, subtableData.rollTable)
+        }
       } else {
         return { value: "error: two-roll range-table in util/rollDice.ts: rollValues()" }
       }
 
+
     case "coordinate-roll detail norange-range-table":
       return { value: "" };
+
 
     case "combined string":
       const csDiceInput = subtableData.interface.split(" ");
@@ -141,10 +149,27 @@ export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollVal
       const csResultComponents = csDiceResults.map((diceResultNum: number, index: number) => subtableData.values[index][diceResultNum]);
       return { value: csResultComponents.join(" ") };
 
+
     case "lookup":
       return { value: "" };
    
+      
       default:
       return { value: "" };
   }
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                 ERROR HANDLING
+
+// export const ERROR_INVALIDSUBTABLEINTERFACE = "ERROR util/rollDice.ts:rollDice(): invalid subtableData.interface";
+// export const ERROR_INVALIDSUBTABLETYPE = "ERROR util/rollDice.ts:rollValues(): invalid subtableData.type";
+
+// export const subtableErrors = [
+//   ERROR_INVALIDSUBTABLEINTERFACE,
+//   ERROR_INVALIDSUBTABLETYPE
+// ];
+
+// export type SubtableError = 
+// | typeof ERROR_INVALIDSUBTABLEINTERFACE
+// | typeof ERROR_INVALIDSUBTABLETYPE;

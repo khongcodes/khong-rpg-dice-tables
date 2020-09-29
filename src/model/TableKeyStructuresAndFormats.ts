@@ -233,7 +233,7 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
         },
         noteworthyEstablishments: {
           name: "Noteworthy Establishments",
-          format: "simple",
+          format: "detail",
           initialRollCount: 4
         }
       }
@@ -304,7 +304,7 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
         },
         noteworthyEstablishments: {
           name: "Noteworthy Establishments",
-          format: "simple",
+          format: "detail",
           initialRollCount: 4
         }
       }
