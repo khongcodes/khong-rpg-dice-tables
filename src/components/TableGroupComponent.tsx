@@ -33,6 +33,7 @@ import {
 import availableRolls from "../controlPanel/availableRolls.json";
 
 import SubtableGroupComponent from "./SubtableGroupComponent";
+import { rollValues } from '../util/rollDice';
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -97,9 +98,13 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId,
 
   // query sibling subtableGroup in case of displaySpec.format == "mDetail ref"
   // used in mothership / dead planet - derelict
-  const querySiblingSubtableInExtendedGroup = (key1: string, key2: string) => {
+  const querySiblingSubtableInExtendedGroup = (key1: string, key2: string | undefined) => {
     if (tableGroup && tableGroup.tableData["extended"]) {
-      return tableGroup.tableData["extended"][key1]["values"][key2];
+      if (tableGroup.tableData["extended"][key1]["type"] === "lookup") {
+        return tableGroup.tableData["extended"][key1]["values"][key2 as string];
+      } else {
+        return rollValues(tableGroup.tableData["extended"][key1]["interface"]);
+      }
     }
   }
   
