@@ -28,7 +28,7 @@ import {
   AllTableSelectValues, AllTableNames, AllBodyRollNames, SubtableDisplaySpecType,
   allTablesDisplaySpecsByBook, tableNamesByBooks,
   getKeysFromSelectValue
-} from "../model/DataOut";
+} from "../model/TableKeyStructuresAndFormats";
 
 import availableRolls from "../controlPanel/availableRolls.json";
 

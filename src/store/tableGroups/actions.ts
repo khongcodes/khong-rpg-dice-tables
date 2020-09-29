@@ -10,7 +10,7 @@ import {
   DELETE_TABLEGROUP
 } from "./types";
 
-import { AllTableSelectValues } from "../../model/DataOut";
+import { AllTableSelectValues } from "../../model/TableKeyStructuresAndFormats";
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////

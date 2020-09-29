@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                        IMPORTS
 
-import { AllBodyRollNames, SubtableDisplaySpecType } from "../../model/DataOut"
+import { AllBodyRollNames, SubtableDisplaySpecType } from "../../model/TableKeyStructuresAndFormats"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                               MODEL AND STATE TYPE DEFINITIONS

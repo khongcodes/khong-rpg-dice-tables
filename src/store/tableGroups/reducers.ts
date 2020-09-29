@@ -23,8 +23,10 @@ import {
   ADD_TABLEGROUP, SETTABLE_TABLEGROUP, DELETE_TABLEGROUP
 } from "./types";
 
-import { AllBookNames, AllTableNames } from "../../model/DataOut";
+import { AllBookNames, AllTableNames } from "../../model/TableKeyStructuresAndFormats";
 import rpgData from "../../data/loader";
+
+import {rollValues} from "../../util/rollDice";
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,6 +49,9 @@ export function tableGroupsReducer(
   switch (action.type) {
 
     case ADD_TABLEGROUP:
+      // console.log(rpgData);
+
+
       const newId = uuidv4();
       return {
         byId: Object.assign({}, state.byId, {

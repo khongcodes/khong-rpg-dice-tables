@@ -174,7 +174,7 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
 
   // needs special handling for the dual nature of this data
   spaceStationCorespace: {
-    referenceType: "shared",
+    referenceType: "simple",
     tableName: {
       selectValue: "mothership-spaceStationCorespace",
       stringName: "Mothership RPG / Pound of Flesh - Space Station (Corespace)"
@@ -183,55 +183,64 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
       main: {
         name: {
           name: "Name",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         coreStation: {
           name: "Station Type",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         orbitingCelestialBody: {
           name: "Orbiting Celestial Body",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         coreLeader: {
           name: "Core Leader",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         controllingFaction: {
           name: "Controlling Faction",
-          format: "simple"
-        }
-      },
-      common: {
+          format: "simple",
+          initialRollCount: 1
+        },
         crisis: {
           name: "Crisis",
-          format: "detail"
+          format: "detail",
+          initialRollCount: 1
         },
         goods: {
           name: "Available Goods",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         resource: {
           name: "Scarce Resource",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         commonIssue: {
           name: "Common Issue",
-          format: "detail"
+          format: "detail",
+          initialRollCount: 1
         },
         spaceStationStructure: {
           name: "Structure",
-          format: "detail"
+          format: "detail",
+          initialRollCount: 1
         },
         noteworthyEstablishments: {
           name: "Noteworthy Establishments",
-          format: "detail"
+          format: "simple",
+          initialRollCount: 4
         }
       }
     }
   },
   spaceStationRimspace: {
-    referenceType: "shared",
+    referenceType: "simple",
     tableName: {
       selectValue: "mothership-spaceStationRimspace",
       stringName: "Mothership RPG / Pound of Flesh - Space Station (Rimspace)"
@@ -240,53 +249,63 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
       main: {
         rimLandmark: {
           name: "Landmark on the Rim",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         rimStation: {
           name: "Station Type",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         callSign: {
           name: "Callsign",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         controllingFaction: {
           name: "Controlling Faction",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         rivallingFaction: {
           name: "Rivalling Faction",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         rivalLeader: {
           name: "Rival Faction's Leader",
-          format: "simple"
-        }
-      },
-      common: {
+          format: "simple",
+          initialRollCount: 1
+        },
         crisis: {
           name: "Crisis",
-          format: "detail"
+          format: "detail",
+          initialRollCount: 1
         },
         goods: {
           name: "Available Goods",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         resource: {
           name: "Scarce Resource",
-          format: "simple"
+          format: "simple",
+          initialRollCount: 1
         },
         commonIssue: {
           name: "Common Issue",
-          format: "detail"
+          format: "detail",
+          initialRollCount: 1
         },
         spaceStationStructure: {
           name: "Structure",
-          format: "detail"
+          format: "detail",
+          initialRollCount: 1
         },
         noteworthyEstablishments: {
           name: "Noteworthy Establishments",
-          format: "detail"
+          format: "simple",
+          initialRollCount: 4
         }
       }
     }

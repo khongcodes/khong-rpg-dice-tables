@@ -13,7 +13,7 @@ import {
   ERROR_BODYROLL
 } from "./types";
 
-import { CombinedRollValuesType } from "../../model/DataIn";
+import { CombinedRollValuesType } from "../../model/DiceRollTypes";
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////

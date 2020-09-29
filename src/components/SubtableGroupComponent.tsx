@@ -30,7 +30,7 @@ import {
   deleteBySubtableGroupBodyRoll
 } from "../store/bodyRolls/actions";
 
-import { CombinedBodyRollType, CombinedRollValuesType } from "../model/DataIn";
+import { CombinedBodyRollType, CombinedRollValuesType } from "../model/DiceRollTypes";
 
 import { rollValues } from "../util/rollDice";
 

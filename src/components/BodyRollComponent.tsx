@@ -21,12 +21,12 @@ import { selectFormatByBodyRollId } from "../store/subtableGroups/selectors";
 import { deleteBodyRollIdSubtableGroup } from "../store/subtableGroups/actions";
 import { deleteBodyRoll } from "../store/bodyRolls/actions";
 
-import { AllBodyRollFormats } from "../model/DataOut";
+import { AllBodyRollFormats } from "../model/TableKeyStructuresAndFormats";
 import { 
   CombinedRollValuesType,
   SimpleRollValue,
   DetailRollValue
-} from "../model/DataIn";
+} from "../model/DiceRollTypes";
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -61,6 +61,7 @@ type FormattedBodyRollContentInput = {
 const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
   { format, value }
 ) => {
+  // console.log(value)
   switch (format) {
     case "simple":
       return (
@@ -96,6 +97,7 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
   const handleDelete = () => {
     if (bodyRoll && deleteBodyRoll) { deleteBodyRoll(bodyRoll.subtableGroupId, bodyRollId); }
   }
+
 
   return (
     <div>

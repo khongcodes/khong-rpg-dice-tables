@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                        IMPORTS
 
-import { CombinedInputDataType } from "../../model/DataIn";
-import { AllBookNames, AllTableNames, AllTableSelectValues } from "../../model/DataOut";
+import { CombinedInputDataType } from "../../model/DiceRollTypes";
+import { AllBookNames, AllTableNames, AllTableSelectValues } from "../../model/TableKeyStructuresAndFormats";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                               MODEL AND STATE TYPE DEFINITIONS

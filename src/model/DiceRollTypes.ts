@@ -120,34 +120,38 @@ export type MothershipInputTypes = {
       d100Patches: OnerollStringTableRolltype;
     };
   };
-  /*
-  spaceStation: {
+  spaceStationCorespace: {
     main: {
-      corespace: {
-        name: CombinedStringRolltype;
-        coreStation: OnerollStringTableRolltype;
-        orbitingCelestialBody: OnerollStringTableRolltype;
-        coreLeader: OnerollStringTableRolltype;
-        controllingFaction: OnerollStringTableRolltype;
-      };
-      rimspace: {
-        rimLandmark: OnerollStringTableRolltype;
-        rimStation: OnerollStringTableRolltype;
-        callSign: OnerollStringTableRolltype;
-        controllingFaction: OnerollStringTableRolltype;
-        rivallingFaction: OnerollStringTableRolltype;
-        rivalLeader: OnerollStringTableRolltype;
-      };
-      common: {
-        crisis: OnerollDetailTableRolltype;
-        goods: OnerollStringTableRolltype;
-        resource: OnerollStringTableRolltype;
-        commonIssue: OnerollDetailTableRolltype;
-        spaceStationStructure: OnerollDetailTableRolltype;
-        noteworthyEstablishments: TworollRangetableRolltype;
-      };
+      name: CombinedStringRolltype;
+      coreStation: OnerollStringTableRolltype;
+      orbitingCelestialBody: OnerollStringTableRolltype;
+      coreLeader: OnerollStringTableRolltype;
+      controllingFaction: OnerollStringTableRolltype;
+      crisis: OnerollDetailTableRolltype;
+      goods: OnerollStringTableRolltype;
+      resource: OnerollStringTableRolltype;
+      commonIssue: OnerollDetailTableRolltype;
+      spaceStationStructure: OnerollDetailTableRolltype;
+      noteworthyEstablishments: TworollRangetableRolltype;
     }
   };
+  spaceStationRimspace: {
+    main: {
+      rimLandmark: OnerollStringTableRolltype;
+      rimStation: OnerollStringTableRolltype;
+      callSign: OnerollStringTableRolltype;
+      controllingFaction: OnerollStringTableRolltype;
+      rivallingFaction: OnerollStringTableRolltype;
+      rivalLeader: OnerollStringTableRolltype;
+      crisis: OnerollDetailTableRolltype;
+      goods: OnerollStringTableRolltype;
+      resource: OnerollStringTableRolltype;
+      commonIssue: OnerollDetailTableRolltype;
+      spaceStationStructure: OnerollDetailTableRolltype;
+      noteworthyEstablishments: TworollRangetableRolltype;
+    }
+  };
+  /*
   derelictShip: {
     main: {
       shipClass: OnerollSimpleRangetableRolltype;
