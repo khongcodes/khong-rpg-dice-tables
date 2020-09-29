@@ -631,12 +631,9 @@
           "value": "Everyone the crew members have ever loved and left behind is looking at them in every reflection. This fades gradually after {d10} days. Roll a die: Even result: Sanity check or 1d10 stress each time they look into a mirror, Odd result: Gain advantage on fear checks for one day."
         }
       ]
-    }
-  },
-
-  "extended": {
+    },
     "shipModules": {
-      "type": "coordinate-roll detail norange-range-table",
+      "type": "two-roll detail norange-range-table",
       "interface": "!1d6[1d10]",
       "values": [
         [
@@ -867,7 +864,10 @@
           }
         ]
       ]
-    },
+    }
+  },
+
+  "extended": {
     "shipMapByClass": {
       "type": "lookup",
       "values": {

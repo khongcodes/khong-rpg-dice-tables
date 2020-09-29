@@ -119,6 +119,7 @@ type SubtableDisplaySpecBaseType = {
   name: string;
   format: "simple" | "detail";
   initialRollCount?: number | string;
+  // reference?: string;
 };
 
 export type SubtableDisplaySpecMDetailFormat = {
@@ -128,7 +129,7 @@ export type SubtableDisplaySpecMDetailFormat = {
   reference: string;
 }
 
-type SubtableDisplaySpecReferenceCountFormat = {
+export type SubtableDisplaySpecReferenceCountFormat = {
   name: string;
   format: "simple" | "detail";
   initialRollCount: "reference";
@@ -384,8 +385,7 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
         shipModules: {
           name: "Ship Modules",
           format: "detail check-ref",
-          initialRollCount: "reference",
-          reference: "shipMapByClass[shipClass][modules]"
+          initialRollCount: 4,
         }
       },
       // extended: {

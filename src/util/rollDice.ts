@@ -3,7 +3,7 @@
 
 import {
   CombinedBodyRollType, CombinedRollValuesType,
-  NestedNamedRangeRollValue, RangeSimpleRollValue
+  NestedNamedRangeRollValue, RangeDetailRollValue, RangeSimpleRollValue
 } from "../model/DiceRollTypes";
 
 
@@ -12,7 +12,7 @@ import {
 
 const isInRange = (
   number: number,
-  obj: NestedNamedRangeRollValue | RangeSimpleRollValue
+  obj: NestedNamedRangeRollValue | RangeSimpleRollValue | RangeDetailRollValue
 ): boolean => {
   const readRange = obj["range"].split("-");
   if (readRange.length > 1) {
@@ -100,6 +100,7 @@ const rollDice = (diceInterface: string): number => {
 
 export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollValuesType => {
   // if (typeof diceResults === "string") { return ERROR_INVALIDSUBTABLEINTERFACE }
+  // console.log(subtableData)
 
   switch (subtableData.type) {
 
@@ -136,25 +137,45 @@ export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollVal
       }
 
 
-    case "two-roll range-table":
-      const [trrtFirstDiceInput, trrtSecondDiceInput] = subtableData.interface.split(/\[|\]/);
-      const trrtDiceResults = [rollDice(trrtFirstDiceInput), rollDice(trrtSecondDiceInput)];
-      const trrtFirstSet = subtableData.values.find(set => isInRange(trrtDiceResults[0], set))
-      const trrtFinalResult = trrtFirstSet?.values.find(set => isInRange(trrtDiceResults[1], set))
-      const trrtRollTable = trrtFinalResult?.rollTable || subtableData.rollTable;
+    case "two-roll category-detail range-range-table":
+      const [trcdrrtFirstDiceInput, trcdrrtSecondDiceInput] = subtableData.interface.split(/\[|\]/);
+      const trcdrrtDiceResults = [rollDice(trcdrrtFirstDiceInput), rollDice(trcdrrtSecondDiceInput)];
+      const trcdrrtFirstSet = subtableData.values.find(set => isInRange(trcdrrtDiceResults[0], set))
+      const trcdrrtFinalResult = trcdrrtFirstSet?.values.find(set => isInRange(trcdrrtDiceResults[1], set))
+      const trcdrrtRollTable = trcdrrtFinalResult?.rollTable || subtableData.rollTable;
 
-      if (trrtFirstSet && trrtFinalResult)  {
+      if (trcdrrtFirstSet && trcdrrtFinalResult)  {
         return { 
-          name: trrtFirstSet.categoryName,
-          detail: checkAndParseResult(trrtFinalResult.value, trrtRollTable)
+          name: trcdrrtFirstSet.categoryName,
+          detail: checkAndParseResult(trcdrrtFinalResult.value, trcdrrtRollTable)
         }
       } else {
-        return { value: "error: two-roll range-table in util/rollDice.ts: rollValues()" }
+        printError(subtableData, subtableData.type);
+        return { 
+          name: "",
+          detail: "error: two-roll category-detail range-range-table in util/rollDice.ts: rollValues()" 
+        }
       }
 
 
-    case "coordinate-roll detail norange-range-table":
-      return { value: "" };
+    case "two-roll detail norange-range-table":
+      const [trdnrtFirstDiceInput, trdnrtSecondDiceInput] = subtableData.interface.split(/\[|\]/);
+      const trdnrtDiceResults = [rollDice(trdnrtFirstDiceInput), rollDice(trdnrtSecondDiceInput)];
+      const trdnrtResult = subtableData.values[trdnrtDiceResults[0]].find(value => isInRange(trdnrtDiceResults[1], value));
+      const trdnrtRollTable = trdnrtResult?.rollTable || subtableData.rollTable;
+
+      if (trdnrtResult) {
+        return {
+          name: trdnrtResult.name,
+          detail: checkAndParseResult(trdnrtResult.detail, trdnrtRollTable)
+        };
+      } else {
+        printError(subtableData, subtableData.type);
+        return {
+          name: "",
+          detail: "error: two-roll detail norange-range-table in util/rollDice.ts: rollValues()"
+        }
+      }
 
 
     case "combined string":

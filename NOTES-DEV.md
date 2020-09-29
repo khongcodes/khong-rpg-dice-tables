@@ -3,7 +3,7 @@
 
 Ay caramba
 
-See if the mess in SubtableGroupComponent can be refactored.
+See if the mess in SubtableGroupComponent can be refactored - consider pushing all the messy rollValue/format logic to reducer as much as possible.
 
 Start writing documentation for RPG Data files
 

@@ -63,7 +63,7 @@ type FormattedBodyRollContentInput = {
 const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
   { format, value }
 ) => {
-  // console.log(value)
+
   switch (format) {
     case "simple":
       return (
@@ -73,6 +73,14 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
       )
 
     case "detail":
+      return (
+        <div>
+          <p>name: {(value as DetailRollValue).name}</p>
+          <p>detail: {(value as DetailRollValue).detail}</p>
+        </div>
+      )
+
+    case "detail check-ref":
       return (
         <div>
           <p>name: {(value as DetailRollValue).name}</p>

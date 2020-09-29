@@ -50,8 +50,8 @@ const rollTypes = <const> [
   // "one-roll object table",
   "one-roll simple range-table",
   "one-roll detail range-table",
-  "two-roll range-table",
-  "coordinate-roll detail norange-range-table",
+  "two-roll category-detail range-range-table",
+  "two-roll detail norange-range-table",
   "combined string",
   "lookup"
 ]
@@ -76,13 +76,13 @@ type OnerollSimpleRangetableRolltype = RollTypeBase & {
   values: RangeSimpleRollValue[];
 }
 
-type TworollRangetableRolltype = RollTypeBase & {
-  type: "two-roll range-table";
+type TworollCategorydetailRangerangetableRolltype = RollTypeBase & {
+  type: "two-roll category-detail range-range-table",
   values: NestedNamedRangeRollValue[];
 }
 
-type CoordinaterollDetailNorangerangetableRolltype = RollTypeBase & {
-  type: "coordinate-roll detail norange-range-table";
+type TworollDetailNorangerangetableRolltype = RollTypeBase & {
+  type: "two-roll detail norange-range-table";
   values: RangeDetailRollValue[][];
 }
 
@@ -100,8 +100,8 @@ export type CombinedBodyRollType =
 | OnerollStringTableRolltype
 | OnerollDetailTableRolltype
 | OnerollSimpleRangetableRolltype
-| TworollRangetableRolltype
-| CoordinaterollDetailNorangerangetableRolltype
+| TworollCategorydetailRangerangetableRolltype
+| TworollDetailNorangerangetableRolltype
 | CombinedStringRolltype
 | Lookuptype;
 
@@ -141,7 +141,7 @@ export type MothershipInputTypes = {
       resource: OnerollStringTableRolltype;
       commonIssue: OnerollDetailTableRolltype;
       spaceStationStructure: OnerollDetailTableRolltype;
-      noteworthyEstablishments: TworollRangetableRolltype;
+      noteworthyEstablishments: TworollCategorydetailRangerangetableRolltype;
     }
   };
   spaceStationRimspace: {
@@ -157,7 +157,7 @@ export type MothershipInputTypes = {
       resource: OnerollStringTableRolltype;
       commonIssue: OnerollDetailTableRolltype;
       spaceStationStructure: OnerollDetailTableRolltype;
-      noteworthyEstablishments: TworollRangetableRolltype;
+      noteworthyEstablishments: TworollCategorydetailRangerangetableRolltype;
     }
   };
   derelictShip: {
@@ -172,9 +172,9 @@ export type MothershipInputTypes = {
       causeofRuination: OnerollSimpleRangetableRolltype;
       weird: OnerollSimpleRangetableRolltype;
       jumpDriveMalfunction: OnerollSimpleRangetableRolltype;
+      shipModules: TworollDetailNorangerangetableRolltype;
     };
     extended: {
-      shipModules: CoordinaterollDetailNorangerangetableRolltype;
       shipMapByClass: Lookuptype;
       weaponsSupplyCache: OnerollSimpleRangetableRolltype;
       cargoType: OnerollSimpleRangetableRolltype;

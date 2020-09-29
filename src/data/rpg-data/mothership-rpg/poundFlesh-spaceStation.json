@@ -367,7 +367,7 @@
         ]
       },
       "noteworthyEstablishments": {
-        "type": "two-roll range-table",
+        "type": "two-roll category-detail range-range-table",
         "interface": "1d6[!1d100]",
         "values": [
           {
