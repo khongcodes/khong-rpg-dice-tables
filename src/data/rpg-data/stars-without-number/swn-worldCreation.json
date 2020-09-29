@@ -1,7 +1,7 @@
 {
   "main": {
     "worldTags": {
-      "type": "one roll table",
+      "type": "one-roll object table",
       "interface": "!1d100",
       "values": [
         {
@@ -916,7 +916,7 @@
       ]
     },
     "atmosphere": {
-      "type": "one roll range-table",
+      "type": "one-roll detail range-table",
       "interface": "2d6",
       "values": [
         {
@@ -957,7 +957,7 @@
       ]
     },
     "temperature": {
-      "type": "one roll range-table",
+      "type": "one-roll detail range-table",
       "interface": "2d6",
       "values": [
         {
@@ -998,7 +998,7 @@
       ]
     },
     "biosphere": {
-      "type": "one roll range-table",
+      "type": "one-roll detail range-table",
       "interface": "2d6",
       "values": [
         {
@@ -1039,7 +1039,7 @@
       ]
     },
     "population": {
-      "type": "one roll range-table",
+      "type": "one-roll detail range-table",
       "interface": "2d6",
       "values": [
         {
@@ -1080,7 +1080,7 @@
       ]
     },
     "techLevel": {
-      "type": "one roll range-table",
+      "type": "one-roll detail range-table",
       "interface": "2d6",
       "values": [
         {

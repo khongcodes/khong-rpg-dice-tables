@@ -1,7 +1,7 @@
 {
   "main": {
     "toolOrKit": {
-      "type": "one roll table",
+      "type": "one-roll object table",
       "interface": "!1d18",
       "values": [
         {

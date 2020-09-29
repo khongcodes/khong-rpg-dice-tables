@@ -1,7 +1,7 @@
 {
   "main": {
     "role": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d100",
       "values": [
         "Agronomist",
@@ -317,7 +317,7 @@
       ]
     },
     "story": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d100",
       "values": [
         "Kind and knowledgeable. Has a secure traveling chest of horrors (L5, swarming).",
@@ -425,7 +425,7 @@
       ]
     },
     "color": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d100",
       "values": [
         "Rage",

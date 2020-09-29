@@ -1,7 +1,7 @@
 {
   "main": {
     "stationSeed": {
-      "type": "one roll range-table",
+      "type": "one-roll simple range-table",
       "interface": "1d20",
       "values": [
         {
@@ -47,7 +47,7 @@
       ]
     },
     "stationNameSeed": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d20",
       "values": [
         "Hades, Hellmouth, Pandemonium, Devildance, Tartarus, Umber",
@@ -73,7 +73,7 @@
       ]
     },
     "districtNameSeed": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d20",
       "values": [
         "The Shambles",
@@ -99,7 +99,7 @@
       ]
     },
     "purposes": {
-      "type": "one roll range-table",
+      "type": "one-roll simple range-table",
       "interface": "1d20",
       "values": [
         {
@@ -145,7 +145,7 @@
       ]
     },
     "curiosities": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d20",
       "values": [
         "Open air produce market for local families that appears along the spinal corridor once every three core standard days. The produce is grown in bags and tends to be oddly shaped and very juicy. Most spacers prefer it that way.",
@@ -171,7 +171,7 @@
       ]
     },
     "problems": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d20",
       "values": [
         "The station’s orbit is decaying and it will fall into the nearest star or planetary body in the next year or so. A deadlock between engineering and leadership has prevented anything from being done about this.",

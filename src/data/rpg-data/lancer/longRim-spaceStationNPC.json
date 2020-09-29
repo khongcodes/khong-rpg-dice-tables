@@ -1,7 +1,7 @@
 {
   "main": {
     "descriptor": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d20",
       "values": [
         "Exhausted",
@@ -27,7 +27,7 @@
       ]
     },
     "occupationPrimary": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d20",
       "values": [
         "Foreman",
@@ -53,7 +53,7 @@
       ]
     },
     "occupationAlternateClandestine": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d20",
       "values": [
         "Chop shop doctor",
@@ -79,7 +79,7 @@
       ]
     },
     "quirk": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d20",
       "values": [
         "An oversized, distinctive, or otherwise notable hat or headgear",

@@ -47,7 +47,9 @@ export type CombinedRollValuesType =
 const rollTypes = <const> [
   "one-roll string table",
   "one-roll detail table",
+  // "one-roll object table",
   "one-roll simple range-table",
+  "one-roll detail range-table",
   "two-roll range-table",
   "coordinate-roll detail norange-range-table",
   "combined string",

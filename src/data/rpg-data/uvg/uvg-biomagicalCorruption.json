@@ -1,7 +1,7 @@
 {
   "main": {
     "exposure": {
-      "type": "one roll range-table",
+      "type": "one-roll detail range-table",
       "interface": "1d20",
       "values": [
         {
@@ -39,7 +39,7 @@
   },
   "extended": {
     "deleteriousMutations": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d20",
       "values": [
         "Teeth fall out or become needle-sharp. Eventually may turn into bite attack.",
@@ -65,7 +65,7 @@
       ]
     },
     "cosmeticMutations": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d20",
       "values": [
         "Hairless or exceptionally fluffy. May end up a true fur-ball.",
@@ -91,7 +91,7 @@
       ]
     },
     "beneficialMutations": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d20",
       "values": [
         "Stronger. Strength increases. This may increase the stat beyond human maximums, as high as 7. Maximum bonus to d20 roll remains +13.",

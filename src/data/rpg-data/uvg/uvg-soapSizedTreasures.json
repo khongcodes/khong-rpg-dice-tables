@@ -1,7 +1,7 @@
 {
   "main": {
     "strangeItemsOr": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d100",
       "values": [
 "Fossil skull inscribed with the Blue God’s accursed iconographs or mirrored cowries (€5)",

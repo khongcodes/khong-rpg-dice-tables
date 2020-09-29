@@ -10,8 +10,11 @@ Start writing documentation for RPG Data files
 Implement displaySpec.initialRollCount: "reference"
 
 Figure out how to implement tables using $${{}} to reference other tables - "ref-check" - upon receiving result from rollValues(); query to other table if needed?
+(Seeing if this can be done using querySiblingSubtable in TableGroupComponent)
 
 Implement one more table
+
+Implement "detailPrefix" thing
 
 
 //////////////////////////////////////////////////////////////////

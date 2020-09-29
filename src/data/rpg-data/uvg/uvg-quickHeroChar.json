@@ -1,7 +1,7 @@
 {
   "main": {
     "who": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d40",
       "values": [
         "Decapolitan ambassador",
@@ -47,7 +47,7 @@
       ]
     },
     "why": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d40",
       "values": [
         "Sent by a grim corporation",
@@ -93,7 +93,7 @@
       ]
     },
     "startingWith": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d40",
       "values": [
         "One black metal vertebra",

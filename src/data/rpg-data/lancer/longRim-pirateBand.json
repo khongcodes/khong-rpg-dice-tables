@@ -51,7 +51,7 @@
       ]
     },
     "hustles": {
-      "type": "one roll table",
+      "type": "one-roll detail table",
       "interface": "!1d10",
       "values": [
         {
@@ -97,7 +97,7 @@
       ]
     },
     "mainAsset": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d10",
       "values": [
         "A fully armed warship kept in excellent shape. This ship was taken from Union or a state navy and although an older model, it is still deadly compared to other ships in the Rim. It has a spinal cannon or significant ordinance, plentiful batteries of cannons or lances, and is capable of destroying a station if its commander wishes. It might be used as a mobile base of operations.",
