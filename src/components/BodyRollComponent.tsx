@@ -29,6 +29,7 @@ import {
   MultiDetailRollValue
 } from "../model/DiceRollTypes";
 
+import bodyRollStyles from "../assets/styles/BodyRoll.module.sass";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                          SETUP
@@ -65,46 +66,38 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
   { format, value }
 ) => {
 
-  switch (format) {
-    case "simple":
+  switch (true) {
+    case (format === "simple"):
       return (
-        <div>
-          <p>value: {(value as SimpleRollValue).value}</p>
-        </div>
+        <>
+          <p>{(value as SimpleRollValue).value}</p>
+        </>
       )
 
-    case "detail":
+    case (["detail", "detail check-ref"].includes(format)):
       return (
-        <div>
-          <p>name: {(value as DetailRollValue).name}</p>
-          <p>detail: {(value as DetailRollValue).detail}</p>
-        </div>
+        <>
+          <h4>{(value as DetailRollValue).name}</h4>
+          <p>{(value as DetailRollValue).detail}</p>
+        </>
       )
 
-    case "detail check-ref":
+    case (format === "mDetail ref"):
       return (
-        <div>
-          <p>name: {(value as DetailRollValue).name}</p>
-          <p>detail: {(value as DetailRollValue).detail}</p>
-        </div>
-      )
-
-    case "mDetail ref":
-      return (
-        <div>
+        <>
           <p>name: {(value as MultiDetailRollValue).name}</p>
           {(value as MultiDetailRollValue).detail.map((detail: string, index: number) => 
             <p key={index}>
               { detail }
             </p>
           )}
-        </div>
+        </>
       )
 
-    case "reference":
-      return (
-        <div></div>
-      )
+    // case (format === "reference"):
+    //   return (
+    //     <></>
+    //   )
     default:
       return <></>;
   }
@@ -117,7 +110,7 @@ const RenderBodyRollStoreData = ({showIds, id}: {
   if (showIds) {
     return (
       <div>
-        <p>id: id</p>
+        <p>id: {id}</p>
       </div>
     )
   } else {
@@ -146,21 +139,30 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
 
 
   return (
-    <div>
+    <div id={bodyRollStyles.brRoot}>
       <RenderBodyRollStoreData 
-        showIds = {showIds}
-        id = {bodyRollId}
+        showIds={showIds}
+        id={bodyRollId}
       />
 
-      <button onClick={handleDelete}>delete</button>
+      <div className={`${bodyRollStyles.deleteContainer} ${bodyRollStyles.buttonContainer}`}>
+        <button onClick={handleDelete}>delete</button>
+      </div>
 
       {
         bodyRoll ? 
-          <FormattedBodyRollContent format={format as AllBodyRollFormats} value={bodyRoll.value}/>
+          <div id={bodyRollStyles.contentContainer}>
+            <FormattedBodyRollContent 
+              format={format as AllBodyRollFormats}
+              value={bodyRoll.value}
+            />
+          </div>
         : <></>
       }
 
-      <button onClick={handleReroll}>reroll</button>
+      <div className={`${bodyRollStyles.rerollContainer} ${bodyRollStyles.buttonContainer}`}>
+        <button onClick={handleReroll}>reroll</button>
+      </div>
     </div>
   )
 };

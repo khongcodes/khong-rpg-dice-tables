@@ -10,6 +10,7 @@
 // 5. Data reading utilities
 // 6. Configuration data
 // 7. Components
+// 8. Styles
 
 import React, { useState, Dispatch, ReactEventHandler } from 'react';
 import { connect } from "react-redux";
@@ -35,6 +36,7 @@ import availableRolls from "../controlPanel/availableRolls.json";
 import SubtableGroupComponent from "./SubtableGroupComponent";
 import { rollValues } from '../util/rollDice';
 
+import tableStyles from "../assets/styles/TableGroup.module.sass"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                          SETUP
@@ -141,7 +143,7 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
   // }
 
   return (
-    <div style={{"marginBottom": "20px"}}>
+    <div id={tableStyles.tableRoot}>
     
       <RenderTableGroupStoreData
         showIds={showIds}
@@ -170,7 +172,7 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
         />
       </form>
 
-      <div>
+      <div id={tableStyles.subtableCollectionContainer}>
         {
           !!tableGroup ? 
             tableGroup.subtableCollection.map(subtableId => (

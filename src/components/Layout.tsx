@@ -4,9 +4,12 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                        IMPORTS
 // 1. React & packages
+// 2. Styles
 
 import React from 'react';
 import { useLocation, Link } from "react-router-dom";
+
+import layoutStyles from "../assets/styles/Layout.module.sass";
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -23,24 +26,26 @@ const Header: React.FC = () => {
   let location = useLocation();
 
   return (
-    <div>
-      <div>
-        KHong RPG Dice Tables
+    <div id={layoutStyles.headerContainer}>
+      <div id={layoutStyles.titleContainer}>
+        <h1>KHong RPG Dice Tables</h1>
       </div>
 
-      <div>{
-        location.pathname === "/" ? 
-          <Link to={"/about"} >About</Link>
-        : 
-          <Link to={"/"} >Back</Link>
-      }</div>
+      <div id={layoutStyles.linkContainer}>
+        {
+          location.pathname === "/" ? 
+            <Link to={"/about"} >About</Link>
+          : 
+            <Link to={"/"} >Back</Link>
+        }
+      </div>
     </div>
   )
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div>
+    <div id={layoutStyles.layoutRoot}>
       <Header />
 
       { children }

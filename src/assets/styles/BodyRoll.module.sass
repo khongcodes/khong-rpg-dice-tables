@@ -1,0 +1,26 @@
+/////////////////////////////////////////////////////////////////////////////////
+/////////////                                                               SETUP
+
+@import './design'
+
+$sideButtonContainerWidth: space(8)
+
+$deleteButtonContainerWidth: $sideButtonContainerWidth
+$rerollButtonContainerWidth: $sideButtonContainerWidth
+
+/////////////////////////////////////////////////////////////////////////////////
+/////////////                                                              STYLES
+
+#brRoot
+  margin: space(1) 0
+
+  display: grid
+  grid-template-columns: $deleteButtonContainerWidth auto $rerollButtonContainerWidth
+  grid-template-rows: auto
+
+  #contentContainer
+    padding: 0 space(1)
+
+.buttonContainer
+  text-align: center
+  margin: auto 0

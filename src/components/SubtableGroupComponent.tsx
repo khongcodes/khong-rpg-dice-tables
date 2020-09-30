@@ -10,6 +10,7 @@
 // 5. Data-reading utilities
 // 6. Utilities
 // 7. Components
+// 8. styles
 
 import React, { Dispatch, useEffect } from 'react';
 import { connect } from "react-redux";
@@ -30,21 +31,19 @@ import {
   deleteBySubtableGroupBodyRoll
 } from "../store/bodyRolls/actions";
 
+import { SubtableDisplaySpecMDetailFormat } from "../model/TableKeyStructuresAndFormats";
 import {
   CombinedBodyRollType,
   CombinedRollValuesType,
   SimpleRollValue,
   DetailRollValue
 } from "../model/DiceRollTypes";
-import {
-  SubtableDisplaySpecMDetailFormat,
-  SubtableDisplaySpecReferenceCountFormat
-} from "../model/TableKeyStructuresAndFormats"
 
 import { rollValues } from "../util/rollDice";
 
 import BodyRollComponent from './BodyRollComponent';
 
+import subtableStyles from "../assets/styles/SubtableGroup.module.sass";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                          SETUP
@@ -141,7 +140,7 @@ const RenderSubtableGroupStoreData = ({showIds, subtableGroupId, subtableGroup}:
   } else {
     return (
       <div>
-        <p> name: {subtableGroup?.displaySpec.name} </p>
+        <h3>{subtableGroup?.displaySpec.name}</h3>
       </div>
     )
   }
@@ -231,7 +230,7 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   }
 
   return (
-    <div>
+    <div id={subtableStyles.subtableRoot}>
       <RenderSubtableGroupStoreData 
         showIds = {showIds}
         subtableGroupId = {subtableGroupId}

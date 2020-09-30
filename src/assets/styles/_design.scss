@@ -1,14 +1,106 @@
-// NOTES
-////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                          NOTES
+//  - design system components
+//    > Breakpoints
+//    > Layout
+//    > Colors
+//    > Type Styles
+//    > Animation
 
-// BREAKPOINTS
-////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                    BREAKPOINTS
 
-// LAYOUT
-////////////////////////////////////////
+$mobile-breakpoint: 788px;
 
-// COLORS
-////////////////////////////////////////
+@mixin mobile-media {
+  @media (max-width: $mobile-breakpoint) {
+    @content;
+  }
+}
+// usage:
+// @use 'design'
+// @include design.mobile-media
+//    background-color: red
 
-// TYPE STYLES
-////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                         LAYOUT
+
+$space-unit: 8px;
+
+@function space($multiplier) {
+  @return $multiplier * $space-unit;
+}
+// usage:
+// margin-left: space(8)
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                         COLORS
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                    TYPE STYLES
+
+@mixin makeBlockMargins($value) {
+  margin-block-start: $value;
+  margin-block-end: $value;
+}
+
+@mixin less-margin-type {
+  @include makeBlockMargins(0.5em);
+}
+
+@mixin page-title-type {
+  @include makeBlockMargins(0);
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+// h3 (in global.sass) 
+@mixin subtable-group-name-type {
+  @include makeBlockMargins(0.25em);
+}
+
+// h4 (in global.sass) 
+// is assigned BodyRollComponent content Name in cases where format === "detail"
+@mixin body-roll-content-name-type {
+  @include makeBlockMargins(0.6em);
+}
+
+@mixin copy-type {
+  font-size: 13px;
+  line-height: 21px;
+}
+
+@mixin misc-link-styling {
+  color: $red;
+  &:hover {
+    color: $light-red;
+  }
+}
+
+@mixin makeMargins($value) {
+  margin-block-start: $value;
+  margin-block-end: $value;
+}
+// usage:
+// @include art-meta-copy-type
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                     ANIMATIONS
+
+// mixin replicating keyframe animation for different vendors
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} { @content };
+  @-moz-keyframes #{$name} { @content };
+  @-ms-keyframes #{$name} { @content };
+  @keyframes #{$name} { @content };
+}
+// usage:
+// @include keyframes(fade-in) {
+//   0%    {opacity: 0;}
+//   100%  {opacity: 1;}
+// }

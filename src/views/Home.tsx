@@ -8,6 +8,7 @@
 // 3. REDUX: Selectors
 // 4. REDUX: Actions
 // 5. Components
+// 6. Styles
 
 import React, { Dispatch } from 'react';
 import { connect } from "react-redux";
@@ -21,6 +22,8 @@ import { deleteByTableGroupSubtableGroup } from "../store/subtableGroups/actions
 import { deleteByTableGroupBodyRoll } from "../store/bodyRolls/actions";
 
 import TableGroupComponent from "../components/TableGroupComponent";
+
+import homeStyles from "../assets/styles/views/Home.module.sass"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                          SETUP
@@ -45,7 +48,7 @@ const Home: React.FC<HomeProps> = ({
   const handleDeleteTableGroup = (id: string) => deleteTableGroup(id);
 
   return (
-    <div>
+    <div id={homeStyles.homeRoot}>
       <div>
         {
           tableGroupIds.map(tableGroupId => (
