@@ -19,8 +19,12 @@ import About from "./views/About";
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                          SETUP
 
+const SHOWIDS = false;
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                             COMPONENTS & LOGIC
+
+
 
 const App = () => {
 
@@ -29,7 +33,7 @@ const App = () => {
       <Layout >
         <Routes>
           <Route path="/about" element={<About />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home showIds={SHOWIDS}/>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>

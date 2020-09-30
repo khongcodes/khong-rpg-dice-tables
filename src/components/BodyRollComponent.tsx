@@ -34,6 +34,7 @@ import {
 ////////////////                                                                          SETUP
 
 type BodyRollComponentProps = {
+  showIds: boolean;
   bodyRollId: string;
   rerollFn: (id: string) => void;
   rerollBodyRollMDetailRef: (id: string) => void;
@@ -109,8 +110,24 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
   }
 }
 
+const RenderBodyRollStoreData = ({showIds, id}: {
+  showIds: boolean,
+  id: string
+}) => {
+  if (showIds) {
+    return (
+      <div>
+        <p>id: id</p>
+      </div>
+    )
+  } else {
+    return (<></>)
+  }
+}
+
+
 const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
-  bodyRollId, rerollFn, rerollBodyRollMDetailRef,
+  showIds, bodyRollId, rerollFn, rerollBodyRollMDetailRef,
   bodyRoll, format,
   deleteBodyRoll
 }) => {
@@ -130,13 +147,12 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
 
   return (
     <div>
-      <button onClick={handleDelete}>
-        delete
-      </button>
-      
-      <p>
-        id: {bodyRollId}
-      </p>
+      <RenderBodyRollStoreData 
+        showIds = {showIds}
+        id = {bodyRollId}
+      />
+
+      <button onClick={handleDelete}>delete</button>
 
       {
         bodyRoll ? 

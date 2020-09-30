@@ -41,6 +41,7 @@ import { rollValues } from '../util/rollDice';
 
 type TableGroupComponentProps = {
   // base props
+  showIds: boolean;
   tableGroupId: string;
   deleteTableGroup: (id: string) => void;
 } &
@@ -82,7 +83,34 @@ const AvailableOptions = () => {
 }
 
 
-const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId, tableGroup, deleteTableGroup, setTableGroup, addSubtables }) => {
+const RenderTableGroupStoreData = ({showIds, tableGroupId, selectedTable,initializedStr}: {
+  showIds: boolean,
+  tableGroupId: string,
+  selectedTable: string,
+  initializedStr: string
+}
+) => {
+  if (showIds) {
+    return (
+      <div>
+        <p>
+          id: {tableGroupId}<br/>
+          selectedTable: {selectedTable}<br/>
+          initialized: {initializedStr}
+        </p>
+      </div>
+    )
+  } else {
+    return (<></>)
+  }
+}
+
+
+const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
+  showIds, tableGroupId, deleteTableGroup,
+  tableGroup,
+  setTableGroup, addSubtables 
+}) => {
   const [selectedTable, setSelectedTable] = useState<"none" | AllTableNames>("none");
   const [initialized, setInitialized] = useState<boolean>(false);
 
@@ -114,13 +142,13 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId,
 
   return (
     <div style={{"marginBottom": "20px"}}>
-      <div>
-        <p>
-          id: {tableGroupId}<br/>
-          selectedTable: {selectedTable}<br/>
-          initialized: {initialized.toString()}
-        </p>
-      </div>
+    
+      <RenderTableGroupStoreData
+        showIds={showIds}
+        tableGroupId={tableGroupId}
+        selectedTable={selectedTable}
+        initializedStr={initialized.toString()}
+      /> 
       
 
       <form onSubmit={handleRollTable}>
@@ -147,6 +175,7 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({ tableGroupId,
           !!tableGroup ? 
             tableGroup.subtableCollection.map(subtableId => (
               <SubtableGroupComponent
+                showIds={showIds}
                 tableGroupId={tableGroupId}
                 subtableGroupId={subtableId}
                 querySiblingSubtableInExtendedGroup = {querySiblingSubtableInExtendedGroup}

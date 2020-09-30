@@ -20,22 +20,24 @@ import { addTableGroup, deleteTableGroup } from '../store/tableGroups/actions';
 import { deleteByTableGroupSubtableGroup } from "../store/subtableGroups/actions";
 import { deleteByTableGroupBodyRoll } from "../store/bodyRolls/actions";
 
-import TableRollComponent from "../components/TableGroupComponent";
+import TableGroupComponent from "../components/TableGroupComponent";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                          SETUP
 
 type HomeProps = {
+  showIds: boolean;
+  tableGroupIds: string[];
   addTableGroup: () => void;
   deleteTableGroup: (id: string) => void;
-  tableGroupIds: string[];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                             COMPONENTS & LOGIC
 
 const Home: React.FC<HomeProps> = ({ 
-  tableGroupIds, 
+  showIds,
+  tableGroupIds,
   addTableGroup, deleteTableGroup
 }) => {
 
@@ -47,10 +49,11 @@ const Home: React.FC<HomeProps> = ({
       <div>
         {
           tableGroupIds.map(tableGroupId => (
-            <TableRollComponent 
+            <TableGroupComponent 
               key={tableGroupId}
               tableGroupId={tableGroupId}
               deleteTableGroup={handleDeleteTableGroup}
+              showIds={showIds}
             />
           )
         )}

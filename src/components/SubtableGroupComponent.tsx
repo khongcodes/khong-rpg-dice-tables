@@ -50,6 +50,7 @@ import BodyRollComponent from './BodyRollComponent';
 ////////////////                                                                          SETUP
 
 type SubtableGroupComponentMappedState = {
+  showIds: boolean;
   subtableGroup?: SubtableGroup;
   subtableData?: CombinedBodyRollType;
 };
@@ -121,11 +122,36 @@ const getValueForMDetailReferenceFormat = (
   }
 }
 
+const RenderSubtableGroupStoreData = ({showIds, subtableGroupId, subtableGroup}:{
+  showIds: boolean,
+  subtableGroupId: string,
+  subtableGroup: SubtableGroup | undefined
+}) => {
+  if (showIds) {
+    return (
+      <div>
+        <p>
+          subtableGroupId: {subtableGroupId}<br/>
+          name: {subtableGroup?.displaySpec.name}<br/>
+          displaySpec: {subtableGroup?.displaySpec.format}
+        </p>
+      </div>
+    )
+
+  } else {
+    return (
+      <div>
+        <p> name: {subtableGroup?.displaySpec.name} </p>
+      </div>
+    )
+  }
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                             COMPONENTS & LOGIC
 
 const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
-  tableGroupId, subtableGroupId, querySiblingSubtableInExtendedGroup,
+  showIds, tableGroupId, subtableGroupId, querySiblingSubtableInExtendedGroup,
   subtableGroup, subtableData,
   initializeSubtableBodyRolls, rerollBodyRoll, rerollAllBodyRolls, addBodyRoll, deleteAllBodyRolls,
   rerollBodyRollMDetailReference, rerollAllBodyRollsMDetailReference
@@ -206,11 +232,11 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
 
   return (
     <div>
-      <p>
-        subtableGroupId: {subtableGroupId}<br/>
-        name: {subtableGroup?.displaySpec.name}<br/>
-        displaySpec: {subtableGroup?.displaySpec.format}
-      </p>
+      <RenderSubtableGroupStoreData 
+        showIds = {showIds}
+        subtableGroupId = {subtableGroupId}
+        subtableGroup = {subtableGroup}
+      />
 
       <button onClick={handleDeleteAllBodyRolls}>
         delete all
@@ -225,6 +251,7 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
       {
         !!subtableGroup && (rerollBodyRoll && subtableData && rerollBodyRollMDetailReference) ? subtableGroup.bodyRollCollection.map(bodyRollId => (
           <BodyRollComponent
+            showIds={showIds}
             bodyRollId={bodyRollId}
             rerollFn={rerollBodyRoll(subtableData)}
             rerollBodyRollMDetailRef={rerollBodyRollMDetailReference(subtableGroup, subtableData, querySiblingSubtableInExtendedGroup, getValueForMDetailReferenceFormat)}
