@@ -161,10 +161,13 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   //    triggered by resetting the tableGroup's selectValue 
   //      (or clicking "reroll" button on tableGroup)
   //  )
+  
+  const subtableGroupExists = !!subtableGroup;
+
   useEffect(() => {
     // initializeSubtableBodyRolls needs to be confirmed as !undefined
 
-    if (initializeSubtableBodyRolls && (subtableGroup && subtableData)) {   
+    if ((initializeSubtableBodyRolls && subtableGroup && subtableData) && subtableGroup.bodyRollCollection.length === 0) {
       // const { initialRollCount } = subtableGroup.displaySpec;
       const initialRollCount = subtableGroup.displaySpec.initialRollCount || 1;
       const bodyRollsData: InitializeSubtableDispatchBodyRollInput = [];
@@ -190,7 +193,7 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
       }
       initializeSubtableBodyRolls({ tableGroupId, subtableGroupId }, bodyRollsData);
     }
-  }, [!!subtableGroup])
+  }, [subtableGroupExists, initializeSubtableBodyRolls, querySiblingSubtableInExtendedGroup, subtableData, subtableGroupId, tableGroupId])
 
   const handleRerollAllBodyRolls = () => {
     if (rerollAllBodyRolls && subtableGroup && subtableData) {
