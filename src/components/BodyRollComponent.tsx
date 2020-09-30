@@ -146,7 +146,7 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
       />
 
       <div className={`${bodyRollStyles.deleteContainer} ${bodyRollStyles.buttonContainer}`}>
-        <button onClick={handleDelete}>delete</button>
+        <button onClick={handleDelete}>X</button>
       </div>
 
       {

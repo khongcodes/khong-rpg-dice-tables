@@ -161,7 +161,7 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   //    triggered by resetting the tableGroup's selectValue 
   //      (or clicking "reroll" button on tableGroup)
   //  )
-  
+
   const subtableGroupExists = !!subtableGroup;
 
   useEffect(() => {
@@ -240,15 +240,17 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
         subtableGroup = {subtableGroup}
       />
 
-      <button onClick={handleDeleteAllBodyRolls}>
-        delete all
-      </button>
-      <button onClick={handleRerollAllBodyRolls}>
-        reroll all
-      </button>
-      <button onClick={handleAddBodyRoll}>
-        add bodyroll
-      </button>
+      <div className={subtableStyles.buttonContainer}>
+        <button onClick={handleDeleteAllBodyRolls}>
+          X all
+        </button>
+        <button onClick={handleRerollAllBodyRolls}>
+          reroll all
+        </button>
+        <button onClick={handleAddBodyRoll}>
+          + 1
+        </button>
+      </div>
 
       {
         !!subtableGroup && (rerollBodyRoll && subtableData && rerollBodyRollMDetailReference) ? subtableGroup.bodyRollCollection.map(bodyRollId => (

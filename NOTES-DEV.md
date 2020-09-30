@@ -1,4 +1,10 @@
 //////////////////////////////////////////////////////////////////
+09/30 11:26 AM
+
+READ UP ON useEffect dependencies - the useEffect hook on SubtableGroupComponent needs to be optimized; it was built on loose understanding of how the hook works
+
+
+//////////////////////////////////////////////////////////////////
 09/29 03:34 PM
 
 Ay caramba
