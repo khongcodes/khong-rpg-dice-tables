@@ -223,6 +223,17 @@ export const getKeysFromSelectValue = (selectedTable: AllTableSelectValues) => {
   return { bookKey, tableKey };
 }
 
+export const getSelectValueFromKeys = (
+  bookKey: undefined | AllBookNames,
+  tableKey: undefined | AllTableNames
+): "none" | AllTableSelectValues => {
+  if (bookKey === undefined || tableKey === undefined) {
+    return "none";
+  } else {
+    return (bookKey + "-" + tableKey) as AllTableSelectValues;
+  }
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                               TYPE DEFINITIONS

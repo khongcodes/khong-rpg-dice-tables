@@ -28,7 +28,7 @@ import { deleteByTableGroupBodyRoll } from "../store/bodyRolls/actions";
 import { 
   AllTableSelectValues, AllTableNames, AllBodyRollNames, SubtableDisplaySpecType,
   allTablesDisplaySpecsByBook, tableNamesByBooks,
-  getKeysFromSelectValue
+  getKeysFromSelectValue, getSelectValueFromKeys
 } from "../model/TableKeyStructuresAndFormats";
 
 import availableRolls from "../controlPanel/availableRolls.json";
@@ -37,6 +37,7 @@ import SubtableGroupComponent from "./SubtableGroupComponent";
 import { rollValues } from '../util/rollDice';
 
 import tableStyles from "../assets/styles/TableGroup.module.sass"
+import { table } from 'console';
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                          SETUP
@@ -113,10 +114,13 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
   tableGroup,
   setTableGroup, addSubtables 
 }) => {
-  const [selectedTable, setSelectedTable] = useState<"none" | AllTableNames>("none");
+  // reads from tableGroup's (in Store) keys what the select value should be
+  const initialSelectedTable = getSelectValueFromKeys(tableGroup?.bookKey, tableGroup?.tableKey);
+  const [selectedTable, setSelectedTable] = useState<"none" | AllTableSelectValues>(initialSelectedTable);
+
   const [initialized, setInitialized] = useState<boolean>(false);
 
-  const handleSelectTable: ReactEventHandler = (event: React.ChangeEvent<HTMLSelectElement>) => setSelectedTable(event.target.value as "none" | AllTableNames);
+  const handleSelectTable: ReactEventHandler = (event: React.ChangeEvent<HTMLSelectElement>) => setSelectedTable(event.target.value as "none" | AllTableSelectValues);
   const handleDeleteTable: ReactEventHandler = () => deleteTableGroup(tableGroupId);
   
   const handleRollTable: ReactEventHandler = (event: React.FormEvent<HTMLFormElement>) => {
