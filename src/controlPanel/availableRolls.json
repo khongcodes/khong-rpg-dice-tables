@@ -1,14 +1,31 @@
 {
   "bookNames": [
     "LANCER",
-    "Mothership RPG"
+    "Mothership RPG",
+    "The Ultraviolet Grasslands and the Black City"
   ],
   "options": [
     [
       {
         "selectValue": "lancer-iterativeWorld",
         "stringName": "LANCER - Iterative World Generation"
-      }    
+      },
+      {
+        "selectValue": "lancer-spaceStation",
+        "stringName": "LANCER / The Long Rim - Space Station"
+      },
+      {
+        "selectValue": "lancer-spaceStationNPC",
+        "stringName": "LANCER / The Long Rim - Space Station NPC"
+      },
+      {
+        "selectValue": "lancer-pirateBand",
+        "stringName": "LANCER / The Long Rim - Pirate Band"
+      },
+      {
+        "selectValue": "lancer-enterprises",
+        "stringName": "LANCER / The Long Rim - Rim Enterprise"
+      }
     ],
     [
       {
@@ -26,6 +43,32 @@
       {
         "selectValue": "mothership-derelictShip",
         "stringName": "Mothership RPG / Dead Planet - Derelict Ship"
+      }
+    ],
+    [
+      {
+        "selectValue": "uvg-quickHeroChar",
+        "stringName": "UVG - Quick Hero Character"
+      },
+      {
+        "selectValue": "uvg-otherVoyagers",
+        "stringName": "UVG - Other Voyagers"
+      },
+      {
+        "selectValue": "uvg-biomagicalCorruption",
+        "stringName": "UVG - Biomagical Corruption"
+      },
+      {
+        "selectValue": "uvg-histories",
+        "stringName": "UVG - Histories"
+      },
+      {
+        "selectValue": "uvg-discovery",
+        "stringName": "UVG - Discovery"
+      },
+      {
+        "selectValue": "uvg-historicPeriodStyle",
+        "stringName": "UVG - Historic Period/Style"
       }
     ]
   ]

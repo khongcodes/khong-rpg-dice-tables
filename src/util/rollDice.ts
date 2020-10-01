@@ -132,10 +132,29 @@ export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollVal
       else {
         printError(subtableData, subtableData.type);
         return { 
-          value: "error: two-roll range-table in util/rollDice.ts: rollValues():" 
+          value: "error: one-roll simple range-table in util/rollDice.ts: rollValues():" 
         }
       }
+    
 
+    case "one-roll detail range-table":
+      const ordrtDiceResults = rollDice(subtableData.interface);
+      const ordrtResult = subtableData.values.find(option => isInRange(ordrtDiceResults, option));
+      const ordrtRollTable = ordrtResult?.rollTable || subtableData.rollTable;
+      if (ordrtResult) {
+        // orsrtRollTable is allowed to be undefined
+        return { 
+          name: ordrtResult.name,
+          detail: checkAndParseResult(ordrtResult.detail, ordrtRollTable)
+        };
+      }
+      else {
+        printError(subtableData, subtableData.type);
+        return { 
+          name: "",
+          detail: "error: one-roll detail range-table in util/rollDice.ts: rollValues():" 
+        }
+      }
 
     case "two-roll category-detail range-range-table":
       const [trcdrrtFirstDiceInput, trcdrrtSecondDiceInput] = subtableData.interface.split(/\[|\]/);

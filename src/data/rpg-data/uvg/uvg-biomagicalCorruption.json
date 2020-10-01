@@ -35,9 +35,7 @@
           "detail": "Gain a beneficial mutation."
         }
       ]
-    }
-  },
-  "extended": {
+    },
     "deleteriousMutations": {
       "type": "one-roll string table",
       "interface": "!1d20",

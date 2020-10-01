@@ -1,19 +1,142 @@
 {
   "main": {
     "holdings": {
-      "type": "one roll table",
+      "type": "one-roll simple range-table",
       "interface": "!1d10",
-      "values": []
+      "values": [
+        {
+          "range": "1-2",
+          "value": "A fleet of asteroids rich in rare minerals, bound into a closely-guarded orbit and protected by loyal cosmopolitan guards."
+        },
+        {
+          "range": "3-4",
+          "value": "The only pilots capable of navigating a treacherous corridor of null-blink space, and the knowledge to train more."
+        },
+        {
+          "range": "5-6",
+          "value": "The best supply of fresh water in the region, and the infrastructure to hygienically process, package, and distribute it."
+        },
+        {
+          "range": "7-8",
+          "value": "A collection of fabrication plants ready to produce GMS hulls, components, and parts; for the right price, the Enterprise can also procure licensed materials."
+        },
+        {
+          "range": "9-10",
+          "value": "A reliable method of contacting los Voladores, plus first pick of prime Volador artifacts, goods, and technology for outfitting their stations."
+        },
+        {
+          "range": "11-12",
+          "value": "The contract to guarantee passage for IPS-N bureaucrats from Rào Cỏ Station to the Dawnline Shore, as well as support from IPS-N Trunk Security forces."
+        },
+        {
+          "range": "13-14",
+          "value": "The ability to produce blink transponder codes capable of clearing Union codechecks, and the largesse to reward loyalty with them."
+        },
+        {
+          "range": "15-16",
+          "value": "A monopoly on viable cloning processes and the accounts of the leadership of many other enterprises."
+        },
+        {
+          "range": "17-18",
+          "value": "Strength guaranteed — via clandestine channels — by a major power with interests in the Dawnline Shore (e.g. Harrison Armory or the Karrakin Trade Barons)."
+        },
+        {
+          "range": "19-20",
+          "value": "The standard currency that Long Rim populations use for banking and trade – until they can convert it into manna, that is."
+        }
+      ]
     },
     "representative": {
-      "type": "one roll table",
+      "type": "one-roll simple range-table",
       "interface": "!1d10",
-      "values": []
+      "values": [
+        {
+          "range": "1-2",
+          "value": "A kind but low-ranking member. The can’t offer any real support on behalf of the Enterprise other than their word and the largesse of their commanding officer, manager, or foreman."
+        },
+        {
+          "range": "3-4",
+          "value": "A middleweight bureaucrat with an ear to the ground. While loyal to their Enterprise, they count you as a good friend."
+        },
+        {
+          "range": "5-6",
+          "value": "An experienced harbor pilot, recently promoted by their Enterprise to the post of customs master at an important station."
+        },
+        {
+          "range": "7-8 ",
+          "value": "The leader of a pirate crew that has been contracted to work with the Enterprise."
+        },
+        {
+          "range": "9-10",
+          "value": "An officer in the Enterprise’s corps of loyal guards."
+        },
+        {
+          "range": "11-12",
+          "value": "A member of the Enterprise’s station-level police force (e.g., a beat cop, a detective, or similar)."
+        },
+        {
+          "range": "13-14",
+          "value": "A fixer for the Enterprise."
+        },
+        {
+          "range": "15-16",
+          "value": "A ship captain who flies under the Enterprise’s flag."
+        },
+        {
+          "range": "17-18",
+          "value": "The kid of an Enterprise’s leader."
+        },
+        {
+          "range": "19-20",
+          "value": "The leader of the Enterprise, who will always grant you an audience – as long as you stay on their good side and remember who is in charge."
+        }
+      ]
     },
     "strength": {
-      "type": "one roll table",
+      "type": "one-roll simple range-table",
       "interface": "!1d10",
-      "values": []
+      "values": [
+        {
+          "range": "1-2",
+          "value": "Meagre. The Enterprise is allowed to exist by the other enterprises because it is a useful dumping ground, patsy, or easy victim. No one works with it for long, and it it likely only a matter of time before its last remaining station falls to one of the other Enterprises."
+        },
+        {
+          "range": "3-4",
+          "value": "Modest. This Enterprise controls a modest complement of stations with a small but loyal guard corps; the bulk of its strength comes from outside hires, who its leaders can afford to pay for their loyalty."
+        },
+        {
+          "range": "5-6",
+          "value": "Middling. The number of loyal guard to mercenaries is nearly 1:1. This Enterprise likely commands a series of popular but noncritical stations."
+        },
+        {
+          "range": "7-8",
+          "value": "Substantial. The Enterprise holds an important checkpoint, fueling, or resupply station, and it can afford to pay its mercenaries well and then some. Its leadership feels comfortable bullying smaller Enterprises when necessary, but they generally stay in their own lane – always a bigger fish, after all."
+        },
+        {
+          "range": "9-10",
+          "value": "Mighty. In command of a large fighting force and mighty economic base, this Enterprise can field older-model fighters, bombers, and corvettes, and is likely on the radar of the major powers – for good and for ill. Its influence spreads out into the Long Rim, and its leaders aren’t afraid to throw their power around, implicitly or explicitly, to get smaller Enterprises to do what they want, to annex independent stations, and even muscle in on outside powers’ presence in the Rim."
+        },
+        {
+          "range": "11-12",
+          "value": "Focused (Legitimate Connections). This Enterprise has clandestine or overt connections to one of the major powers with an interest in the Dawnline Shore. This legitimacy insulates it from some of that power’s enforcement activities and provides marked economic benefits as well."
+        },
+        {
+          "range": "13-14",
+          "value": "Focused (Knowledge). This Enterprise may or may not be mighty in military strength, but it guards a deep, secret knowledge valued by all of the other Enterprises and at least one major power. Unfortunately for them, this Enterprise is damn good at not giving up its knowledge – unless the price is right, or the cost for withholding too steep."
+        },
+        {
+          "range": "15-16",
+          "value": "Focused (Coin). This Enterprise is one of the wealthiest and likely sets the terms by which all others conduct their markets and economic affairs. Managing the economy is a hassle for the other Enterprises, but participating in it is an unassailable boon. For the time being, the other Enterprises are happy to let this one continue to manage the Rim’s accounts, be the target of their collective grumblings, and prevent all-out war in doing so."
+        },
+        {
+          "range": "17-18",
+          "value": "Focused (Goods). This Enterprise has multiple monopolies on necessary luxury goods that are difficult or costly to procure. The other Enterprises don’t have the capacity to produce these goods and are content to let this Enterprise take the lead. While other Enterprises may gripe about the price, they generally all have a favorable view of this Enterprise on account of the goods they produce."
+        },
+        {
+          "range": "19-20",
+          "value": "Titanic. This Enterprise controls multiple refurbished warships crewed by veteran spacers and loyal, disciplined marines. It commands thousands of well-seasoned fighters and a few pilots – arguably lancers, in another life – who operate personal chassis. No other Enterprise will face this one down, as that would certainly mean total destruction. The major powers have extensive dossiers on this Enterprise’s personnel and likely have contingency plans to strike and eliminate its leaders and military might if need be; by the same token, this Enterprise may have designs beyond the Long Rim."
+        }
+      ]
     }
   }
 }

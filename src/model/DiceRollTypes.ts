@@ -76,6 +76,11 @@ type OnerollSimpleRangetableRolltype = RollTypeBase & {
   values: RangeSimpleRollValue[];
 }
 
+type OnerollDetailRangetableRolltype = RollTypeBase & {
+  type: "one-roll detail range-table";
+  values: RangeDetailRollValue[];
+}
+
 type TworollCategorydetailRangerangetableRolltype = RollTypeBase & {
   type: "two-roll category-detail range-range-table",
   values: NestedNamedRangeRollValue[];
@@ -100,6 +105,7 @@ export type CombinedBodyRollType =
 | OnerollStringTableRolltype
 | OnerollDetailTableRolltype
 | OnerollSimpleRangetableRolltype
+| OnerollDetailRangetableRolltype
 | TworollCategorydetailRangerangetableRolltype
 | TworollDetailNorangerangetableRolltype
 | CombinedStringRolltype
@@ -118,7 +124,40 @@ export type LancerInputTypes = {
       definingAnthropocentricFeature: OnerollDetailTableRolltype;
       environments: OnerollDetailTableRolltype;
     }
-  }
+  };
+  spaceStation: {
+    main: {
+      stationSeed: OnerollSimpleRangetableRolltype;
+      stationNameSeed: OnerollStringTableRolltype;
+      districtNameSeed: OnerollStringTableRolltype;
+      purposes: OnerollSimpleRangetableRolltype;
+      curiosities: OnerollStringTableRolltype;
+      problems: OnerollStringTableRolltype;
+    }
+  };
+  spaceStationNPC: {
+    main: {
+      descriptor: OnerollStringTableRolltype;
+      occupationPrimary: OnerollStringTableRolltype;
+      occupationAlternateClandestine: OnerollStringTableRolltype;
+      quirk: OnerollStringTableRolltype;
+      motivation: CombinedStringRolltype;
+    }
+  };
+  pirateBand: {
+    main: {
+      descriptor: CombinedStringRolltype;
+      hustles: OnerollDetailTableRolltype;
+      mainAsset: OnerollStringTableRolltype;
+    }
+  };
+  enterprises: {
+    main: {
+      holdings: OnerollSimpleRangetableRolltype;
+      representative: OnerollSimpleRangetableRolltype;
+      strength: OnerollSimpleRangetableRolltype;
+    }
+  };
 }
 
 
@@ -182,6 +221,62 @@ export type MothershipInputTypes = {
   };
 }
 
+export type UvgInputTypes = {
+  quickHeroChar: {
+    main: {
+      who: OnerollStringTableRolltype;
+      why: OnerollStringTableRolltype;
+      startingWith: OnerollStringTableRolltype;
+    }
+  };
+  otherVoyagers: {
+    main: {
+      role: OnerollStringTableRolltype;
+      name: CombinedStringRolltype;
+      story: OnerollStringTableRolltype;
+      color: OnerollStringTableRolltype;
+    }
+  };
+  biomagicalCorruption: {
+    main: {
+      exposure: OnerollDetailRangetableRolltype;
+      deleteriousMutations: OnerollStringTableRolltype;
+      cosmeticMutations: OnerollStringTableRolltype;
+      beneficialMutations: OnerollStringTableRolltype;
+    }
+  };
+  histories: {
+    main: {
+      forgottenTimes: OnerollStringTableRolltype;
+      dimlyRememberedStrife: OnerollStringTableRolltype;
+      fabledStories: OnerollStringTableRolltype;
+      oralHistoriesOfRevolution: OnerollStringTableRolltype;
+    }
+  };
+  discovery: {
+    main: {
+      distance: OnerollStringTableRolltype;
+      shape: OnerollStringTableRolltype;
+      appearance: OnerollStringTableRolltype;
+      originalFunction: OnerollStringTableRolltype;
+      creator: OnerollStringTableRolltype;
+      discoverer: OnerollStringTableRolltype;
+      currentFunction: OnerollStringTableRolltype;
+    }
+  };
+  historicPeriodStyle: {
+    main: {
+      material: OnerollStringTableRolltype;
+      specialMaterial: OnerollStringTableRolltype;
+      adjective: OnerollStringTableRolltype;
+      movement: OnerollStringTableRolltype;
+      culture: OnerollStringTableRolltype;
+      period: OnerollStringTableRolltype;
+    }
+  };
+}
+
 export type CombinedInputDataType = 
 | LancerInputTypes
-| MothershipInputTypes;
+| MothershipInputTypes
+| UvgInputTypes;

@@ -1,13 +1,25 @@
 import {
   LancerInputTypes,
-  MothershipInputTypes
+  MothershipInputTypes,
+  UvgInputTypes
 } from "../model/DiceRollTypes";
 
 const lancerItWoGen = require("./rpg-data/lancer/lancer-iterativeWorld.json");
+const lancerSpaceSt = require("./rpg-data/lancer/longRim-spaceStation.json");
+const lancerSpaceStNPC = require("./rpg-data/lancer/longRim-spaceStationNPC.json");
+const lancerPirateB = require("./rpg-data/lancer/longRim-pirateBand.json");
+const lancerEnterpr = require("./rpg-data/lancer/longRim-enterprises.json");
 
 const mothershipTrinkets = require("./rpg-data/mothership-rpg/mothership-trinketsPatches.json");
 const mothershipSpaceStationRaw = require("./rpg-data/mothership-rpg/poundFlesh-spaceStation.json");
 const mothershipDerelict = require("./rpg-data/mothership-rpg/deadPlanet-derelictShip.json");
+
+const uvgQuickHeroC = require("./rpg-data/uvg/uvg-quickHeroChar.json");
+const uvgOtherVoyag = require("./rpg-data/uvg/uvg-otherVoyagers.json");
+const uvgBioMagCorr = require("./rpg-data/uvg/uvg-biomagicalCorruption.json");
+const uvgHistories = require("./rpg-data/uvg/uvg-histories.json");
+const uvgDiscovery = require("./rpg-data/uvg/uvg-discovery.json");
+const uvgHistoricP = require("./rpg-data/uvg/uvg-historicPeriodStyle.json");
 
 const combineCommonSubtables = (tableJson: any): object => {
   const tableKeys = Object.keys(tableJson.main).filter(tableName => tableName !== "common")
@@ -33,24 +45,35 @@ const processedMothershipSpaceStation = combineCommonSubtables(mothershipSpaceSt
 const mothershipSpaceStationCorespace = processedMothershipSpaceStation.corespace;
 const mothershipSpaceStationRimspace = processedMothershipSpaceStation.rimspace;
 
-export const lancerData: LancerInputTypes = {
-  iterativeWorld: lancerItWoGen
-}
 
-// WHEN INPUTTING DATA FOR SPACE STATIONS
-// CONSTRUCT NEW DATA OBJECTS FOR RIMSPACE AND CORESPACE STATIONS
-// combining common fields
+export const lancerData: LancerInputTypes = {
+  iterativeWorld: lancerItWoGen,
+  spaceStation: lancerSpaceSt,
+  spaceStationNPC: lancerSpaceStNPC,
+  pirateBand: lancerPirateB,
+  enterprises: lancerEnterpr
+};
 
 export const mothershipData: MothershipInputTypes = {
   trinketsPatches: mothershipTrinkets,
   spaceStationCorespace: mothershipSpaceStationCorespace,
   spaceStationRimspace: mothershipSpaceStationRimspace,
   derelictShip: mothershipDerelict
-} as MothershipInputTypes
+};
+
+export const uvgData: UvgInputTypes = {
+  quickHeroChar: uvgQuickHeroC,
+  otherVoyagers: uvgOtherVoyag,
+  biomagicalCorruption: uvgBioMagCorr,
+  histories: uvgHistories,
+  discovery: uvgDiscovery,
+  historicPeriodStyle: uvgHistoricP
+};
 
 const rpgData = {
   lancer: lancerData,
-  mothership: mothershipData
+  mothership: mothershipData,
+  uvg: uvgData
 };
 
 export default rpgData;

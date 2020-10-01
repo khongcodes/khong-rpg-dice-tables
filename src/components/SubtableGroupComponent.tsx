@@ -163,11 +163,13 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   //  )
 
   const subtableGroupExists = !!subtableGroup;
+  const subtableGroupHasNoBodyRolls: boolean = subtableGroup?.bodyRollCollection.length === 0;
+  const subtableGroupIsMeantToStartNoBodyRolls: boolean = subtableGroup?.displaySpec.initialRollCount !== 0;
 
   useEffect(() => {
     // initializeSubtableBodyRolls needs to be confirmed as !undefined
-
-    if ((initializeSubtableBodyRolls && subtableGroup && subtableData) && subtableGroup.bodyRollCollection.length === 0) {
+    
+    if ((initializeSubtableBodyRolls && subtableGroup && subtableData) && (subtableGroupHasNoBodyRolls && subtableGroupIsMeantToStartNoBodyRolls)) {
       // const { initialRollCount } = subtableGroup.displaySpec;
       const initialRollCount = subtableGroup.displaySpec.initialRollCount || 1;
       const bodyRollsData: InitializeSubtableDispatchBodyRollInput = [];
@@ -193,7 +195,7 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
       }
       initializeSubtableBodyRolls({ tableGroupId, subtableGroupId }, bodyRollsData);
     }
-  }, [subtableGroupExists, initializeSubtableBodyRolls, querySiblingSubtableInExtendedGroup, subtableData, subtableGroupId, tableGroupId])
+  }, [subtableGroupExists, initializeSubtableBodyRolls, querySiblingSubtableInExtendedGroup, subtableData, subtableGroupId, tableGroupId, subtableGroupHasNoBodyRolls, subtableGroupIsMeantToStartNoBodyRolls])
 
   const handleRerollAllBodyRolls = () => {
     if (rerollAllBodyRolls && subtableGroup && subtableData) {

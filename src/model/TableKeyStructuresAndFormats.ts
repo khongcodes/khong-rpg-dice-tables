@@ -3,7 +3,8 @@
 
 export const bookNames = <const> [
   "lancer", 
-  "mothership"
+  "mothership",
+  "uvg"
 ];
 
 export const tableNamesByBooks = <const> {
@@ -13,6 +14,31 @@ export const tableNamesByBooks = <const> {
       "definingNaturalFeature",
       "definingAnthropocentricFeature",
       "environments" 
+    ],
+    spaceStation: [
+      "stationSeed",
+      "stationNameSeed",
+      "districtNameSeed",
+      "purposes",
+      "curiosities",
+      "problems"
+    ],
+    spaceStationNPC: [
+      "descriptor",
+      "occupationPrimary",
+      "occupationAlternateClandestine",
+      "quirk",
+      "motivation"
+    ],
+    pirateBand: [
+      "pirateBandName",
+      "hustles",
+      "mainAsset"
+    ],
+    enterprises: [
+      "holdings",
+      "representative",
+      "strength"
     ]
   },
   mothership: {
@@ -47,17 +73,71 @@ export const tableNamesByBooks = <const> {
       "jumpDriveMalfunction",
       "shipModules"
     ]
+  },
+  uvg: {
+    quickHeroChar: [
+      "who",
+      "why",
+      "startingWith"
+    ],
+    otherVoyagers: [
+      "role",
+      "name",
+      "story",
+      "color"
+    ],
+    biomagicalCorruption: [
+      "exposure",
+      "deleteriousMutations",
+      "cosmeticMutations",
+      "beneficialMutations"
+    ],
+    histories: [
+      "forgottenTimes",
+      "dimlyRememberedStrife",
+      "fabledStories",
+      "oralHistoriesOfRevolution"
+    ],
+    discovery: [
+      "distance",
+      "shape",
+      "appearance",
+      "originalFunction",
+      "creator",
+      "discoverer",
+      "currentFunction"
+    ],
+    historicPeriodStyle: [
+      "material",
+      "specialMaterial",
+      "adjective",
+      "movement",
+      "culture",
+      "period"
+    ]
   }
 }
 
 export const tableSelectValues = <const> [
   "lancer-iterativeWorld",
+  "lancer-spaceStation",
+  "lancer-spaceStationNPC",
+  "lancer-pirateBand",
+  "lancer-enterprises",
   "mothership-trinketsPatches",
   "mothership-spaceStationCorespace",
   "mothership-spaceStationRimspace",
-  "mothership-derelictShip"
+  "mothership-derelictShip",
+  "uvg-quickHeroChar",
+  "uvg-otherVoyagers",
+  "uvg-biomagicalCorruption",
+  "uvg-histories",
+  "uvg-discovery",
+  "uvg-historicPeriodStyle"
 ]
 
+// stringName format - 
+// {Core game system} / {Module} - {Name of Table}
 export const tableIdentObjs = <const> [
   {
     selectValue: "initial",
@@ -66,6 +146,22 @@ export const tableIdentObjs = <const> [
   {
     selectValue: "lancer-iterativeWorld",
     stringName: "LANCER - Iterative World Generation"
+  },
+  {
+    selectValue: "lancer-spaceStation",
+    stringName: "LANCER / The Long Rim - Space Station"
+  },
+  {
+    selectValue: "lancer-spaceStationNPC",
+    stringName: "LANCER / The Long Rim - Space Station NPC"
+  },
+  {
+    selectValue: "lancer-pirateBand",
+    stringName: "LANCER / The Long Rim - Pirate Band"
+  },
+  {
+    selectValue: "lancer-enterprises",
+    stringName: "LANCER / The Long Rim - Rim Enterprise"
   },
   {
     selectValue: "mothership-trinketsPatches",
@@ -82,6 +178,30 @@ export const tableIdentObjs = <const> [
   {
     selectValue: "mothership-derelictShip",
     stringName: "Mothership RPG / Dead Planet - Derelict Ship"
+  },
+  {
+    selectValue: "uvg-quickHeroChar",
+    stringName: "UVG - Quick Hero Character"
+  },
+  {
+    selectValue: "uvg-otherVoyagers",
+    stringName: "UVG - Other Voyagers"
+  },
+  {
+    selectValue: "uvg-biomagicalCorruption",
+    stringName: "UVG - Biomagical Corruption"
+  },
+  {
+    selectValue: "uvg-histories",
+    stringName: "UVG - Histories"
+  },
+  {
+    selectValue: "uvg-discovery",
+    stringName: "UVG - Discovery"
+  },
+  {
+    selectValue: "uvg-historicPeriodStyle",
+    stringName: "UVG - Historic Period/Style"
   }
 ];
 
@@ -157,8 +277,10 @@ export type TableSpecType = {
 
 type LancerTableNames = keyof typeof tableNamesByBooks.lancer;
 type MothershipTableNames = keyof typeof tableNamesByBooks.mothership;
+type UvgTableNames = keyof typeof tableNamesByBooks.uvg;
 type LancerOutputSpecType = { [key in LancerTableNames]: TableSpecType };
 type MothershipOutputSpecType = { [key in MothershipTableNames]: TableSpecType };
+type UvgOutputSpecType = { [key in UvgTableNames]: TableSpecType };
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -191,7 +313,125 @@ const lancerOutputSpecs: LancerOutputSpecType = {
         }
       }
     }
+  },
+  spaceStation: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "lancer-spaceStation",
+      stringName: "LANCER / The Long Rim - Space Station"
+    },
+    body: {
+      main: {
+        stationSeed: {
+          name: "Station Seed",
+          format: "simple"
+        },
+        stationNameSeed: {
+          name: "Station Name Seed",
+          format: "simple"
+        },
+        districtNameSeed: {
+          name: "District Name Seed",
+          format: "simple"
+        },
+        purposes: {
+          name: "Purposes",
+          format: "simple",
+          initialRollCount: 2
+        },
+        curiosities: {
+          name: "Curiosities",
+          format: "simple",
+          initialRollCount: 2
+        },
+        problems: {
+          name: "Problems",
+          format: "simple",
+          initialRollCount: 2
+        }
+      }
+    }
+  },
+  spaceStationNPC: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "lancer-spaceStationNPC",
+      stringName: "LANCER / The Long Rim - Space Station NPC"
+    },
+    body: {
+      main: {
+        descriptor: {
+          name: "Descriptors",
+          format: "simple",
+          initialRollCount: 2
+        },
+        occupationPrimary: {
+          name: "Primary Occupation",
+          format: "simple"
+        },
+        occupationAlternateClandestine: {
+          name: "Alternate/Clandestine Occupation",
+          format: "simple"
+        },
+        quirk: {
+          name: "Quirk",
+          format: "simple"
+        },
+        motivation: {
+          name: "Motivation",
+          format: "simple"
+        }
+      }
+    }
+  },
+  pirateBand: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "lancer-pirateBand",
+      stringName: "LANCER / The Long Rim - Pirate Band"
+    },
+    body: {
+      main: {
+        pirateBandName: {
+          name: "Pirate Band Name",
+          format: "simple"
+        },
+        hustles: {
+          name: "Pirate Hustles",
+          format: "detail",
+          initialRollCount: 2
+        },
+        mainAsset: {
+          name: "Main Asset",
+          format: "simple"
+        }
+      }
+    }
+  },
+  enterprises: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "lancer-enterprises",
+      stringName: "LANCER / The Long Rim - Rim Enterprise"
+    },
+    body: {
+      main: {
+        holdings: {
+          name: "Holdings",
+          format: "simple"
+        },
+        representative: {
+          name: "Representative(s)",
+          format: "simple"
+        },
+        strength: {
+          name: "Strength",
+          format: "simple"
+        }
+      }
+    }
   }
+
 }
 
 
@@ -388,6 +628,7 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
           initialRollCount: 4,
         }
       },
+      // COMMENTED OUT because these subtables are not displayed
       // extended: {
       //   shipMapByClass: {
       //     name: "Ship Map",
@@ -404,16 +645,202 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
       // }
     }
   }
-}
+};
+
+const uvgOutputSpecs: UvgOutputSpecType = {
+  quickHeroChar: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "uvg-quickHeroChar",
+      stringName: "UVG - Quick Hero Character"
+    },
+    body: {
+      main: {
+        who: {
+          name: "Who",
+          format: "simple"
+        },
+        why: {
+          name: "Why",
+          format: "simple"
+        },
+        startingWith: {
+          name: "Starting With",
+          format: "simple"
+        }
+      }
+    }
+  },
+  otherVoyagers: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "uvg-otherVoyagers",
+      stringName: "UVG - Other Voyagers"
+    },
+    body: {
+      main: {
+        role: {
+          name: "Role",
+          format: "simple"
+        },
+        name: {
+          name: "Name",
+          format: "simple"
+        },
+        story: {
+          name: "Story",
+          format: "simple"
+        },
+        color: {
+          name: "Color",
+          format: "simple"
+        }
+      }
+    }
+  },
+  biomagicalCorruption: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "uvg-biomagicalCorruption",
+      stringName: "UVG - Biomagical Corruption"
+    },
+    body: {
+      main: {
+        exposure: {
+          name: "Exposure",
+          format: "detail"
+        },
+        deleteriousMutations: {
+          name: "Deleterious Mutations",
+          format: "simple",
+          initialRollCount: 0
+        },
+        cosmeticMutations: {
+          name: "Cosmetic Mutations",
+          format: "simple",
+          initialRollCount: 0
+        },
+        beneficialMutations: {
+          name: "Beneficial Mutations",
+          format: "simple",
+          initialRollCount: 0
+        },
+      }
+    }
+  },
+  histories: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "uvg-histories",
+      stringName: "UVG - Histories"
+    },
+    body: {
+      main: {
+        forgottenTimes: {
+          name: "Forgotten Times",
+          format: "simple"
+        },
+        dimlyRememberedStrife: {
+          name: "Dimly Remembered Strife",
+          format: "simple"
+        },
+        fabledStories: {
+          name: "Fabled Stories",
+          format: "simple"
+        },
+        oralHistoriesOfRevolution: {
+          name: "Oral Histories of the Revolution",
+          format: "simple"
+        }
+      }
+    }
+  },
+  discovery: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "uvg-discovery",
+      stringName: "UVG - Discovery"
+    },
+    body: {
+      main: {
+        distance: {
+          name: "Distance",
+          format: "simple"
+        },
+        shape: {
+          name: "Shape",
+          format: "simple"
+        },
+        appearance: {
+          name: "Appearance",
+          format: "simple"
+        },
+        originalFunction: {
+          name: "Original Function",
+          format: "simple"
+        },
+        creator: {
+          name: "Creator",
+          format: "simple"
+        },
+        discoverer: {
+          name: "Discoverer",
+          format: "simple"
+        },
+        currentFunction: {
+          name: "Current Function",
+          format: "simple"
+        }
+      }
+    }
+  },
+  historicPeriodStyle: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "uvg-historicPeriodStyle",
+      stringName: "UVG - Historic Period/Style"
+    },
+    body: {
+      main: {
+        material: {
+          name: "Material",
+          format: "simple"
+        },
+        specialMaterial: {
+          name: "Special Material",
+          format: "simple"
+        },
+        adjective: {
+          name: "Adjective",
+          format: "simple"
+        },
+        movement: {
+          name: "Movement",
+          format: "simple"
+        },
+        culture: {
+          name: "Culture",
+          format: "simple"
+        },
+        period: {
+          name: "Period",
+          format: "simple"
+        }
+      }
+    }
+  }
+};
 
 
 type CombinedOutputSpecType = 
 | LancerOutputSpecType
-| MothershipOutputSpecType;
+| MothershipOutputSpecType
+| UvgOutputSpecType;
 
 export const allTablesDisplaySpecsByBook: {
   [key in AllBookNames]: CombinedOutputSpecType
 } = {
   lancer: lancerOutputSpecs,
-  mothership: mothershipOutputSpecs
+  mothership: mothershipOutputSpecs,
+  uvg: uvgOutputSpecs
 }

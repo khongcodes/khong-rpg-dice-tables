@@ -1,24 +1,76 @@
 {
   "main": {
     "forgottenTimes": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d12",
-      "values": []
+      "values": [
+        "The world was created by the Demiurge to celebrate the Onion and the Skull.",
+        "The world was discovered by the First Mother who entered the cosmos from the void.",
+        "The first deity awoke into sentience in a great mahogany tree.",
+        "The Vile Ones escaped into the cosmos and settled it with their slaves and ur-Rococo megaliths.",
+        "The first humans were sculpted from solar dust by the Faceless Ones in seventeen years of creation.",
+        "The mortals were uplifted by the Sky Gods of the Bio-Mechanum for a higher purpose or as a joke.",
+        "The Fast Stars blazed into life above the girdle of the earth and humans were geo-sculptor gods.",
+        "Reality flowed like blood through the veins of the Uncreated during the Vile Reign.",
+        "Pride begat misunderstanding begat strife begat war in the heavens and the tears and blood and flesh and bones of abmortals rained upon the land, blanketing it in the fertile soil from which humans crawled like rats.",
+        "The poly-chromatic spirits could shape matter and energy like the sculptor shapes stone and clay.",
+        "There was no heaven and no hell, only life everlasting in the Abhuman Paradise.",
+        "The primordial era ended with the war of lings and viles and the rising of the Great Mist."
+      ]
     },
     "dimlyRememberedStrife": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d12",
-      "values": []
+      "values": [
+        "The lings defeated the viles and ushered in a golden age.",
+        "The viles tore themselves in civil war and the lings destroyed them afterwards, ushering in an iron tyranny.",
+        "The gods entered the cosmos from the void and destroyed the hubris of mortals in fire and flood.",
+        "The viles ascended into a higher form, leaving the world to collapse behind them.",
+        "The world and cosmos were created as an ark for the survival of the gods, when they reached a new shore, they left, taking their engines of creation with them. The subsequent decline was later reinterpreted as the result of a war in heaven.",
+        "There were no lings or viles, the demiurges imported humans as biological robots to serve them. After the demiurges’ departure, the humans’ programming went haywire and they destroyed the world.",
+        "The First Lings destroyed themselves in iron and machinery and the Second Lings told themselves tales of Vile Ones wreaking the destruction to salve their fragile memories.",
+        "The Machine Gods were born in the Fast Stars and the Quick Trees, then sent down their offspring to devastate the world.",
+        "The Chosen Ones broke their pact with their gods and were drowned in blood and time.",
+        "The humans crawled out of their slavery over a hundred centuries of relentless, bloody warfare. When they won the world they swarmed out of the void, destroying the lings and the viles and taking the world for themselves.",
+        "The elves walked in from a void and reality fractured in their wake, leading to war between heaven and earth.",
+        "There was no void, there was no war. An entropy reduction experiment failed, causing a temporary reality collapse."
+      ]
     },
     "fabledStories": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d12",
-      "values": []
+      "values": [
+        "The Post-Ling cultures spread across the world like rats through a bountiful orchard, flourishing, creating incredible arts, and then dying out as the source machine gods that kept them going broke down and died.",
+        "Peri-spectral phenomena broke the barriers between the Ancestors and the Scions, leading the first shamans into the well wasted lands.",
+        "Rigidly distributarian Caste and Hive Societies clung to power, producing and reproducing the ancient magitechnologies as ritual and religion.",
+        "Idiosyncratic Brutalist cultures swarmed across the world, driven by mad ghosts and fueled by synthesized weapon generators rediscovered in the dust of the Long Long Ago.",
+        "Dis-Modernist scavenger poleis established dictatorships of liberty, supporting themselves with vast slave networks.",
+        "Ab-plastic magics and half-remembered mentalists stood behind the Springtime of the Monarchies, inaugurating gleaming autocracies to replace the corrupt popular dictatorships of earlier times.",
+        "Post-Lings seeking safer and quieter lives regularly fled the civilizations into the wilderness, establishing Alter-Minimalist Enclaves around twitching, mutated divinities.",
+        "The first expansion of empires underpinned the last twitches of the Zombie Democracies. Their realms eventually collapsed under their own inherent contradictions. ",
+        "Meta-Classicism manifested itself in the attempt to create psychically unified cultures.",
+        "The metastasis of Neo-Minimalism was the Blue Heresy which was rejected in a series of violent, divinely ordained-conflicts that established the essential polymorphism of nature, divinity, and society.",
+        "The victorious Holy Realms celebrated a decadent century only to collapse before the virulence of the Barbarian Polities.",
+        "Para-Infantilists sought to return to earlier, forgotten eras, aping and celebrating the collapsed lingish mores"
+      ]
     },
     "oralHistoriesOfRevolution": {
-      "type": "one roll table",
+      "type": "one-roll string table",
       "interface": "!1d12",
-      "values": []
+      "values": [
+        "The Revolutionary Era saw the Para-Infantilist Regimes collapse in a great uprising of the human masses.",
+        "Rustic Neo-Elementalist movements saw a great return to the land and die-back of the cities.",
+        "Post-humanist elements reasserted Slave-Hive Empires over great swathes of territory.",
+        "The Human Revival under a series of revolutionary prophets saw the ab- and post-humans destroyed utterly in the realms of the Circle Sea.",
+        "The Polychrome Orders were established to protect the Rainbow of Humanity from the darkness and the light of the inhuman forces that scour the world.",
+        "The Post-Imperial expansion saw civility, order, liberty, and humanity return to newly purified lands.",
+        "Pre-Fundamentalist Utopian ecstatics fractured the Post-Imperial Collective.",
+        "Several oligarchies emerged to steer the reigns of the Rainbowlands.",
+        "In the deconstruction of the Post-Imperial Union, local culture heroes were rediscovered.",
+        "Purges of Anti-Realists saw the economies of the Circle Sea boom and a neo-technological surge.",
+        "A Pseudo-Naturalist Dystopia was replaced with an enlightened Spiritual Particularism.",
+        "The consolidation of the Rainbowlands into four great powers fit the Four Skies paradigm: the magitechnical Universalists of the Violet City, the sacral engineering Bureaucracies of the Emerald City, the trading and banking Oligarchies of the Saffron City, and the permanent revolutionary self-help Association of the Red Land District."
+      ]
     }
   }
 }

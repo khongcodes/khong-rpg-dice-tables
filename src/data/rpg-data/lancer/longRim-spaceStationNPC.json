@@ -75,7 +75,7 @@
         "Union or Harrison Armory Veteran",
         "Addict (brighteyes, gliss, gazer, etc)",
         "Horizon collectivist",
-"Pit fighter"
+        "Pit fighter"
       ]
     },
     "quirk": {
@@ -106,7 +106,7 @@
     },
     "motivation": {
       "type": "combined string",
-      "interface": "!1d10 !1d20",
+      "interface": "!1d10 !1d10",
       "values": [
         [
           "Access to",
@@ -130,7 +130,7 @@
           "reputation",
           "blackmail",
           "workers",
-          "a local politician, VIP, or enterprise middlema."
+          "a local politician, VIP, or enterprise middleman."
         ]
       ]
     }
