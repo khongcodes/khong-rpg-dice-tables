@@ -3,6 +3,8 @@
 
 READ UP ON useEffect dependencies - the useEffect hook on SubtableGroupComponent needs to be optimized; it was built on loose understanding of how the hook works
 
+Make it so selectedTable is stored in State/read from state - navigating off / to /about resets the selectedTable in the select element
+
 
 //////////////////////////////////////////////////////////////////
 09/29 03:34 PM
