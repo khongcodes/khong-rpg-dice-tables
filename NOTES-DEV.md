@@ -1,4 +1,10 @@
 //////////////////////////////////////////////////////////////////
+10/01 04:26 PM
+
+Maybe instead of the $${} thing I can just make it say "roll on Weapon Cache subtable"
+
+
+//////////////////////////////////////////////////////////////////
 09/30 11:26 AM
 
 READ UP ON useEffect dependencies - the useEffect hook on SubtableGroupComponent needs to be optimized; it was built on loose understanding of how the hook works

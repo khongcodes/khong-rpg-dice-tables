@@ -5,7 +5,7 @@ type RangeModifier = {
   range: string;
 }
 type OptionalModifier = {
-  detailPrefix?: string;
+  // detailPrefix?: string;
   rollTable?: string[];
 }
 
@@ -59,6 +59,9 @@ const rollTypes = <const> [
 type RollTypeBase = {
   interface: string;
   rollTable?: string[];
+  complexSubtableMap?: {
+    [addedSubtable: string]: CombinedBodyRollType
+  };
 }
 
 type OnerollStringTableRolltype = RollTypeBase & {
@@ -71,7 +74,7 @@ type OnerollDetailTableRolltype = RollTypeBase & {
   values: DetailRollValue[];
 }
 
-type OnerollSimpleRangetableRolltype = RollTypeBase & {
+export type OnerollSimpleRangetableRolltype = RollTypeBase & {
   type: "one-roll simple range-table";
   values: RangeSimpleRollValue[];
 }

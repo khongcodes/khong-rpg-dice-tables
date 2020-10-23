@@ -4,6 +4,14 @@ import {
   UvgInputTypes
 } from "../model/DiceRollTypes";
 
+import complexSubtableRollTableMapConfig from "../controlPanel/complexSubtableRollTableMapConfig.json";
+
+type ComplexSubtableRollTableMapConfigType = {
+  [tableGroupName: string]: {
+    [subtableGroupName: string]: string[];
+  };
+}
+
 const lancerItWoGen = require("./rpg-data/lancer/lancer-iterativeWorld.json");
 const lancerSpaceSt = require("./rpg-data/lancer/longRim-spaceStation.json");
 const lancerSpaceStNPC = require("./rpg-data/lancer/longRim-spaceStationNPC.json");
@@ -46,6 +54,27 @@ const mothershipSpaceStationCorespace = processedMothershipSpaceStation.corespac
 const mothershipSpaceStationRimspace = processedMothershipSpaceStation.rimspace;
 
 
+const addComplexSubtableRollTableMap = (tableJson: any, tableGroupName: string): object => {
+  const referencedTableGroup = (complexSubtableRollTableMapConfig as ComplexSubtableRollTableMapConfigType)[tableGroupName]
+  const subtableGroupsToAddTo = Object.keys(referencedTableGroup);
+  
+  for (let i = 0; i < subtableGroupsToAddTo.length; i++) {
+    const namesOfAddedSubtableRolls = referencedTableGroup[subtableGroupsToAddTo[i]];
+    const complexSubtableMap = {};
+
+    for (let addedRollInd = 0; addedRollInd < namesOfAddedSubtableRolls.length; addedRollInd++) {
+      Object.assign(complexSubtableMap, {
+        [namesOfAddedSubtableRolls[addedRollInd]]: tableJson.extended[namesOfAddedSubtableRolls[addedRollInd]]
+      });
+    }
+    Object.assign(tableJson.main[subtableGroupsToAddTo[i]], { complexSubtableMap })
+  }
+  return tableJson;
+};
+
+const processedMothershipDerelict = addComplexSubtableRollTableMap(mothershipDerelict, "derelictShip") as any;
+
+
 export const lancerData: LancerInputTypes = {
   iterativeWorld: lancerItWoGen,
   spaceStation: lancerSpaceSt,
@@ -58,7 +87,7 @@ export const mothershipData: MothershipInputTypes = {
   trinketsPatches: mothershipTrinkets,
   spaceStationCorespace: mothershipSpaceStationCorespace,
   spaceStationRimspace: mothershipSpaceStationRimspace,
-  derelictShip: mothershipDerelict
+  derelictShip: processedMothershipDerelict
 };
 
 export const uvgData: UvgInputTypes = {

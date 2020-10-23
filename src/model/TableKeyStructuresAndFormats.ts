@@ -637,6 +637,7 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
           name: "Ship Modules",
           format: "detail check-ref",
           initialRollCount: 4,
+          referenceMap: ["weaponSupplyCache", "cargoType"]
         }
       },
       // COMMENTED OUT because these subtables are not displayed

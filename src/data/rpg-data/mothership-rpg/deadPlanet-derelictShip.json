@@ -742,7 +742,7 @@
           {
             "range": "4",
             "name": "Galley",
-            "detail": "$${weaponSupplyCache}"
+            "detail": "$${weaponsSupplyCache}"
           },
           {
             "range": "5",
@@ -752,7 +752,7 @@
           {
             "range": "6",
             "name": "Barracks",
-            "detail": "$${weaponSupplyCache}"
+            "detail": "$${weaponsSupplyCache}"
           },
           {
             "range": "7",
@@ -762,7 +762,7 @@
           {
             "range": "8",
             "name": "Living quarters",
-            "detail": "$${weaponSupplyCache}"
+            "detail": "$${weaponsSupplyCache}"
           },
           {
             "range": "9",
@@ -779,8 +779,7 @@
           {
             "range": "1",
             "name": "Medbay",
-            "detail": "$${weaponCache}",
-            "detailPrefix": "Stocked to the gills: "
+            "detail": "Stocked to the gills: $${weaponsSupplyCache}"
           },
           {
             "range": "2",
@@ -837,8 +836,7 @@
           {
             "range": "9-10",
             "name": "Cargo hold",
-            "detail": "$${cargoType}",
-            "detailPrefix": "Currently being picked through by {2d10} armed scavengers - "
+            "detail": "Currently being picked through by {2d10} armed scavengers - $${cargoType}"
           }
         ],
         [

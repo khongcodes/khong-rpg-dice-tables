@@ -1,0 +1,5 @@
+{
+  "derelictShip": {
+    "shipModules": ["cargoType", "weaponsSupplyCache"]
+  }
+}

@@ -3,9 +3,14 @@
 
 import {
   CombinedBodyRollType, CombinedRollValuesType,
-  NestedNamedRangeRollValue, RangeDetailRollValue, RangeSimpleRollValue
+  NestedNamedRangeRollValue, RangeDetailRollValue, RangeSimpleRollValue, SimpleRollValue, DetailRollValue,
+  OnerollSimpleRangetableRolltype
 } from "../model/DiceRollTypes";
 
+
+type ComplexRollTableMap = {
+  [subtableKey: string]: CombinedBodyRollType
+};
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                    CHECK RANGE
@@ -27,17 +32,42 @@ const isInRange = (
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                             OUTPUT TRANSFORMING - TEXT PARSING
 
+const COMPLEXSUBTABLEROLLMAPSYNTAX = /\${2}\{.*}/g
 const ROLLTABLESYNTAX = /\$\{!*\d+d\d+\}/g
 const PARSEDICEROLLSYNTAX = /\{!*\d+d\d+\}/g
 const PARSEBRACKETS = /{|\}/;
+// const COMPLEXSUBTABLEROLLMAPSYNTAX
 
 const peelParseBrackets = (string: string): string => string.split(PARSEBRACKETS)[1];
+// const peelComplexSubtableRollMapSyntax = (string: string): string => string.split()
 
-const checkAndParseResult = (result: string, rollTable: string[] | undefined) => {
+const checkAndParseResult = (
+  result: string,
+  rollTable?: string[],
+  complexRollTableMap?: ComplexRollTableMap
+): string => {
+  let evaluateString = result;
+  if (complexRollTableMap) {
+    evaluateString = parseComplexRollTable(evaluateString, complexRollTableMap);
+  }
   if (rollTable) {
-    return parseBracketWithDiceResult(parseBracketsWithRollTable(result, rollTable));
+    return parseBracketWithDiceResult(parseBracketsWithRollTable(evaluateString, rollTable));
   } else {
-    return parseBracketWithDiceResult(result);
+    return parseBracketWithDiceResult(evaluateString);
+  }
+}
+
+const parseComplexRollTable = (string: string, complexRollTableMap: ComplexRollTableMap)  => {
+  const matches = string.match(COMPLEXSUBTABLEROLLMAPSYNTAX);
+  if (!!matches) {
+    const subtableKey = peelParseBrackets(matches[0]);
+    const result = rollValues(complexRollTableMap[subtableKey]);
+    const replaceValue = ("value" in result) ? (result as SimpleRollValue).value : (result as DetailRollValue).detail;
+
+    return string.replace(matches[0], replaceValue);
+  }
+  else {
+    return string;
   }
 }
 
@@ -98,7 +128,10 @@ const rollDice = (diceInterface: string): number => {
 }
 
 
-export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollValuesType => {
+export const rollValues = (
+  subtableData: CombinedBodyRollType,
+  referenceSubtables?: ComplexRollTableMap
+): CombinedRollValuesType => {
   // if (typeof diceResults === "string") { return ERROR_INVALIDSUBTABLEINTERFACE }
   // console.log(subtableData)
 
@@ -186,7 +219,7 @@ export const rollValues = (subtableData: CombinedBodyRollType ): CombinedRollVal
       if (trdnrtResult) {
         return {
           name: trdnrtResult.name,
-          detail: checkAndParseResult(trdnrtResult.detail, trdnrtRollTable)
+          detail: checkAndParseResult(trdnrtResult.detail, trdnrtRollTable, subtableData.complexSubtableMap)
         };
       } else {
         printError(subtableData, subtableData.type);
