@@ -1,4 +1,10 @@
 //////////////////////////////////////////////////////////////////
+10/27 03:08 PM
+
+keep an eye on store/tableGroups/reducers.ts newId, bookKey and tableKey as undefined - may cause problems
+
+
+//////////////////////////////////////////////////////////////////
 10/01 04:26 PM
 
 Maybe instead of the $${} thing I can just make it say "roll on Weapon Cache subtable"

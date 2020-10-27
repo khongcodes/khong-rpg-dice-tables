@@ -57,8 +57,8 @@ export function tableGroupsReducer(
         byId: Object.assign({}, state.byId, {
           [newId]: {
             id: newId,
-            bookKey: "",
-            tableKey: "",
+            bookKey: undefined,
+            tableKey: undefined,
             subtableCollection: [],
             tableData: {}
           }

@@ -15,6 +15,7 @@
 import React, { useState, Dispatch, ReactEventHandler } from 'react';
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import LinkIcon from "@material-ui/icons/Link";
 
 import { RootState, RootAction } from "../store";
 import { TableGroup } from "../store/tableGroups/types";
@@ -26,18 +27,20 @@ import { clearAndRepopulateTableSubtableGroup } from "../store/subtableGroups/ac
 import { deleteByTableGroupBodyRoll } from "../store/bodyRolls/actions";
 
 import { 
-  AllTableSelectValues, AllTableNames, AllBodyRollNames, SubtableDisplaySpecType,
+  AllBookNames, AllTableSelectValues, AllTableNames, AllBodyRollNames, SubtableDisplaySpecType,
   allTablesDisplaySpecsByBook, tableNamesByBooks,
   getKeysFromSelectValue, getSelectValueFromKeys
 } from "../model/TableKeyStructuresAndFormats";
 
 import availableRolls from "../controlPanel/availableRolls.json";
+import selectionNameToLinkMap from "../controlPanel/selectionNameToLinkMap.json"
+import {SelectionNameToLinkMapType} from "../controlPanel/types/selectionNameToLinkMapType";
 
 import SubtableGroupComponent from "./SubtableGroupComponent";
 import { rollValues } from '../util/rollDice';
 
 import tableStyles from "../assets/styles/TableGroup.module.sass"
-import { table } from 'console';
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                          SETUP
@@ -108,6 +111,19 @@ const RenderTableGroupStoreData = ({showIds, tableGroupId, selectedTable,initial
   }
 }
 
+const getTableGroupLink = (selectValue: "none" | AllTableSelectValues): string => {
+  if (selectValue === "none" ) { return ""; } else {
+    const nameLinkMap = selectionNameToLinkMap as SelectionNameToLinkMapType;
+
+    const [bookName, tableName] = selectValue.split("-") as [AllBookNames, string];
+    const systemModuleNames = Object.keys(nameLinkMap[bookName]);
+    const matchingModuleName = systemModuleNames.filter((name: string) => nameLinkMap[bookName][name].tableGroupSelectValues.includes(tableName))[0];
+    const matchingModuleLink = nameLinkMap[bookName][matchingModuleName].link;
+    
+    return matchingModuleLink;
+  }
+}
+
 
 const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
   showIds, tableGroupId, deleteTableGroup,
@@ -168,6 +184,14 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
           <option value="none">Select a table</option>
           <AvailableOptions />
         </select>
+
+        <a 
+          className={selectedTable !== "none" ? tableStyles.moduleLinkDisabled : tableStyles.moduleLinkEnabled}
+          href={getTableGroupLink(selectedTable)}
+          target="_blank" rel="noreferrer noopener"
+        >
+          <LinkIcon />
+        </a>
 
         <input 
           type="submit"

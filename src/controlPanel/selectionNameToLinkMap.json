@@ -1,14 +1,53 @@
 {
   "lancer": {
-    "LANCER -": "https://massif-press.itch.io/corebook-pdf",
-    "LANCER / The Long Rim -": "https://massif-press.itch.io/the-long-rim"
+    "core": {
+      "link": "https://massif-press.itch.io/corebook-pdf",
+      "tableGroupSelectValues": [
+        "iterativeWorld"
+      ]
+    },
+    "longRim": {
+      "link": "https://massif-press.itch.io/the-long-rim",
+      "tableGroupSelectValues": [
+        "spaceStation",
+        "spaceStationNPC",
+        "pirateBand",
+        "enterprises"
+      ]
+    }
   },
   "mothership": {
-    "Mothership RPG -": "https://www.mothershiprpg.com/",
-    "Mothership RPG / Pound of Flesh -": "https://www.mothershiprpg.com/a-pound-of-flesh",
-    "Mothership RPG / Dead Planet -": "https://www.mothershiprpg.com/dead-planet"
+    "core": {
+      "link": "https://www.mothershiprpg.com/",
+      "tableGroupSelectValues": [
+        "trinketsPatches"
+      ]
+    },
+    "poundOfFlesh": {
+      "link": "https://www.mothershiprpg.com/a-pound-of-flesh",
+      "tableGroupSelectValues": [
+        "spaceStationCorespace",
+        "spaceStationRimspace"
+      ]
+    },
+    "deadPlanet": {
+      "link": "https://www.mothershiprpg.com/dead-planet",
+      "tableGroupSelectValues": [
+        "derelictShip"
+      ]
+    }
   },
   "uvg": {
-    "UVG -": "https://www.exaltedfuneral.com/products/the-ultra-violet-grasslands-and-the-black-city"
+    "core": {
+      "link": "https://www.exaltedfuneral.com/products/the-ultra-violet-grasslands-and-the-black-city",
+      "tableGroupSelectValues": [
+        "quickHeroChar",
+        "otherVoyagers",
+        "biomagicalCorruption",
+        "histories",
+        "discovery",
+        "historicPeriodStyle"
+      ]
+    }
   }
 }

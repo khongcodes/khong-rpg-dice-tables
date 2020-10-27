@@ -7,115 +7,121 @@ export const bookNames = <const> [
   "uvg"
 ];
 
+const lancerTables = <const> {
+  iterativeWorld: [
+    "worldType",
+    "definingNaturalFeature",
+    "definingAnthropocentricFeature",
+    "environments" 
+  ],
+  spaceStation: [
+    "stationSeed",
+    "stationNameSeed",
+    "districtNameSeed",
+    "purposes",
+    "curiosities",
+    "problems"
+  ],
+  spaceStationNPC: [
+    "descriptor",
+    "occupationPrimary",
+    "occupationAlternateClandestine",
+    "quirk",
+    "motivation"
+  ],
+  pirateBand: [
+    "pirateBandName",
+    "hustles",
+    "mainAsset"
+  ],
+  enterprises: [
+    "holdings",
+    "representative",
+    "strength"
+  ]
+};
+
+const mothershipTables = <const> {
+  trinketsPatches: [ "d100Trinkets", "d100Patches" ],
+  spaceStationCorespace: [
+    "name",
+    "coreStation",
+    "orbitingCelestialBody",
+    "coreLeader",
+    "controllingFaction",
+    "crisis","goods", "resource", "commonIssue", "spaceStationStructure", "noteworthyEstablishments"
+  ],
+  spaceStationRimspace: [
+    "rimLandmark",
+    "rimStation",
+    "callSign",
+    "controllingFaction",
+    "rivallingFaction",
+    "rivalLeader",
+    "crisis", "goods", "resource", "commonIssue", "spaceStationStructure", "noteworthyEstablishments"
+  ],
+  derelictShip: [
+    "shipClass",
+    "shipName",
+    "shipLifeSupportStatus",
+    "shipSurvivorStatus",
+    "shipEngineStatus",
+    "shipSalvage1",
+    "shipSalvage2",
+    "causeOfRuination",
+    "weird",
+    "jumpDriveMalfunction",
+    "shipModules"
+  ]
+};
+
+const uvgTables = <const> {
+  quickHeroChar: [
+    "who",
+    "why",
+    "startingWith"
+  ],
+  otherVoyagers: [
+    "role",
+    "name",
+    "story",
+    "color"
+  ],
+  biomagicalCorruption: [
+    "exposure",
+    "deleteriousMutations",
+    "cosmeticMutations",
+    "beneficialMutations"
+  ],
+  histories: [
+    "forgottenTimes",
+    "dimlyRememberedStrife",
+    "fabledStories",
+    "oralHistoriesOfRevolution"
+  ],
+  discovery: [
+    "distance",
+    "shape",
+    "appearance",
+    "originalFunction",
+    "creator",
+    "discoverer",
+    "currentFunction"
+  ],
+  historicPeriodStyle: [
+    "material",
+    "specialMaterial",
+    "adjective",
+    "movement",
+    "culture",
+    "period"
+  ]
+}
+
 export const tableNamesByBooks = <const> {
-  lancer: {
-    iterativeWorld: [
-      "worldType",
-      "definingNaturalFeature",
-      "definingAnthropocentricFeature",
-      "environments" 
-    ],
-    spaceStation: [
-      "stationSeed",
-      "stationNameSeed",
-      "districtNameSeed",
-      "purposes",
-      "curiosities",
-      "problems"
-    ],
-    spaceStationNPC: [
-      "descriptor",
-      "occupationPrimary",
-      "occupationAlternateClandestine",
-      "quirk",
-      "motivation"
-    ],
-    pirateBand: [
-      "pirateBandName",
-      "hustles",
-      "mainAsset"
-    ],
-    enterprises: [
-      "holdings",
-      "representative",
-      "strength"
-    ]
-  },
-  mothership: {
-    trinketsPatches: [ "d100Trinkets", "d100Patches" ],
-    spaceStationCorespace: [
-      "name",
-      "coreStation",
-      "orbitingCelestialBody",
-      "coreLeader",
-      "controllingFaction",
-      "crisis","goods", "resource", "commonIssue", "spaceStationStructure", "noteworthyEstablishments"
-    ],
-    spaceStationRimspace: [
-      "rimLandmark",
-      "rimStation",
-      "callSign",
-      "controllingFaction",
-      "rivallingFaction",
-      "rivalLeader",
-      "crisis", "goods", "resource", "commonIssue", "spaceStationStructure", "noteworthyEstablishments"
-    ],
-    derelictShip: [
-      "shipClass",
-      "shipName",
-      "shipLifeSupportStatus",
-      "shipSurvivorStatus",
-      "shipEngineStatus",
-      "shipSalvage1",
-      "shipSalvage2",
-      "causeOfRuination",
-      "weird",
-      "jumpDriveMalfunction",
-      "shipModules"
-    ]
-  },
-  uvg: {
-    quickHeroChar: [
-      "who",
-      "why",
-      "startingWith"
-    ],
-    otherVoyagers: [
-      "role",
-      "name",
-      "story",
-      "color"
-    ],
-    biomagicalCorruption: [
-      "exposure",
-      "deleteriousMutations",
-      "cosmeticMutations",
-      "beneficialMutations"
-    ],
-    histories: [
-      "forgottenTimes",
-      "dimlyRememberedStrife",
-      "fabledStories",
-      "oralHistoriesOfRevolution"
-    ],
-    discovery: [
-      "distance",
-      "shape",
-      "appearance",
-      "originalFunction",
-      "creator",
-      "discoverer",
-      "currentFunction"
-    ],
-    historicPeriodStyle: [
-      "material",
-      "specialMaterial",
-      "adjective",
-      "movement",
-      "culture",
-      "period"
-    ]
-  }
+  lancer: lancerTables,
+  mothership: mothershipTables,
+  uvg: uvgTables
 }
 
 export const tableSelectValues = <const> [
@@ -241,8 +247,13 @@ export const getSelectValueFromKeys = (
 export type AllTableSelectValues = typeof tableSelectValues[number];
 export type AllTableIdentObjs = typeof tableIdentObjs[number];
 export type AllBookNames = typeof bookNames[number];
+
+
+// type GroupedTables = typeof lancerTables & typeof mothershipTables & typeof uvgTables
+// type AllTableNames = keyof GroupedTables
 export type AllTableNames = keyof typeof tableNamesByBooks[AllBookNames];
 export type AllBodyRollNames = typeof tableNamesByBooks[AllBookNames][AllTableNames]
+// export type AllBodyRollNames = GroupedTables[AllTableNames][number]
 
 export type AllBodyRollFormats = typeof bodyRollFormats[number];
 
