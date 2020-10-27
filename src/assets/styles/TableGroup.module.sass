@@ -12,7 +12,32 @@
   #subtableCollectionContainer
     max-width: space(100)
 
-  form *
-    margin-right: space(1)
-    &:last-child
-      margin-right: 0
+  form
+    display: flex
+    height: space(3.25)
+
+    .rollButton
+      border: none
+      background: transparent
+      padding: 1px
+      height: space(3.25)
+
+    & > *
+      margin-right: space(1)
+      &:last-child
+        margin-right: 0
+
+
+.moduleLink
+  // & > svg
+  //   position: relative
+  //   top: 0.45rem
+
+.moduleLinkEnabled
+  // @extend .moduleLink
+
+.moduleLinkDisabled
+  // @extend .moduleLink
+  pointer-events: none
+  & > svg
+    fill: #9c9c9c

@@ -16,6 +16,7 @@ import React, { useState, Dispatch, ReactEventHandler } from 'react';
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import LinkIcon from "@material-ui/icons/Link";
+import CasinoIcon from "@material-ui/icons/CasinoOutlined";
 
 import { RootState, RootAction } from "../store";
 import { TableGroup } from "../store/tableGroups/types";
@@ -186,18 +187,27 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
         </select>
 
         <a 
-          className={selectedTable !== "none" ? tableStyles.moduleLinkDisabled : tableStyles.moduleLinkEnabled}
+          className={selectedTable !== "none" ? tableStyles.moduleLinkEnabled : tableStyles.moduleLinkDisabled}
           href={getTableGroupLink(selectedTable)}
           target="_blank" rel="noreferrer noopener"
         >
           <LinkIcon />
         </a>
 
-        <input 
+        {/* <input 
           type="submit"
-          value={ !initialized ? "Roll" : "Reroll" }
+          // value={ !initialized ? "Roll" : "Reroll" }
           disabled={ selectedTable === "none" }
-        />
+        >
+          
+        </input> */}
+        <button 
+          className={tableStyles.rollButton}
+          type="submit" 
+          disabled={ selectedTable === "none" }
+        >
+          <CasinoIcon />
+        </button>
       </form>
 
       <div id={tableStyles.subtableCollectionContainer}>
