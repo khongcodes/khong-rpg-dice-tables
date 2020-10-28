@@ -64,7 +64,7 @@ const Home: React.FC<HomeProps> = ({
 
       <div>
         <button onClick={() => handleAddTableGroup()}>
-          Add tableGroup
+          Add dice table
         </button>
       </div>
     </div>
