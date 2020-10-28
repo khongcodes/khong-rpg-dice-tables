@@ -13,27 +13,27 @@ import aboutStyles from "../assets/styles/views/About.module.sass";
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                             COMPONENTS & LOGIC
 
-const ObviousLink: React.FC<{url: string}> = ({url}) => (
+const LinkNewTab: React.FC<{url: string; text: string}> = ({url, text}) => (
   <a
     href={url}
     target="_blank"
     rel="noopener noreferrer"
   >
-    {url}
+    {text}
   </a>
-)
+);
+
+const ObviousLink: React.FC<{url: string}> = ({url}) => <LinkNewTab url={url} text={url}/>;
 
 const About: React.FC = () => {
   return (
     <div id={aboutStyles.aboutRoot}>
       <p>
         Inspired by donjon's&nbsp;
-        <a 
-          href="https://donjon.bin.sh/"
-          target="_blank" rel="noopener noreferrer"
-        >
-          5e resources
-        </a>
+        <LinkNewTab
+          url="https://donjon.bin.sh/"
+          text="5e resources"
+        />
         , I wanted to build a dice table roller for my favorite indie TTRPGs out there.
       </p>
 
@@ -66,13 +66,24 @@ const About: React.FC = () => {
       </div>
 
       <p>
+        Icons from Google's&nbsp;
+        <LinkNewTab
+          url="https://material.io/resources/icons/?style=baseline"
+          text="Material Icons"
+        />
+        . Typeface is&nbsp;
+        <LinkNewTab 
+          url="https://rsms.me/inter/"
+          text="Inter"
+        />.
+      </p>
+
+      <p>
         This site was built by&nbsp;
-        <a 
-          href="http://khongcodes.com"
-          target="_blank" rel="noopener noreferrer"
-        >
-          Kevin Hong
-        </a>.
+        <LinkNewTab
+          url="http://khongcodes.com"
+          text="Kevin Hong"
+        />.
       </p>
     </div>
   )
