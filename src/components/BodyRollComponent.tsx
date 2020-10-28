@@ -8,6 +8,8 @@
 // 3. REDUX: Selectors
 // 4. REDUX: Actions
 // 5. Data-reading utilities
+// 6. Components
+// 7. Styles
 
 import React, { Dispatch } from 'react';
 import { connect } from "react-redux";
@@ -28,6 +30,8 @@ import {
   DetailRollValue,
   MultiDetailRollValue
 } from "../model/DiceRollTypes";
+
+import { BRButton } from "./Buttons";
 
 import bodyRollStyles from "../assets/styles/BodyRoll.module.sass";
 
@@ -146,7 +150,7 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
       />
 
       <div className={`${bodyRollStyles.deleteContainer} ${bodyRollStyles.buttonContainer}`}>
-        <button onClick={handleDelete}>X</button>
+        <BRButton type="delete" callback={handleDelete} />
       </div>
 
       {
@@ -161,7 +165,7 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
       }
 
       <div className={`${bodyRollStyles.rerollContainer} ${bodyRollStyles.buttonContainer}`}>
-        <button onClick={handleReroll}>reroll</button>
+        <BRButton type="reroll" callback={handleReroll} />
       </div>
     </div>
   )

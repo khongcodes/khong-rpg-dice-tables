@@ -33,8 +33,10 @@ type SGButtonProps = {
   type: SGButtonTypes;
 };
 
+type BRButtonTypes = "delete" | "reroll";
 type BRButtonProps = {
-  
+  callback: () => void;
+  type: BRButtonTypes;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -81,8 +83,7 @@ export const SGButton: React.FC<SGButtonProps> = ({callback, type}) => {
       case "add one":
         return (<PlusOneIcon />);
     }
-  }
-
+  };
   return (
     <button 
       className={buttonStyles.controlsSG}
@@ -94,10 +95,19 @@ export const SGButton: React.FC<SGButtonProps> = ({callback, type}) => {
 };
 
 
-export const BRButton: React.FC<BRButtonProps> = () => {
+export const BRButton: React.FC<BRButtonProps> = ({callback, type}) => {
+  
+  const buttonContent = (type: BRButtonTypes) => {
+    switch (type) {
+      case "delete":
+        return (<CloseIcon />);
+      case "reroll":
+        return (<DiceIcon />);
+    }
+  }
   return (
-    <button>
-
+    <button onClick={callback}>
+      {buttonContent(type)}
     </button>
   )
 }
