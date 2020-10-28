@@ -42,6 +42,7 @@ import {
 import { rollValues } from "../util/rollDice";
 
 import BodyRollComponent from './BodyRollComponent';
+import { SGButton } from "./Buttons";
 
 import subtableStyles from "../assets/styles/SubtableGroup.module.sass";
 
@@ -243,15 +244,18 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
       />
 
       <div className={subtableStyles.buttonContainer}>
-        <button onClick={handleDeleteAllBodyRolls}>
-          X all
-        </button>
-        <button onClick={handleRerollAllBodyRolls}>
-          reroll all
-        </button>
-        <button onClick={handleAddBodyRoll}>
-          + 1
-        </button>
+        <SGButton 
+          type="close all"
+          callback={handleDeleteAllBodyRolls}
+        />
+        <SGButton 
+          type="reroll all"
+          callback={handleRerollAllBodyRolls}
+        />
+        <SGButton 
+          type="add one"
+          callback={handleAddBodyRoll}
+        />
       </div>
 
       {

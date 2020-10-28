@@ -15,8 +15,6 @@
 import React, { useState, Dispatch, ReactEventHandler } from 'react';
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import LinkIcon from "@material-ui/icons/Link";
-import CasinoIcon from "@material-ui/icons/CasinoOutlined";
 
 import { RootState, RootAction } from "../store";
 import { TableGroup } from "../store/tableGroups/types";
@@ -38,6 +36,7 @@ import selectionNameToLinkMap from "../controlPanel/selectionNameToLinkMap.json"
 import {SelectionNameToLinkMapType} from "../controlPanel/types/selectionNameToLinkMapType";
 
 import SubtableGroupComponent from "./SubtableGroupComponent";
+import { CloseTGButton, ModuleTGLink, RollTGButton } from "./Buttons";
 import { rollValues } from '../util/rollDice';
 
 import tableStyles from "../assets/styles/TableGroup.module.sass"
@@ -175,39 +174,20 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
       
 
       <form onSubmit={handleRollTable}>
-        <input 
-          type="button"
-          value="X"
-          onClick={handleDeleteTable}
-        />
+
+        <CloseTGButton deleteObjectCallback={handleDeleteTable} />
 
         <select value={selectedTable} onChange={handleSelectTable}>
           <option value="none">Select a table</option>
           <AvailableOptions />
         </select>
 
-        <a 
-          className={selectedTable !== "none" ? tableStyles.moduleLinkEnabled : tableStyles.moduleLinkDisabled}
-          href={getTableGroupLink(selectedTable)}
-          target="_blank" rel="noreferrer noopener"
-        >
-          <LinkIcon />
-        </a>
+        <ModuleTGLink 
+          enabled={selectedTable !== "none"}
+          moduleLink={getTableGroupLink(selectedTable)}
+        />
 
-        {/* <input 
-          type="submit"
-          // value={ !initialized ? "Roll" : "Reroll" }
-          disabled={ selectedTable === "none" }
-        >
-          
-        </input> */}
-        <button 
-          className={tableStyles.rollButton}
-          type="submit" 
-          disabled={ selectedTable === "none" }
-        >
-          <CasinoIcon />
-        </button>
+        <RollTGButton enabled={selectedTable !== "none"} />
       </form>
 
       <div id={tableStyles.subtableCollectionContainer}>
