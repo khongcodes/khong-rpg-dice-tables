@@ -12,6 +12,7 @@ export interface SubtableGroup {
   subtableKey: AllBodyRollNames;
   displaySpec: SubtableDisplaySpecType;
   bodyRollCollection: string[];
+  initalized: boolean;
 }
 
 export interface SubtableGroupsState {
@@ -27,6 +28,7 @@ export interface SubtableGroupsState {
 
 export const CLEARANDREPOPULATETABLE_SUBTABLEGROUP = "CLEARANDREPOPULATETABLE_SUBTABLEGROUP";
 export const ADDBODYROLLIDS_SUBTABLEGROUP = "ADDBODYROLLIDS_SUBTABLEGROUP";
+export const MARKINITIALIZED_SUBTABLEGROUP = "MARKINITIALIZED_SUBTABLEGROUP";
 export const DELETEBYTABLEGROUP_SUBTABLEGROUP = "DELETEBYTABLEGROUP_SUBTABLEGROUP";
 export const DELETEBODYROLLID_SUBTABLEGROUP = "DELETEBODYROLLID_SUBTABLEGROUP";
 export const DELETEBODYROLLCOLLECTION_SUBTABLEGROUP = "DELETEBODYROLLCOLLECTION_SUBTABLEGROUP";
@@ -61,7 +63,14 @@ interface AddBodyRollIdsSubtableGroupAction {
     subtableGroupId: string,
     bodyRollIds: string[]; 
   }
-}
+};
+
+interface MarkInitializedSubtableGroupAction {
+  type: typeof MARKINITIALIZED_SUBTABLEGROUP,
+  payload: {
+    subtableGroupId: string
+  }
+};
 
 interface DeleteBodyRollIdSubtableGroupAction {
   type: typeof DELETEBODYROLLID_SUBTABLEGROUP,
@@ -83,5 +92,6 @@ export type SubtableGroupActionTypes =
 | ClearAndRepopulateTableSubtableGroupAction
 | DeleteByTableGroupSubtableGroupAction
 | AddBodyRollIdsSubtableGroupAction
+| MarkInitializedSubtableGroupAction
 | DeleteBodyRollIdSubtableGroupAction
 | DeleteBodyRollCollectionSubtableGroupAction;

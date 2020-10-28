@@ -23,6 +23,7 @@ import { selectSubtableGroupById, selectSubtableGroupDataInTableGroupData } from
 
 import {
   addBodyRollIdsSubtableGroup,
+  markInitializedSubtableGroup,
   deleteBodyRollCollectionSubtableGroup
  } from "../store/subtableGroups/actions";
  import {
@@ -166,11 +167,12 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   const subtableGroupExists = !!subtableGroup;
   const subtableGroupHasNoBodyRolls: boolean = subtableGroup?.bodyRollCollection.length === 0;
   const subtableGroupIsMeantToStartNoBodyRolls: boolean = subtableGroup?.displaySpec.initialRollCount !== 0;
+  const subtableGroupAlreadyInitialized: boolean = !!subtableGroup?.initalized;
 
   useEffect(() => {
     // initializeSubtableBodyRolls needs to be confirmed as !undefined
     
-    if ((initializeSubtableBodyRolls && subtableGroup && subtableData) && (subtableGroupHasNoBodyRolls && subtableGroupIsMeantToStartNoBodyRolls)) {
+    if ((initializeSubtableBodyRolls && subtableGroup && subtableData) && (subtableGroupHasNoBodyRolls && subtableGroupIsMeantToStartNoBodyRolls && !subtableGroupAlreadyInitialized)) {
       // const { initialRollCount } = subtableGroup.displaySpec;
       const initialRollCount = subtableGroup.displaySpec.initialRollCount || 1;
       const bodyRollsData: InitializeSubtableDispatchBodyRollInput = [];
@@ -302,6 +304,7 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => ({
     // update subtableGroup bodyRollCollection
     const validBodyRollIds: string[] = bodyRollsData.filter(a => typeof a.value !== "string").map(a => a.id);
     dispatch(addBodyRollIdsSubtableGroup(subtableGroupId, validBodyRollIds));
+    dispatch(markInitializedSubtableGroup(subtableGroupId));
   },
 
   // function composition: DON'T have to pass subtableData directly to child BodyRoll component

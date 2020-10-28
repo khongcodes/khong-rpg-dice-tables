@@ -7,6 +7,7 @@ import {
   CLEARANDREPOPULATETABLE_SUBTABLEGROUP,
   DELETEBYTABLEGROUP_SUBTABLEGROUP,
   ADDBODYROLLIDS_SUBTABLEGROUP,
+  MARKINITIALIZED_SUBTABLEGROUP,
   DELETEBODYROLLID_SUBTABLEGROUP,
   DELETEBODYROLLCOLLECTION_SUBTABLEGROUP
 } from "./types";
@@ -72,6 +73,18 @@ export function subtableGroupsReducer(
         },
         allIds: [...state.allIds]
       };
+
+    case MARKINITIALIZED_SUBTABLEGROUP:
+      return {
+        byId: {
+          ...state.byId,
+          [action.payload.subtableGroupId]: {
+            ...state.byId[action.payload.subtableGroupId],
+            initalized: true
+          }
+        },
+        allIds: [...state.allIds]
+      }
     
     case DELETEBODYROLLID_SUBTABLEGROUP:
       return {

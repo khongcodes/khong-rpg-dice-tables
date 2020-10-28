@@ -7,6 +7,7 @@ import {
   CLEARANDREPOPULATETABLE_SUBTABLEGROUP,
   DELETEBYTABLEGROUP_SUBTABLEGROUP,
   ADDBODYROLLIDS_SUBTABLEGROUP,
+  MARKINITIALIZED_SUBTABLEGROUP,
   DELETEBODYROLLID_SUBTABLEGROUP,
   DELETEBODYROLLCOLLECTION_SUBTABLEGROUP
 } from "./types";
@@ -44,6 +45,13 @@ export function addBodyRollIdsSubtableGroup(subtableGroupId: string, bodyRollIds
     type: ADDBODYROLLIDS_SUBTABLEGROUP,
     payload: { subtableGroupId, bodyRollIds }
   };
+}
+
+export function markInitializedSubtableGroup(subtableGroupId: string): SubtableGroupActionTypes {
+  return {
+    type: MARKINITIALIZED_SUBTABLEGROUP,
+    payload: { subtableGroupId }
+  }
 }
 
 export function deleteBodyRollIdSubtableGroup(subtableGroupId: string, bodyRollId: string): SubtableGroupActionTypes {
