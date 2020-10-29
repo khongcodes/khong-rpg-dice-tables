@@ -21,7 +21,7 @@ import { addTableGroup, deleteTableGroup } from '../store/tableGroups/actions';
 import { deleteByTableGroupSubtableGroup } from "../store/subtableGroups/actions";
 import { deleteByTableGroupBodyRoll } from "../store/bodyRolls/actions";
 
-import TableGroupComponent from "../components/TableGroupComponent";
+import TableGroupComponent from "../components/TableGroupComponent/TableGroupComponent";
 
 import homeStyles from "../assets/styles/views/Home.module.sass"
 

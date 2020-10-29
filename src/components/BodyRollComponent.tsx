@@ -105,23 +105,9 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
     default:
       return <></>;
   }
-}
+};
 
-const RenderBodyRollStoreData = ({showIds, id}: {
-  showIds: boolean,
-  id: string
-}) => {
-  if (showIds) {
-    return (
-      <div>
-        <p>id: {id}</p>
-      </div>
-    )
-  } else {
-    return (<></>)
-  }
-}
-
+const RenderBodyRollStoreData = ({ id }: { id: string }) => (<div><p>{id}</p></div>);
 
 const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
   showIds, bodyRollId, rerollFn, rerollBodyRollMDetailRef,
@@ -144,10 +130,7 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
 
   return (
     <div id={bodyRollStyles.brRoot}>
-      <RenderBodyRollStoreData 
-        showIds={showIds}
-        id={bodyRollId}
-      />
+      {showIds? <RenderBodyRollStoreData id={bodyRollId}/> : <></>}
 
       <div className={`${bodyRollStyles.deleteContainer} ${bodyRollStyles.buttonContainer}`}>
         <BRButton type="delete" callback={handleDelete} />

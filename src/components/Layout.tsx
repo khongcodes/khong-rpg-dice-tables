@@ -28,9 +28,9 @@ const Header: React.FC = () => {
   return (
     <div id={layoutStyles.headerContainer}>
       <div id={layoutStyles.titleContainer}>
-        <a href="/">
+        <Link to={"/"} >
           <h1>KHong RPG Dice Tables</h1>
-        </a>
+        </Link>
       </div>
 
       <div id={layoutStyles.linkContainer}>

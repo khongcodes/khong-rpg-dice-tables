@@ -1,5 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                          NOTES
+// This is a wrapper component - handles connection and dispatches to the store for
+// the SubtableGroup object.
+// UI Content can be found at ./SubtableGroupContent.tsx
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                        IMPORTS
@@ -10,45 +13,53 @@
 // 5. Data-reading utilities
 // 6. Utilities
 // 7. Components
-// 8. styles
 
 import React, { Dispatch, useEffect } from 'react';
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
-import { RootState, RootAction } from "../store/";
-import { SubtableGroup } from "../store/subtableGroups/types";
+import { RootState, RootAction } from "../../store";
+import { SubtableGroup } from "../../store/subtableGroups/types";
 
-import { selectSubtableGroupById, selectSubtableGroupDataInTableGroupData } from "../store/subtableGroups/selectors";
+import { selectSubtableGroupById, selectSubtableGroupDataInTableGroupData } from "../../store/subtableGroups/selectors";
 
 import {
   addBodyRollIdsSubtableGroup,
   markInitializedSubtableGroup,
   deleteBodyRollCollectionSubtableGroup
- } from "../store/subtableGroups/actions";
+ } from "../../store/subtableGroups/actions";
  import {
   addBodyRoll,
   setBodyRoll,
   deleteBySubtableGroupBodyRoll
-} from "../store/bodyRolls/actions";
+} from "../../store/bodyRolls/actions";
 
-import { SubtableDisplaySpecMDetailFormat } from "../model/TableKeyStructuresAndFormats";
+import { SubtableDisplaySpecMDetailFormat } from "../../model/TableKeyStructuresAndFormats";
 import {
   CombinedBodyRollType,
   CombinedRollValuesType,
   SimpleRollValue,
   DetailRollValue
-} from "../model/DiceRollTypes";
+} from "../../model/DiceRollTypes";
 
-import { rollValues } from "../util/rollDice";
+import { rollValues } from "../../util/rollDice";
 
-import BodyRollComponent from './BodyRollComponent';
-import { SGButton } from "./Buttons";
+import SubtableGroupContent from "./SubtableGroupContent";
 
-import subtableStyles from "../assets/styles/SubtableGroup.module.sass";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                          SETUP
+
+export type RerollBodyRollMDetailReferenceType = (
+  subtableGroup: SubtableGroup,
+  subtableData: CombinedBodyRollType,
+  querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any,
+  getValueForMDetailReferenceFormat: (
+    subtableGroup: SubtableGroup,
+    subtableData: CombinedBodyRollType,
+    querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any,
+  ) => {name: string, detail: string[]}
+) => (id: string) => void;
 
 type SubtableGroupComponentMappedState = {
   showIds: boolean;
@@ -60,26 +71,11 @@ type SubtableGroupComponentMappedDispatch = {
     initializingData: BodyRollParentData,
     bodyRollsData: InitializeSubtableDispatchBodyRollInput
   ) => void;
-  
   rerollBodyRoll?: (subtableData: CombinedBodyRollType) => ( id: string ) => void;
-  
-  rerollBodyRollMDetailReference?: (
-    subtableGroup: SubtableGroup,
-    subtableData: CombinedBodyRollType,
-    querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any,
-    getValueForMDetailReferenceFormat: (
-      subtableGroup: SubtableGroup,
-      subtableData: CombinedBodyRollType,
-      querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any,
-    ) => {name: string, detail: string[]}
-  ) => (id: string) => void;
-
+  rerollBodyRollMDetailReference?: RerollBodyRollMDetailReferenceType;
   rerollAllBodyRolls?: (subtableData: CombinedBodyRollType, bodyRollIds: string[]) => void;
-  
   rerollAllBodyRollsMDetailReference?: (inputObj: { [id: string]: {name: string, detail: string[]} }) => void;
-
   addBodyRoll?: (bodyRollParentInfo: BodyRollParentData, bodyRollInput: BodyRollDispatchInput) => void;
-
   deleteAllBodyRolls?: (subtableGroupId: string) => void;
 };
 type SubtableGroupComponentProps = {
@@ -100,12 +96,6 @@ type BodyRollDispatchInput = {
 }
 type InitializeSubtableDispatchBodyRollInput = Array<BodyRollDispatchInput>
 
-// type GetValueForMDetailReferenceFormatInputTypes = {
-//   subtableGroup: SubtableGroup,
-//   subtableData: CombinedBodyRollType,
-//   querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any
-// }
-
 
 const getValueForMDetailReferenceFormat = (
   subtableGroup: SubtableGroup,
@@ -123,30 +113,6 @@ const getValueForMDetailReferenceFormat = (
   }
 }
 
-const RenderSubtableGroupStoreData = ({showIds, subtableGroupId, subtableGroup}:{
-  showIds: boolean,
-  subtableGroupId: string,
-  subtableGroup: SubtableGroup | undefined
-}) => {
-  if (showIds) {
-    return (
-      <div>
-        <p>
-          subtableGroupId: {subtableGroupId}<br/>
-          name: {subtableGroup?.displaySpec.name}<br/>
-          displaySpec: {subtableGroup?.displaySpec.format}
-        </p>
-      </div>
-    )
-
-  } else {
-    return (
-      <div>
-        <h3>{subtableGroup?.displaySpec.name}</h3>
-      </div>
-    )
-  }
-}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                             COMPONENTS & LOGIC
@@ -237,44 +203,25 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
     if (deleteAllBodyRolls) { deleteAllBodyRolls(subtableGroupId as string); }
   }
 
-  return (
-    <div id={subtableStyles.subtableRoot}>
-      <RenderSubtableGroupStoreData 
-        showIds = {showIds}
-        subtableGroupId = {subtableGroupId}
-        subtableGroup = {subtableGroup}
-      />
 
-      <div className={subtableStyles.buttonContainer}>
-        <SGButton 
-          type="close all"
-          callback={handleDeleteAllBodyRolls}
-        />
-        <SGButton 
-          type="reroll all"
-          callback={handleRerollAllBodyRolls}
-        />
-        <SGButton 
-          type="add one"
-          callback={handleAddBodyRoll}
-        />
-      </div>
-
-      {
-        !!subtableGroup && (rerollBodyRoll && subtableData && rerollBodyRollMDetailReference) ? subtableGroup.bodyRollCollection.map(bodyRollId => (
-          <BodyRollComponent
-            showIds={showIds}
-            bodyRollId={bodyRollId}
-            rerollFn={rerollBodyRoll(subtableData)}
-            rerollBodyRollMDetailRef={rerollBodyRollMDetailReference(subtableGroup, subtableData, querySiblingSubtableInExtendedGroup, getValueForMDetailReferenceFormat)}
-            key={bodyRollId}
-          />
-        ))
-        : <></>
-      }
-
-    </div>
-  );
+  if ((!!subtableGroup && !!subtableData) && (!!rerollBodyRoll && !!rerollBodyRollMDetailReference)) {
+    return (
+      <SubtableGroupContent 
+        showIds={showIds}
+        subtableGroup={subtableGroup}
+        subtableData={subtableData}
+        sgComponentData={{id: subtableGroupId}}
+        callbacks={{
+          handleDeleteAllBodyRolls, handleRerollAllBodyRolls, handleAddBodyRoll,
+          rerollBodyRoll, rerollBodyRollMDetailReference,
+          querySiblingSubtableInExtendedGroup,
+          getValueForMDetailReferenceFormat
+        }}
+      />  
+    )
+  } else {
+    return (<></>);
+  }
 }
 
 const mapStateToProps = (state: RootState, ownProps: SubtableGroupComponentProps) => {
