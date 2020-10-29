@@ -23,7 +23,14 @@ type LayoutProps = {
 ////////////////                                                             COMPONENTS & LOGIC
 
 const Header: React.FC = () => {
-  let location = useLocation();
+  const topLink = useLocation().pathname === "/" ? 
+    {
+      path: "/about",
+      text: "About" 
+    } : {
+      path: "/",
+      text: "Back"
+  };
 
   return (
     <div id={layoutStyles.headerContainer}>
@@ -34,12 +41,9 @@ const Header: React.FC = () => {
       </div>
 
       <div id={layoutStyles.linkContainer}>
-        {
-          location.pathname === "/" ? 
-            <Link to={"/about"} >About</Link>
-          : 
-            <Link to={"/"} >Back</Link>
-        }
+        <Link to={topLink.path} >
+          {topLink.text}
+        </Link>
       </div>
     </div>
   )
