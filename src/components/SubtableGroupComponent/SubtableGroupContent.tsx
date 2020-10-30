@@ -90,7 +90,7 @@ const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
 
   return (
     <div className={subtableStyles.subtableRoot}>
-      <div>
+      <div className={subtableStyles.titleContainer}>
         <h3>{subtableGroup.displaySpec.name}</h3>
       </div>
 

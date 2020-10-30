@@ -98,10 +98,13 @@ const TableGroupContent: React.FC<TableGroupContentType> = ({
   } = callbacks;
 
   return (
-    <div id={tableStyles.tableRoot}>
+    <div className={tableStyles.tableRoot}>
       { showIds ? <RenderTableGroupStoreData tableGroupStoreData={tableGroupData} /> : <></> }
 
-      <form onSubmit={handleRollTable}>
+      <form 
+        className={tableStyles.tableGroupControl}
+        onSubmit={handleRollTable}
+      >
         <CloseTGButton deleteObjectCallback={handleDeleteTable} />
 
         <select value={tableGroupData.selectedTable} onChange={handleSelectTable}>
@@ -117,7 +120,7 @@ const TableGroupContent: React.FC<TableGroupContentType> = ({
       </form>
 
 
-      <div id={tableStyles.subtableCollectionContainer}>
+      <div className={tableStyles.subtableCollectionContainer}>
         {tableGroup.subtableCollection.map(subtableId => (
           <SubtableGroupComponent
             showIds={showIds}

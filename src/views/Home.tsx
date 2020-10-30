@@ -49,7 +49,7 @@ const Home: React.FC<HomeProps> = ({
 
   return (
     <div id={homeStyles.homeRoot}>
-      <div>
+      {/* <div> */}
         {
           tableGroupIds.map(tableGroupId => (
             <TableGroupComponent 
@@ -60,9 +60,9 @@ const Home: React.FC<HomeProps> = ({
             />
           )
         )}
-      </div>
+      {/* </div> */}
 
-      <div>
+      <div id={homeStyles.addTableButtonContainer}>
         <button onClick={() => handleAddTableGroup()}>
           Add dice table
         </button>

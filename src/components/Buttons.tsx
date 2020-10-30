@@ -77,9 +77,9 @@ export const SGButton: React.FC<SGButtonProps> = ({callback, type}) => {
   const buttonContent = (type: SGButtonTypes ) => {
     switch (type) {
       case "close all":
-        return (<><CloseIcon /> all</>);
+        return (<><CloseIcon /> <span className={buttonStyles.sgButtonText}>all</span></>);
       case "reroll all":
-        return (<><DiceIcon /> all</>);
+        return (<><DiceIcon /> <span className={buttonStyles.sgButtonText}>all</span></>);
       case "add one":
         return (<PlusOneIcon />);
     }

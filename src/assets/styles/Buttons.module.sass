@@ -32,11 +32,19 @@ button
   height: space(3.25)
 
 .controlsSG
+  padding: space(0.5) space(1)
+  margin-right: space(1)
+  border-radius: space(2)
   display: flex
   align-items: center
-  // width: space(7)
-  font-size: 16px
-  padding: 0 auto
 
-  & > svg
+  > svg
+    height: 75%
+
+  > span
+    font-size: 14px
+    padding-bottom: 1px
     margin-right: space(0.5)
+
+  &:last-of-type
+      margin-right: 0

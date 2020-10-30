@@ -8,13 +8,27 @@
 
 .subtableRoot
   margin: space(3) 0
-  padding: 0 space(2)
+  
+  &> *
+    padding-left: space(2)
+    padding-right: space(2)
+  
+  &:first-of-type
+    margin-top: 0
+
+
+.titleContainer
+  padding-top: space(0.5)
+  padding-bottom: space(0.25)
+  background-color: red
+  color: white
+  border-bottom-right-radius: space(7) 100%
 
 .buttonContainer
   display: flex
-  margin-top: space(0.5)
+  padding-top: space(1)
+  padding-bottom: space(1)
+  background-color: pink
   
-  button
-    margin-right: space(1)
-    &:last-of-type
-      margin-right: 0
+  > button:nth-of-type(2) > svg
+    margin-right: 2px
