@@ -3,32 +3,72 @@
 
 @import 'design'
 
+$subtable-side-padding: space(2)
+$subtable-control-animation-duration: 0.2s
+$subtable-control-height-transition: height $subtable-control-animation-duration, padding-top $subtable-control-animation-duration, padding-bottom $subtable-control-animation-duration
 /////////////////////////////////////////////////////////////////////////////////
 /////////////                                                              STYLES
 
 .subtableRoot
   margin: space(3) 0
+  position: relative
   
   &> *
-    padding-left: space(2)
-    padding-right: space(2)
+    padding-left: $subtable-side-padding
+    padding-right: $subtable-side-padding
   
   &:first-of-type
     margin-top: 0
 
 
 .titleContainer
+  border-bottom-right-radius: space(7) 100%
   padding-top: space(0.5)
   padding-bottom: space(0.25)
+  display: flex
+  position: relative
+  justify-content: space-between
   background-color: red
   color: white
-  border-bottom-right-radius: space(7) 100%
+
+  .titleSpacer
+    width: 100%
+    position: absolute
+    left: 0
+    top: 0
+    z-index: -1
+    background-color: pink
+    transition: height 0.1s
+    transition-timing-function: linear
+
+    &.visible
+      height: 100%
+    
+    &.invisible
+      height: 0
+  
 
 .buttonContainer
+  height: space(7)
+  width: 100%
+  box-sizing: border-box
+  padding-top: space(1.5)
+  padding-bottom: space(1.5)
   display: flex
-  padding-top: space(1)
-  padding-bottom: space(1)
+  overflow: hidden
+  transition: $subtable-control-height-transition
+  transition-timing-function: ease-in-out
   background-color: pink
   
   > button:nth-of-type(2) > svg
     margin-right: 2px
+
+  &.visible
+    height: space(7)
+    padding-top: space(1.5)
+    padding-bottom: space(1.5)
+  
+  &.invisible
+    height: 0
+    padding-top: 0
+    padding-bottom: 0

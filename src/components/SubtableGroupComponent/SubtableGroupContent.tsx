@@ -9,7 +9,7 @@
 // 4. Components
 // 5. Styles
 
-import React from 'react';
+import React, { useState } from 'react';
 
 import { SubtableGroup } from "../../store/subtableGroups/types";
 
@@ -88,15 +88,41 @@ const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
     querySiblingSubtableInExtendedGroup, getValueForMDetailReferenceFormat
   } = callbacks;
 
+  const [controlsVisible, setControlsVisible] = useState<boolean>(false);
+  const toggleControlsVisible = () => setControlsVisible(!controlsVisible);
+
+  const controlsVisibleDependentClass = controlsVisible ? subtableStyles.visible : subtableStyles.invisible;
+
   return (
     <div className={subtableStyles.subtableRoot}>
       <div className={subtableStyles.titleContainer}>
         <h3>{subtableGroup.displaySpec.name}</h3>
+        
+        <button 
+          className={subtableStyles.toggleControlButton}
+          onClick={toggleControlsVisible}
+        >
+          {controlsVisible.toString()}
+        </button>
+
+        <div
+          className={`${subtableStyles.titleSpacer} ${controlsVisibleDependentClass}`}
+          style={
+            controlsVisible ? 
+            {} : {"transitionDelay": "0.2s"}
+          }
+        />
       </div>
 
       {showIds ? <RenderSubtableGroupStoreData sgData={renderedSubtableData}/> : <></>}
 
-      <div className={subtableStyles.buttonContainer}>
+      <div 
+        className={`${subtableStyles.buttonContainer} ${controlsVisibleDependentClass}`}
+        style={
+          !controlsVisible ? 
+          {} : {"transitionDelay": "0.1s"}
+        }
+      >
         <SGButton 
           type="close all"
           callback={handleDeleteAllBodyRolls}
