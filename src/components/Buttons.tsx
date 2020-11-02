@@ -5,6 +5,7 @@
 ////////////////                                                                        IMPORTS
 
 import React, { ReactEventHandler } from 'react';
+import clsx from "clsx";
 
 import CloseIcon from "@material-ui/icons/CloseRounded";
 import LinkIcon from "@material-ui/icons/LinkRounded";
@@ -53,7 +54,7 @@ export const CloseTGButton: React.FC<CloseTGProps> = ({deleteObjectCallback}) =>
 
 export const ModuleTGLink: React.FC<ModuleTGProps> = ({enabled, moduleLink}) => (
   <a
-    className={enabled ? buttonStyles.moduleTGLinkEnabled : buttonStyles.moduleTGLinkDisabled}
+    className={clsx(buttonStyles.moduleTGLink, {[buttonStyles.disabled]: !enabled})}
     href={moduleLink}
     target="_blank" rel="noreferrer noopener"
   >

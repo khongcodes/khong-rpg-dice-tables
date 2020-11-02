@@ -32,6 +32,7 @@ $subtable-control-height-transition: height $subtable-control-animation-duration
   color: white
 
   .titleSpacer
+    height: 100%
     width: 100%
     position: absolute
     left: 0
@@ -40,12 +41,11 @@ $subtable-control-height-transition: height $subtable-control-animation-duration
     background-color: pink
     transition: height 0.1s
     transition-timing-function: linear
-
-    &.visible
-      height: 100%
+    transition-delay: 0s
     
     &.invisible
       height: 0
+      transition-delay: 0.2s
   
 
 .buttonContainer
@@ -58,17 +58,14 @@ $subtable-control-height-transition: height $subtable-control-animation-duration
   overflow: hidden
   transition: $subtable-control-height-transition
   transition-timing-function: ease-in-out
+  transition-delay: 0.1s
   background-color: pink
   
   > button:nth-of-type(2) > svg
     margin-right: 2px
-
-  &.visible
-    height: space(7)
-    padding-top: space(1.5)
-    padding-bottom: space(1.5)
   
   &.invisible
     height: 0
     padding-top: 0
     padding-bottom: 0
+    transition-delay: 0s

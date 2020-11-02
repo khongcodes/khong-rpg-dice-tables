@@ -8,6 +8,17 @@
 @import 'design'
 
 
+%TGControlEnabledSVG
+  &:hover > svg
+    fill: $light-on-dark-button-brighten
+  & > svg
+    fill: $light-on-dark-button-primary
+
+%TGControlDisabledSVGPointer
+  pointer-events: none
+  & > svg
+    fill: $light-on-dark-button-disabled
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                         STYLES
 
@@ -19,17 +30,20 @@ button
 .closeTGButton
   padding: 1px 2px 0
   height: space(3.25)
+  @extend %TGControlEnabledSVG
 
-.moduleTGLinkEnabled
-
-.moduleTGLinkDisabled
-  pointer-events: none
-  & > svg
-    fill: #9c9c9c
+.moduleTGLink
+  @extend %TGControlEnabledSVG
+  &.disabled
+    @extend %TGControlDisabledSVGPointer
 
 .rollTGButton
   padding: 1px
   height: space(3.25)
+  @extend %TGControlEnabledSVG
+  
+  &:disabled 
+    @extend %TGControlDisabledSVGPointer
 
 .controlsSG
   height: space(4)

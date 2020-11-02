@@ -10,6 +10,7 @@
 // 5. Styles
 
 import React, { useState } from 'react';
+import clsx from "clsx";
 
 import { SubtableGroup } from "../../store/subtableGroups/types";
 
@@ -91,8 +92,6 @@ const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
   const [controlsVisible, setControlsVisible] = useState<boolean>(false);
   const toggleControlsVisible = () => setControlsVisible(!controlsVisible);
 
-  const controlsVisibleDependentClass = controlsVisible ? subtableStyles.visible : subtableStyles.invisible;
-
   return (
     <div className={subtableStyles.subtableRoot}>
       <div className={subtableStyles.titleContainer}>
@@ -105,24 +104,12 @@ const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
           {controlsVisible.toString()}
         </button>
 
-        <div
-          className={`${subtableStyles.titleSpacer} ${controlsVisibleDependentClass}`}
-          style={
-            controlsVisible ? 
-            {} : {"transitionDelay": "0.2s"}
-          }
-        />
+        <div className={clsx(subtableStyles.titleSpacer, {[subtableStyles.invisible]: !controlsVisible})} />
       </div>
 
       {showIds ? <RenderSubtableGroupStoreData sgData={renderedSubtableData}/> : <></>}
 
-      <div 
-        className={`${subtableStyles.buttonContainer} ${controlsVisibleDependentClass}`}
-        style={
-          !controlsVisible ? 
-          {} : {"transitionDelay": "0.1s"}
-        }
-      >
+      <div className={clsx(subtableStyles.buttonContainer, {[subtableStyles.invisible]: !controlsVisible})}>
         <SGButton 
           type="close all"
           callback={handleDeleteAllBodyRolls}

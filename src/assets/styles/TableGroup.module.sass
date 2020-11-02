@@ -7,7 +7,7 @@
 /////////////                                                              STYLES
 
 .tableRoot
-  max-width: space(100)
+  // max-width: space(100)
   // background-color: pink
   margin-bottom: space(3)
 
@@ -19,6 +19,16 @@
     padding: space(1)
     background-color: black
     display: flex
+
+    button
+      background-color: transparent
+
+    select
+      background-color: black
+      color: white
+      border: none
+      &:focus
+        outline: dotted 1px white
 
     .rollButton
       border: none
