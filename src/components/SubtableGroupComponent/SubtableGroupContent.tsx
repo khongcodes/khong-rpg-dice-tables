@@ -19,7 +19,7 @@ import { AllBodyRollFormats } from "../../model/TableKeyStructuresAndFormats";
 import { RerollBodyRollMDetailReferenceType } from "./SubtableGroupComponent";
 
 import BodyRollComponent from '../BodyRollComponent';
-import { SGButton } from "../Buttons";
+import { SGButton, SGExpandButton } from "../Buttons";
 
 import subtableStyles from "../../assets/styles/SubtableGroup.module.sass";
 
@@ -97,12 +97,10 @@ const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
       <div className={subtableStyles.titleContainer}>
         <h3>{subtableGroup.displaySpec.name}</h3>
         
-        <button 
-          className={subtableStyles.toggleControlButton}
-          onClick={toggleControlsVisible}
-        >
-          {controlsVisible.toString()}
-        </button>
+        <SGExpandButton 
+          callback={toggleControlsVisible}
+          state={controlsVisible}
+        />
 
         <div className={clsx(subtableStyles.titleSpacer, {[subtableStyles.invisible]: !controlsVisible})} />
       </div>

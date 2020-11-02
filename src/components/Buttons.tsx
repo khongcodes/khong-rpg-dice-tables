@@ -11,6 +11,7 @@ import CloseIcon from "@material-ui/icons/CloseRounded";
 import LinkIcon from "@material-ui/icons/LinkRounded";
 import DiceIcon from "@material-ui/icons/CasinoOutlined";
 import PlusOneIcon from "@material-ui/icons/ExposurePlus1Rounded";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMoreRounded";
 
 import buttonStyles from "../assets/styles/Buttons.module.sass";
 
@@ -38,6 +39,11 @@ type BRButtonTypes = "delete" | "reroll";
 type BRButtonProps = {
   callback: () => void;
   type: BRButtonTypes;
+}
+
+type ToggleButtonProps = {
+  callback: VoidFunction;
+  state: boolean;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -109,6 +115,15 @@ export const BRButton: React.FC<BRButtonProps> = ({callback, type}) => {
   return (
     <button onClick={callback}>
       {buttonContent(type)}
+    </button>
+  )
+}
+
+export const SGExpandButton: React.FC<ToggleButtonProps> = ({callback, state}) => {
+  // state is controlsVisisble
+  return (
+    <button className={clsx(buttonStyles.sgExpand, {[buttonStyles.close]:state})} onClick={callback}>
+      <ExpandMoreIcon />
     </button>
   )
 }

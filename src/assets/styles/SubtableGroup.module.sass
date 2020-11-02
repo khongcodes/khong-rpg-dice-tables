@@ -4,8 +4,8 @@
 @import 'design'
 
 $subtable-side-padding: space(2)
-$subtable-control-animation-duration: 0.2s
-$subtable-control-height-transition: height $subtable-control-animation-duration, padding-top $subtable-control-animation-duration, padding-bottom $subtable-control-animation-duration
+$sgcontrol-transition-time: 0.2s
+$subtable-control-height-transition: height $sgcontrol-transition-time, padding-top $sgcontrol-transition-time, padding-bottom $sgcontrol-transition-time, margin-bottom $sgcontrol-transition-time
 /////////////////////////////////////////////////////////////////////////////////
 /////////////                                                              STYLES
 
@@ -25,10 +25,11 @@ $subtable-control-height-transition: height $subtable-control-animation-duration
   border-bottom-right-radius: space(7) 100%
   padding-top: space(0.5)
   padding-bottom: space(0.25)
+  padding-right: space(3.75)
   display: flex
   position: relative
   justify-content: space-between
-  background-color: red
+  background-color: $temporary-subtable-titlebar-primary
   color: white
 
   .titleSpacer
@@ -54,6 +55,7 @@ $subtable-control-height-transition: height $subtable-control-animation-duration
   box-sizing: border-box
   padding-top: space(1.5)
   padding-bottom: space(1.5)
+  margin-bottom: space(1.5)
   display: flex
   overflow: hidden
   transition: $subtable-control-height-transition
@@ -68,4 +70,5 @@ $subtable-control-height-transition: height $subtable-control-animation-duration
     height: 0
     padding-top: 0
     padding-bottom: 0
+    margin-bottom: 0
     transition-delay: 0s

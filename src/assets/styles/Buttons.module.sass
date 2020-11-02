@@ -52,6 +52,13 @@ button
   border-radius: space(2)
   display: flex
   align-items: center
+  box-shadow: 0 1px 1px 0px rgba(255, 0, 0, .37)
+  outline-offset: 3px
+  &:active
+    outline: none
+    position: relative
+    top: 1px
+    box-shadow: none
 
   > svg
     height: 75%
@@ -63,3 +70,14 @@ button
 
   &:last-of-type
       margin-right: 0
+
+.sgExpand
+  background: transparent
+  transition: transform 0.3s
+  > svg
+    fill: white
+  &:focus
+    outline: none
+  
+  &.close
+    transform: rotate(-180deg)
