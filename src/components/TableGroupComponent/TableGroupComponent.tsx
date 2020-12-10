@@ -88,9 +88,8 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
 }) => {
   // reads from tableGroup's (in Store) keys what the select value should be
   const initialSelectedTable = getSelectValueFromKeys(tableGroup?.bookKey, tableGroup?.tableKey);
-  const [selectedTable, setSelectedTable] = useState<"none" | AllTableSelectValues>(initialSelectedTable);
-
   const [initialized, setInitialized] = useState<boolean>(false);
+  const [selectedTable, setSelectedTable] = useState<"none" | AllTableSelectValues>(initialSelectedTable);
 
   const handleSelectTable: ReactEventHandler = (event: React.ChangeEvent<HTMLSelectElement>) => setSelectedTable(event.target.value as "none" | AllTableSelectValues);
   const handleDeleteTable: ReactEventHandler = () => deleteTableGroup(tableGroupId);

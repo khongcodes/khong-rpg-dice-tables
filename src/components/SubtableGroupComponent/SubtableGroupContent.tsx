@@ -22,6 +22,7 @@ import BodyRollComponent from '../BodyRollComponent';
 import { SGButton, SGExpandButton } from "../Buttons";
 
 import subtableStyles from "../../assets/styles/SubtableGroup.module.sass";
+import { BookColorThemeType, bookColorThemeUnpacker } from "./bookColorThemes";
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -54,7 +55,8 @@ type SubtableContentPropType = {
       subtableData: CombinedBodyRollType,
       querySiblingSubtableInExtendedGroup: ((key1: string, key2: string) => any)
     ) => { name: string, detail: string[] };
-  }
+  };
+  bookTheme: BookColorThemeType;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -74,7 +76,8 @@ const RenderSubtableGroupStoreData: React.FC<RenderSubtableDataType> = ({ sgData
 const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
   showIds,
   subtableGroup, subtableData,
-  sgComponentData, callbacks
+  sgComponentData, callbacks,
+  bookTheme
 }) => {
 
   const renderedSubtableData = {
@@ -92,9 +95,14 @@ const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
   const [controlsVisible, setControlsVisible] = useState<boolean>(false);
   const toggleControlsVisible = () => setControlsVisible(!controlsVisible);
 
+
+
   return (
     <div className={subtableStyles.subtableRoot}>
-      <div className={subtableStyles.titleContainer}>
+      <div 
+        className={subtableStyles.titleContainer}
+        style={bookColorThemeUnpacker(bookTheme).primary}
+      >
         <h3>{subtableGroup.displaySpec.name}</h3>
         
         <SGExpandButton 

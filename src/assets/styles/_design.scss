@@ -45,7 +45,13 @@ $light-on-dark-button-primary: #dadada;
 $light-on-dark-button-brighten: lighten($light-on-dark-button-primary, 100);
 $light-on-dark-button-disabled: #6b6b6b;
 
-$temporary-subtable-titlebar-primary: #cc0000;
+$lancer-primary: #cc0000;
+$lancer-secondary: #FFFFFF;
+$mothership-primary: #fffb00;
+$mothership-secondary: #000000;
+$uvg-primary: #cc16ae;
+$uvg-secondary: #000000;
+$temporary-subtable-titlebar-primary: $lancer-primary;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////

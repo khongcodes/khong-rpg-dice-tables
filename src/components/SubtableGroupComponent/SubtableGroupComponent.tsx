@@ -22,6 +22,7 @@ import { RootState, RootAction } from "../../store";
 import { SubtableGroup } from "../../store/subtableGroups/types";
 
 import { selectSubtableGroupById, selectSubtableGroupDataInTableGroupData } from "../../store/subtableGroups/selectors";
+import { selectBookKeyByTableGroupId } from "../../store/tableGroups/selectors";
 
 import {
   addBodyRollIdsSubtableGroup,
@@ -34,7 +35,7 @@ import {
   deleteBySubtableGroupBodyRoll
 } from "../../store/bodyRolls/actions";
 
-import { SubtableDisplaySpecMDetailFormat } from "../../model/TableKeyStructuresAndFormats";
+import { SubtableDisplaySpecMDetailFormat, AllBookNames } from "../../model/TableKeyStructuresAndFormats";
 import {
   CombinedBodyRollType,
   CombinedRollValuesType,
@@ -43,6 +44,7 @@ import {
 } from "../../model/DiceRollTypes";
 
 import { rollValues } from "../../util/rollDice";
+import { bookColorThemes, undefinedTheme, BookColorThemeType } from "./bookColorThemes";
 
 import SubtableGroupContent from "./SubtableGroupContent";
 
@@ -65,6 +67,7 @@ type SubtableGroupComponentMappedState = {
   showIds: boolean;
   subtableGroup?: SubtableGroup;
   subtableData?: CombinedBodyRollType;
+  bookKey?: AllBookNames;
 };
 type SubtableGroupComponentMappedDispatch = {
   initializeSubtableBodyRolls?: (
@@ -119,7 +122,7 @@ const getValueForMDetailReferenceFormat = (
 
 const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   showIds, tableGroupId, subtableGroupId, querySiblingSubtableInExtendedGroup,
-  subtableGroup, subtableData,
+  subtableGroup, subtableData, bookKey,
   initializeSubtableBodyRolls, rerollBodyRoll, rerollAllBodyRolls, addBodyRoll, deleteAllBodyRolls,
   rerollBodyRollMDetailReference, rerollAllBodyRollsMDetailReference
 }) => {
@@ -129,6 +132,8 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   //    triggered by resetting the tableGroup's selectValue 
   //      (or clicking "reroll" button on tableGroup)
   //  )
+
+  const bookTheme: BookColorThemeType = !!bookKey ? bookColorThemes[bookKey] : undefinedTheme;
 
   const subtableGroupExists = !!subtableGroup;
   const subtableGroupHasNoBodyRolls: boolean = subtableGroup?.bodyRollCollection.length === 0;
@@ -217,6 +222,7 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
           querySiblingSubtableInExtendedGroup,
           getValueForMDetailReferenceFormat
         }}
+        bookTheme={bookTheme}
       />  
     )
   } else {
@@ -225,10 +231,11 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
 }
 
 const mapStateToProps = (state: RootState, ownProps: SubtableGroupComponentProps) => {
-  const { subtableGroupId } = ownProps;
+  const { subtableGroupId, tableGroupId } = ownProps;
   return {
     subtableGroup: selectSubtableGroupById(state, subtableGroupId),
-    subtableData: selectSubtableGroupDataInTableGroupData(state, subtableGroupId)
+    subtableData: selectSubtableGroupDataInTableGroupData(state, subtableGroupId),
+    bookKey: selectBookKeyByTableGroupId(state, tableGroupId)
   }
 }
 

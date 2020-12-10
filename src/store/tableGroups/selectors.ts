@@ -24,3 +24,4 @@ export const selectTableGroupById = (state: RootState, id: string) => tableGroup
 
 export const selectSubtableIdsByTableGroupId = (state: RootState, id: string) => selectTableGroupById(state, id).subtableCollection;
 
+export const selectBookKeyByTableGroupId = (state: RootState, id: string) => selectTableGroupById(state, id).bookKey;
