@@ -44,7 +44,6 @@ import {
 } from "../../model/DiceRollTypes";
 
 import { rollValues } from "../../util/rollDice";
-import { bookColorThemes, undefinedTheme, BookColorThemeType } from "./bookColorThemes";
 
 import SubtableGroupContent from "./SubtableGroupContent";
 
@@ -133,7 +132,7 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   //      (or clicking "reroll" button on tableGroup)
   //  )
 
-  const bookTheme: BookColorThemeType = !!bookKey ? bookColorThemes[bookKey] : undefinedTheme;
+  // const bookTheme: BookColorThemeType = !!bookKey ? bookColorThemes[bookKey] : undefinedTheme;
 
   const subtableGroupExists = !!subtableGroup;
   const subtableGroupHasNoBodyRolls: boolean = subtableGroup?.bodyRollCollection.length === 0;
@@ -222,7 +221,7 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
           querySiblingSubtableInExtendedGroup,
           getValueForMDetailReferenceFormat
         }}
-        bookTheme={bookTheme}
+        bookKey={bookKey}
       />  
     )
   } else {

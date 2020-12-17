@@ -3,8 +3,11 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                        IMPORTS
+/** @jsxRuntime classic */
+/** @jsx jsx */
 
 import React, { ReactEventHandler } from 'react';
+import { css, jsx } from "@emotion/react";
 import clsx from "clsx";
 
 import CloseIcon from "@material-ui/icons/CloseRounded";
@@ -12,6 +15,8 @@ import LinkIcon from "@material-ui/icons/LinkRounded";
 import DiceIcon from "@material-ui/icons/CasinoOutlined";
 import PlusOneIcon from "@material-ui/icons/ExposurePlus1Rounded";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMoreRounded";
+
+import { bookColorThemeUnpacker, BookThemedComponent } from "./SubtableGroupComponent/bookColorThemes";
 
 import buttonStyles from "../assets/styles/Buttons.module.sass";
 
@@ -46,6 +51,7 @@ type ToggleButtonProps = {
   state: boolean;
 }
 
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                             COMPONENTS & LOGIC
 
@@ -79,18 +85,31 @@ export const RollTGButton: React.FC<RollTGProps> = ({enabled}) => (
 )
 
 
-export const SGButton: React.FC<SGButtonProps> = ({callback, type}) => {
+export const SGButton: React.FC<SGButtonProps & BookThemedComponent> = ({callback, type}) => {
   
   const buttonContent = (type: SGButtonTypes ) => {
     switch (type) {
       case "close all":
-        return (<><CloseIcon /> <span className={buttonStyles.sgButtonText}>all</span></>);
+        return (
+          <React.Fragment>
+            <CloseIcon />
+            <span className={buttonStyles.sgButtonText}>all</span>
+          </React.Fragment>
+        );
       case "reroll all":
-        return (<><DiceIcon /> <span className={buttonStyles.sgButtonText}>all</span></>);
+        return (
+          <React.Fragment>
+            <DiceIcon />
+            <span className={buttonStyles.sgButtonText}>all</span>
+          </React.Fragment>
+        );
       case "add one":
-        return (<PlusOneIcon />);
+        return (
+          <PlusOneIcon />
+        );
     }
   };
+
   return (
     <button 
       className={buttonStyles.controlsSG}
@@ -103,7 +122,6 @@ export const SGButton: React.FC<SGButtonProps> = ({callback, type}) => {
 
 
 export const BRButton: React.FC<BRButtonProps> = ({callback, type}) => {
-  
   const buttonContent = (type: BRButtonTypes) => {
     switch (type) {
       case "delete":
@@ -111,7 +129,8 @@ export const BRButton: React.FC<BRButtonProps> = ({callback, type}) => {
       case "reroll":
         return (<DiceIcon />);
     }
-  }
+  };
+  
   return (
     <button onClick={callback}>
       {buttonContent(type)}
@@ -119,10 +138,15 @@ export const BRButton: React.FC<BRButtonProps> = ({callback, type}) => {
   )
 }
 
-export const SGExpandButton: React.FC<ToggleButtonProps> = ({callback, state}) => {
+export const SGExpandButton: React.FC<ToggleButtonProps & BookThemedComponent> = ({callback, state, bookKey}) => {
   // state is controlsVisisble
+  const bookTheme = bookColorThemeUnpacker(bookKey).sgExpandButton;
   return (
-    <button className={clsx(buttonStyles.sgExpand, {[buttonStyles.close]:state})} onClick={callback}>
+    <button 
+      className={clsx(buttonStyles.sgExpand, {[buttonStyles.close]:state})}
+      onClick={callback}
+      css={css(bookTheme.button)}
+    >
       <ExpandMoreIcon />
     </button>
   )

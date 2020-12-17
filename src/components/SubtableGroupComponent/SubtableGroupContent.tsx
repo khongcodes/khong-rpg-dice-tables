@@ -9,20 +9,24 @@
 // 4. Components
 // 5. Styles
 
+/** @jsxRuntime classic */
+/** @jsx jsx */
+
 import React, { useState } from 'react';
+import { css, jsx } from "@emotion/react";
 import clsx from "clsx";
 
 import { SubtableGroup } from "../../store/subtableGroups/types";
 
 import { CombinedBodyRollType } from "../../model/DiceRollTypes";
-import { AllBodyRollFormats } from "../../model/TableKeyStructuresAndFormats";
+import { AllBodyRollFormats, AllBookNames } from "../../model/TableKeyStructuresAndFormats";
 import { RerollBodyRollMDetailReferenceType } from "./SubtableGroupComponent";
 
 import BodyRollComponent from '../BodyRollComponent';
 import { SGButton, SGExpandButton } from "../Buttons";
 
 import subtableStyles from "../../assets/styles/SubtableGroup.module.sass";
-import { BookColorThemeType, bookColorThemeUnpacker } from "./bookColorThemes";
+import { bookColorThemeUnpacker } from "./bookColorThemes";
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -56,7 +60,7 @@ type SubtableContentPropType = {
       querySiblingSubtableInExtendedGroup: ((key1: string, key2: string) => any)
     ) => { name: string, detail: string[] };
   };
-  bookTheme: BookColorThemeType;
+  bookKey: AllBookNames | undefined;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,7 +81,7 @@ const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
   showIds,
   subtableGroup, subtableData,
   sgComponentData, callbacks,
-  bookTheme
+  bookKey
 }) => {
 
   const renderedSubtableData = {
@@ -95,38 +99,45 @@ const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
   const [controlsVisible, setControlsVisible] = useState<boolean>(false);
   const toggleControlsVisible = () => setControlsVisible(!controlsVisible);
 
-
+  const bookTheme = bookColorThemeUnpacker(bookKey).subtableGroupComponent;
 
   return (
     <div className={subtableStyles.subtableRoot}>
       <div 
         className={subtableStyles.titleContainer}
-        style={bookColorThemeUnpacker(bookTheme).primary}
+        css={css(bookTheme.headerDiv)}
       >
         <h3>{subtableGroup.displaySpec.name}</h3>
         
-        <SGExpandButton 
+        <SGExpandButton
           callback={toggleControlsVisible}
           state={controlsVisible}
+          bookKey={bookKey}
         />
 
         <div className={clsx(subtableStyles.titleSpacer, {[subtableStyles.invisible]: !controlsVisible})} />
       </div>
 
-      {showIds ? <RenderSubtableGroupStoreData sgData={renderedSubtableData}/> : <></>}
+      {showIds ? <RenderSubtableGroupStoreData sgData={renderedSubtableData}/> : <React.Fragment></React.Fragment>}
 
-      <div className={clsx(subtableStyles.buttonContainer, {[subtableStyles.invisible]: !controlsVisible})}>
+      <div 
+        className={clsx(subtableStyles.buttonContainer, {[subtableStyles.invisible]: !controlsVisible})}
+        css={css(bookTheme.controlContainer)}
+      >
         <SGButton 
           type="close all"
           callback={handleDeleteAllBodyRolls}
+          bookKey={bookKey}
         />
         <SGButton 
           type="reroll all"
           callback={handleRerollAllBodyRolls}
+          bookKey={bookKey}
         />
         <SGButton 
           type="add one"
           callback={handleAddBodyRoll}
+          bookKey={bookKey}
         />
       </div>
 
@@ -139,7 +150,7 @@ const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
             rerollBodyRollMDetailRef={rerollBodyRollMDetailReference(subtableGroup, subtableData, querySiblingSubtableInExtendedGroup, getValueForMDetailReferenceFormat)}
             key={bodyRollId}
           />
-        )) : <></>
+        )) : <React.Fragment></React.Fragment>
       }
 
     </div>

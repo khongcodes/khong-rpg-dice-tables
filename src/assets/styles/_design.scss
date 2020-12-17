@@ -45,12 +45,23 @@ $light-on-dark-button-primary: #dadada;
 $light-on-dark-button-brighten: lighten($light-on-dark-button-primary, 100);
 $light-on-dark-button-disabled: #6b6b6b;
 
-$lancer-primary: #cc0000;
-$lancer-secondary: #FFFFFF;
+$lancer-primary: rgb(204,0,0);
+$lancer-primary-text: #FFFFFF;
+$lancer-sgControlBg: #ffc0cb;
+$lancer-sgControlButtonShadow: rgba(204,0,0,0.4);
+$lancer-sgControlButtonHoverBg: #f86b6b;
+$lancer-sgControlButtonHoverShadow: #be0b0b;
+$lancer-sgControlButtonHoverText: #FFFFFF;
+$lancer-sgControlButtonFocusBg: #ff8e8e;
+$lancer-sgControlButtonFocusShadow: #e61d1d;
+$lancer-sgControlButtonFocusText: #FFFFFF;
+
 $mothership-primary: #fffb00;
-$mothership-secondary: #000000;
-$uvg-primary: #cc16ae;
-$uvg-secondary: #000000;
+$mothership-primary-text: #000000;
+
+$uvg-primary: #ff4ee1;
+$uvg-primary-text: #FFFFFF;
+
 $temporary-subtable-titlebar-primary: $lancer-primary;
 
 

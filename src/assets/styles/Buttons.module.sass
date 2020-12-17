@@ -12,12 +12,31 @@
   &:hover > svg
     fill: $light-on-dark-button-brighten
   & > svg
+    transition: fill 0.2s
     fill: $light-on-dark-button-primary
 
 %TGControlDisabledSVGPointer
   pointer-events: none
   & > svg
     fill: $light-on-dark-button-disabled
+  
+%defaultSgControlButtonColors
+  box-shadow: 0 1px 1px 0px $lancer-sgControlButtonShadow
+  &:focus
+    background-color: $lancer-sgControlButtonFocusBg
+    color: $lancer-sgControlButtonFocusText
+    box-shadow: 0 2px 1px 0px $lancer-sgControlButtonFocusShadow  
+  &:hover
+    background-color: $lancer-sgControlButtonHoverBg
+    color: $lancer-sgControlButtonHoverText
+    box-shadow: 0 2px 1px 0px $lancer-sgControlButtonHoverShadow
+  &:active
+    background-color: $lancer-sgControlButtonFocusBg
+    color: $lancer-sgControlButtonFocusText
+    box-shadow: 0 0px 1px 0px $lancer-sgControlButtonFocusShadow  
+    
+
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                         STYLES
@@ -50,18 +69,27 @@ button
   padding: space(0.5) space(1)
   margin-right: space(1)
   border-radius: space(2)
+  position: relative
   display: flex
+  outline: none
   align-items: center
-  box-shadow: 0 1px 1px 0px rgba(255, 0, 0, .37)
-  outline-offset: 3px
-  &:active
+  @extend %defaultSgControlButtonColors
+  transition: background-color 0.1s, color 0.1s, box-shadow 0.1s, top 0.1s
+  &:focus
+    height: calc(#{space(4)} + 2px)
+    top: -1px
     outline: none
-    position: relative
+  &:hover
+    height: calc(#{space(4)} + 2px)
+    top: -2px
+  &:active
     top: 1px
-    box-shadow: none
+  
+
 
   > svg
-    height: 75%
+    height: 18px
+    transition: fill 0.2s
 
   > span
     font-size: 14px
@@ -73,11 +101,15 @@ button
 
 .sgExpand
   background: transparent
+  color: pink
   transition: transform 0.3s
-  > svg
-    fill: white
   &:focus
     outline: none
+  > svg
+    transition: fill 0.3s
   
+  // when sgExpand button CLOSES sgControl
   &.close
+    color: white
     transform: rotate(-180deg)
+
