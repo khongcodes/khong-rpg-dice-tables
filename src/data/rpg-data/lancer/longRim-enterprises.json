@@ -2,7 +2,7 @@
   "main": {
     "holdings": {
       "type": "one-roll simple range-table",
-      "interface": "!1d10",
+      "interface": "1d10",
       "values": [
         {
           "range": "1-2",
@@ -48,7 +48,7 @@
     },
     "representative": {
       "type": "one-roll simple range-table",
-      "interface": "!1d10",
+      "interface": "1d10",
       "values": [
         {
           "range": "1-2",
@@ -94,7 +94,7 @@
     },
     "strength": {
       "type": "one-roll simple range-table",
-      "interface": "!1d10",
+      "interface": "1d10",
       "values": [
         {
           "range": "1-2",
