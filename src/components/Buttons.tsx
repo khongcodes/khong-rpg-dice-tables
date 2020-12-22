@@ -16,8 +16,6 @@ import DiceIcon from "@material-ui/icons/CasinoOutlined";
 import PlusOneIcon from "@material-ui/icons/ExposurePlus1Rounded";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMoreRounded";
 
-import { bookColorThemeUnpacker, BookThemedComponent } from "./SubtableGroupComponent/bookColorThemes";
-
 import buttonStyles from "../assets/styles/Buttons.module.sass";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -50,6 +48,10 @@ type ToggleButtonProps = {
   callback: VoidFunction;
   state: boolean;
 }
+
+type ButtonHasThemeProp = {
+  theme: { button: string; };
+};
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -85,7 +87,7 @@ export const RollTGButton: React.FC<RollTGProps> = ({enabled}) => (
 )
 
 
-export const SGButton: React.FC<SGButtonProps & BookThemedComponent> = ({callback, type}) => {
+export const SGButton: React.FC<SGButtonProps & ButtonHasThemeProp> = ({callback, type, theme}) => {
   
   const buttonContent = (type: SGButtonTypes ) => {
     switch (type) {
@@ -114,6 +116,7 @@ export const SGButton: React.FC<SGButtonProps & BookThemedComponent> = ({callbac
     <button 
       className={buttonStyles.controlsSG}
       onClick={callback}
+      css={css(theme.button)}
     >
       {buttonContent(type)}
     </button>
@@ -130,7 +133,7 @@ export const BRButton: React.FC<BRButtonProps> = ({callback, type}) => {
         return (<DiceIcon />);
     }
   };
-  
+
   return (
     <button onClick={callback}>
       {buttonContent(type)}
@@ -138,14 +141,13 @@ export const BRButton: React.FC<BRButtonProps> = ({callback, type}) => {
   )
 }
 
-export const SGExpandButton: React.FC<ToggleButtonProps & BookThemedComponent> = ({callback, state, bookKey}) => {
+export const SGExpandButton: React.FC<ToggleButtonProps & ButtonHasThemeProp> = ({callback, state, theme}) => {
   // state is controlsVisisble
-  const bookTheme = bookColorThemeUnpacker(bookKey).sgExpandButton;
   return (
     <button 
       className={clsx(buttonStyles.sgExpand, {[buttonStyles.close]:state})}
       onClick={callback}
-      css={css(bookTheme.button)}
+      css={css(theme.button)}
     >
       <ExpandMoreIcon />
     </button>

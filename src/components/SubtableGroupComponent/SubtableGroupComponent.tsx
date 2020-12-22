@@ -22,7 +22,6 @@ import { RootState, RootAction } from "../../store";
 import { SubtableGroup } from "../../store/subtableGroups/types";
 
 import { selectSubtableGroupById, selectSubtableGroupDataInTableGroupData } from "../../store/subtableGroups/selectors";
-import { selectBookKeyByTableGroupId } from "../../store/tableGroups/selectors";
 
 import {
   addBodyRollIdsSubtableGroup,
@@ -66,7 +65,6 @@ type SubtableGroupComponentMappedState = {
   showIds: boolean;
   subtableGroup?: SubtableGroup;
   subtableData?: CombinedBodyRollType;
-  bookKey?: AllBookNames;
 };
 type SubtableGroupComponentMappedDispatch = {
   initializeSubtableBodyRolls?: (
@@ -121,7 +119,7 @@ const getValueForMDetailReferenceFormat = (
 
 const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   showIds, tableGroupId, subtableGroupId, querySiblingSubtableInExtendedGroup,
-  subtableGroup, subtableData, bookKey,
+  subtableGroup, subtableData,
   initializeSubtableBodyRolls, rerollBodyRoll, rerollAllBodyRolls, addBodyRoll, deleteAllBodyRolls,
   rerollBodyRollMDetailReference, rerollAllBodyRollsMDetailReference
 }) => {
@@ -221,7 +219,6 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
           querySiblingSubtableInExtendedGroup,
           getValueForMDetailReferenceFormat
         }}
-        bookKey={bookKey}
       />  
     )
   } else {
@@ -233,8 +230,7 @@ const mapStateToProps = (state: RootState, ownProps: SubtableGroupComponentProps
   const { subtableGroupId, tableGroupId } = ownProps;
   return {
     subtableGroup: selectSubtableGroupById(state, subtableGroupId),
-    subtableData: selectSubtableGroupDataInTableGroupData(state, subtableGroupId),
-    bookKey: selectBookKeyByTableGroupId(state, tableGroupId)
+    subtableData: selectSubtableGroupDataInTableGroupData(state, subtableGroupId)
   }
 }
 

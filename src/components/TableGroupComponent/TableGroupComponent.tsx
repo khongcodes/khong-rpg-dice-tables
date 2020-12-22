@@ -14,7 +14,7 @@
 // 6. Configuration data
 // 7. Components
 
-import React, { useState, Dispatch, ReactEventHandler } from 'react';
+import React, { useState, useContext, Dispatch, ReactEventHandler } from 'react';
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
@@ -32,6 +32,7 @@ import {
   allTablesDisplaySpecsByBook, tableNamesByBooks,
   getKeysFromSelectValue, getSelectValueFromKeys
 } from "../../model/TableKeyStructuresAndFormats";
+import { BookThemeContext } from "../../util/BookThemeContext";
 
 import selectionNameToLinkMap from "../../controlPanel/selectionNameToLinkMap.json"
 import {SelectionNameToLinkMapType} from "../../controlPanel/types/selectionNameToLinkMapType";
@@ -86,6 +87,8 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
   tableGroup,
   setTableGroup
 }) => {
+  const setBookTheme = useContext(BookThemeContext).setBookTheme;
+
   // reads from tableGroup's (in Store) keys what the select value should be
   const initialSelectedTable = getSelectValueFromKeys(tableGroup?.bookKey, tableGroup?.tableKey);
   const [initialized, setInitialized] = useState<boolean>(false);
@@ -98,8 +101,11 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
     event.preventDefault();
     if (!initialized) {setInitialized(true);}
 
-    if (selectedTable !== "none" && setTableGroup) { setTableGroup(tableGroupId, selectedTable); }
-  }
+    if (selectedTable !== "none" && setTableGroup) {
+      setTableGroup(tableGroupId, selectedTable);
+      setBookTheme(selectedTable.split("-")[0] as AllBookNames);
+    }
+  };
 
   // query sibling subtableGroup in case of displaySpec.format == "mDetail ref"
   // used in mothership / dead planet - derelict
@@ -111,7 +117,9 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
         return rollValues(tableGroup.tableData["extended"][key1]["interface"]);
       }
     }
-  }
+  };
+
+  
 
   if (!!tableGroup) {
     return (

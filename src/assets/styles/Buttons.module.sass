@@ -19,23 +19,6 @@
   pointer-events: none
   & > svg
     fill: $light-on-dark-button-disabled
-  
-%defaultSgControlButtonColors
-  box-shadow: 0 1px 1px 0px $lancer-sgControlButtonShadow
-  &:focus
-    background-color: $lancer-sgControlButtonFocusBg
-    color: $lancer-sgControlButtonFocusText
-    box-shadow: 0 2px 1px 0px $lancer-sgControlButtonFocusShadow  
-  &:hover
-    background-color: $lancer-sgControlButtonHoverBg
-    color: $lancer-sgControlButtonHoverText
-    box-shadow: 0 2px 1px 0px $lancer-sgControlButtonHoverShadow
-  &:active
-    background-color: $lancer-sgControlButtonFocusBg
-    color: $lancer-sgControlButtonFocusText
-    box-shadow: 0 0px 1px 0px $lancer-sgControlButtonFocusShadow  
-    
-
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -73,20 +56,17 @@ button
   display: flex
   outline: none
   align-items: center
-  @extend %defaultSgControlButtonColors
   transition: background-color 0.1s, color 0.1s, box-shadow 0.1s, top 0.1s
   &:focus
     height: calc(#{space(4)} + 2px)
-    top: -1px
+    top: -2px
     outline: none
   &:hover
     height: calc(#{space(4)} + 2px)
-    top: -2px
+    top: -3px
   &:active
     top: 1px
   
-
-
   > svg
     height: 18px
     transition: fill 0.2s
@@ -101,7 +81,6 @@ button
 
 .sgExpand
   background: transparent
-  color: pink
   transition: transform 0.3s
   &:focus
     outline: none
@@ -110,6 +89,5 @@ button
   
   // when sgExpand button CLOSES sgControl
   &.close
-    color: white
     transform: rotate(-180deg)
 
