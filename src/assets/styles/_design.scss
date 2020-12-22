@@ -45,8 +45,13 @@ $light-on-dark-button-primary: #dadada;
 $light-on-dark-button-brighten: lighten($light-on-dark-button-primary, 100);
 $light-on-dark-button-disabled: #6b6b6b;
 
-$about-link: #212ee7;
-$about-link-highlight: #2a38ff;
+$link: #212ee7;
+$link-highlight: #2a38ff;
+
+$brButton-hover: rgba(0,0,0,0.08);
+$brButton-focus: rgba(0,0,0,0.05);
+$brButton-active: rgba(0,0,0,0.2);
+$brButton-rippleDarker: rgba(0,0,0,0.8);
 
 $lancer-primary: rgb(204,0,0);
 $lancer-primary-text: #FFFFFF;
@@ -154,10 +159,13 @@ $inter-font-path: "../fonts/inter/";
   font-weight: 400;
 }
 
-@mixin misc-link-styling {
-  color: $red;
-  &:hover {
-    color: $light-red;
+@mixin link-styling {
+  color: $link;
+  &:hover, &:focus {
+    outline: none;
+    text-decoration: none;
+    color: #FFF;
+    background: $link-highlight;
   }
 }
 
@@ -165,6 +173,7 @@ $inter-font-path: "../fonts/inter/";
   margin-block-start: $value;
   margin-block-end: $value;
 }
+
 // usage:
 // @include art-meta-copy-type
 
@@ -185,3 +194,10 @@ $inter-font-path: "../fonts/inter/";
 //   100%  {opacity: 1;}
 // }
 
+@mixin buttonRipple {
+  @include keyframes(buttonRipple) {
+    0%    { background-color: $brButton-hover; }
+    50%   { background-color: $brButton-rippleDarker; }
+    100%  { background-color: $brButton-hover; }
+  }
+}

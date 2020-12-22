@@ -91,3 +91,29 @@ button
   &.close
     transform: rotate(-180deg)
 
+.brButton
+  color: gray
+  border: none
+  background: white
+  border-radius: 50%
+  width: space(5)
+  height: space(5)
+  display: inline-flex
+  align-items: center
+  transition: color 0.1s, background-color 0.2s
+  &:hover
+    color: black
+    background-color: $brButton-hover
+  &:focus
+    outline: none
+    color: black
+    background-color: $brButton-focus
+    &:hover
+      background-color: $brButton-hover
+  &:active
+    background-color: $brButton-active
+    &:hover
+      background-color: $brButton-active
+
+  svg
+    margin: 0 auto

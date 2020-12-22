@@ -135,7 +135,10 @@ export const BRButton: React.FC<BRButtonProps> = ({callback, type}) => {
   };
 
   return (
-    <button onClick={callback}>
+    <button
+      className={buttonStyles.brButton}
+      onClick={callback}
+    >
       {buttonContent(type)}
     </button>
   )

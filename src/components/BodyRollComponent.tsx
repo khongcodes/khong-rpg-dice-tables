@@ -132,7 +132,7 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
     <div id={bodyRollStyles.brRoot}>
       {showIds? <RenderBodyRollStoreData id={bodyRollId}/> : <></>}
 
-      <div className={`${bodyRollStyles.deleteContainer} ${bodyRollStyles.buttonContainer}`}>
+      <div className={bodyRollStyles.buttonContainer}>
         <BRButton type="delete" callback={handleDelete} />
       </div>
 
@@ -147,7 +147,7 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
         : <></>
       }
 
-      <div className={`${bodyRollStyles.rerollContainer} ${bodyRollStyles.buttonContainer}`}>
+      <div className={bodyRollStyles.buttonContainer}>
         <BRButton type="reroll" callback={handleReroll} />
       </div>
     </div>
