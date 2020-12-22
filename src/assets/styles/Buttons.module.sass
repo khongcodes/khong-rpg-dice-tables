@@ -81,9 +81,15 @@ button
 
 .sgExpand
   background: transparent
-  transition: transform 0.3s
+  width: space(4.5)
+  height: space(4.5)
+  border-radius: 50%
+  transition: transform 0.3s, background 0.2s
   &:focus
     outline: none
+    background-color: rgba(255,255,255,0.15)
+    color: white
+
   > svg
     transition: fill 0.3s
   
@@ -92,6 +98,7 @@ button
     transform: rotate(-180deg)
 
 .brButton
+  margin-top: -1px
   color: gray
   border: none
   background: white

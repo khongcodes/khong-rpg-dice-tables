@@ -36,6 +36,7 @@ type SGButtonTypes = "close all" | "reroll all" | "add one";
 type SGButtonProps = {
   callback: () => void;
   type: SGButtonTypes;
+  visible: boolean;
 };
 
 type BRButtonTypes = "delete" | "reroll";
@@ -87,7 +88,7 @@ export const RollTGButton: React.FC<RollTGProps> = ({enabled}) => (
 )
 
 
-export const SGButton: React.FC<SGButtonProps & ButtonHasThemeProp> = ({callback, type, theme}) => {
+export const SGButton: React.FC<SGButtonProps & ButtonHasThemeProp> = ({callback, type, visible, theme}) => {
   
   const buttonContent = (type: SGButtonTypes ) => {
     switch (type) {
@@ -117,6 +118,7 @@ export const SGButton: React.FC<SGButtonProps & ButtonHasThemeProp> = ({callback
       className={buttonStyles.controlsSG}
       onClick={callback}
       css={css(theme.button)}
+      tabIndex={visible ? 0 : -1}
     >
       {buttonContent(type)}
     </button>

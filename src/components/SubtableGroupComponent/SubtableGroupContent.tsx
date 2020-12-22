@@ -134,16 +134,19 @@ const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
           type="close all"
           callback={handleDeleteAllBodyRolls}
           theme={sgButtonTheme}
+          visible={controlsVisible}
         />
         <SGButton
           type="reroll all"
           callback={handleRerollAllBodyRolls}
           theme={sgButtonTheme}
+          visible={controlsVisible}
         />
         <SGButton 
           type="add one"
           callback={handleAddBodyRoll}
           theme={sgButtonTheme}
+          visible={controlsVisible}
         />
       </div>
 

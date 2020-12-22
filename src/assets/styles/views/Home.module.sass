@@ -8,9 +8,22 @@
 
 #homeRoot
   max-width: space(100)
-  // padding: space(1) 15%
   padding: space(1)
-  // background-color: pink
 
 #addTableButtonContainer
   text-align: center
+  
+  button
+    padding: space(0.5) space(2)
+    transition: background-color 0.1s, color 0.1s
+    &:hover
+      background-color: rgba(0,0,0,0.15)
+    &:focus
+      background-color: rgba(0,0,0,0.08)
+      &:hover
+        background-color: rgba(0,0,0,0.15)
+    &:active
+      background-color: #000000
+      color: #ffffff
+      &:hover
+        background-color: #000000

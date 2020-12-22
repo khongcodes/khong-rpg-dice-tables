@@ -73,17 +73,17 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
   switch (true) {
     case (format === "simple"):
       return (
-        <>
+        <div>
           <p>{(value as SimpleRollValue).value}</p>
-        </>
+        </div>
       )
 
     case (["detail", "detail check-ref"].includes(format)):
       return (
-        <>
+        <div>
           <h4>{(value as DetailRollValue).name}</h4>
           <p>{(value as DetailRollValue).detail}</p>
-        </>
+        </div>
       )
 
     case (format === "mDetail ref"):

@@ -15,7 +15,6 @@ import React, { ReactEventHandler, useState } from 'react';
 import { TableGroup } from '../../store/tableGroups/types';
 
 import { AllTableSelectValues } from "../../model/TableKeyStructuresAndFormats";
-import { CombinedRollValuesType } from "../../model/DiceRollTypes";
 
 import availableRolls from "../../controlPanel/availableRolls.json";
 import { QuerySiblingSubtableInExtendedFnType } from "./TableGroupComponent";
