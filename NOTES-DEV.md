@@ -1,4 +1,13 @@
 //////////////////////////////////////////////////////////////////
+12/22 05:16 PM
+
+- Make sure it looks good on mobile
+- Take care of react warnings
+- Add React Component Transition Animations
+    - https://reactjs.org/docs/animation.html
+
+
+//////////////////////////////////////////////////////////////////
 10/27 03:08 PM
 
 keep an eye on store/tableGroups/reducers.ts newId, bookKey and tableKey as undefined - may cause problems
