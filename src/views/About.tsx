@@ -35,7 +35,7 @@ const About: React.FC = () => {
       </p>
 
       <p>
-        Here is a list of where you can purchase and support each of these books.
+        Here is a list of links to places you can purchase these books and support these game designers and writers.
       </p>
 
       <div className={aboutStyles.linkBox}>
