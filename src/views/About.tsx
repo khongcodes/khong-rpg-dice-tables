@@ -35,26 +35,105 @@ const About: React.FC = () => {
       </p>
 
       <p>
-        For clarity's sake, here is a list of where you can buy each of these books again.
+        Here is a list of where you can purchase and support each of these books.
       </p>
 
       <div className={aboutStyles.linkBox}>
         <h3>Lancer</h3>
+        
+        <p>
+          by&nbsp;
+          
+          <LinkNewTab 
+            url="https://twitter.com/the_one_lopez"
+            text="Miguel Lopez"
+          />
+
+          &nbsp;and&nbsp;
+          
+          <LinkNewTab 
+            url="https://twitter.com/orbitaldropkick"
+            text="Tom Parkinson-Morgan"
+          />
+
+          &nbsp;—&nbsp;
+
+          <LinkNewTab 
+            url="https://massif-press.itch.io/"
+            text="Massif Press"
+          />
+        </p>
+
         <ul>
-          <li>Core book - <ObviousLink url="https://massif-press.itch.io/corebook-pdf" /></li>
-          <li>The Long Rim expansion - <ObviousLink url="https://massif-press.itch.io/the-long-rim" /></li>
+          <li>
+            <LinkNewTab 
+              url="https://massif-press.itch.io/corebook-pdf"
+              text="Core book"
+            />
+          </li>
+          <li>
+            <LinkNewTab 
+              url="https://massif-press.itch.io/the-long-rim"
+              text="The Long Rim expansion"
+            />
+          </li>
         </ul>
 
         <h3>Mothership</h3>
+        <p>
+          by&nbsp;
+          <LinkNewTab 
+            url="https://twitter.com/seanmccoy"
+            text="Sean McCoy"
+          />
+          &nbsp;—&nbsp;
+          <LinkNewTab
+            url="https://www.tuesdayknightgames.com/"
+            text="Tuesday Knight Games"
+          />
+        </p>
+
         <ul>
-          <li>Core book - <ObviousLink url="https://www.mothershiprpg.com/" /></li>
-          <li>Pound of Flesh module - <ObviousLink url="https://www.mothershiprpg.com/a-pound-of-flesh" /></li>
-          <li>Dead Planet module - <ObviousLink url="https://www.mothershiprpg.com/dead-planet" /></li>
+          <li>
+            <LinkNewTab 
+              url="https://www.mothershiprpg.com"
+              text="Core book"
+            />
+          </li>
+          <li>
+            <LinkNewTab 
+              url="https://www.mothershiprpg.com/a-pound-of-flesh"
+              text="Pound of Flesh module"
+            />
+          </li>
+          <li>
+            <LinkNewTab 
+              url="https://www.mothershiprpg.com/dead-planet"
+              text="Dead Planet module"
+            />
+          </li>
         </ul>
 
         <h3>Ultraviolet Grasslands</h3>
+        <p>
+          by&nbsp;
+          <LinkNewTab 
+            url="https://twitter.com/lukarejec"
+            text="Luka Rejec"
+          />
+          &nbsp;—&nbsp;
+          <LinkNewTab 
+            url="https://www.wizardthieffighter.com/"
+            text="Wizard Thief Fighter"
+          />
+        </p>
         <ul>
-          <li>Core book - <ObviousLink url="https://www.exaltedfuneral.com/products/the-ultra-violet-grasslands-and-the-black-city" /></li>
+          <li>
+            <LinkNewTab 
+              url="https://www.exaltedfuneral.com/products/the-ultra-violet-grasslands-and-the-black-city"
+              text="Core book"
+            />
+          </li>
         </ul>
       </div>
 
