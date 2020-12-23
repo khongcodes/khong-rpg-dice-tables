@@ -21,7 +21,10 @@ import { v4 as uuidv4 } from "uuid";
 import { RootState, RootAction } from "../../store";
 import { SubtableGroup } from "../../store/subtableGroups/types";
 
-import { selectSubtableGroupById, selectSubtableGroupDataInTableGroupData } from "../../store/subtableGroups/selectors";
+import {
+  selectSubtableGroupById,
+  selectSubtableGroupDataInTableGroupData
+} from "../../store/subtableGroups/selectors";
 
 import {
   addBodyRollIdsSubtableGroup,
@@ -34,7 +37,7 @@ import {
   deleteBySubtableGroupBodyRoll
 } from "../../store/bodyRolls/actions";
 
-import { SubtableDisplaySpecMDetailFormat, AllBookNames } from "../../model/TableKeyStructuresAndFormats";
+import { SubtableDisplaySpecMDetailFormat } from "../../model/TableKeyStructuresAndFormats";
 import {
   CombinedBodyRollType,
   CombinedRollValuesType,
@@ -43,6 +46,7 @@ import {
 } from "../../model/DiceRollTypes";
 
 import { rollValues } from "../../util/rollDice";
+import { BookThemeType } from "../../util/BookThemeContext";
 
 import SubtableGroupContent from "./SubtableGroupContent";
 
@@ -82,6 +86,7 @@ type SubtableGroupComponentProps = {
   tableGroupId: string;
   subtableGroupId: string;
   querySiblingSubtableInExtendedGroup: (key1: string, key2: string) => any;
+  bookTheme: BookThemeType;
 } & 
 SubtableGroupComponentMappedState & 
 SubtableGroupComponentMappedDispatch;
@@ -119,7 +124,7 @@ const getValueForMDetailReferenceFormat = (
 
 const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   showIds, tableGroupId, subtableGroupId, querySiblingSubtableInExtendedGroup,
-  subtableGroup, subtableData,
+  subtableGroup, subtableData, bookTheme,
   initializeSubtableBodyRolls, rerollBodyRoll, rerollAllBodyRolls, addBodyRoll, deleteAllBodyRolls,
   rerollBodyRollMDetailReference, rerollAllBodyRollsMDetailReference
 }) => {
@@ -129,8 +134,6 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   //    triggered by resetting the tableGroup's selectValue 
   //      (or clicking "reroll" button on tableGroup)
   //  )
-
-  // const bookTheme: BookColorThemeType = !!bookKey ? bookColorThemes[bookKey] : undefinedTheme;
 
   const subtableGroupExists = !!subtableGroup;
   const subtableGroupHasNoBodyRolls: boolean = subtableGroup?.bodyRollCollection.length === 0;
@@ -219,6 +222,7 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
           querySiblingSubtableInExtendedGroup,
           getValueForMDetailReferenceFormat
         }}
+        bookTheme={bookTheme}
       />  
     )
   } else {

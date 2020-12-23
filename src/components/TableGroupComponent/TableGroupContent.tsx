@@ -10,7 +10,7 @@
 // 5. Components
 // 6. Styles
 
-import React, { ReactEventHandler, useState } from 'react';
+import React, { ReactEventHandler } from 'react';
 
 import { TableGroup } from '../../store/tableGroups/types';
 
@@ -18,6 +18,7 @@ import { AllTableSelectValues } from "../../model/TableKeyStructuresAndFormats";
 
 import availableRolls from "../../controlPanel/availableRolls.json";
 import { QuerySiblingSubtableInExtendedFnType } from "./TableGroupComponent";
+import { BookThemeType } from "../../util/BookThemeContext";
 
 import SubtableGroupComponent from "../SubtableGroupComponent/SubtableGroupComponent";
 import { CloseTGButton, ModuleTGLink, RollTGButton } from "../Buttons";
@@ -48,7 +49,8 @@ type TableGroupContentType = {
     handleDeleteTable: ReactEventHandler;
     handleRollTable: ReactEventHandler;
     querySiblingSubtableInExtendedGroup: QuerySiblingSubtableInExtendedFnType;
-  }
+  };
+  bookTheme: BookThemeType;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,7 +90,8 @@ const AvailableOptions = () => {
 
 const TableGroupContent: React.FC<TableGroupContentType> = ({
   showIds, tableGroup,
-  tableGroupData, callbacks
+  tableGroupData, callbacks,
+  bookTheme
 }) => {
   const tableSelected = tableGroupData.selectedTable !== "none";
   const {
@@ -126,6 +129,7 @@ const TableGroupContent: React.FC<TableGroupContentType> = ({
             tableGroupId={tableGroupData.tgId}
             subtableGroupId={subtableId}
             querySiblingSubtableInExtendedGroup = {querySiblingSubtableInExtendedGroup}
+            bookTheme={bookTheme}
             key={subtableId}
           />
         ))}

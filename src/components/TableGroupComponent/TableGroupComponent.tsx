@@ -14,7 +14,7 @@
 // 6. Configuration data
 // 7. Components
 
-import React, { useState, useContext, Dispatch, ReactEventHandler } from 'react';
+import React, { useState, Dispatch, ReactEventHandler } from 'react';
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
@@ -32,7 +32,7 @@ import {
   allTablesDisplaySpecsByBook, tableNamesByBooks,
   getKeysFromSelectValue, getSelectValueFromKeys
 } from "../../model/TableKeyStructuresAndFormats";
-import { BookThemeContext } from "../../util/BookThemeContext";
+import { bookThemePackager } from "../../util/BookThemeContext";
 
 import selectionNameToLinkMap from "../../controlPanel/selectionNameToLinkMap.json"
 import {SelectionNameToLinkMapType} from "../../controlPanel/types/selectionNameToLinkMapType";
@@ -87,7 +87,7 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
   tableGroup,
   setTableGroup
 }) => {
-  const setBookTheme = useContext(BookThemeContext).setBookTheme;
+  const bookTheme = tableGroup ? bookThemePackager(tableGroup.bookKey) : bookThemePackager(undefined);
 
   // reads from tableGroup's (in Store) keys what the select value should be
   const initialSelectedTable = getSelectValueFromKeys(tableGroup?.bookKey, tableGroup?.tableKey);
@@ -95,16 +95,15 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
   const [selectedTable, setSelectedTable] = useState<"none" | AllTableSelectValues>(initialSelectedTable);
 
   const handleSelectTable: ReactEventHandler = (event: React.ChangeEvent<HTMLSelectElement>) => setSelectedTable(event.target.value as "none" | AllTableSelectValues);
-  const handleDeleteTable: ReactEventHandler = () => deleteTableGroup(tableGroupId);
+  const handleDeleteTable: ReactEventHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    deleteTableGroup(tableGroupId);
+  }
   
   const handleRollTable: ReactEventHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!initialized) {setInitialized(true);}
-
-    if (selectedTable !== "none" && setTableGroup) {
-      setTableGroup(tableGroupId, selectedTable);
-      setBookTheme(selectedTable.split("-")[0] as AllBookNames);
-    }
+    if (selectedTable !== "none" && setTableGroup) { setTableGroup(tableGroupId, selectedTable); }
   };
 
   // query sibling subtableGroup in case of displaySpec.format == "mDetail ref"
@@ -136,6 +135,7 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
           handleSelectTable, handleDeleteTable, handleRollTable,
           querySiblingSubtableInExtendedGroup
         }}
+        bookTheme={bookTheme}
       />
     )
   } else {
@@ -146,7 +146,7 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
 const mapStateToProps = (state: RootState, ownProps: TableGroupComponentProps) => {
   const { tableGroupId } = ownProps;
   return { 
-    tableGroup: selectTableGroupById(state, tableGroupId),
+    tableGroup: selectTableGroupById(state, tableGroupId)
   }
 };
 

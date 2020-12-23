@@ -4,7 +4,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                        IMPORTS
 
-import React, { createContext, useState } from 'react';
+// import React, { createContext, useState } from 'react';
 
 import { AllBookNames } from "../model/TableKeyStructuresAndFormats";
 import buttonStyles from "../assets/styles/Buttons.module.sass";
@@ -12,7 +12,7 @@ import buttonStyles from "../assets/styles/Buttons.module.sass";
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                          SETUP
 
-type HasComponentChildren = { children: React.ReactNode[] | React.ReactNode };
+// type HasComponentChildren = { children: React.ReactNode[] | React.ReactNode };
 
 type NodeColorAttributes = {
   bg?: string;
@@ -35,7 +35,7 @@ type BookColorsCollectionType = {
   [key in AllBookNames]: BookColorsType
 };
 
-type BookThemeType = {
+export type BookThemeType = {
   subtableGroupComponent: {
     headerDiv: string;
     controlContainer: string;
@@ -174,7 +174,7 @@ const undefinedBookColors: BookColorsType = {
   }
 };
 
-const bookThemePackager = (bookKey: AllBookNames | undefined): BookThemeType => {
+export const bookThemePackager = (bookKey: AllBookNames | undefined): BookThemeType => {
   const bookColors = bookKey !== undefined ? bookColorsCollection[bookKey] : undefinedBookColors;
   return {
     subtableGroupComponent: {
@@ -224,29 +224,38 @@ const bookThemePackager = (bookKey: AllBookNames | undefined): BookThemeType => 
   }
 };
 
-const defaultBookThemeContext = {
-  bookTheme: bookThemePackager(undefined),
-  setBookTheme: (input: AllBookNames|undefined) => {}
-};
 
-export const BookThemeContext = createContext(defaultBookThemeContext);
+/*
 
-const BookThemeContextProvider = ({ children }: HasComponentChildren) => {
-  const [activeBookKey, setSelectedBookKey] = useState<AllBookNames|undefined>(undefined);
-  const bookThemeContext = {
-    bookTheme: bookThemePackager(activeBookKey),
-    setBookTheme: setSelectedBookKey
-  };
-  console.log("bookthemecontextprovider ran");
-  // console.log(`bookthemecontextprovider activeBookKey: ${activeBookKey}`);
-  // console.log(`bookthemecontextprovider bookTheme:`);
-  // console.log(bookThemeContext.bookTheme);
+Previous version of this app used Context to supply theme to components
+However this created the unintentional effect of making all TableGroup components globally use the same theme
 
-  return (
-    <BookThemeContext.Provider value={bookThemeContext}>
-      {children}
-    </BookThemeContext.Provider>
-  );
-};
+*/
 
-export default BookThemeContextProvider;
+
+// const defaultBookThemeContext = {
+//   bookTheme: bookThemePackager(undefined),
+//   setBookTheme: (input: AllBookNames|undefined) => {}
+// };
+
+// export const BookThemeContext = createContext(defaultBookThemeContext);
+
+// const BookThemeContextProvider = ({ children }: HasComponentChildren) => {
+//   const [activeBookKey, setSelectedBookKey] = useState<AllBookNames|undefined>(undefined);
+//   const bookThemeContext = {
+//     bookTheme: bookThemePackager(activeBookKey),
+//     setBookTheme: setSelectedBookKey
+//   };
+
+//   // console.log(`bookthemecontextprovider activeBookKey: ${activeBookKey}`);
+//   // console.log(`bookthemecontextprovider bookTheme:`);
+//   // console.log(bookThemeContext.bookTheme);
+
+//   return (
+//     <BookThemeContext.Provider value={bookThemeContext}>
+//       {children}
+//     </BookThemeContext.Provider>
+//   );
+// };
+
+// export default BookThemeContextProvider;

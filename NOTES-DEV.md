@@ -1,10 +1,11 @@
 //////////////////////////////////////////////////////////////////
 12/22 05:16 PM
 
-- Make sure it looks good on mobile
-- Take care of react warnings
-- Add React Component Transition Animations
-    - https://reactjs.org/docs/animation.html
+- [x] FIX CONTEXT BUG - all tablegroups have same context
+- [ ] Make sure it looks good on mobile
+- [ ] Take care of react warnings
+- [ ] Add React Component Transition Animations
+    - [ ] https://reactjs.org/docs/animation.html
 
 
 //////////////////////////////////////////////////////////////////

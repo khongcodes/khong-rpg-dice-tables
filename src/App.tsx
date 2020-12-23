@@ -11,7 +11,6 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Layout from "./components/Layout";
-import BookThemeContextProvider from "./util/BookThemeContext";
 
 import Home from "./views/Home";
 import About from "./views/About";
@@ -31,7 +30,6 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <BookThemeContextProvider>
       <Layout >
         <Routes>
           <Route path="/about" element={<About />} />
@@ -39,7 +37,6 @@ const App = () => {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>
-      </BookThemeContextProvider>
     </BrowserRouter>
   );
 }
