@@ -3,8 +3,7 @@
 
 import {
   CombinedBodyRollType, CombinedRollValuesType,
-  NestedNamedRangeRollValue, RangeDetailRollValue, RangeSimpleRollValue, SimpleRollValue, DetailRollValue,
-  OnerollSimpleRangetableRolltype
+  NestedNamedRangeRollValue, RangeDetailRollValue, RangeSimpleRollValue, SimpleRollValue, DetailRollValue
 } from "../model/DiceRollTypes";
 
 

@@ -26,8 +26,6 @@ import {
 import { AllBookNames, AllTableNames } from "../../model/TableKeyStructuresAndFormats";
 import rpgData from "../../data/loader";
 
-import {rollValues} from "../../util/rollDice";
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                          SETUP

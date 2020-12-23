@@ -10,13 +10,16 @@ import React from 'react';
 
 import aboutStyles from "../assets/styles/views/About.module.sass";
 
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
-////////////////                                                             COMPONENTS & LOGIC
+////////////////                                                                          SETUP
 
 const LinkNewTab: React.FC<{url: string; text: string}> = ({url, text}) => (
   <a href={url} target="_blank" rel="noopener noreferrer">{text}</a>
 );
-const ObviousLink: React.FC<{url: string}> = ({url}) => <LinkNewTab url={url} text={url}/>;
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                             COMPONENTS & LOGIC
 
 const About: React.FC = () => {
   return (

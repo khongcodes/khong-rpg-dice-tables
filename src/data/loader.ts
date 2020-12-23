@@ -34,9 +34,11 @@ const combineCommonSubtables = (tableJson: any): object => {
   const commonSubtableKeys = Object.keys(tableJson.main.common);
 
   const returnObj: {[key: string]: any} = {};
-  const tables = tableKeys.map(tableKey => {
-    const subtableKeys = Object.keys(tableJson.main[tableKey])
+  
+  for (const tableKey of tableKeys) {
+    const subtableKeys = Object.keys(tableJson.main[tableKey]);
     const returnTable: {"main": {[key: string]: any}} = {main: {}};
+    
     for (let i = 0; i < subtableKeys.length; i++) {
       returnTable.main[subtableKeys[i]] = tableJson.main[tableKey][subtableKeys[i]];
     }
@@ -44,8 +46,8 @@ const combineCommonSubtables = (tableJson: any): object => {
       returnTable.main[commonSubtableKeys[i]] = tableJson.main.common[commonSubtableKeys[i]];
     }
     returnObj[tableKey] = returnTable;
-    return returnTable;
-  })
+  };
+  
   return returnObj;
 }
 

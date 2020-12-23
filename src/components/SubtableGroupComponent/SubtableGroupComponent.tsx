@@ -135,16 +135,12 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
   //      (or clicking "reroll" button on tableGroup)
   //  )
 
-  const subtableGroupExists = !!subtableGroup;
   const subtableGroupHasNoBodyRolls: boolean = subtableGroup?.bodyRollCollection.length === 0;
   const subtableGroupIsMeantToStartNoBodyRolls: boolean = subtableGroup?.displaySpec.initialRollCount !== 0;
   const subtableGroupAlreadyInitialized: boolean = !!subtableGroup?.initalized;
 
   useEffect(() => {
-    // initializeSubtableBodyRolls needs to be confirmed as !undefined
-    
     if ((initializeSubtableBodyRolls && subtableGroup && subtableData) && (subtableGroupHasNoBodyRolls && subtableGroupIsMeantToStartNoBodyRolls && !subtableGroupAlreadyInitialized)) {
-      // const { initialRollCount } = subtableGroup.displaySpec;
       const initialRollCount = subtableGroup.displaySpec.initialRollCount || 1;
       const bodyRollsData: InitializeSubtableDispatchBodyRollInput = [];
       let rollCount = initialRollCount;
@@ -169,7 +165,17 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
       }
       initializeSubtableBodyRolls({ tableGroupId, subtableGroupId }, bodyRollsData);
     }
-  }, [subtableGroupExists, initializeSubtableBodyRolls, querySiblingSubtableInExtendedGroup, subtableData, subtableGroupId, tableGroupId, subtableGroupHasNoBodyRolls, subtableGroupIsMeantToStartNoBodyRolls])
+  }, [
+    subtableGroup,
+    initializeSubtableBodyRolls,
+    subtableGroupAlreadyInitialized,
+    querySiblingSubtableInExtendedGroup,
+    subtableData,
+    subtableGroupId,
+    tableGroupId,
+    subtableGroupHasNoBodyRolls,
+    subtableGroupIsMeantToStartNoBodyRolls
+  ])
 
   const handleRerollAllBodyRolls = () => {
     if (rerollAllBodyRolls && subtableGroup && subtableData) {
@@ -231,7 +237,7 @@ const SubtableGroupComponent: React.FC<SubtableGroupComponentProps> = ({
 }
 
 const mapStateToProps = (state: RootState, ownProps: SubtableGroupComponentProps) => {
-  const { subtableGroupId, tableGroupId } = ownProps;
+  const { subtableGroupId } = ownProps;
   return {
     subtableGroup: selectSubtableGroupById(state, subtableGroupId),
     subtableData: selectSubtableGroupDataInTableGroupData(state, subtableGroupId)
