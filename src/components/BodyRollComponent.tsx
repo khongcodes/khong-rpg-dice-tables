@@ -11,8 +11,9 @@
 // 6. Components
 // 7. Styles
 
-import React, { Dispatch } from 'react';
+import React, { Dispatch, useState, useRef } from 'react';
 import { connect } from "react-redux";
+import { CSSTransition } from "react-transition-group";
 
 import { RootState, RootAction } from "../store";
 import { BodyRoll } from '../store/bodyRolls/types';
@@ -59,7 +60,7 @@ type BodyRollComponentMappedDispatch = {
 
 type FormattedBodyRollContentInput = {
   format: AllBodyRollFormats;
-  value: CombinedRollValuesType
+  value: CombinedRollValuesType | undefined;
 }
 
 
@@ -113,9 +114,17 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
   showIds, bodyRollId, rerollFn, rerollBodyRollMDetailRef,
   bodyRoll, format,
   deleteBodyRoll
-}) => {
-  
-  const handleReroll = () => {
+}) => {  
+  const [transition, setTransition] = useState<boolean>(false);
+
+  const handleRerollButton = () => {
+    // signal CSSTransition to EXIT previous roll value, then in 100ms ENTER
+    setTransition(false);
+    setTimeout(() => setTransition(true), 100);
+  };
+  const transitionalNode = useRef(null);
+
+  const actuallyReroll = () => {
     if (format === "mDetail ref") {
       rerollBodyRollMDetailRef(bodyRollId);
     } else {
@@ -125,8 +134,7 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
   
   const handleDelete = () => {
     if (bodyRoll && deleteBodyRoll) { deleteBodyRoll(bodyRoll.subtableGroupId, bodyRollId); }
-  }
-
+  };
 
   return (
     <div id={bodyRollStyles.brRoot}>
@@ -136,20 +144,26 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
         <BRButton type="delete" callback={handleDelete} />
       </div>
 
-      {
-        bodyRoll ? 
-          <div id={bodyRollStyles.contentContainer}>
+        {/* CSSTransition triggers rerolling on transition-enter */}
+        <CSSTransition
+          in={transition}
+          classNames="bodyrollTransition"
+          timeout={300}
+          nodeRef={transitionalNode}
+          onEntering={actuallyReroll}
+        >
+          <div id={bodyRollStyles.contentContainer} ref={transitionalNode}>
             <FormattedBodyRollContent 
               format={format as AllBodyRollFormats}
-              value={bodyRoll.value}
+              value={bodyRoll?.value}
             />
           </div>
-        : <></>
-      }
+        </CSSTransition>
 
       <div className={bodyRollStyles.buttonContainer}>
-        <BRButton type="reroll" callback={handleReroll} />
+        <BRButton type="reroll" callback={handleRerollButton} />
       </div>
+      
     </div>
   )
 };

@@ -12,9 +12,10 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { css, jsx } from "@emotion/react";
 import clsx from "clsx";
+import { CSSTransition } from "react-transition-group";
 
 import { SubtableGroup } from "../../store/subtableGroups/types";
 
@@ -98,12 +99,28 @@ const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
   const [controlsVisible, setControlsVisible] = useState<boolean>(false);
   const toggleControlsVisible = () => setControlsVisible(!controlsVisible);
 
+  // Prepare theme for child components
   const sgTheme = bookTheme.subtableGroupComponent;
   const sgExpandTheme = bookTheme.sgExpandButton;
   const sgButtonTheme = bookTheme.sgControlButton;
 
+  // Prepare CSSTransition
+  const [transition, setTransition] = useState<boolean>(false);
+  const transitionalNode = useRef(null)
+  useEffect(() => {
+    setTransition(true);
+  }, [setTransition])
+
   return (
-    <div className={subtableStyles.subtableRoot}>
+    <div className={subtableStyles.rootContainer}>
+      {/* <CSSTransition
+        in={transition}
+        classNames="bodyrollTransition"
+        timeout={300}
+        nodeRef={transitionalNode}
+      > */}
+    <div className={subtableStyles.subtableRoot} ref={transitionalNode}>
+      
       <div 
         className={subtableStyles.titleContainer}
         css={css(sgTheme.headerDiv)}
@@ -160,6 +177,8 @@ const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
         )) : <React.Fragment></React.Fragment>
       }
 
+    </div>
+      {/* </CSSTransition> */}
     </div>
   )
 }

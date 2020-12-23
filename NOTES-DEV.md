@@ -1,4 +1,11 @@
 //////////////////////////////////////////////////////////////////
+12/23 05:19 PM
+
+- Implemented a basic CSS Transition Group
+- get it working for subtable components
+- move state of bodyrollTransition to Subtable group so Reroll-all can also trigger it
+
+//////////////////////////////////////////////////////////////////
 12/22 05:16 PM
 
 - [x] FIX CONTEXT BUG - all tablegroups have same context

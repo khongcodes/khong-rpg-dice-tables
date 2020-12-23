@@ -10,7 +10,8 @@
 // 5. Components
 // 6. Styles
 
-import React, { ReactEventHandler } from 'react';
+import React, { ReactEventHandler, useState, useEffect } from 'react';
+import { CSSTransition } from "react-transition-group";
 
 import { TableGroup } from '../../store/tableGroups/types';
 
@@ -124,6 +125,13 @@ const TableGroupContent: React.FC<TableGroupContentType> = ({
 
       <div className={tableStyles.subtableCollectionContainer}>
         {tableGroup.subtableCollection.map(subtableId => (
+          // <CSSTransition
+          //   in={transition}
+          //   classNames="bodyrollTransition"
+          //   timeout={300}
+          //   key={subtableId}
+          //   // nodeRef={transitionalNode}
+          // >
           <SubtableGroupComponent
             showIds={showIds}
             tableGroupId={tableGroupData.tgId}
@@ -132,6 +140,7 @@ const TableGroupContent: React.FC<TableGroupContentType> = ({
             bookTheme={bookTheme}
             key={subtableId}
           />
+          // </CSSTransition>
         ))}
       </div>
 

@@ -201,3 +201,18 @@ $inter-font-path: "../fonts/inter/";
     100%  { background-color: $brButton-hover; }
   }
 }
+
+.bodyrollTransition-enter, .bodyrollTransition-appear { 
+  transform: translate(0, -150%);
+}
+.bodyrollTransition-enter-active, .bodyrollTransition-appear-active {
+  transform: translate(0, 0);
+  transition: transform 0.3s, height 0.3s;
+}
+.bodyrollTransition-exit {
+  transform: translate(0, 0);
+}
+.bodyrollTransition-exit-active {
+  transform: translate(0, 150%);
+  transition: transform 0.3s, height 0.3s;
+}
