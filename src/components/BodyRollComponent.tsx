@@ -11,7 +11,7 @@
 // 6. Components
 // 7. Styles
 
-import React, { Dispatch, useState, useRef } from 'react';
+import React, { Dispatch, useState, useRef, useEffect } from 'react';
 import { connect } from "react-redux";
 import { CSSTransition } from "react-transition-group";
 
@@ -75,7 +75,9 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
     case (format === "simple"):
       return (
         <div>
-          <p>{(value as SimpleRollValue).value}</p>
+          <p>{
+            (value as SimpleRollValue).value
+          }</p>
         </div>
       )
 
@@ -116,15 +118,28 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
   deleteBodyRoll
 }) => {  
   const [transition, setTransition] = useState<boolean>(false);
-
-  const handleRerollButton = () => {
-    // signal CSSTransition to EXIT previous roll value, then in 100ms ENTER
-    setTransition(false);
-    setTimeout(() => setTransition(true), 100);
-  };
   const transitionalNode = useRef(null);
 
-  const actuallyReroll = () => {
+  const usePrevious = <T extends unknown>(value: T): T | undefined => {
+    const ref = useRef<T>();
+    useEffect(() => {
+      ref.current = value;
+    });
+    return ref.current;
+  }
+
+  // transition with different intervals for initializing and rerolling
+  const prevBodyRollId = usePrevious(bodyRollId);
+
+  useEffect(() => {
+    setTransition(false);
+    const thisIsAReroll: boolean = prevBodyRollId === bodyRollId;
+    const interval: number = thisIsAReroll ? 50 : 0;
+    const timer: NodeJS.Timeout = setTimeout(() => setTransition(true), interval)
+    return (() => clearTimeout(timer));
+  }, [bodyRollId, bodyRoll, prevBodyRollId])
+
+  const handleReroll = () => {
     if (format === "mDetail ref") {
       rerollBodyRollMDetailRef(bodyRollId);
     } else {
@@ -133,7 +148,12 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
   };
   
   const handleDelete = () => {
-    if (bodyRoll && deleteBodyRoll) { deleteBodyRoll(bodyRoll.subtableGroupId, bodyRollId); }
+    if (bodyRoll && deleteBodyRoll) {
+      setTransition(false);
+      setTimeout(() => {
+        deleteBodyRoll(bodyRoll.subtableGroupId, bodyRollId);
+      }, 100);
+    }
   };
 
   return (
@@ -150,9 +170,11 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
           classNames="bodyrollTransition"
           timeout={300}
           nodeRef={transitionalNode}
-          onEntering={actuallyReroll}
         >
-          <div id={bodyRollStyles.contentContainer} ref={transitionalNode}>
+          <div 
+            id={bodyRollStyles.contentContainer}
+            ref={transitionalNode}
+          >
             <FormattedBodyRollContent 
               format={format as AllBodyRollFormats}
               value={bodyRoll?.value}
@@ -161,7 +183,7 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
         </CSSTransition>
 
       <div className={bodyRollStyles.buttonContainer}>
-        <BRButton type="reroll" callback={handleRerollButton} />
+        <BRButton type="reroll" callback={handleReroll} />
       </div>
       
     </div>

@@ -202,17 +202,58 @@ $inter-font-path: "../fonts/inter/";
   }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                    TRANSITIONS
+
 .bodyrollTransition-enter, .bodyrollTransition-appear { 
   transform: translate(0, -150%);
 }
 .bodyrollTransition-enter-active, .bodyrollTransition-appear-active {
   transform: translate(0, 0);
-  transition: transform 0.3s, height 0.3s;
+  transition: transform 0.3s;
 }
 .bodyrollTransition-exit {
   transform: translate(0, 0);
 }
 .bodyrollTransition-exit-active {
   transform: translate(0, 150%);
-  transition: transform 0.3s, height 0.3s;
+  transition: transform 0.3s;
+}
+
+.tgHeight-enter {
+  height: 0px;
+  margin-bottom: 0px;
+}
+.tgHeight-enter-active {
+  height: 42px;
+  margin-bottom: 32px;
+  transition: height 0.3s, margin-bottom 0.3s;
+}
+.tgHeight-exit {
+  height: 42px;
+  margin-bottom: 32px;
+}
+.tgHeight-exit-active {
+  height: 0px;
+  margin-bottom: 0px;
+  transition: height 0.3s, margin-bottom 0.3s;
+}
+
+.sgHeight-enter {
+  transform: translate(0, -150%);
+  margin-bottom: 0px;
+}
+.sgHeight-enter-active {
+  transform: translate(0, 0%);
+  margin-bottom: 24px;
+  transition: margin-bottom 0.3s, transform 0.2s;
+}
+.sgHeight-exit {
+  transform: translate(0, 0%);
+  margin-bottom: 24px;
+}
+.sgHeight-exit-active {
+  transform: translate(0, 150%);
+  margin-bottom: 0px;
+  transition: margin-bottom 0.3s, transform 0.2s;
 }

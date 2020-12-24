@@ -10,7 +10,7 @@
 // 5. Components
 // 6. Styles
 
-import React, { ReactEventHandler, useState, useEffect } from 'react';
+import React, { ReactEventHandler, useState, useEffect, useRef } from 'react';
 import { CSSTransition } from "react-transition-group";
 
 import { TableGroup } from '../../store/tableGroups/types';
@@ -100,15 +100,32 @@ const TableGroupContent: React.FC<TableGroupContentType> = ({
     querySiblingSubtableInExtendedGroup
   } = callbacks;
 
-  return (
-    <div className={tableStyles.tableRoot}>
-      { showIds ? <RenderTableGroupStoreData tableGroupStoreData={tableGroupData} /> : <></> }
+  const transitionalNodeT = useRef(null);
+  const [transitionTG, setTransitionTG] = useState<boolean>(false);
 
+  useEffect(() => { setTransitionTG(true); }, [tableGroup.id]);
+
+  const transitionDelete = (event: React.SyntheticEvent<Element, Event>) => {
+    event.preventDefault();
+    setTransitionTG(false);
+    setTimeout(() => {handleDeleteTable(event)}, 300);
+  };
+
+  return (
+    <CSSTransition
+      in={transitionTG}
+      classNames="tgHeight"
+      timeout={300}
+      key={tableGroup.id}
+      nodeRef={transitionalNodeT}
+    >
+    <div className={tableStyles.tableRoot} ref={transitionalNodeT}>
+      { showIds ? <RenderTableGroupStoreData tableGroupStoreData={tableGroupData} /> : <></> }
       <form 
         className={tableStyles.tableGroupControl}
         onSubmit={handleRollTable}
       >
-        <CloseTGButton deleteObjectCallback={handleDeleteTable} />
+        <CloseTGButton deleteObjectCallback={transitionDelete} />
 
         <select value={tableGroupData.selectedTable} onChange={handleSelectTable}>
           <option value="none">Select a table</option>
@@ -146,6 +163,7 @@ const TableGroupContent: React.FC<TableGroupContentType> = ({
 
 
     </div>
+    </CSSTransition>
   )
 };
 

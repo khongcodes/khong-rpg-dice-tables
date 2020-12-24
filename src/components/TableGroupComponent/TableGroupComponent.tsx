@@ -95,10 +95,7 @@ const TableGroupComponent: React.FC<TableGroupComponentProps> = ({
   const [selectedTable, setSelectedTable] = useState<"none" | AllTableSelectValues>(initialSelectedTable);
 
   const handleSelectTable: ReactEventHandler = (event: React.ChangeEvent<HTMLSelectElement>) => setSelectedTable(event.target.value as "none" | AllTableSelectValues);
-  const handleDeleteTable: ReactEventHandler = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    deleteTableGroup(tableGroupId);
-  }
+  const handleDeleteTable: ReactEventHandler = (event: React.FormEvent<HTMLFormElement>) => deleteTableGroup(tableGroupId);
   
   const handleRollTable: ReactEventHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

@@ -17,12 +17,14 @@ $rerollButtonContainerWidth: $sideButtonContainerWidth
   grid-template-columns: $deleteButtonContainerWidth auto $rerollButtonContainerWidth
   grid-template-rows: auto
   overflow: hidden
+  min-height: space(5)
+  height: fit-content
+  transition: height 0.3s
 
   #contentContainer
     padding: 0 space(1)
     overflow: hidden
-    // height: fit-content
-    // transition: height 0.3s
+    height: fit-content
 
 .buttonContainer
   text-align: center

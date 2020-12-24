@@ -112,73 +112,73 @@ const SubtableGroupContent: React.FC<SubtableContentPropType> = ({
   }, [setTransition])
 
   return (
-    <div className={subtableStyles.rootContainer}>
-      {/* <CSSTransition
+    <div className={subtableStyles.subtableTransitionContainer}>
+      <CSSTransition
         in={transition}
-        classNames="bodyrollTransition"
+        classNames="sgHeight"
         timeout={300}
         nodeRef={transitionalNode}
-      > */}
-    <div className={subtableStyles.subtableRoot} ref={transitionalNode}>
-      
-      <div 
-        className={subtableStyles.titleContainer}
-        css={css(sgTheme.headerDiv)}
       >
-        <h3>{subtableGroup.displaySpec.name}</h3>
-        
-        <SGExpandButton
-          callback={toggleControlsVisible}
-          state={controlsVisible}
-          theme={sgExpandTheme}
-        />
+        <div className={subtableStyles.subtableRoot} ref={transitionalNode}>
+          
+          <div 
+            className={subtableStyles.titleContainer}
+            css={css(sgTheme.headerDiv)}
+          >
+            <h3>{subtableGroup.displaySpec.name}</h3>
+            
+            <SGExpandButton
+              callback={toggleControlsVisible}
+              state={controlsVisible}
+              theme={sgExpandTheme}
+            />
 
-        <div 
-          className={clsx(subtableStyles.titleSpacer, {[subtableStyles.invisible]: !controlsVisible})}
-          css={css(sgTheme.controlContainer)}
-        />
-      </div>
+            <div 
+              className={clsx(subtableStyles.titleSpacer, {[subtableStyles.invisible]: !controlsVisible})}
+              css={css(sgTheme.controlContainer)}
+            />
+          </div>
 
-      {showIds ? <RenderSubtableGroupStoreData sgData={renderedSubtableData}/> : <React.Fragment></React.Fragment>}
+          {showIds ? <RenderSubtableGroupStoreData sgData={renderedSubtableData}/> : <React.Fragment></React.Fragment>}
 
-      <div 
-        className={clsx(subtableStyles.buttonContainer, {[subtableStyles.invisible]: !controlsVisible})}
-        css={css(sgTheme.controlContainer)}
-      >
-        <SGButton
-          type="close all"
-          callback={handleDeleteAllBodyRolls}
-          theme={sgButtonTheme}
-          visible={controlsVisible}
-        />
-        <SGButton
-          type="reroll all"
-          callback={handleRerollAllBodyRolls}
-          theme={sgButtonTheme}
-          visible={controlsVisible}
-        />
-        <SGButton 
-          type="add one"
-          callback={handleAddBodyRoll}
-          theme={sgButtonTheme}
-          visible={controlsVisible}
-        />
-      </div>
+          <div 
+            className={clsx(subtableStyles.buttonContainer, {[subtableStyles.invisible]: !controlsVisible})}
+            css={css(sgTheme.controlContainer)}
+          >
+            <SGButton
+              type="close all"
+              callback={handleDeleteAllBodyRolls}
+              theme={sgButtonTheme}
+              visible={controlsVisible}
+            />
+            <SGButton
+              type="reroll all"
+              callback={handleRerollAllBodyRolls}
+              theme={sgButtonTheme}
+              visible={controlsVisible}
+            />
+            <SGButton 
+              type="add one"
+              callback={handleAddBodyRoll}
+              theme={sgButtonTheme}
+              visible={controlsVisible}
+            />
+          </div>
 
-      {
-        rerollBodyRoll && rerollBodyRollMDetailReference ? subtableGroup.bodyRollCollection.map(bodyRollId => (
-          <BodyRollComponent 
-            showIds={showIds}
-            bodyRollId={bodyRollId}
-            rerollFn={rerollBodyRoll(subtableData)}
-            rerollBodyRollMDetailRef={rerollBodyRollMDetailReference(subtableGroup, subtableData, querySiblingSubtableInExtendedGroup, getValueForMDetailReferenceFormat)}
-            key={bodyRollId}
-          />
-        )) : <React.Fragment></React.Fragment>
-      }
+          {
+            rerollBodyRoll && rerollBodyRollMDetailReference ? subtableGroup.bodyRollCollection.map(bodyRollId => (
+              <BodyRollComponent 
+                showIds={showIds}
+                bodyRollId={bodyRollId}
+                rerollFn={rerollBodyRoll(subtableData)}
+                rerollBodyRollMDetailRef={rerollBodyRollMDetailReference(subtableGroup, subtableData, querySiblingSubtableInExtendedGroup, getValueForMDetailReferenceFormat)}
+                key={bodyRollId}
+              />
+            )) : <React.Fragment></React.Fragment>
+          }
 
-    </div>
-      {/* </CSSTransition> */}
+        </div>
+      </CSSTransition>
     </div>
   )
 }
