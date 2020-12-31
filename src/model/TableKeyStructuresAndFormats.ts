@@ -151,63 +151,63 @@ export const tableIdentObjs = <const> [
   },
   {
     selectValue: "lancer-iterativeWorld",
-    stringName: "LANCER - Iterative World Generation"
+    stringName: "Iterative World Generation"
   },
   {
     selectValue: "lancer-spaceStation",
-    stringName: "LANCER / The Long Rim - Space Station"
+    stringName: "The Long Rim - Space Station"
   },
   {
     selectValue: "lancer-spaceStationNPC",
-    stringName: "LANCER / The Long Rim - Space Station NPC"
+    stringName: "The Long Rim - Space Station NPC"
   },
   {
     selectValue: "lancer-pirateBand",
-    stringName: "LANCER / The Long Rim - Pirate Band"
+    stringName: "The Long Rim - Pirate Band"
   },
   {
     selectValue: "lancer-enterprises",
-    stringName: "LANCER / The Long Rim - Rim Enterprise"
+    stringName: "The Long Rim - Rim Enterprise"
   },
   {
     selectValue: "mothership-trinketsPatches",
-    stringName: "Mothership RPG - Trinkets & Patches"
+    stringName: "Trinkets & Patches"
   },
   {
     selectValue: "mothership-spaceStationCorespace",
-    stringName: "Mothership RPG / Pound of Flesh - Space Station (Corespace)"
+    stringName: "Pound of Flesh - Space Station (Corespace)"
   },
   {
     selectValue: "mothership-spaceStationRimspace",
-    stringName: "Mothership RPG / Pound of Flesh - Space Station (Rimspace)"
+    stringName: "Pound of Flesh - Space Station (Rimspace)"
   },
   {
     selectValue: "mothership-derelictShip",
-    stringName: "Mothership RPG / Dead Planet - Derelict Ship"
+    stringName: "Dead Planet - Derelict Ship"
   },
   {
     selectValue: "uvg-quickHeroChar",
-    stringName: "UVG - Quick Hero Character"
+    stringName: "Quick Hero Character"
   },
   {
     selectValue: "uvg-otherVoyagers",
-    stringName: "UVG - Other Voyagers"
+    stringName: "Other Voyagers"
   },
   {
     selectValue: "uvg-biomagicalCorruption",
-    stringName: "UVG - Biomagical Corruption"
+    stringName: "Biomagical Corruption"
   },
   {
     selectValue: "uvg-histories",
-    stringName: "UVG - Histories"
+    stringName: "Histories"
   },
   {
     selectValue: "uvg-discovery",
-    stringName: "UVG - Discovery"
+    stringName: "Discovery"
   },
   {
     selectValue: "uvg-historicPeriodStyle",
-    stringName: "UVG - Historic Period/Style"
+    stringName: "Historic Period/Style"
   }
 ];
 
@@ -313,7 +313,7 @@ const lancerOutputSpecs: LancerOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "lancer-iterativeWorld",
-      stringName: "LANCER - Iterative World Generation",
+      stringName: "Iterative World Generation",
     },
     body: {
       main: {
@@ -340,7 +340,7 @@ const lancerOutputSpecs: LancerOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "lancer-spaceStation",
-      stringName: "LANCER / The Long Rim - Space Station"
+      stringName: "The Long Rim - Space Station"
     },
     body: {
       main: {
@@ -378,7 +378,7 @@ const lancerOutputSpecs: LancerOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "lancer-spaceStationNPC",
-      stringName: "LANCER / The Long Rim - Space Station NPC"
+      stringName: "The Long Rim - Space Station NPC"
     },
     body: {
       main: {
@@ -410,7 +410,7 @@ const lancerOutputSpecs: LancerOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "lancer-pirateBand",
-      stringName: "LANCER / The Long Rim - Pirate Band"
+      stringName: "The Long Rim - Pirate Band"
     },
     body: {
       main: {
@@ -434,7 +434,7 @@ const lancerOutputSpecs: LancerOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "lancer-enterprises",
-      stringName: "LANCER / The Long Rim - Rim Enterprise"
+      stringName: "The Long Rim - Rim Enterprise"
     },
     body: {
       main: {
@@ -462,7 +462,7 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "mothership-trinketsPatches",
-      stringName: "Mothership RPG - Trinkets & Patches"
+      stringName: "Trinkets & Patches"
     },
     body: {
       main: {
@@ -483,7 +483,7 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "mothership-spaceStationCorespace",
-      stringName: "Mothership RPG / Pound of Flesh - Space Station (Corespace)"
+      stringName: "Pound of Flesh - Space Station (Corespace)"
     },
     body: {
       main: {
@@ -539,7 +539,7 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "mothership-spaceStationRimspace",
-      stringName: "Mothership RPG / Pound of Flesh - Space Station (Rimspace)"
+      stringName: "Pound of Flesh - Space Station (Rimspace)"
     },
     body: {
       main: {
@@ -599,7 +599,7 @@ const mothershipOutputSpecs: MothershipOutputSpecType = {
     referenceType: "reference",
     tableName: {
       selectValue: "mothership-derelictShip",
-      stringName: "Mothership RPG / Dead Planet - Derelict Ship"
+      stringName: "Dead Planet - Derelict Ship"
     },
     body: {
       main: {
@@ -675,7 +675,7 @@ const uvgOutputSpecs: UvgOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "uvg-quickHeroChar",
-      stringName: "UVG - Quick Hero Character"
+      stringName: "Quick Hero Character"
     },
     body: {
       main: {
@@ -698,7 +698,7 @@ const uvgOutputSpecs: UvgOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "uvg-otherVoyagers",
-      stringName: "UVG - Other Voyagers"
+      stringName: "Other Voyagers"
     },
     body: {
       main: {
@@ -725,7 +725,7 @@ const uvgOutputSpecs: UvgOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "uvg-biomagicalCorruption",
-      stringName: "UVG - Biomagical Corruption"
+      stringName: "Biomagical Corruption"
     },
     body: {
       main: {
@@ -755,7 +755,7 @@ const uvgOutputSpecs: UvgOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "uvg-histories",
-      stringName: "UVG - Histories"
+      stringName: "Histories"
     },
     body: {
       main: {
@@ -782,7 +782,7 @@ const uvgOutputSpecs: UvgOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "uvg-discovery",
-      stringName: "UVG - Discovery"
+      stringName: "Discovery"
     },
     body: {
       main: {
@@ -821,7 +821,7 @@ const uvgOutputSpecs: UvgOutputSpecType = {
     referenceType: "simple",
     tableName: {
       selectValue: "uvg-historicPeriodStyle",
-      stringName: "UVG - Historic Period/Style"
+      stringName: "Historic Period/Style"
     },
     body: {
       main: {
