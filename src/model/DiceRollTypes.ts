@@ -304,7 +304,29 @@ export type UvgInputTypes = {
       period: OnerollStringTableRolltype;
     }
   };
-  
+  geographyAndNaturalScenery: {
+    main: {
+      hills: OnerollStringTableRolltype;
+      plains: OnerollStringTableRolltype;
+      valleys: OnerollStringTableRolltype;
+      water: OnerollStringTableRolltype;
+      ground: OnerollStringTableRolltype;
+      air: OnerollStringTableRolltype;
+      flora: OnerollStringTableRolltype;
+      fauna: OnerollStringTableRolltype;
+    }
+  };
+  weatherAndClimate: {
+    main: {
+      rainbowCalendar: OnerollStringTableRolltype;
+      commonNights: OnerollStringTableRolltype;
+      commonDays: OnerollStringTableRolltype;
+      extremeWeather: OnerollStringTableRolltype;
+      environmentalHazards: OnerollStringTableRolltype;
+      weirdStuff: OnerollStringTableRolltype;
+      trucking: OnerollStringTableRolltype;
+    }
+  };
 }
 
 export type CombinedInputDataType = 

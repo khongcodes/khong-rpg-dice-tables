@@ -18,13 +18,14 @@
   - [x] Your traveler
   - [x] Mutations
   - [x] Other voyagers
-  - [\] Tool or kit
-  - [\] Strange items or soap-sized treasures
-  - [\] D30 trade goods
+  - [x] Tool or kit
+  - [x] Strange items or soap-sized treasures
+  - [x] D30 trade goods
   - [x] Histories of the UVG
   - [x] Discovery
   - [x] Historic period/style of art
-  - [ ] Geography & Climate
+  - [x] Geography & Natural Scenery
+  - [x] Weather & Climate
   - [ ] Languages
   - [ ] Dead languages
 - [ ] Stars without number

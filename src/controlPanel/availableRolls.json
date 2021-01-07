@@ -63,6 +63,14 @@
         "stringName": "Tool or Kit"
       },
       {
+        "selectValue": "uvg-soapSizedTreasures",
+        "stringName": "Strange Items or Soap-sized Treasures"
+      },
+      {
+        "selectValue": "uvg-tradeGoods",
+        "stringName": "Ultraviolet Trade Goods"
+      },
+      {
         "selectValue": "uvg-histories",
         "stringName": "Histories"
       },
@@ -73,6 +81,14 @@
       {
         "selectValue": "uvg-historicPeriodStyle",
         "stringName": "Historic Period/Style"
+      },
+      {
+        "selectValue": "uvg-geographyAndNaturalScenery",
+        "stringName": "Geography and Natural Scenery"
+      },
+      {
+        "selectValue": "uvg-weatherAndClimate",
+        "stringName": "Weather and Climate"
       }
     ]
   ]

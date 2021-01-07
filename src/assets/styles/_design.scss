@@ -210,14 +210,14 @@ $inter-font-path: "../fonts/inter/";
 }
 .bodyrollTransition-enter-active, .bodyrollTransition-appear-active {
   transform: translate(0, 0);
-  transition: transform 0.3s;
+  transition: transform 0.4s;
 }
 .bodyrollTransition-exit {
   transform: translate(0, 0);
 }
 .bodyrollTransition-exit-active {
   transform: translate(0, 150%);
-  transition: transform 0.3s;
+  transition: transform 0.1s;
 }
 
 .tgHeight-enter {

@@ -125,6 +125,25 @@ const uvgTables = <const> {
     "movement",
     "culture",
     "period"
+  ],
+  geographyAndNaturalScenery: [
+    "hills",
+    "plains",
+    "valleys",
+    "water",
+    "ground",
+    "air",
+    "flora",
+    "fauna"
+  ],
+  weatherAndClimate: [
+    "rainbowCalendar",
+    "commonNights",
+    "commonDays",
+    "extremeWeather",
+    "environmentalHazards",
+    "weirdStuff",
+    "trucking"
   ]
 }
 
@@ -152,7 +171,9 @@ export const tableSelectValues = <const> [
   "uvg-tradeGoods",
   "uvg-histories",
   "uvg-discovery",
-  "uvg-historicPeriodStyle"
+  "uvg-historicPeriodStyle",
+  "uvg-geographyAndNaturalScenery",
+  "uvg-weatherAndClimate"
 ]
 
 // stringName format - 
@@ -233,6 +254,14 @@ export const tableIdentObjs = <const> [
   {
     selectValue: "uvg-historicPeriodStyle",
     stringName: "Historic Period/Style"
+  },
+  {
+    selectValue: "uvg-geographyAndNaturalScenery",
+    stringName: "Geography and Natural Scenery"
+  },
+  {
+    selectValue: "uvg-weatherAndClimate",
+    stringName: "Weather and Climate"
   }
 ];
 
@@ -802,7 +831,7 @@ const uvgOutputSpecs: UvgOutputSpecType = {
       main: {
         object: {
           name: "Strange Items or Soap-sized Treasures",
-          format: "object"
+          format: "simple"
         }
       }
     }
@@ -918,6 +947,88 @@ const uvgOutputSpecs: UvgOutputSpecType = {
         },
         period: {
           name: "Period",
+          format: "simple"
+        }
+      }
+    }
+  },
+  geographyAndNaturalScenery: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "uvg-geographyAndNaturalScenery",
+      stringName: "Geography and Natural Scenery"
+    },
+    body: {
+      main: {
+        hills: {
+          name: "Hills",
+          format: "simple"
+        },
+        plains: {
+          name: "Plains",
+          format: "simple"
+        },
+        valleys: {
+          name: "Valleys",
+          format: "simple"
+        },
+        water: {
+          name: "Water",
+          format: "simple"
+        },
+        ground: {
+          name: "Ground",
+          format: "simple"
+        },
+        air: {
+          name: "Air",
+          format: "simple"
+        },
+        flora: {
+          name: "Flora",
+          format: "simple"
+        },
+        fauna: {
+          name: "Fauna",
+          format: "simple"
+        }
+      }
+    }
+  },
+  weatherAndClimate: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "uvg-weatherAndClimate",
+      stringName: "Weather and Climate"
+    },
+    body: {
+      main: {
+        rainbowCalendar: {
+          name: "Rainbow Calendar",
+          format: "simple"
+        },
+        commonNights: {
+          name: "Common Nights",
+          format: "simple"
+        },
+        commonDays: {
+          name: "Common Days",
+          format: "simple"
+        },
+        extremeWeather: {
+          name: "Extreme Weather",
+          format: "simple"
+        },
+        environmentalHazards: {
+          name: "Environmental Hazards",
+          format: "simple"
+        },
+        weirdStuff: {
+          name: "Weird Stuff",
+          format: "simple"
+        },
+        trucking: {
+          name: "Trucking",
           format: "simple"
         }
       }

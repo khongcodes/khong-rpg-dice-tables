@@ -31,6 +31,8 @@ const uvgTradeGood = require("./rpg-data/uvg/uvg-tradeGoods.json");
 const uvgHistories = require("./rpg-data/uvg/uvg-histories.json");
 const uvgDiscovery = require("./rpg-data/uvg/uvg-discovery.json");
 const uvgHistoricP = require("./rpg-data/uvg/uvg-historicPeriodStyle.json");
+const uvgGeography = require("./rpg-data/uvg/uvg-geographyAndNaturalScenery.json");
+const uvgWeatherAn = require("./rpg-data/uvg/uvg-weatherAndClimate.json");
 
 const combineCommonSubtables = (tableJson: any): object => {
   const tableKeys = Object.keys(tableJson.main).filter(tableName => tableName !== "common")
@@ -104,7 +106,9 @@ export const uvgData: UvgInputTypes = {
   tradeGoods: uvgTradeGood,
   histories: uvgHistories,
   discovery: uvgDiscovery,
-  historicPeriodStyle: uvgHistoricP
+  historicPeriodStyle: uvgHistoricP,
+  geographyAndNaturalScenery: uvgGeography,
+  weatherAndClimate: uvgWeatherAn
 };
 
 const rpgData = {

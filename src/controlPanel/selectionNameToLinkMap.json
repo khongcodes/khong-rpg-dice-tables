@@ -45,9 +45,13 @@
         "otherVoyagers",
         "biomagicalCorruption",
         "toolOrKit",
+        "soapSizedTreasures",
+        "tradeGoods",
         "histories",
         "discovery",
-        "historicPeriodStyle"
+        "historicPeriodStyle",
+        "geographyAndNaturalScenery",
+        "weatherAndClimate"
       ]
     }
   }
