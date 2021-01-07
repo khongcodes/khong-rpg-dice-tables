@@ -7,6 +7,7 @@ export const bookNames = <const> [
   "uvg"
 ];
 
+// if a subtable name is not in these lists, it will not be served to the user
 const lancerTables = <const> {
   iterativeWorld: [
     "worldType",
@@ -93,6 +94,15 @@ const uvgTables = <const> {
     "cosmeticMutations",
     "beneficialMutations"
   ],
+  toolOrKit: [
+    "toolOrKit"
+  ],
+  soapSizedTreasures: [
+    "object"
+  ],
+  tradeGoods: [
+    "tradeGoods"
+  ],
   histories: [
     "forgottenTimes",
     "dimlyRememberedStrife",
@@ -137,6 +147,9 @@ export const tableSelectValues = <const> [
   "uvg-quickHeroChar",
   "uvg-otherVoyagers",
   "uvg-biomagicalCorruption",
+  "uvg-toolOrKit",
+  "uvg-soapSizedTreasures",
+  "uvg-tradeGoods",
   "uvg-histories",
   "uvg-discovery",
   "uvg-historicPeriodStyle"
@@ -198,6 +211,18 @@ export const tableIdentObjs = <const> [
     stringName: "Biomagical Corruption"
   },
   {
+    selectValue: "uvg-toolOrKit",
+    stringName: "Tool or Kit"
+  },
+  {
+    selectValue: "uvg-soapSizedTreasures",
+    stringName: "Strange Items or Soap-sized Treasures"
+  },
+  {
+    selectValue: "uvg-tradeGoods",
+    stringName: "Ultraviolet Trade Goods"
+  },
+  {
     selectValue: "uvg-histories",
     stringName: "Histories"
   },
@@ -214,6 +239,7 @@ export const tableIdentObjs = <const> [
 const bodyRollFormats = <const> [
   "simple",
   "detail",
+  "object",
   "mDetail ref",
   "detail check-ref",
   "reference"
@@ -259,7 +285,7 @@ export type AllBodyRollFormats = typeof bodyRollFormats[number];
 
 type SubtableDisplaySpecBaseType = {
   name: string;
-  format: "simple" | "detail";
+  format: "simple" | "detail" | "object";
   initialRollCount?: number | string;
   // reference?: string;
 };
@@ -273,7 +299,7 @@ export type SubtableDisplaySpecMDetailFormat = {
 
 export type SubtableDisplaySpecReferenceCountFormat = {
   name: string;
-  format: "simple" | "detail";
+  format: "simple" | "detail" | "object";
   initialRollCount: "reference";
   reference: string;
 }
@@ -748,6 +774,51 @@ const uvgOutputSpecs: UvgOutputSpecType = {
           format: "simple",
           initialRollCount: 0
         },
+      }
+    }
+  },
+  toolOrKit: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "uvg-toolOrKit",
+      stringName: "Tool or Kit"
+    },
+    body: {
+      main: {
+        toolOrKit: {
+          name: "Tool or Kit",
+          format: "object",
+        }
+      }
+    }
+  },
+  soapSizedTreasures: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "uvg-soapSizedTreasures",
+      stringName: "Strange Items or Soap-sized Treasures"
+    },
+    body: {
+      main: {
+        object: {
+          name: "Strange Items or Soap-sized Treasures",
+          format: "object"
+        }
+      }
+    }
+  },
+  tradeGoods: {
+    referenceType: "simple",
+    tableName: {
+      selectValue: "uvg-tradeGoods",
+      stringName: "Ultraviolet Trade Goods"
+    },
+    body: {
+      main: {
+        tradeGoods: {
+          name: "Trade Goods",
+          format: "object"
+        }
       }
     }
   },

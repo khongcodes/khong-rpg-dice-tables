@@ -1,0 +1,148 @@
+{
+  "main": {
+    "hills": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Spire",
+        "Volcano",
+        "Berg",
+        "Dome",
+        "Peak",
+        "Pinnacle",
+        "Cliff",
+        "Ridge",
+        "Mesa",
+        "Stair",
+        "Scree",
+        "Dune"
+      ]
+    },
+    "plains": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Lava",
+        "Pan",
+        "Flat",
+        "Lacustrine",
+        "Till",
+        "Rough",
+        "Gentle",
+        "Alluvial",
+        "Flood",
+        "Scroll",
+        "Outwash",
+        "Peneplain"
+      ]
+    },
+    "valleys": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Crater",
+        "Glacial",
+        "Rift",
+        "River",
+        "Dry",
+        "Shallow",
+        "Hanging",
+        "Box",
+        "Cove",
+        "Eroded",
+        "Karst",
+        "Canyon"
+      ]
+    },
+    "water": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Sea bed",
+        "Salt lake",
+        "Lake",
+        "Wetland",
+        "Bog",
+        "River",
+        "Waterfall",
+        "Rapids",
+        "Stream",
+        "Cascade",
+        "Intermittent",
+        "River bed"
+      ]
+    },
+    "ground": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Rock",
+        "Salt",
+        "Gravel",
+        "Sand",
+        "Dust",
+        "Loess",
+        "Silt",
+        "Clay",
+        "Loam",
+        "Chernozem",
+        "Rust",
+        "Rubble"
+      ]
+    },
+    "air": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Thin",
+        "Old",
+        "Stale",
+        "Flat",
+        "Metallic",
+        "Sour",
+        "Dusty",
+        "Dry",
+        "Humid",
+        "Refreshing",
+        "Fragrant",
+        "Rich"
+      ]
+    },
+    "flora": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Scoured",
+        "Dead",
+        "Dryland coral",
+        "Lichens",
+        "Mosses",
+        "Cacti",
+        "Thorny",
+        "Grass",
+        "Savanna",
+        "Maquis",
+        "Forest",
+        "Overgrowth"
+      ]
+    },
+    "fauna": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Absent or disappeared",
+        "Fossils or corpses",
+        "Subterrene survivals",
+        "Pioneer species",
+        "Radiating invertebrates",
+        "Invasive arthropods",
+        "Basal vomes",
+        "Chimeric herbivores",
+        "Opportunist scavengers",
+        "Exploratory omnivores",
+        "Climax carnivores",
+        "Biomantically enhanced fauna"
+      ]
+    }
+  }
+}

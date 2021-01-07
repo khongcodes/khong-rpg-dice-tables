@@ -5,7 +5,6 @@ type RangeModifier = {
   range: string;
 }
 type OptionalModifier = {
-  // detailPrefix?: string;
   rollTable?: string[];
 }
 
@@ -21,6 +20,12 @@ export type DetailRollValue = OptionalModifier & {
   name: string;
   detail: string;
 };
+
+// favor "description" as key over "detail" as key
+export type ObjectRollValue = OptionalModifier & {
+  name: string;
+  [key: string]: string;
+}
 
 // created when displaySpec.format == "mDetail ref"
 export type MultiDetailRollValue = OptionalModifier & {
@@ -39,6 +44,7 @@ export type NestedNamedRangeRollValue = RangeModifier & {
 export type CombinedRollValuesType = 
 | SimpleRollValue
 | DetailRollValue
+| ObjectRollValue
 | MultiDetailRollValue
 | RangeSimpleRollValue
 | RangeDetailRollValue
@@ -47,7 +53,7 @@ export type CombinedRollValuesType =
 const rollTypes = <const> [
   "one-roll string table",
   "one-roll detail table",
-  // "one-roll object table",
+  "one-roll object table",
   "one-roll simple range-table",
   "one-roll detail range-table",
   "two-roll category-detail range-range-table",
@@ -72,6 +78,11 @@ type OnerollStringTableRolltype = RollTypeBase & {
 type OnerollDetailTableRolltype = RollTypeBase & {
   type: "one-roll detail table";
   values: DetailRollValue[];
+}
+
+type OnerollObjectTableRolltype = RollTypeBase & {
+  type: "one-roll object table";
+  values: ObjectRollValue[];
 }
 
 export type OnerollSimpleRangetableRolltype = RollTypeBase & {
@@ -107,6 +118,7 @@ type Lookuptype = RollTypeBase & {
 export type CombinedBodyRollType =
 | OnerollStringTableRolltype
 | OnerollDetailTableRolltype
+| OnerollObjectTableRolltype
 | OnerollSimpleRangetableRolltype
 | OnerollDetailRangetableRolltype
 | TworollCategorydetailRangerangetableRolltype
@@ -248,6 +260,21 @@ export type UvgInputTypes = {
       beneficialMutations: OnerollStringTableRolltype;
     }
   };
+  toolOrKit: {
+    main: {
+      toolOrKit: OnerollObjectTableRolltype;
+    }
+  };
+  soapSizedTreasures: {
+    main: {
+      object: OnerollStringTableRolltype;
+    }
+  };
+  tradeGoods: {
+    main: {
+      tradeGoods: OnerollObjectTableRolltype;
+    }
+  };
   histories: {
     main: {
       forgottenTimes: OnerollStringTableRolltype;
@@ -277,6 +304,7 @@ export type UvgInputTypes = {
       period: OnerollStringTableRolltype;
     }
   };
+  
 }
 
 export type CombinedInputDataType = 

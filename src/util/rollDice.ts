@@ -3,7 +3,7 @@
 
 import {
   CombinedBodyRollType, CombinedRollValuesType,
-  NestedNamedRangeRollValue, RangeDetailRollValue, RangeSimpleRollValue, SimpleRollValue, DetailRollValue
+  NestedNamedRangeRollValue, RangeDetailRollValue, RangeSimpleRollValue, SimpleRollValue, DetailRollValue, MultiDetailRollValue, ObjectRollValue
 } from "../model/DiceRollTypes";
 
 
@@ -151,6 +151,21 @@ export const rollValues = (
         name: ordtResult.name,
         detail: checkAndParseResult(ordtResult.detail, ordtRollTable)
       };
+
+    case "one-roll object table":
+      const orotDiceResult = rollDice(subtableData.interface);
+      const orotResult = subtableData.values[orotDiceResult];
+      const orotRollTable = orotResult.rollTable || subtableData.rollTable;
+      // console.log("orotResult");
+      // console.log(orotResult);
+      // console.log();
+
+      const orotReturnObj = {};
+      for (const key in orotResult) {
+        Object.assign(orotReturnObj, {[key]: checkAndParseResult(orotResult[key], orotRollTable)});
+      }
+
+      return orotReturnObj as ObjectRollValue;
     
 
     case "one-roll simple range-table":

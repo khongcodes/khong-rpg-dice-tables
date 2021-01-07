@@ -1,6 +1,6 @@
 {
   "main": {
-    "strangeItemsOr": {
+    "object": {
       "type": "one-roll string table",
       "interface": "!1d100",
       "values": [

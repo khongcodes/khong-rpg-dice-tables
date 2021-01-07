@@ -1,0 +1,130 @@
+{
+  "main": {
+    "rainbowCalendar": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Newfirst",
+        "Lastmonth",
+        "Firstmonth",
+        "Greenmonth",
+        "Redmonth",
+        "Orangemonth",
+        "Yellowmonth",
+        "Oldsecond",
+        "Unity",
+        "Violetmonth",
+        "Snowbringer",
+        "Deadwinter"
+      ]
+    },
+    "commonNights": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Arctic",
+        "Siberian",
+        "Freezing and wet",
+        "Cold and sodden",
+        "Cool and damp",
+        "Cool and dry",
+        "Warm and dry",
+        "Warm and damp",
+        "Cool and humid",
+        "Cold and wet",
+        "Freezing",
+        "Glacial"
+      ]
+    },
+    "commonDays": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Glacial and dry",
+        "Freezing and dry",
+        "Cold and wet snow",
+        "Cool with showers",
+        "Warm with storms",
+        "Hot and dry",
+        "Searing and dry",
+        "Scorching with showers",
+        "Hot with storms",
+        "Cool with rain",
+        "Cold with snow",
+        "Freezing and snow"
+      ]
+    },
+    "extremeWeather": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Frigid galestorm",
+        "Thaw and mud",
+        "Heavy rains",
+        "Heat wave",
+        "Heat wave",
+        "Heat wave and drought",
+        "Heat wave and drought",
+        "Lightning storms",
+        "Heavy rains",
+        "Snowstorm",
+        "Icestorm",
+        "Whiteout"
+      ]
+    },
+    "environmentalHazards": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Ice",
+        "Blizzard",
+        "Mudslide",
+        "Swollen rivers",
+        "Flash floods",
+        "Dust storm",
+        "Wildfires",
+        "Tornadoes",
+        "Floods",
+        "Fog",
+        "Gales",
+        "Avalanche"
+      ]
+    },
+    "weirdStuff": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Glacier surges",
+        "Star falls",
+        "Crevasse opens",
+        "Geyser erupts",
+        "Floral overgrowth",
+        "Aquifer breaches",
+        "Cliff forms",
+        "Lake dries out",
+        "Rock decays",
+        "Dust spreads",
+        "Mountain collapses",
+        "Stuckforce detonation"
+      ]
+    },
+    "trucking": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": [
+        "Nearly impossible",
+        "Nearly impossible",
+        "Nearly impossible",
+        "Challenging and damp",
+        "Easy",
+        "Easy",
+        "Easy, but hot",
+        "Easy, but the heat!",
+        "Easy",
+        "Challenging and wet",
+        "Grueling and cold",
+        "Nearly impossible"
+      ]
+    }
+  }
+}

@@ -25,6 +25,9 @@ const mothershipDerelict = require("./rpg-data/mothership-rpg/deadPlanet-derelic
 const uvgQuickHeroC = require("./rpg-data/uvg/uvg-quickHeroChar.json");
 const uvgOtherVoyag = require("./rpg-data/uvg/uvg-otherVoyagers.json");
 const uvgBioMagCorr = require("./rpg-data/uvg/uvg-biomagicalCorruption.json");
+const uvgToolOrKit = require("./rpg-data/uvg/uvg-toolOrKit.json");
+const uvgSoapSized = require("./rpg-data/uvg/uvg-soapSizedTreasures.json");
+const uvgTradeGood = require("./rpg-data/uvg/uvg-tradeGoods.json");
 const uvgHistories = require("./rpg-data/uvg/uvg-histories.json");
 const uvgDiscovery = require("./rpg-data/uvg/uvg-discovery.json");
 const uvgHistoricP = require("./rpg-data/uvg/uvg-historicPeriodStyle.json");
@@ -96,6 +99,9 @@ export const uvgData: UvgInputTypes = {
   quickHeroChar: uvgQuickHeroC,
   otherVoyagers: uvgOtherVoyag,
   biomagicalCorruption: uvgBioMagCorr,
+  toolOrKit: uvgToolOrKit,
+  soapSizedTreasures: uvgSoapSized,
+  tradeGoods: uvgTradeGood,
   histories: uvgHistories,
   discovery: uvgDiscovery,
   historicPeriodStyle: uvgHistoricP

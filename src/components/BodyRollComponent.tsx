@@ -29,6 +29,7 @@ import {
   CombinedRollValuesType,
   SimpleRollValue,
   DetailRollValue,
+  ObjectRollValue,
   MultiDetailRollValue
 } from "../model/DiceRollTypes";
 
@@ -86,6 +87,25 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
         <div>
           <h4>{(value as DetailRollValue).name}</h4>
           <p>{(value as DetailRollValue).detail}</p>
+        </div>
+      )
+
+    case (format === "object"):
+      const objRoll = value as ObjectRollValue;
+      const {name, description, ...otherFields} = objRoll;
+      return (
+        <div>
+          <h4>{name}</h4>
+          {
+            !!description ? <p>{description}</p> : <></>
+          }
+          {
+            Object.keys(otherFields).sort().map((key:string, index:number) => (
+              <p className={bodyRollStyles.objectFields} key={index}>
+                <span className={bodyRollStyles.objectFieldKey}>{key}</span>: {otherFields[key]}
+              </p>
+            ))
+          }
         </div>
       )
 

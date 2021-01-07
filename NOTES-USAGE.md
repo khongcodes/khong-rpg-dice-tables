@@ -1,7 +1,7 @@
 # Planned features
 
-- [ ] roll all dice for generator or roll them one at a time
-  - [ ] "advanced options" configure roll - check/uncheck any component before making roll
+- [x] roll all dice for generator or roll them one at a time
+  - [x] "advanced options" configure roll - check/uncheck any component before making roll
   - [ ] reroll each/any component
   - [ ] lock any component to reroll all of them except for locked ones
 
@@ -13,17 +13,17 @@
   - [x] longRim spaceStation
   - [x] longRim spaceStationNPC
   - [x] longRim spaceStationpirateBand
-  - [ ] longRim enterprise
+  - [x] longRim enterprise
 - [ ] UVG
   - [x] Your traveler
   - [x] Mutations
   - [x] Other voyagers
-  - [x] Tool or kit
-  - [x] Strange items or soap-sized treasures
-  - [x] D30 trade goods
-  - [ ] Histories of the UVG
-  - [ ] Discovery
-  - [ ] Historic period/style of art
+  - [\] Tool or kit
+  - [\] Strange items or soap-sized treasures
+  - [\] D30 trade goods
+  - [x] Histories of the UVG
+  - [x] Discovery
+  - [x] Historic period/style of art
   - [ ] Geography & Climate
   - [ ] Languages
   - [ ] Dead languages

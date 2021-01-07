@@ -59,6 +59,10 @@
         "stringName": "Biomagical Corruption"
       },
       {
+        "selectValue": "uvg-toolOrKit",
+        "stringName": "Tool or Kit"
+      },
+      {
         "selectValue": "uvg-histories",
         "stringName": "Histories"
       },
