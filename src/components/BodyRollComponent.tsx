@@ -105,7 +105,7 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
                 {
                   Object.keys(otherFields).sort().map((key:string, index:number) => (
                     // <div className={bodyRollStyles.objectFieldContainer}>
-                    <>
+                    <React.Fragment key={index}>
                       <div className={bodyRollStyles.fieldKeyContainer}>
                         {key}:
                       </div>
@@ -114,7 +114,7 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
                         {/* <p>{otherFields[key]}</p> */}
                         {otherFields[key]}
                       </div>
-                    </>
+                    </React.Fragment>
                     // </div>
                   ))
                 }

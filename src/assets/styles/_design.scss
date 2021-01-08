@@ -15,6 +15,7 @@
 
 $medium-breakpoint: 1024px;
 $small-breakpoint: 540px;
+$header-breakpoint: 374px;
 
 @mixin medium-media {
   @media (max-width: $medium-breakpoint) {
@@ -30,6 +31,12 @@ $small-breakpoint: 540px;
 
 @mixin medium-and-large-media {
   @media (min-width: $small-breakpoint) {
+    @content;
+  }
+}
+
+@mixin header-breakpoint {
+  @media (max-width: $header-breakpoint) {
     @content;
   }
 }
@@ -246,10 +253,16 @@ $inter-font-path: "../fonts/inter/";
   height: 42px;
   margin-bottom: 32px;
   transition: height 0.3s, margin-bottom 0.3s;
+  @include small-media {
+    height: 93px;
+  }
 }
 .tgHeight-exit {
   height: 42px;
   margin-bottom: 32px;
+  @include small-media {
+    height: 93px;
+  }
 }
 .tgHeight-exit-active {
   height: 0px;

@@ -22,7 +22,10 @@
   padding: space(1)
 
   @include small-media
-    padding-top: 0
+    padding: 0 space(2)
+  @include header-breakpoint
+    h1
+      font-size: 24px
   
   a:focus > h1
     background: black

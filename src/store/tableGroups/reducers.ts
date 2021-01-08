@@ -47,7 +47,7 @@ export function tableGroupsReducer(
   switch (action.type) {
 
     case ADD_TABLEGROUP:
-      console.log(rpgData);
+      // console.log(rpgData);
 
 
       const newId = uuidv4();
