@@ -14,9 +14,61 @@ import aboutStyles from "../assets/styles/views/About.module.sass";
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                          SETUP
 
+type AuthorObjType = {
+  name: string;
+  url: string;
+};
+
+const mothershipPoundOfFleshAuthors = [
+  {
+    name: "Sean McCoy",
+    url: "https://twitter.com/seanmccoy"
+  },
+  {
+    name: "Donn Stroud",
+    url: "https://twitter.com/donnstroud"
+  },
+  {
+    name: "Luke Gearing",
+    url: "https://twitter.com/LukeGearing"
+  }
+];
+
+const mothershipDeadPlanetAuthors = [
+  {
+    name: "Donn Stroud",
+    url: "https://twitter.com/donnstroud"
+  },
+  {
+    name: "Fiona Maeve Geist",
+    url: "https://twitter.com/coilingoracle"
+  },
+  {
+    name: "Sean McCoy",
+    url: "https://twitter.com/seanmccoy"
+  }
+];
+
 const LinkNewTab: React.FC<{url: string; text: string}> = ({url, text}) => (
   <a href={url} target="_blank" rel="noopener noreferrer">{text}</a>
 );
+
+const ModuleAuthors: React.FC<{ listOfAuthors: AuthorObjType[] }> = ({listOfAuthors}) => {
+  return (
+    <span style={{"fontSize": "13px"}}>
+      &nbsp;—&nbsp;
+      {
+        listOfAuthors.map((authorObj: AuthorObjType, index: number) => (
+          <>
+            <LinkNewTab url={authorObj.url} text={authorObj.name}/>
+            {index !== listOfAuthors.length - 1 ? ", " : ""}
+          </>
+        ))
+      }
+    </span>
+  )
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                             COMPONENTS & LOGIC
@@ -108,12 +160,14 @@ const About: React.FC = () => {
               url="https://www.mothershiprpg.com/a-pound-of-flesh"
               text="Pound of Flesh module"
             />
+            <ModuleAuthors listOfAuthors = {mothershipPoundOfFleshAuthors}/>
           </li>
           <li>
             <LinkNewTab 
               url="https://www.mothershiprpg.com/dead-planet"
               text="Dead Planet module"
             />
+            <ModuleAuthors listOfAuthors = {mothershipDeadPlanetAuthors}/>
           </li>
         </ul>
 
