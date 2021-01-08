@@ -17,8 +17,7 @@ $subtable-control-height-transition: height $sgcontrol-transition-time, padding-
   position: relative
   
   &> *
-    padding-left: $subtable-side-padding
-    padding-right: $subtable-side-padding
+    padding: 0 $subtable-side-padding
   
   &:first-of-type
     margin-top: 0
@@ -33,6 +32,8 @@ $subtable-control-height-transition: height $sgcontrol-transition-time, padding-
   position: relative
   justify-content: space-between
   align-items: center
+  @include small-media
+    padding-right: space(2.75)
 
   .titleSpacer
     height: 100%
@@ -62,7 +63,6 @@ $subtable-control-height-transition: height $sgcontrol-transition-time, padding-
   transition: $subtable-control-height-transition
   transition-timing-function: ease-in-out
   transition-delay: 0.1s
-  // background-color: pink
   
   > button:nth-of-type(2) > svg
     margin-right: 2px

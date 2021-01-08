@@ -8,10 +8,21 @@
 
 #layoutRoot
   margin: space(2) space(4)
+  
+  @include medium-media
+    max-width: space(100)
+    margin: space(2) auto
+    padding: 0 space(4)
+  
+  @include small-media
+    padding: 0
 
 #headerContainer
   margin-bottom: space(2)
   padding: space(1)
+
+  @include small-media
+    padding-top: 0
   
   a:focus > h1
     background: black
@@ -25,6 +36,8 @@
 
 #linkContainer
   font-size: 14px
+  margin-top: space(0.5)
   a
     @include link-styling
+    
 

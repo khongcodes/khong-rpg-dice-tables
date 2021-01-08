@@ -11,7 +11,7 @@ $rerollButtonContainerWidth: $sideButtonContainerWidth
 /////////////////////////////////////////////////////////////////////////////////
 /////////////                                                              STYLES
 
-#brRoot
+.brRoot
   margin: space(1.5) 0
   display: grid
   grid-template-columns: $deleteButtonContainerWidth auto $rerollButtonContainerWidth
@@ -21,17 +21,44 @@ $rerollButtonContainerWidth: $sideButtonContainerWidth
   height: fit-content
   transition: height 0.3s
 
-  #contentContainer
+  @include small-media
+    grid-template-columns: space(6) auto space(6)
+    padding-left: space(1) !important
+    p 
+      font-size: 14px
+
+  .contentContainer
     padding: 0 space(1)
     overflow: hidden
     height: fit-content
+    
+    @include small-media
+      padding-right: space(2)
+
+    .objectFieldsContainer
+      font-size: 13px
+      display: grid
+      grid-template-columns: auto 90%
+      column-gap: space(1.5)
+      row-gap: space(0.5)
+
+      .fieldKeyContainer
+        max-width: space(10)
+        text-align: right
+        text-decoration: underline
+        text-decoration-color: #9c9c9c
+      
+      .fieldValueContainer
+        padding-right: space(2)
 
 .buttonContainer
   text-align: center
   margin: auto 0
-  
+
 .objectFields
   font-size: 13px
+  @include small-media
+    font-size: 12px !important
   
   span.objectFieldKey
     text-decoration: underline

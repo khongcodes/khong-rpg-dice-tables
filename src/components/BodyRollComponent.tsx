@@ -100,11 +100,26 @@ const FormattedBodyRollContent: React.FC<FormattedBodyRollContentInput> = (
             !!description ? <p>{description}</p> : <></>
           }
           {
-            Object.keys(otherFields).sort().map((key:string, index:number) => (
-              <p className={bodyRollStyles.objectFields} key={index}>
-                <span className={bodyRollStyles.objectFieldKey}>{key}</span>: {otherFields[key]}
-              </p>
-            ))
+            Object.keys(otherFields).length > 0 ? (
+              <div className={bodyRollStyles.objectFieldsContainer}>
+                {
+                  Object.keys(otherFields).sort().map((key:string, index:number) => (
+                    // <div className={bodyRollStyles.objectFieldContainer}>
+                    <>
+                      <div className={bodyRollStyles.fieldKeyContainer}>
+                        {key}:
+                      </div>
+                      
+                      <div className={bodyRollStyles.fieldValueContainer}>
+                        {/* <p>{otherFields[key]}</p> */}
+                        {otherFields[key]}
+                      </div>
+                    </>
+                    // </div>
+                  ))
+                }
+              </div>
+            ) : <></>
           }
         </div>
       )
@@ -177,7 +192,7 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
   };
 
   return (
-    <div id={bodyRollStyles.brRoot}>
+    <div className={bodyRollStyles.brRoot}>
       {showIds? <RenderBodyRollStoreData id={bodyRollId}/> : <></>}
 
       <div className={bodyRollStyles.buttonContainer}>
@@ -192,7 +207,7 @@ const BodyRollComponent: React.FC<BodyRollComponentProps> = ({
           nodeRef={transitionalNode}
         >
           <div 
-            id={bodyRollStyles.contentContainer}
+            className={bodyRollStyles.contentContainer}
             ref={transitionalNode}
           >
             <FormattedBodyRollContent 

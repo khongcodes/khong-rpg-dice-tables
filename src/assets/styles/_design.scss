@@ -13,13 +13,27 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////                                                                    BREAKPOINTS
 
-$mobile-breakpoint: 788px;
+$medium-breakpoint: 1024px;
+$small-breakpoint: 540px;
 
-@mixin mobile-media {
-  @media (max-width: $mobile-breakpoint) {
+@mixin medium-media {
+  @media (max-width: $medium-breakpoint) {
     @content;
   }
 }
+
+@mixin small-media {
+  @media (max-width: $small-breakpoint) {
+    @content;
+  }
+}
+
+@mixin medium-and-large-media {
+  @media (min-width: $small-breakpoint) {
+    @content;
+  }
+}
+
 // usage:
 // @use 'design'
 // @include design.mobile-media
@@ -140,6 +154,10 @@ $inter-font-path: "../fonts/inter/";
   @include makeBlockMargins(0);
   margin-inline-start: 0;
   margin-inline-end: 0;
+
+  @include small-media {
+    font-size: 30px;
+  }
 }
 
 // h3 (in global.sass) 
