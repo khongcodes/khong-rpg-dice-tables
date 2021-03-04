@@ -56,6 +56,7 @@ const rollTypes = <const> [
   "one-roll object table",
   "one-roll simple range-table",
   "one-roll detail range-table",
+  "two-roll simple range-norange-table",
   "two-roll category-detail range-range-table",
   "two-roll detail norange-range-table",
   "combined string",

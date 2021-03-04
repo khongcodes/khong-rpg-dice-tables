@@ -55,17 +55,19 @@ const LinkNewTab: React.FC<{url: string; text: string}> = ({url, text}) => (
 
 const ModuleAuthors: React.FC<{ listOfAuthors: AuthorObjType[] }> = ({listOfAuthors}) => {
   return (
-    <span style={{"fontSize": "13px"}}>
-      &nbsp;—&nbsp;
-      {
-        listOfAuthors.map((authorObj: AuthorObjType, index: number) => (
-          <>
-            <LinkNewTab url={authorObj.url} text={authorObj.name}/>
-            {index !== listOfAuthors.length - 1 ? ", " : ""}
-          </>
-        ))
-      }
-    </span>
+    <ul className={aboutStyles.moduleAuthorsList}>
+      <li>
+        &nbsp;–&nbsp;&nbsp;
+        {
+          listOfAuthors.map((authorObj: AuthorObjType, index: number) => (
+            <React.Fragment key={index}>
+              <LinkNewTab url={authorObj.url} text={authorObj.name}/>
+              {index !== listOfAuthors.length - 1 ? ", " : ""}
+            </React.Fragment>
+          ))
+        }
+      </li>
+    </ul>
   )
 }
 
@@ -114,7 +116,7 @@ const About: React.FC = () => {
           &nbsp;—&nbsp;
 
           <LinkNewTab 
-            url="https://massif-press.itch.io/"
+            url="https://twitter.com/lancer_rpg"
             text="Massif Press"
           />
         </p>
@@ -187,7 +189,7 @@ const About: React.FC = () => {
         <ul>
           <li>
             <LinkNewTab 
-              url="https://www.exaltedfuneral.com/products/the-ultra-violet-grasslands-and-the-black-city"
+              url="https://wizardthieffighter.itch.io/ultraviolet-grasslands-and-the-black-city-uvg"
               text="Core book"
             />
           </li>
