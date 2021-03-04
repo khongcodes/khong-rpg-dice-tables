@@ -1,3 +1,5 @@
+<img src="https://i.imgur.com/RrHtdhy.png" width="720">
+
 # KHong RPG Dice Tables
 
 [This](http://khong-dice-tables.surge.sh/) is a dice table roller app inspired by donjon's [5e resources](https://donjon.bin.sh/) and the great writing in some of my favorite indie TTRPGs. I wanted to build a dice table roller to share them.
@@ -5,6 +7,10 @@
 Notable technologies used in this project include TypeScript-React, React Router v6, SASS modules, and Redux.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) (the TypeScript template).
+
+Icons from Google's [Material Icons](https://material.io/resources/icons/?style=baseline).
+
+Typeface is [Inter](https://rsms.me/inter/). 
 
 This project is currently deployed with [Surge](https://surge.sh/).
 ## Available Scripts
