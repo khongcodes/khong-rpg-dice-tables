@@ -1,0 +1,69 @@
+{
+  "main": {
+    "rulingAuthority": {
+      "type": "one-roll string table",
+      "interface": "!1d4",
+      "values": []
+    },
+    "rulingClass": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": []
+    },
+    "sourceOfLegitimacy": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": []
+    },
+    "institutionsAndAgentsOfControl": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": []
+    },
+    "formsOfRulershipSingle": {
+      "type": "one-roll string table",
+      "interface": "!1d8",
+      "values": []
+    },
+    "formsOfRulershipMultiple": {
+      "type": "one-roll string table",
+      "interface": "!1d8",
+      "values": []
+    },
+    "currentStruggle": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": []
+    },
+    "howEstablishedIsCurrentRuler": {
+      "type": "one-roll string table",
+      "interface": "!1d6",
+      "values": []
+    },
+    "problemsMinistersHave": {
+      "type": "one-roll string table",
+      "interface": "!1d8",
+      "values": []
+    },
+    "strengths": {
+      "type": "one-roll string table",
+      "interface": "!1d10",
+      "values": []
+    },
+    "stability": {
+      "type": "one-roll string table",
+      "interface": "!1d8",
+      "values": []
+    },
+    "officialsRecentlyCausingProblems": {
+      "type": "one-roll string table",
+      "interface": "!1d12",
+      "values": []
+    },
+    "recentEvent": {
+      "type": "one-roll string table",
+      "interface": "!1d20",
+      "values": []
+    }
+  }
+}

@@ -411,21 +411,21 @@
         },
         {
           "name": "Mandate base",
-          "detail": "",
-          "enemies": "",
-          "friends": "",
-          "complications": "",
-          "things": "",
-          "places": ""
+          "detail": "The Terran Mandate retained its control over this world for much longer than usual, and the world may still consider itself a true inheritor of Mandate legitimacy. Most of these worlds have or had superior technology, but they may still labor under the burden of ancient restrictive tech or monitoring systems designed to prevent them from rebelling.",
+          "enemies": "Deranged Mandate monitoring AI, Aspiring sector ruler, Demagogue preaching local superiority over “traitorous rebel worlds”.",
+          "friends": "Idealistic do-gooder local, Missionary for advanced Mandate tech, Outsider seeking lost data from Mandate records",
+          "complications": "The monitoring system forces the locals to behave in aggressive ways toward “rebel” worlds, The monitoring system severely hinders offworld use of their tech, The original colonists are all dead and have been replaced by outsiders who don’t understand all the details",
+          "things": "Ultra-advanced pretech, Mandate military gear, Databank containing precious tech schematics",
+          "places": "Faded Mandate offices still in use, Vault containing ancient pretech, Carefully-maintained monument to Mandate glory"
         },
         {
           "name": "Maneaters",
-          "detail": "",
-          "enemies": "",
-          "friends": "",
-          "complications": "",
-          "things": "",
-          "places": ""
+          "detail": "The locals are cannibals, either out of necessity or out of cultural preference. Some worlds may actually eat human flesh, while others simply require the rendering of humans into important chemicals or pharmaceutical compounds, perhaps to prolong the lives of ghoul overlords. This cannibalism plays a major role in their society.",
+          "enemies": "Ruthless ghoul leader, Chieftain of a ravenous tribe, Sophisticated degenerate preaching the splendid authenticity of cannibalism",
+          "friends": "Sympathetic local fleeing the fork, Escapee from a pharmaceutical rendering plant, Outsider chosen for dinner, Reformer seeking to break the custom or its necessity",
+          "complications": "Local food or environmental conditions make human consumption grimly necessary, The locals farm human beings, Outsiders are expected to join in the custom, The custom is totally unnecessary but jealously maintained by the people",
+          "things": "Belongings of a recent meal, An offworlder VIP due for the menu, A toxin that makes human flesh lethal to consumers",
+          "places": "Hideous human abattoir, Extremely civilized restaurant, Funeral-home-cum-kitchen"
         },
         {
           "name": "Megacorps",
@@ -437,7 +437,7 @@
           "places": ""
         },
         {
-          "name": "Area 51",
+          "name": "Mercenaries",
           "detail": "",
           "enemies": "",
           "friends": "",
@@ -1086,41 +1086,40 @@
         {
           "range": "2",
           "name": "TL0 - neolithic-level tech",
-          "detail": ""
+          "detail": "Tech level 0 represents a world with technologies similar to neolithic-era humanity. Very few worlds collapse this far without dying out completely, and so a world this primitive is very rare in human space. The world is so profoundly devoid of useful resources that the natives may simply not have anything better to work with than rocks and native vegetation.\nNatives of a world at this tech level might retain elaborate cultural artifacts and a very sophisticated society. Existing resources tend to be exploited to the hilt, with large populations producing massive stone cities, human-powered engines for irrigation, and vast displays of foodstuffs and craft work for the ruling class. Despite this, the lack of metal, domesticated beasts of burden, and petrochemicals puts a hard stop on the technological development of most of these worlds.\nResponses to far traders and other interstellar travelers will vary with the local culture. The lack of quick communications methods tends to result in large populations breaking up into numerous smaller regional cultures, and the friendly prince of one domain might neighbor an implacably hostile sage-king. Most “lostworlders” have a keen appreciation for the benefits these strangers from the sky can bring them, and will bargain accordingly. Some worlds might retain crisply rational records of their colonization and downfall. Others might preserve tales of a starry origin in legends and story. A few might have forgotten their origins entirely, and view sky-born humans as gods or messengers of the divine. Such awe rarely lasts very long once the merchants or pirates who landed make their purposes clear."
         },
         {
           "range": "3",
           "name": "TL1 - medieval tech",
-          "detail": ""
+          "detail": "Tech level 1 worlds have managed to find and exploit metal deposits and likely have imported or domesticated beasts of burden. Those worlds with easy access to fossil fuels or a similarly energy-dense substance can advance to greater things, but a culture trapped at TL1 is unlikely to have access to such helpful resources. A few worlds have enough usable plant matter or other combustibles to make steam engines feasible, but those with very much of such a resource usually make the leap to the next tech level eventually.\nAs a consequence, tech level 1 worlds tend to be caught at much the same general level of development as their tech level 0 cousins. They may have elaborate social structures and cultural development, but they are unable to mechanize without some energy-dense resource to serve as fuel. The scavenged hulks of their ancestors’ fusion plants may stand as mute temples to the achievements of their forebears, but without the tech necessary to repair and rebuild such edifices the world is dependent on purely local fuel sources.\nTech level 1 worlds tend to respond to visitors in much the same way as tech level 0 planets. The ruling class of these worlds is liable to be able to muster larger cities, bigger armies, and all the other perquisites that come from being able to work the available agricultural land with fewer hands."
         },
         {
           "range": "4-5",
           "name": "TL2 - early-industrial-age tech",
-          "detail": ""
+          "detail": "Tech level 2 worlds are blessed with the presence of fossil fuels or a feasibly abundant biofuel source. Internal combustion engines are crude things compared to the power of a fusion plant, but they can be built with primitive tools and a basic degree of education. The mechanization that results from this resource vastly increases the efficiency of local farming, the speed of travel, and the productivity of factory workers.\nMost tech level 2 worlds are “knockdowns”; planets that once had a much higher degree of sophistication but were recently crippled by disease, disaster, or invasion. The natives tend to be keenly aware of the glories of former generations, and work fiercely to redevelop lost techniques and reclaim old knowledge.\nFew tech level 2 worlds produce much that’s worth interstellar trade. Most foodstuffs are too bulky and cheap to make it worth a captain’s time. Some worlds have rare ore deposits, but the natives have no reason to dig them until a merchant makes it worth their while to set up a whole new industry for export. Some such worlds barter the relics of their ancestors in exchange for educational materials or rare resources necessary for advancing local industry. Others feel forced to trade native work contracts for dangerous, dirty labor in a bargain that’s little different from slave trading."
         },
         {
           "range": "6-8",
           "name": "TL4 - modern postech",
-          "detail": ""
+          "detail": "Tech level 4 worlds are the most common in human space, and their technical expertise is the baseline for modern post-Silence “postech”. These worlds can create spike drives rated up to drive-3, fusion power plants, grav vehicles, simple energy weapons, and medicines that extend human life to a hundred years of vigorous good health. They can manage sophisticated gengineering on simple life forms, and some tech level 4 worlds have even attempted to improve the genetic structures of human life itself. These attempts have yet to produce results without severe drawbacks, but some such worlds remain populated by altered humanity designed to cope with local conditions more perfectly than baseline humans.\nMost worlds with regular interstellar contact and the necessary raw resources eventually gravitate towards this level of technological expertise. It may take decades, or even centuries in the case of more retrograde worlds, but this tech level is the highest that can readily be achieved by most planets."
         },
         {
           "range": "9-10",
           "name": "TL3 - tech like present-day Earth",
-          "detail": ""
+          "detail": "Tech level 3 worlds are those that have developed to a level much like that of the more advanced nations of late twentieth-century Earth. The main difference between tech level 3 worlds and level 4 worlds is the lack of fusion power or spike drive manufacture.\nThese worlds come in two major varieties. The first is a “knockdown” world that formerly had tech level 4 technologies before some catastrophe or pirate attack destroyed their knowledge and industrial base. Some of the wrecked infrastructure might have been irreplaceable, and the world must struggle to regain its former level of technological production. Worlds in this condition tend to have rather small populations that are susceptible to the loss of a few concentrated groups of experts.\nThe second major variety is a world that suffered a severe disaster shortly after colonization and has been forced to painstakingly build up their technological base ever since. Some of these worlds date back to the First Wave of colonization a thousand years ago, driven into near-neolithic conditions by some outside pressure before slowly and painfully rebuilding their technological base through purely indigenous efforts. These worlds tend to have very large populations if the world’s climate permits, as they have been colonized for quite some time.\nSimply providing a world with the necessary technical data for advancement doesn’t mean that advancement will be quick or even. Even if a tech level 3 world has the necessary resources to build tech level 4 devices, it may take as much as a generation for a world to build the necessary infrastructure and resource extraction enterprises. The time may be longer still if the dominant cultures are uneasy with the new technology."
         },
         {
           "range": "11",
           "name": "TL4+ - postech with specialties",
-          "detail": ""
+          "detail": "Tech level 4 with specialties is an unusual case of a normal tech level 4 world that has retained some pretech industries or has developed their own local technical expertise beyond baseline postech in certain specific fields.\nMost such specialties are relatively narrow in scope; grav tech, medicine, hydroponics, force field generation, or some field of roughly similar breadth. These specialties are usually either the product of a few irreplaceable pretech manufactories or the result of some unique local resource that serves amazingly well for the purpose at hand. In both cases, the world will jealously guard the tech, and much local conflict may relate to control over these resources.\nThese worlds tend to have substantial amounts of interstellar trade from neighboring worlds interested in their tech. The ruling elite of the world can be ostentatious about display of this wealth."
         },
         {
           "range": "12",
           "name": "TL5 - pretech with surviving infrastructure",
-          "detail": ""
+          "detail": "Tech level 5 is the highest tech level that might merit random placement. A world with this level of technological expertise has somehow managed to hold on to the majority of the pre-Scream technology base, and can produce a wide range of goods that are unknown on less sophisticated worlds. Miniaturized fusion plants, drive-6 rated spike drives, exotic grav weaponry, and even the development of psionics-based “psitech” is possible on such a world.\nPretech manufacturing was largely dependent on specially-trained industrial psychics. With the loss of their unique disciplines in the Scream, most worlds that retain this level of tech classification were forced to substitute slower, less precise methods that sharply curtailed their production efficiency. Barring the profoundly unlikely happenstance of this world’s redevelopment of the lost disciplines, their maximum industrial output is sharply limited. Even on worlds such as this, most technology is likely mass-produced postech, with only important goods produced to pretech levels of quality.\nA world with this level of technology is almost certainly a regional hegemon, one of the most powerful and influential worlds in the sector. Even those worlds that have no imperial ambitions have enormous influence simply through the vast superiority of their starships and military technology."
         }
       ]
     },
-    "worldOrigin": {},
     "systemPointsOfInterest": {}
   }
 }
